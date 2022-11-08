@@ -1,5 +1,6 @@
 package Model.User;
 
+import Dto.UserDto;
 import Model.Announcement.Announcement;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,7 @@ public class User {
     private Login login;
     @OneToMany(mappedBy = "user")
     private List<Announcement> announcementList;
-
+    private String nacionalNumber; //NUMERO IDENTIFICADOR(CPF OU CNPJ)
+    private String descriminationColumn; //STRING DESCRIMINATORIA (CPF OU CNPJ)
 
 }
