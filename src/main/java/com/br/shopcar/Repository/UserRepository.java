@@ -1,6 +1,6 @@
-package Repository;
+package com.br.shopcar.Repository;
 
-import Model.User.User;
+import com.br.shopcar.Model.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

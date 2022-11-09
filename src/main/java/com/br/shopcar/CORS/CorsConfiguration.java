@@ -1,4 +1,4 @@
-package Config.CORS;
+package com.br.shopcar.CORS;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
