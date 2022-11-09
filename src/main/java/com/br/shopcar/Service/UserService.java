@@ -34,8 +34,8 @@ public class UserService {
         userRepository.save(user);
         return user.converterDto();
     }
-
-    public UserDto change(Long idUser, User userDto){
+    @Transactional
+    public UserDto change(Long idUser, UserDto userDto){
         Optional<User> userToChange = userRepository.findById(idUser);
         User user = userToChange.orElseThrow(() -> new EntityNotFoundException("User not found"));
 
