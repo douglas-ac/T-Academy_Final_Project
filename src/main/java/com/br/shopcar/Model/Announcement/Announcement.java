@@ -23,6 +23,8 @@ public class Announcement {
     private Integer amount;
     @CreationTimestamp
     private LocalDateTime date;
+    @Embedded
+    private Adress adress;
 
     public AnnouncementDto converter(){
         AnnouncementDto announcementDto = new AnnouncementDto();

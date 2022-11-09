@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,10 +24,10 @@ public class User {
     private String name;
     private String email;
     private LocalDate birthDate;
-    @OneToOne
+    @Embedded
     private Login login;
     @OneToMany(mappedBy = "user")
-    private List<Announcement> announcementList;
+    private List<Announcement> announcementList = new ArrayList<>();
     private String nacionalNumber; //NUMERO IDENTIFICADOR(CPF OU CNPJ)
     private String descriminationColumn; //STRING DESCRIMINATORIA (CPF OU CNPJ)
 

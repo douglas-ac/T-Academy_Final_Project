@@ -1,5 +1,6 @@
 package com.br.shopcar.Controller;
 
+import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Dto.UserDto;
 import com.br.shopcar.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> save(@RequestBody UserDto userDto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userDto));
+    public ResponseEntity<UserDto> save(@RequestBody UserDtoPost userDtoPost){
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userDtoPost));
     }
 
     @PutMapping("/{idUser}")

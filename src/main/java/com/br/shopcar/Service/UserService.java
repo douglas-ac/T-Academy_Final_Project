@@ -1,5 +1,6 @@
 package com.br.shopcar.Service;
 
+import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Dto.UserDto;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.UserRepository;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.*;
+import java.util.stream.Collectors;
+
 @Service
 public class UserService {
 
@@ -17,9 +20,7 @@ public class UserService {
 
     public List<UserDto> findAll(){
         List<User> allUser = userRepository.findAll();
-        List<UserDto> allUserDtos = new ArrayList<>();
-        allUser.forEach( user -> allUserDtos.add(user.converterDto()));
-        return allUserDtos;
+        return allUser.stream().map(User::converterDto).collect(Collectors.toList());
     }
 
     public UserDto findById(Long id){
@@ -29,8 +30,8 @@ public class UserService {
     }
 
     @Transactional
-    public UserDto save(UserDto userDto){
-        User user = userDto.convertToModel();
+    public UserDto save(UserDtoPost userDtoPost){
+        User user = userDtoPost.convertToModelPost();
         userRepository.save(user);
         return user.converterDto();
     }
@@ -43,6 +44,7 @@ public class UserService {
         user.setNacionalNumber(userDto.getNacionalNumber());
         user.setName(userDto.getName());
         user.setBirthDate(userDto.getBirthDate());
+        user.setDescriminationColumn(userDto.getDescriminationColumn());
         User saved = userRepository.save(user);
         return saved.converterDto();
     }
