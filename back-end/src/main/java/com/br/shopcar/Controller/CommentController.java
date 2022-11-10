@@ -16,6 +16,12 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
+
+    @GetMapping
+    public ResponseEntity<List<CommentDto>> findByAnnounce(){
+        return ResponseEntity.status(HttpStatus.OK).body(commentService.findAll());
+    }
+
     @GetMapping("/{idAnnounce}")
     public ResponseEntity<List<CommentDto>> findByAnnounce(@PathVariable("idAnnounce") long idAnnounce){
         return ResponseEntity.status(HttpStatus.OK).body(commentService.findByAnnounceId(idAnnounce));

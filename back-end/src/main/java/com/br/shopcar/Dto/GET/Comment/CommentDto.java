@@ -6,7 +6,9 @@ import com.br.shopcar.Model.User.User;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 public class CommentDto {
@@ -18,7 +20,7 @@ public class CommentDto {
     private long announceId;
     @NotBlank
     private String message;
-    private List<CommentAnswerDto> commentAnswerDtos;
+    private List<CommentAnswerDto> commentAnswerDtos = new ArrayList<>();
 
     public Comment convertToModel(User user, Announcement announcement){
         Comment comment = new Comment();

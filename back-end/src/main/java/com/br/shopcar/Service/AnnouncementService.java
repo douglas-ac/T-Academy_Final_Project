@@ -24,10 +24,10 @@ public class AnnouncementService {
         return allAnn.stream().map(Announcement::converter).collect(Collectors.toList());
     }
 
-    public AnnouncementDto findById(Long id){
+    public AnnouncementDto findById(long id){
         Optional<Announcement> obj = announcementRepository.findById(id);
         //verifying the optional
-        Announcement announcement = obj.orElseThrow(()-> new EntityNotFoundException("User not found"));
+        Announcement announcement = obj.orElseThrow(()-> new EntityNotFoundException("Announce not found"));
         return announcement.converter();
     }
 
@@ -38,7 +38,7 @@ public class AnnouncementService {
         return announcement.converter();
     }
     @Transactional
-    public AnnouncementDto change(Long idAnnounce, AnnouncementDto announcementDto){
+    public AnnouncementDto change(long idAnnounce, AnnouncementDto announcementDto){
         Optional<Announcement> annToChange = announcementRepository.findById(idAnnounce);
 
         //variable to store the object from database
@@ -61,7 +61,7 @@ public class AnnouncementService {
     }
 
     @Transactional
-    public void delete(Long idAnn){
+    public void delete(long idAnn){
         try {
             //searching the object in the database
             Optional<Announcement> annToDelete = announcementRepository.findById(idAnn);

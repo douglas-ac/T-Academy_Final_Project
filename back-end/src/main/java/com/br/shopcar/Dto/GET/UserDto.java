@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +27,7 @@ public class UserDto {
     private String birthDate;
     @NotBlank
     private LoginDto login;
-    private List<AnnouncementDto> announcementList;
+    private List<AnnouncementDto> announcementList = new ArrayList<>();
     @NotBlank
     private String nacionalNumber;
     @NotBlank

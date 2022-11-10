@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -24,7 +25,7 @@ public class AnnouncementDto {
     @NotBlank
     private Integer amount;
     private LocalDateTime date;
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();

@@ -5,6 +5,7 @@ import com.br.shopcar.Model.User.User;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ public class Comment {
     private Announcement announcement;
     private String message;
     @OneToMany(mappedBy = "comment")
-    private List<CommentAnswer> answers;
+    private List<CommentAnswer> answers = new ArrayList<>();
 
     public CommentDto convertToDto(){
         CommentDto commentDto = new CommentDto();
