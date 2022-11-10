@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CommentAnswerService {
@@ -22,10 +24,10 @@ public class CommentAnswerService {
     @Autowired
     UserService userService;
 
-    public CommentAnswerDto findByCommentId(long id){
-        Optional<CommentAnswer> obj = commentAnswerRepository.findByCommentId(id);
-        CommentAnswer comment = obj.orElseThrow(()-> new EntityNotFoundException("User not found"));
-        return comment.convertToDto();
+    public List<CommentAnswerDto> findByCommentId(long id){
+        Optional<List<CommentAnswer>> obj = commentAnswerRepository.findByCommentId(id);
+        List<CommentAnswer> commentAnswers = obj.orElseThrow(()-> new EntityNotFoundException("User not found"));
+        return commentAnswers.stream().map(CommentAnswer::convertToDto).collect(Collectors.toList());
     }
 
     @Transactional
