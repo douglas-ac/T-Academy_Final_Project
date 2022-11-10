@@ -22,7 +22,13 @@ public class CommentService {
     @Autowired
     AnnouncementService announcementService;
 
-    public CommentDto findByAnnounceId(Long id){
+    public Comment findById(long id){
+        Optional<Comment> obj = commentRepository.findById(id);
+        Comment comment = obj.orElseThrow(()-> new EntityNotFoundException("User not found"));
+        return comment;
+    }
+
+    public CommentDto findByAnnounceId(long id){
         Optional<Comment> obj = commentRepository.findByAnnouncementId(id);
         Comment comment = obj.orElseThrow(()-> new EntityNotFoundException("User not found"));
         return comment.convertToDto();
@@ -37,7 +43,7 @@ public class CommentService {
     }
 
     @Transactional
-    public void delete(Long idComment){
+    public void delete(long idComment){
         try {
             Optional<Comment> commentToDelete = commentRepository.findById(idComment);
             Comment comment = commentToDelete.orElseThrow(() -> new EntityNotFoundException("User not found"));
