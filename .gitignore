@@ -136,3 +136,5 @@ fabric.properties
 .idea/**/azureSettings.xml
 .DS_Store
 .idea
+*/target/
+*/shopcar.iml
