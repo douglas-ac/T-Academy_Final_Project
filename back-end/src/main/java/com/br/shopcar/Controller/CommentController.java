@@ -27,7 +27,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/{idComment}")
-    public ResponseEntity<Void> excluir(@PathVariable("idComment") long idComment){
+    public ResponseEntity<Void> delete(@PathVariable("idComment") long idComment){
         commentService.delete(idComment);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

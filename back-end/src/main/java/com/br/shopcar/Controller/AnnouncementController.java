@@ -38,7 +38,7 @@ public class AnnouncementController {
     }
 
     @DeleteMapping("/{idAnnounce}")
-    public ResponseEntity<Void> excluir(@PathVariable("idAnnounce") long idAnnounce){
+    public ResponseEntity<Void> delete(@PathVariable("idAnnounce") long idAnnounce){
         announcementService.delete(idAnnounce);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

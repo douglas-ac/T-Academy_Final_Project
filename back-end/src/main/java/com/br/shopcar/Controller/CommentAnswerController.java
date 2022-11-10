@@ -29,7 +29,7 @@ public class CommentAnswerController {
     }
 
     @DeleteMapping("/{idCommentAnswer}")
-    public ResponseEntity<Void> excluir(@PathVariable("idCommentAnswer") long idCommentAnswer){
+    public ResponseEntity<Void> delete(@PathVariable("idCommentAnswer") long idCommentAnswer){
         commentAnswerService.delete(idCommentAnswer);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
