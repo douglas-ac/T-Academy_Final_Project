@@ -1,7 +1,7 @@
 package com.br.shopcar.Service;
 
 import com.br.shopcar.Dto.POST.UserDtoPost;
-import com.br.shopcar.Dto.UserDto;
+import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

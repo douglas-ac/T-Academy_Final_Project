@@ -1,12 +1,10 @@
-package com.br.shopcar.Dto.Slim;
+package com.br.shopcar.Dto.GET.Slim;
 
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor

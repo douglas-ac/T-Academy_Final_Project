@@ -1,6 +1,6 @@
 package com.br.shopcar.Model.User;
 
-import com.br.shopcar.Dto.LoginDto;
+import com.br.shopcar.Dto.GET.LoginDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

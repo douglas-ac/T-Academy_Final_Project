@@ -1,4 +1,4 @@
-package com.br.shopcar.Dto.Comment;
+package com.br.shopcar.Dto.GET.Comment;
 
 import com.br.shopcar.Model.Announcement.Comment;
 import com.br.shopcar.Model.Announcement.CommentAnswer;

@@ -1,6 +1,6 @@
 package com.br.shopcar.Service;
 
-import com.br.shopcar.Dto.Comment.CommentDto;
+import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.Announcement.Comment;
 import com.br.shopcar.Model.User.User;

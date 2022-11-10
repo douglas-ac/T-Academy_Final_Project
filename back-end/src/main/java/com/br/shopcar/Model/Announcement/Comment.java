@@ -1,6 +1,6 @@
 package com.br.shopcar.Model.Announcement;
 
-import com.br.shopcar.Dto.Comment.CommentDto;
+import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Model.User.User;
 import lombok.Data;
 

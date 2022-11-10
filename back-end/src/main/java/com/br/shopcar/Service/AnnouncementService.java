@@ -1,6 +1,6 @@
 package com.br.shopcar.Service;
 
-import com.br.shopcar.Dto.AnnouncementDto;
+import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Repository.AnnouncementRepository;
 import org.springframework.beans.factory.annotation.Autowired;

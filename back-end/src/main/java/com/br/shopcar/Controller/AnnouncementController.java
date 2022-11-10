@@ -1,6 +1,6 @@
 package com.br.shopcar.Controller;
 
-import com.br.shopcar.Dto.AnnouncementDto;
+import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

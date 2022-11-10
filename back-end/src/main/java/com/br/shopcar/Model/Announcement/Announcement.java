@@ -1,6 +1,6 @@
 package com.br.shopcar.Model.Announcement;
 
-import com.br.shopcar.Dto.AnnouncementDto;
+import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Model.User.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

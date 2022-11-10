@@ -1,4 +1,4 @@
-package com.br.shopcar.Dto;
+package com.br.shopcar.Dto.GET;
 
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 

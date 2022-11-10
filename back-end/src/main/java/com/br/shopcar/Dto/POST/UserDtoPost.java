@@ -1,6 +1,6 @@
 package com.br.shopcar.Dto.POST;
 
-import com.br.shopcar.Dto.LoginDto;
+import com.br.shopcar.Dto.GET.LoginDto;
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,6 @@ import lombok.Setter;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
