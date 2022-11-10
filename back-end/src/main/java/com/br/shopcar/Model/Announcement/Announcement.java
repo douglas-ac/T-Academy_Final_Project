@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -25,6 +26,8 @@ public class Announcement {
     private LocalDateTime date;
     @Embedded
     private Adress adress;
+    @OneToMany(mappedBy = "announcement")
+    private List<Comment> comments;
 
     public AnnouncementDto converter(){
         AnnouncementDto announcementDto = new AnnouncementDto();

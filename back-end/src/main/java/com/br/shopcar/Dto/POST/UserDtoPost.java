@@ -7,7 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -19,16 +21,18 @@ public class UserDtoPost {
     private long id;
     @NotBlank
     private String name;
-    @NotBlank
+    @NotBlank @Email
     private String email;
-    @NotBlank
-    private LocalDate birthDate;
+    @NotBlank @Pattern(regexp = "^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\\d{4}$")
+    private String birthDate;
     @NotBlank
     private LoginDto login;
     @NotBlank
     private String nacionalNumber;
     @NotBlank
     private String descriminationColumn;
+    @NotBlank @Pattern(regexp = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$")
+    private String fone;
 
     public User convertToModelPost(){
         User user = new User();
@@ -38,6 +42,7 @@ public class UserDtoPost {
         user.setLogin(this.getLogin().convertToModel());
         user.setNacionalNumber(this.getNacionalNumber());
         user.setDescriminationColumn(this.getDescriminationColumn());
+        user.setFone(this.getFone());
         return user;
     }
 }

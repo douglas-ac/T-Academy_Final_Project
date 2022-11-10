@@ -23,13 +23,14 @@ public class User {
     private long id;
     private String name;
     private String email;
-    private LocalDate birthDate;
+    private String birthDate;
     @Embedded
     private Login login;
     @OneToMany(mappedBy = "user")
     private List<Announcement> announcementList = new ArrayList<>();
     private String nacionalNumber; //NUMERO IDENTIFICADOR(CPF OU CNPJ)
     private String descriminationColumn; //STRING DESCRIMINATORIA (CPF OU CNPJ)
+    private String fone;
 
     public UserDto converterDto(){
         UserDto userDto = new UserDto();

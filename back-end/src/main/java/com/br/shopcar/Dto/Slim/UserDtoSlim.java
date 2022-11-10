@@ -17,8 +17,9 @@ public class UserDtoSlim {
     private long id;
     private String name;
     private String email;
-    private LocalDate birthDate;
+    private String birthDate;
     private String nacionalNumber;
+    private String fone;
 
     public User convertToModel(){
         User user = new User();
@@ -27,6 +28,7 @@ public class UserDtoSlim {
         user.setEmail(this.getEmail());
         user.setBirthDate(this.getBirthDate());
         user.setNacionalNumber(this.getNacionalNumber());
+        user.setFone(this.getFone());
         return user;
     }
 }
