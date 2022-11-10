@@ -1,16 +1,11 @@
 package com.br.shopcar.Model;
 
+import com.br.shopcar.Model.User.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "carrinhos")
@@ -18,7 +13,8 @@ public class CarrinhoModelo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private UsuarioModelo usuario;
+    @ManyToOne
+    private User usuario;
     private double subTotal;
     private double desconto;
 
@@ -38,11 +34,11 @@ public class CarrinhoModelo {
         this.id = id;
     }
 
-    public UsuarioModelo getUsuario() {
+    public User getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioModelo usuario) {
+    public void setUsuario(User usuario) {
         this.usuario = usuario;
     }
 

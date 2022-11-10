@@ -1,9 +1,9 @@
 package com.br.shopcar.Repository;
 
+import com.br.shopcar.Model.PecaModelo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.projeto_final.modelo.PecaModelo;
 
 @Repository
 public interface PecaRepositorio extends CrudRepository<PecaModelo, Long> {

@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 //import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 //import javax.persistence.Table;
 
 /*
  * @Entity
  * @Table(name = "produtos")
  */
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public abstract class ProdutoModelo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +21,7 @@ public abstract class ProdutoModelo {
     private String descricao;
     private double preco;
 
-    @ManyToMany(mappedBy = "carrinhos")
+    @ManyToMany(mappedBy = "produtos")
     private List<CarrinhoModelo> carrinhos = new ArrayList<>();
 
     public long getId() {
