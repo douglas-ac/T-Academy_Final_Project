@@ -1,4 +1,4 @@
-package br.com.projeto_final.model;
+package com.br.shopcar.Model;
 
 import java.util.ArrayList;
 import java.util.List;

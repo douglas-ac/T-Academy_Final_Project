@@ -1,4 +1,4 @@
-package br.com.projeto_final.model;
+package com.br.shopcar.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.br.shopcar.Model.User.User;
 
 @Entity
 @Table(name = "carrinhos")
