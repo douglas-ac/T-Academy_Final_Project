@@ -60,4 +60,10 @@ public class UserService {
         }
 
     }
+
+    public User findByIdModel(long id){
+        Optional<User> byId = userRepository.findById(id);
+        User user = byId.orElseThrow(() -> new EntityNotFoundException("User not found"));
+        return user;
+    }
 }

@@ -32,9 +32,10 @@ public class CommentAnswerService {
 
     @Transactional
     public CommentAnswerDto save(CommentAnswerDto commentAnswerDto){
-        User user = userService.findById(commentAnswerDto.getUserId()).convertToModel();
-        Comment comment = commentService.findById(commentAnswerDto.getCommentId());
+        User user = userService.findByIdModel(commentAnswerDto.getUserId());
+        Comment comment = commentService.findByIdModel(commentAnswerDto.getCommentId());
         CommentAnswer commentAnswer = commentAnswerDto.convertToModel(user, comment);
+        commentAnswerRepository.save(commentAnswer);
         return commentAnswer.convertToDto();
     }
 

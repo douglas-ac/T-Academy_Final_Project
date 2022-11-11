@@ -2,6 +2,7 @@ package com.br.shopcar.Service;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Model.Announcement.Announcement;
+import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.AnnouncementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class AnnouncementService {
         Optional<Announcement> annToChange = announcementRepository.findById(idAnnounce);
 
         //variable to store the object from database
-        Announcement announcement = annToChange.orElseThrow(() -> new EntityNotFoundException("User not found"));
+        Announcement announcement = annToChange.orElseThrow(() -> new EntityNotFoundException("Announce not found"));
 
         //Dto received converted to model to change attributes
         Announcement dtoToChangeModel = announcementDto.convertToModel();
@@ -66,11 +67,17 @@ public class AnnouncementService {
             //searching the object in the database
             Optional<Announcement> annToDelete = announcementRepository.findById(idAnn);
             //if founded -> delete else-> exception
-            Announcement announcement = annToDelete.orElseThrow(() -> new EntityNotFoundException("User not found"));
+            Announcement announcement = annToDelete.orElseThrow(() -> new EntityNotFoundException("Announce not found"));
             announcementRepository.delete(announcement);
         } catch (Exception e){
             return; //exception handler to develop
         }
 
+    }
+
+    public Announcement findByIdModel(long id){
+        Optional<Announcement> byId = announcementRepository.findById(id);
+        Announcement announcement = byId.orElseThrow(() -> new EntityNotFoundException("Announce not found"));
+        return announcement;
     }
 }

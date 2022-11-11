@@ -22,9 +22,9 @@ public class CommentService {
     @Autowired
     CommentRepository commentRepository;
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
     @Autowired
-    AnnouncementRepository announcementRepository;
+    AnnouncementService announcementService;
 
     public Comment findById(long id){
         Optional<Comment> obj = commentRepository.findById(id);
@@ -40,11 +40,9 @@ public class CommentService {
 
     @Transactional
     public CommentDto save(CommentDto commentDto){
-        Optional<User> user = userRepository.findById(commentDto.getUserId());
-        User userComment = user.orElseThrow(()-> new EntityNotFoundException("User not found"));
-        Optional<Announcement> announce = announcementRepository.findById(commentDto.getAnnounceId());
-        Announcement announceComment = announce.orElseThrow(() -> new EntityNotFoundException("Announce not found"));
-        Comment comment = commentDto.convertToModel(userComment, announceComment);
+        User userModel = userService.findByIdModel(commentDto.getUserId());
+        Announcement announceModel = announcementService.findByIdModel(commentDto.getAnnounceId());
+        Comment comment = commentDto.convertToModel(userModel, announceModel);
         commentRepository.save(comment);
         return comment.convertToDto();
     }
@@ -63,5 +61,11 @@ public class CommentService {
 
     public List<CommentDto> findAll() {
        return commentRepository.findAll().stream().map(Comment::convertToDto).collect(Collectors.toList());
+    }
+
+    public Comment findByIdModel(long id){
+        Optional<Comment> byId = commentRepository.findById(id);
+        Comment comment = byId.orElseThrow(() -> new EntityNotFoundException("Comment not found"));
+        return comment;
     }
 }
