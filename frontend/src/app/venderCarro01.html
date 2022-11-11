@@ -13,9 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../assets/css/styleNavbar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg nav-bg navigation" id="menu" style="">
+    <nav class="navbar navbar-expand-lg nav-bg navigation color-main" id="menu">
         <div class="container-fluid">  <!-- logo, ficar na esquerda -->
         <a class="navbar-brand mb-0 display-2 title" href="#"><h2>Shop<span class="color-orange">Car</span></h2></a>  
         </div>
@@ -39,18 +40,37 @@
             </ul>
         </div>
     </nav>
-    <div class="card" style="margin: 100px;">
-        <div style="padding: 30px;">
-            <h1 style="text-align: left; padding: 30px; margin-left: 50px">Login</h1>
+    <div class="card font-main">
         
-            <input type="email" class="form-control" placeholder="E-mail" style="margin: 30px;">
-            <input type="password" class="form-control" placeholder="Senha" style="margin: 30px;">
+        <div class="cartao">
+            <h1 class="titulo">Login</h1>
+        
+            <input type="email" class="form-control campo" placeholder="E-mail">
+            <input type="password" class="form-control campo" placeholder="Senha">
 
-            <b style="color: rgb(246, 24, 77, 1); text-decoration: none;">Esqueceu a senha?</b>
-        
-            <input type="button" class="btn" value="Entrar" style="color: white; background-color: rgb(246, 24, 77, 1);">
-    
-            Não tem uma conta? <b style="color: rgb(246, 24, 77, 1)">Crie uma</b>
+            <div class="texto">
+                <b class="color-main">Esqueceu a senha?</b>
+            </div>
+            
+            <input type="button" class="btn botao" value="Entrar">
+
+            <div>
+                ou
+            </div>
+
+            <div class="row icones">
+                <div class="col-6 botaoColuna">
+                    <img src="../assets/img/google.png" alt="">
+                </div>
+                <div class="col-6 botaoColuna">
+                    <img src="../assets/img/facebook.png" alt="">
+                </div>
+            </div>
+
+            <div class="texto">
+                Não tem uma conta? <b class="color-main">Crie uma</b>
+            </div>
+            
         </div>
         
     </div>
