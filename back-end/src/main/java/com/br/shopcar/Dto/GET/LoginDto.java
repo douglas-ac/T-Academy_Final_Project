@@ -1,4 +1,4 @@
-package com.br.shopcar.Dto;
+package com.br.shopcar.Dto.GET;
 
 import com.br.shopcar.Model.User.Login;
 import lombok.Getter;

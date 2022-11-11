@@ -1,8 +1,6 @@
 package com.br.shopcar.Controller;
 
-import com.br.shopcar.Dto.AnnouncementDto;
-import com.br.shopcar.Dto.POST.UserDtoPost;
-import com.br.shopcar.Dto.UserDto;
+import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,7 +38,7 @@ public class AnnouncementController {
     }
 
     @DeleteMapping("/{idAnnounce}")
-    public ResponseEntity<Void> excluir(@PathVariable("idAnnounce") long idAnnounce){
+    public ResponseEntity<Void> delete(@PathVariable("idAnnounce") long idAnnounce){
         announcementService.delete(idAnnounce);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
