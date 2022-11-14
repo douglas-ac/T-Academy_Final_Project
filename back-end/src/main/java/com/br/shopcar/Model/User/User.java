@@ -2,6 +2,7 @@ package com.br.shopcar.Model.User;
 
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.GET.UserDto;
+import com.br.shopcar.Model.Announcement.Adress;
 import com.br.shopcar.Model.Announcement.Announcement;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class User {
     private String nacionalNumber; //NUMERO IDENTIFICADOR(CPF OU CNPJ)
     private String descriminationColumn; //STRING DESCRIMINATORIA (CPF OU CNPJ)
     private String fone;
+    private Adress adress;
 
     public UserDto converterDto(){
         UserDto userDto = new UserDto();
