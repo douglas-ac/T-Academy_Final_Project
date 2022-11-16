@@ -30,9 +30,9 @@ public class Comment {
         commentDto.setAnnounceId(this.announcement.getId());
         commentDto.setMessage(this.getMessage());
         commentDto.setCommentAnswerDtos(this.getAnswers()
-        .stream()
-        .map(CommentAnswer::convertToDto)
-        .collect(Collectors.toList()));
+                .stream()
+                .map(CommentAnswer::convertToDto)
+                .collect(Collectors.toList()));
         return commentDto;
     }
 }

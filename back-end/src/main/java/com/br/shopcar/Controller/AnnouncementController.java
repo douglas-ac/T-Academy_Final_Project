@@ -32,7 +32,8 @@ public class AnnouncementController {
     }
 
     @PutMapping("/{idAnnounce}")
-    public ResponseEntity<AnnouncementDto> change(@PathVariable("idAnnounce") long idAnnounce, @RequestBody AnnouncementDto announcementDto){
+    public ResponseEntity<AnnouncementDto> change(@PathVariable("idAnnounce") long idAnnounce,
+                                          @RequestBody AnnouncementDto announcementDto){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.change(idAnnounce, announcementDto));
     }
 
