@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "carros")
-public class CarroModelo extends ProdutoModelo {
+@Table(name = "cars")
+public class CarModel extends ProductModel {
     private double quilomatragem;
     private String modelo;
 
