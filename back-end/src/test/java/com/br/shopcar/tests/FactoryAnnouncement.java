@@ -54,7 +54,6 @@ public class FactoryAnnouncement {
         LocalDateTime date = LocalDateTime.now();
 
         Announcement announcement = new Announcement();
-        announcement.setId(1L);
         announcement.setAdress(adress);
         announcement.setUser(user);
         announcement.setDate(date);

@@ -87,7 +87,7 @@ public class TestControllerAnnouncement {
     }
 
     @Test
-    void findById_ShouldReturnAnnouncementDto_WhenIdDoesNotExists() throws Exception {
+    void findById_ShouldReturnNotFoundStatus_WhenIdDoesNotExists() throws Exception {
         ResultActions result = mockMvc
                 .perform(get("/api/v1/announce/{id}", this.notExistingId)
                         .accept(MediaType.APPLICATION_JSON));
@@ -108,7 +108,7 @@ public class TestControllerAnnouncement {
                     .accept(MediaType.APPLICATION_JSON));
         result.andExpect(status().isCreated());
 
-        result.andExpect(jsonPath("$.id").exists());
+        result.andExpect(jsonPath("$.id") .exists());
         result.andExpect(jsonPath("$.user").exists());
         result.andExpect(jsonPath("$.amount").exists());
         result.andExpect(jsonPath("$.date").exists());
@@ -132,7 +132,7 @@ public class TestControllerAnnouncement {
     }
 
     @Test
-    void change_ShouldReturnBadRequestStatus_WhenIdDoesNotExists() throws Exception {
+    void change_ShouldReturnNotFoundStatus_WhenIdDoesNotExists() throws Exception {
         String jsonBody = objectMapper.writeValueAsString(announcementDto);
         ResultActions result = mockMvc
                 .perform(put("/api/v1/announce/{id}", this.notExistingId)
@@ -140,7 +140,7 @@ public class TestControllerAnnouncement {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON));
 
-        result.andExpect(status().isBadRequest());
+        result.andExpect(status().isNotFound());
 
         result.andExpect(jsonPath("$.id").doesNotExist());
         result.andExpect(jsonPath("$.user").doesNotExist());
