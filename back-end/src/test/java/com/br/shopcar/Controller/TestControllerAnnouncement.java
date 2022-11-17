@@ -22,6 +22,9 @@ import javax.servlet.ServletContext;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(AnnouncementController.class)
 public class TestControllerAnnouncement {
@@ -63,9 +66,34 @@ public class TestControllerAnnouncement {
     }
 
     @Test
-    void findAll_ShouldReturnAnnouncementDtoList_WhenIdExists() throws Exception {
+    void findAll_ShouldReturnAnnouncementDtoList() throws Exception {
         ResultActions result = mockMvc
-                .perform("api/v1/announce");
+                .perform(get("api/v1/announce")
+                .accept(MediaType.APPLICATION_JSON));
+            result.andExpect(status().isOk());
+    }
 
+    @Test
+    void findById_ShouldReturnAnnouncementDto_WhenIdExists() throws Exception {
+        ResultActions result = mockMvc
+                .perform(get("api/v1/announce/{id}", this.existingId)
+                .accept(MediaType.APPLICATION_JSON));
+        result.andExpect(status().isOk());
+        result.andExpect(jsonPath("$.id").exists());
+        result.andExpect(jsonPath("$.user").exists());
+        result.andExpect(jsonPath("$.amount").exists());
+        result.andExpect(jsonPath("$.date").exists());
+    }
+
+    @Test
+    void findById_ShouldReturnAnnouncementDto_WhenIdNotExists() throws Exception {
+        ResultActions result = mockMvc
+                .perform(get("api/v1/announce/{id}", this.notExistingId)
+                        .accept(MediaType.APPLICATION_JSON));
+        result.andExpect(status().isNotFound());
+        result.andExpect(jsonPath("$.id").doesNotExist());
+        result.andExpect(jsonPath("$.user").doesNotExist());
+        result.andExpect(jsonPath("$.amount").doesNotExist());
+        result.andExpect(jsonPath("$.date").doesNotExist());
     }
 }
