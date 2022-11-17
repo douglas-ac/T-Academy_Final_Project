@@ -1,4 +1,4 @@
-package com.br.shopcar.services;
+package com.br.shopcar.Service;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;

@@ -1,4 +1,4 @@
-package com.br.shopcar.factory;
+package com.br.shopcar.Factory;
 
 import com.br.shopcar.Dto.GET.LoginDto;
 import com.br.shopcar.Dto.GET.UserDto;
