@@ -22,7 +22,7 @@ import javax.servlet.ServletContext;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -86,7 +86,7 @@ public class TestControllerAnnouncement {
     }
 
     @Test
-    void findById_ShouldReturnAnnouncementDto_WhenIdNotExists() throws Exception {
+    void findById_ShouldReturnAnnouncementDto_WhenIdDoesNotExists() throws Exception {
         ResultActions result = mockMvc
                 .perform(get("api/v1/announce/{id}", this.notExistingId)
                         .accept(MediaType.APPLICATION_JSON));
@@ -96,4 +96,83 @@ public class TestControllerAnnouncement {
         result.andExpect(jsonPath("$.amount").doesNotExist());
         result.andExpect(jsonPath("$.date").doesNotExist());
     }
+
+    @Test
+    void save_ShouldReturnCreatedStatus() throws Exception {
+        String jsonBody = objectMapper.writeValueAsString(announcementDto);
+        ResultActions result = mockMvc
+                .perform(post("api/v1/announce")
+                    .content(jsonBody)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .accept(MediaType.APPLICATION_JSON));
+        result.andExpect(status().isCreated());
+
+        result.andExpect(jsonPath("$.id").exists());
+        result.andExpect(jsonPath("$.user").exists());
+        result.andExpect(jsonPath("$.amount").exists());
+        result.andExpect(jsonPath("$.date").exists());
+    }
+
+    @Test
+    void change_ShouldReturnOkStatus_WhenIdExists() throws Exception {
+        String jsonBody = objectMapper.writeValueAsString(announcementDto);
+        ResultActions result = mockMvc
+                .perform(put("api/v1/announce/{id}", this.existingId)
+                        .content(jsonBody)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        result.andExpect(status().isOk());
+
+        result.andExpect(jsonPath("$.id").exists());
+        result.andExpect(jsonPath("$.user").exists());
+        result.andExpect(jsonPath("$.amount").exists());
+        result.andExpect(jsonPath("$.date").exists());
+    }
+
+    @Test
+    void change_ShouldReturnNotFound_WhenIdDoesNotExists() throws Exception {
+        String jsonBody = objectMapper.writeValueAsString(announcementDto);
+        ResultActions result = mockMvc
+                .perform(put("api/v1/announce/{id}", this.notExistingId)
+                        .content(jsonBody)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        result.andExpect(status().isNotFound());
+
+        result.andExpect(jsonPath("$.id").doesNotExist());
+        result.andExpect(jsonPath("$.user").doesNotExist());
+        result.andExpect(jsonPath("$.amount").doesNotExist());
+        result.andExpect(jsonPath("$.date").doesNotExist());
+    }
+
+    @Test
+    void delete_ShouldReturnNoContentStatus_WhenIdExists() throws Exception {
+        ResultActions result = mockMvc
+                .perform(delete("api/v1/announce/{id}", this.existingId)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        result.andExpect(status().isNoContent());
+
+        result.andExpect(jsonPath("$.id").doesNotExist());
+        result.andExpect(jsonPath("$.user").doesNotExist());
+        result.andExpect(jsonPath("$.amount").doesNotExist());
+        result.andExpect(jsonPath("$.date").doesNotExist());
+    }
+
+    @Test
+    void delete_ShouldReturnNotFoundStatus_WhenIdDoesNotExists() throws Exception {
+        ResultActions result = mockMvc
+                .perform(put("api/v1/announce/{id}", this.existingId)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        result.andExpect(status().isNotFound());
+
+        result.andExpect(jsonPath("$.id").doesNotExist());
+        result.andExpect(jsonPath("$.user").doesNotExist());
+        result.andExpect(jsonPath("$.amount").doesNotExist());
+        result.andExpect(jsonPath("$.date").doesNotExist());
+    }
+
 }
