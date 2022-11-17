@@ -47,13 +47,13 @@ public class UserControllerTest {
         result.andExpect(status().isOk());
     }
 
-    /*@Test
+    @Test
     public void shouldThownAnUserNotFoundExceptionWhenIdNoExist() throws Exception {
                 mockMvc.perform(get("/api/v1/user/99")
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(result -> assertTrue(result.getResolvedException() instanceof org.springframework.web.util.NestedServletException))
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof EntityNotFoundException))
                 .andExpect(result -> assertEquals("User not found", result.getResolvedException().getMessage()));
-    }*/
+    }
 
     @Test
     public void shouldReturnCreatedOnPostANewUser() throws Exception {

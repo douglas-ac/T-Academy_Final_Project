@@ -33,6 +33,7 @@ public class AnnouncementDto {
         announcement.setUser(this.getUser().convertToModel());
         announcement.setAmount(this.getAmount());
         announcement.setDate(this.getDate());
+        announcement.setComments(this.getComments());
         return announcement;
     }
 }

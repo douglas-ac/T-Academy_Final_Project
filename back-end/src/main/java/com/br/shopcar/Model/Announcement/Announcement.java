@@ -35,6 +35,7 @@ public class Announcement {
         announcementDto.setUser(this.user.converterDtoSlim());
         announcementDto.setAmount(this.getAmount());
         announcementDto.setDate(this.getDate());
+        announcementDto.setComments(this.getComments());
         return announcementDto;
     }
 
