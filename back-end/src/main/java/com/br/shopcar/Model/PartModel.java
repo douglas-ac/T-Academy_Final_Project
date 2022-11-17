@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "auto_part")
 @DiscriminatorValue("2")
 public class PartModel extends ProductModel {
-    private Condition condition;
+    private Condition part_condition;
     private String category;
     private Automaker automaker;
 
