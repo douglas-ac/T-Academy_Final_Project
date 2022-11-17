@@ -2,7 +2,6 @@ package com.br.shopcar.Controller;
 
 import com.br.shopcar.Dto.GET.CarDto;
 import com.br.shopcar.Dto.POST.CarDtoPost;
-import com.br.shopcar.Repository.CarRepository;
 import com.br.shopcar.Service.CarService;
 
 import java.util.List;
@@ -46,8 +45,8 @@ public class CarController {
 
     @PutMapping("/{idCar}")
     public ResponseEntity<CarDto> change(@PathVariable("idCar") long idCar,
-    @RequestBody CarDto CarDto){
-        return ResponseEntity.status(HttpStatus.OK).body(carService.change(idCar, CarDto));
+    @RequestBody CarDto carDto){
+        return ResponseEntity.status(HttpStatus.OK).body(carService.change(idCar, carDto));
     }
 
     @DeleteMapping("/{idCar}")
