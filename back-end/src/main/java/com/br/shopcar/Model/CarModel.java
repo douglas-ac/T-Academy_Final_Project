@@ -1,10 +1,11 @@
 package com.br.shopcar.Model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cars")
+@DiscriminatorValue("1")
 public class CarModel extends ProductModel {
     private double quilomatragem;
     private String modelo;

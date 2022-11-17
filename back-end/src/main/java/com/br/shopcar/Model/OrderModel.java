@@ -1,69 +1,59 @@
 package com.br.shopcar.Model;
 
+import com.br.shopcar.Dto.GET.OrderDto;
 import com.br.shopcar.Model.User.User;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "orders")
+@Data
+@NoArgsConstructor
 public class OrderModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
-    private User usuario;
+    private User user;
     private double subTotal;
-    private double desconto;
+    private double discount;
 
     @ManyToMany
     @JoinTable(
-        name = "tabela_auxiliar",
-        joinColumns = {@JoinColumn(name = "id_carrinho", referencedColumnName = "id")},
-        inverseJoinColumns = {@JoinColumn(name = "id_produto", referencedColumnName = "id")}
+        name = "order_to_product",
+        joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "id")}
     )
     private List<ProductModel> produtos = new ArrayList<>();
 
-    public long getId() {
-        return id;
+    public OrderDto convertToDto(){
+        OrderDto orderDto = new OrderDto();
+        orderDto.setId(this.getId());
+        orderDto.setUser(this.user.converterDtoSlim());
+        orderDto.setSubTotal(this.getSubTotal());
+        orderDto.setDiscount(this.getDiscount());
+        orderDto.setProdutos(this.getProdutos());
+        return orderDto;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    /* public Double calculateSubtotal(){
+        Double subtotal = 0.0;
+       for (ProductModel p : produtos){
+           subtotal += p.getPreco();
+       }
+        System.out.println(subtotal);
+       this.setSubTotal(subtotal);
+       return subtotal;
+    } */
 
-    public User getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(User usuario) {
-        this.usuario = usuario;
-    }
-
-    public double getSubTotal() {
-        return subTotal;
-    }
-
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
-    }
-
-    public double getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(double desconto) {
-        this.desconto = desconto;
-    }
-
-    public List<ProductModel> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<ProductModel> produtos) {
-        this.produtos = produtos;
-    }
+    /* public Double calculateTotal(){
+        return calculateSubtotal() - getDiscount();
+    } */
 
 }

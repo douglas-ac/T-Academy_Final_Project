@@ -1,6 +1,7 @@
 package com.br.shopcar.Dto.POST;
 
 import com.br.shopcar.Dto.GET.LoginDto;
+import com.br.shopcar.Model.Announcement.Adress;
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class UserDtoPost {
     private String descriminationColumn;
     @NotBlank @Pattern(regexp = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$")
     private String fone;
+    private Adress adress;
 
     public User convertToModelPost(){
         User user = new User();

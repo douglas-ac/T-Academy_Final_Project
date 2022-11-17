@@ -3,6 +3,7 @@ package com.br.shopcar.Dto.GET;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.Announcement.Comment;
+import com.br.shopcar.Model.ProductModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,8 @@ public class AnnouncementDto {
     private Integer amount;
     private LocalDateTime date;
     private List<Comment> comments = new ArrayList<>();
+    @NotBlank
+    private ProductModel product;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();
@@ -34,6 +37,7 @@ public class AnnouncementDto {
         announcement.setAmount(this.getAmount());
         announcement.setDate(this.getDate());
         announcement.setComments(this.getComments());
+        announcement.setProduct(this.getProduct());
         return announcement;
     }
 }

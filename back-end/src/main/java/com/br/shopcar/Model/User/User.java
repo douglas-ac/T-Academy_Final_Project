@@ -46,6 +46,8 @@ public class User {
                 .collect(Collectors.toList()));
         userDto.setNacionalNumber(this.getNacionalNumber());
         userDto.setDescriminationColumn(this.getDescriminationColumn());
+        userDto.setFone(this.getFone());
+        userDto.setAdress(this.getAdress());
         return userDto;
     }
 
@@ -56,6 +58,7 @@ public class User {
         userDtoSlim.setEmail(this.getEmail());
         userDtoSlim.setBirthDate(this.getBirthDate());
         userDtoSlim.setNacionalNumber(this.getNacionalNumber());
+        userDtoSlim.setFone(this.getFone());
         return userDtoSlim;
     }
 

@@ -1,6 +1,7 @@
 package com.br.shopcar.Model.Announcement;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
+import com.br.shopcar.Model.ProductModel;
 import com.br.shopcar.Model.User.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,8 @@ public class Announcement {
     private Adress adress;
     @OneToMany(mappedBy = "announcement")
     private List<Comment> comments;
+    @ManyToOne
+    private ProductModel product;
 
     public AnnouncementDto converter(){
         AnnouncementDto announcementDto = new AnnouncementDto();
@@ -36,6 +39,7 @@ public class Announcement {
         announcementDto.setAmount(this.getAmount());
         announcementDto.setDate(this.getDate());
         announcementDto.setComments(this.getComments());
+        announcementDto.setProduct(this.getProduct());
         return announcementDto;
     }
 
