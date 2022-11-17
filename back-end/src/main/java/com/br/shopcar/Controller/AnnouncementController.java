@@ -17,7 +17,7 @@ public class AnnouncementController {
     AnnouncementService announcementService;
 
     @GetMapping
-    public ResponseEntity<List<AnnouncementDto>> findAll(){
+    public ResponseEntity<java.lang.Object> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAll());
     }
 
@@ -38,7 +38,7 @@ public class AnnouncementController {
     }
 
     @DeleteMapping("/{idAnnounce}")
-    public ResponseEntity<Void> delete(@PathVariable("idAnnounce") long idAnnounce){
+    public ResponseEntity<java.lang.Object> delete(@PathVariable("idAnnounce") long idAnnounce){
         announcementService.delete(idAnnounce);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

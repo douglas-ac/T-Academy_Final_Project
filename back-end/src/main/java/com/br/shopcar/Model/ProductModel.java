@@ -13,7 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public abstract class ProdutoModelo {
+public abstract class ProductModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -22,7 +22,7 @@ public abstract class ProdutoModelo {
     private double preco;
 
     @ManyToMany(mappedBy = "produtos")
-    private List<CarrinhoModelo> carrinhos = new ArrayList<>();
+    private List<OrderModel> carrinhos = new ArrayList<>();
 
     public long getId() {
         return id;

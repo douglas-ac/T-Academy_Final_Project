@@ -8,8 +8,8 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "carrinhos")
-public class CarrinhoModelo {
+@Table(name = "orders")
+public class OrderModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -24,7 +24,7 @@ public class CarrinhoModelo {
         joinColumns = {@JoinColumn(name = "id_carrinho", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "id_produto", referencedColumnName = "id")}
     )
-    private List<ProdutoModelo> produtos = new ArrayList<>();
+    private List<ProductModel> produtos = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -58,11 +58,11 @@ public class CarrinhoModelo {
         this.desconto = desconto;
     }
 
-    public List<ProdutoModelo> getProdutos() {
+    public List<ProductModel> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(List<ProdutoModelo> produtos) {
+    public void setProdutos(List<ProductModel> produtos) {
         this.produtos = produtos;
     }
 
