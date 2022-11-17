@@ -10,15 +10,11 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 
-
-import javax.servlet.ServletContext;
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -42,33 +38,38 @@ public class TestControllerAnnouncement {
     private Long notExistingId;
     private AnnouncementDto announcementDto;
 
+    private List<AnnouncementDto> announcementDtoList;
+
+    public TestControllerAnnouncement() {
+    }
+
     @BeforeEach
     void setUp() throws Exception {
         existingId = 1L;
         notExistingId = 1000L;
         announcementDto = FactoryAnnouncement.createAnnouncementDto();
 
-        when(service.findAll()).thenReturn((List<AnnouncementDto>) announcementDto);
+        when(service.findAll()).thenReturn(announcementDtoList);
 
         when(service.findById(existingId)).thenReturn(announcementDto);
-        when(service.findById(notExistingId)).thenThrow(Exception.class);
+        when(service.findById(notExistingId)).thenThrow(EntityNotFoundException.class);
 
         when(service.save(announcementDto)).thenReturn(announcementDto);
 
         when(service.change(existingId, announcementDto)).thenReturn(announcementDto);
-        when(service.change(notExistingId, announcementDto)).thenThrow(Exception.class);
+        when(service.change(notExistingId, announcementDto)).thenThrow(EntityNotFoundException.class);
 
         Mockito.doNothing().when(service).delete(existingId);
-        Mockito.doThrow(Exception.class).when(service).delete(notExistingId);
+        Mockito.doThrow(EntityNotFoundException.class).when(service).delete(notExistingId);
 
         when(service.findByIdModel(existingId)).thenReturn(announcementDto.convertToModel());
-        when(service.findByIdModel(notExistingId)).thenThrow(Exception.class);
+        when(service.findByIdModel(notExistingId)).thenThrow(EntityNotFoundException.class);
     }
 
     @Test
-    void findAll_ShouldReturnAnnouncementDtoList() throws Exception {
+    void findAll_ShouldReturnOkStatus() throws Exception {
         ResultActions result = mockMvc
-                .perform(get("api/v1/announce")
+                .perform(get("/api/v1/announce")
                 .accept(MediaType.APPLICATION_JSON));
             result.andExpect(status().isOk());
     }
@@ -76,7 +77,7 @@ public class TestControllerAnnouncement {
     @Test
     void findById_ShouldReturnAnnouncementDto_WhenIdExists() throws Exception {
         ResultActions result = mockMvc
-                .perform(get("api/v1/announce/{id}", this.existingId)
+                .perform(get("/api/v1/announce/{id}", this.existingId)
                 .accept(MediaType.APPLICATION_JSON));
         result.andExpect(status().isOk());
         result.andExpect(jsonPath("$.id").exists());
@@ -88,7 +89,7 @@ public class TestControllerAnnouncement {
     @Test
     void findById_ShouldReturnAnnouncementDto_WhenIdDoesNotExists() throws Exception {
         ResultActions result = mockMvc
-                .perform(get("api/v1/announce/{id}", this.notExistingId)
+                .perform(get("/api/v1/announce/{id}", this.notExistingId)
                         .accept(MediaType.APPLICATION_JSON));
         result.andExpect(status().isNotFound());
         result.andExpect(jsonPath("$.id").doesNotExist());
@@ -101,7 +102,7 @@ public class TestControllerAnnouncement {
     void save_ShouldReturnCreatedStatus() throws Exception {
         String jsonBody = objectMapper.writeValueAsString(announcementDto);
         ResultActions result = mockMvc
-                .perform(post("api/v1/announce")
+                .perform(post("/api/v1/announce")
                     .content(jsonBody)
                     .contentType(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON));
@@ -117,7 +118,7 @@ public class TestControllerAnnouncement {
     void change_ShouldReturnOkStatus_WhenIdExists() throws Exception {
         String jsonBody = objectMapper.writeValueAsString(announcementDto);
         ResultActions result = mockMvc
-                .perform(put("api/v1/announce/{id}", this.existingId)
+                .perform(put("/api/v1/announce/{id}", this.existingId)
                         .content(jsonBody)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON));
@@ -131,15 +132,15 @@ public class TestControllerAnnouncement {
     }
 
     @Test
-    void change_ShouldReturnNotFound_WhenIdDoesNotExists() throws Exception {
+    void change_ShouldReturnBadRequestStatus_WhenIdDoesNotExists() throws Exception {
         String jsonBody = objectMapper.writeValueAsString(announcementDto);
         ResultActions result = mockMvc
-                .perform(put("api/v1/announce/{id}", this.notExistingId)
+                .perform(put("/api/v1/announce/{id}", this.notExistingId)
                         .content(jsonBody)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON));
 
-        result.andExpect(status().isNotFound());
+        result.andExpect(status().isBadRequest());
 
         result.andExpect(jsonPath("$.id").doesNotExist());
         result.andExpect(jsonPath("$.user").doesNotExist());
@@ -150,7 +151,7 @@ public class TestControllerAnnouncement {
     @Test
     void delete_ShouldReturnNoContentStatus_WhenIdExists() throws Exception {
         ResultActions result = mockMvc
-                .perform(delete("api/v1/announce/{id}", this.existingId)
+                .perform(delete("/api/v1/announce/{id}", this.existingId)
                         .accept(MediaType.APPLICATION_JSON));
 
         result.andExpect(status().isNoContent());
@@ -162,12 +163,12 @@ public class TestControllerAnnouncement {
     }
 
     @Test
-    void delete_ShouldReturnNotFoundStatus_WhenIdDoesNotExists() throws Exception {
+    void delete_ShouldReturnBadRequestStatus_WhenIdDoesNotExists() throws Exception {
         ResultActions result = mockMvc
-                .perform(put("api/v1/announce/{id}", this.existingId)
+                .perform(put("/api/v1/announce/{id}", this.existingId)
                         .accept(MediaType.APPLICATION_JSON));
 
-        result.andExpect(status().isNotFound());
+        result.andExpect(status().isBadRequest());
 
         result.andExpect(jsonPath("$.id").doesNotExist());
         result.andExpect(jsonPath("$.user").doesNotExist());
