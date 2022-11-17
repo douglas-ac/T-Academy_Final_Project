@@ -1,10 +1,15 @@
 package com.br.shopcar.Service;
 
+import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -14,10 +19,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     public List<UserDto> findAll(){
         List<User> allUser = userRepository.findAll();
@@ -31,10 +39,11 @@ public class UserService {
     }
 
     @Transactional
-    public UserDto save(UserDtoPost userDtoPost){
+    public UserDtoSlim save(UserDtoPost userDtoPost){
         User user = userDtoPost.convertToModelPost();
+        user.getLogin().setPassword(passwordEncoder.encode(user.getLogin().getPassword()));
         userRepository.save(user);
-        return user.converterDto();
+        return user.converterDtoSlim();
     }
     @Transactional
     public UserDto change(Long idUser, UserDto userDto){
@@ -64,7 +73,12 @@ public class UserService {
 
     public User findByIdModel(long id){
         Optional<User> byId = userRepository.findById(id);
-        User user = byId.orElseThrow(() -> new EntityNotFoundException("User not found"));
-        return user;
+        return byId.orElseThrow(() -> new EntityNotFoundException("User not found"));
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) {
+        User byLoginUsername = userRepository.findByLoginUsername(username);
+        return byLoginUsername.getLogin();
     }
 }

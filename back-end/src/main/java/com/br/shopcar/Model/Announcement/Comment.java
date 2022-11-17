@@ -20,7 +20,7 @@ public class Comment {
     @ManyToOne
     private Announcement announcement;
     private String message;
-    @OneToMany(mappedBy = "comment")
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
     private List<CommentAnswer> answers = new ArrayList<>();
 
     public CommentDto convertToDto(){

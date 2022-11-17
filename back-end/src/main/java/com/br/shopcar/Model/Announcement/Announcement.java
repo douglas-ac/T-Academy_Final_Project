@@ -26,7 +26,7 @@ public class Announcement {
     private LocalDateTime date;
     @Embedded
     private Adress adress;
-    @OneToMany(mappedBy = "announcement")
+    @OneToMany(mappedBy = "announcement", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
     public AnnouncementDto converter(){

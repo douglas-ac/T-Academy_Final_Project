@@ -1,5 +1,6 @@
 package com.br.shopcar.Controller;
 
+import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> save(@RequestBody UserDtoPost userDtoPost){
+    public ResponseEntity<UserDtoSlim> save(@RequestBody UserDtoPost userDtoPost){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userDtoPost));
     }
 
