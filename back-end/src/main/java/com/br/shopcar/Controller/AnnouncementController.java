@@ -17,7 +17,7 @@ public class AnnouncementController {
     AnnouncementService announcementService;
 
     @GetMapping
-    public ResponseEntity<java.lang.Object> findAll(){
+    public ResponseEntity<List<AnnouncementDto>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAll());
     }
 
