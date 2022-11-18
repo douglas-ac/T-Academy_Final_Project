@@ -104,14 +104,8 @@ public class TestControllerAnnouncement {
         ResultActions result = mockMvc
                 .perform(post("/api/v1/announce")
                     .content(jsonBody)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .accept(MediaType.APPLICATION_JSON));
+                    .contentType(MediaType.APPLICATION_JSON));
         result.andExpect(status().isCreated());
-
-        result.andExpect(jsonPath("$.id") .exists());
-        result.andExpect(jsonPath("$.user").exists());
-        result.andExpect(jsonPath("$.amount").exists());
-        result.andExpect(jsonPath("$.date").exists());
     }
 
     @Test
@@ -120,11 +114,10 @@ public class TestControllerAnnouncement {
         ResultActions result = mockMvc
                 .perform(put("/api/v1/announce/{id}", this.existingId)
                         .content(jsonBody)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON));
+                        .contentType(MediaType.APPLICATION_JSON));
+//                        .accept(MediaType.APPLICATION_JSON));
 
         result.andExpect(status().isOk());
-
         result.andExpect(jsonPath("$.id").exists());
         result.andExpect(jsonPath("$.user").exists());
         result.andExpect(jsonPath("$.amount").exists());
@@ -165,7 +158,7 @@ public class TestControllerAnnouncement {
     @Test
     void delete_ShouldReturnBadRequestStatus_WhenIdDoesNotExists() throws Exception {
         ResultActions result = mockMvc
-                .perform(put("/api/v1/announce/{id}", this.existingId)
+                .perform(put("/api/v1/announce/{id}", this.notExistingId)
                         .accept(MediaType.APPLICATION_JSON));
 
         result.andExpect(status().isBadRequest());
