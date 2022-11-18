@@ -1,12 +1,10 @@
 package com.br.shopcar.Service;
 
-import com.br.shopcar.Dto.GET.LoginDto;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Dto.POST.UserDtoPost;
-import com.br.shopcar.Model.User.Login;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.UserRepository;
-import com.br.shopcar.factory.Factory;
+import com.br.shopcar.Factory.Factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
