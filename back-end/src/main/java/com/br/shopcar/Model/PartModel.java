@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "auto_part")
 @DiscriminatorValue("2")
 public class PartModel extends ProductModel {
     private Condition part_condition;
