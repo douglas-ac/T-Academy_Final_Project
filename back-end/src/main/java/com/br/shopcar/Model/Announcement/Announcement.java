@@ -29,7 +29,7 @@ public class Announcement {
     private Adress adress;
     @OneToMany(mappedBy = "announcement")
     private List<Comment> comments;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private ProductModel product;
 
     public AnnouncementDto converter(){

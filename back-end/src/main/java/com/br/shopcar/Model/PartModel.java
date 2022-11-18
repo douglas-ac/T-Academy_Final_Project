@@ -1,5 +1,7 @@
 package com.br.shopcar.Model;
 
+import com.br.shopcar.Dto.GET.CarDto;
+import com.br.shopcar.Dto.GET.PartDto;
 import com.br.shopcar.enums.Automaker;
 import com.br.shopcar.enums.Condition;
 import lombok.Getter;
@@ -20,4 +22,15 @@ public class PartModel extends ProductModel {
     private String category;
     private Automaker automaker;
 
+    public PartDto convertToDto(){
+        PartDto partDto = new PartDto();
+        partDto.setId(this.getId());
+        partDto.setNome(this.getNome());
+        partDto.setDescricao(this.getDescricao());
+        partDto.setPreco(this.getPreco());
+        partDto.setPart_condition(this.getPart_condition());
+        partDto.setAutomaker(this.getAutomaker());
+        partDto.setCategory(this.getCategory());
+        return partDto;
+    }
 }

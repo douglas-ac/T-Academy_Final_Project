@@ -1,5 +1,7 @@
 package com.br.shopcar.Model;
 
+import com.br.shopcar.Dto.GET.CarDto;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -26,4 +28,14 @@ public class CarModel extends ProductModel {
         this.modelo = modelo;
     }
 
+    public CarDto convertToDto(){
+        CarDto carDto = new CarDto();
+        carDto.setId(this.getId());
+        carDto.setNome(this.getNome());
+        carDto.setDescricao(this.getDescricao());
+        carDto.setPreco(this.getPreco());
+        carDto.setQuilomatragem(this.getQuilomatragem());
+        carDto.setModelo(this.getModelo());
+        return carDto;
+    }
 }
