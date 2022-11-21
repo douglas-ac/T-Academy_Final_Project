@@ -40,8 +40,8 @@ public class CommentService {
 
     @Transactional
     public CommentDto save(CommentDto commentDto){
-        User userModel = userService.findByIdModel(commentDto.getUserId());
-        Announcement announceModel = announcementService.findByIdModel(commentDto.getAnnounceId());
+        User userModel = userService.findByIdModel(commentDto.getUser().getId());
+        Announcement announceModel = announcementService.findByIdModel(commentDto.getAnnouncement().getId());
         Comment comment = commentDto.convertToModel(userModel, announceModel);
         commentRepository.save(comment);
         return comment.convertToDto();
