@@ -26,8 +26,7 @@ public class Comment {
     public CommentDto convertToDto(){
         CommentDto commentDto = new CommentDto();
         commentDto.setId(this.getId());
-        commentDto.setUserId(this.user.getId());
-        commentDto.setAnnounceId(this.announcement.getId());
+        commentDto.setUser(this.getUser().converterDto());
         commentDto.setMessage(this.getMessage());
         commentDto.setCommentAnswerDtos(this.getAnswers()
                 .stream()

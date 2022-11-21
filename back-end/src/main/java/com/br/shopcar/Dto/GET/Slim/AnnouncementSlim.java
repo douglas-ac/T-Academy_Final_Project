@@ -1,34 +1,32 @@
-package com.br.shopcar.Dto.GET;
+package com.br.shopcar.Dto.GET.Slim;
 
 import com.br.shopcar.Dto.GET.Comment.CommentDto;
-import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
-import com.br.shopcar.Model.Announcement.Comment;
 import com.br.shopcar.Model.ProductModel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-public class AnnouncementDto {
+@Data
+public class AnnouncementSlim {
 
     private long id;
-    @NotBlank
-    private UserDtoSlim user;
+
     @NotBlank
     private Integer amount;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private UserDtoSlim user;
+
     private LocalDateTime date;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<CommentDto> comments = new ArrayList<>();
+
     @NotBlank
     private ProductModel product;
 
@@ -44,4 +42,5 @@ public class AnnouncementDto {
         announcement.setProduct(this.getProduct());
         return announcement;
     }
+
 }

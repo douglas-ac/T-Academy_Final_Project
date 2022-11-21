@@ -1,5 +1,6 @@
 package com.br.shopcar.Dto.GET;
 
+import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
 import com.br.shopcar.Model.Announcement.Adress;
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,7 @@ public class UserDto {
     private String birthDate;
     @NotBlank
     private LoginDto login;
-    private List<AnnouncementDto> announcementList = new ArrayList<>();
+    private List<AnnouncementSlim> announcementList = new ArrayList<>();
     @NotBlank
     private String nacionalNumber;
     @NotBlank
@@ -45,7 +46,7 @@ public class UserDto {
         user.setLogin(this.getLogin().convertToModel());
         user.setAnnouncementList(this.announcementList
                 .stream()
-                .map(AnnouncementDto::convertToModel)
+                .map(AnnouncementSlim::convertToModel)
                 .collect(Collectors.toList()));
         user.setNacionalNumber(this.getNacionalNumber());
         user.setDescriminationColumn(this.getDescriminationColumn());
