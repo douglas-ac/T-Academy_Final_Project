@@ -38,6 +38,13 @@ public class CarService {
     }
 
     @Transactional
+    public CarDto save(CarDto CarDto){
+        CarModel carModel = CarDto.convertToModel();
+        CarRepository.save(carModel);
+        return carModel.converterDto();
+    }
+
+    @Transactional
     public CarDto change(Long idCar, CarDto carDto){
         Optional<CarModel> CarToChange = CarRepository.findById(idCar);
         CarModel carModel = CarToChange.orElseThrow(() -> new EntityNotFoundException("Car not found"));
