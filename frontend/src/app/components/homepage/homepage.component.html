@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCar - Home</title>
+
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div id="carousel" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="carouselDiv ">
+                    <h1 class="bannerText bannerBig">Carros novos e seminovos com as melhores condições do mercado!</h1>
+                    <p class="bannerText mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    <button mat-raised-button class="btnCarousel" >Ver catálogo</button>
+                    <img src="../../../assets/img/car_sample.png" class="carImg" alt="Red Jeep">
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<mat-card class="searchContainer">
+    <mat-card-content>
+    <mat-tab-group>
+        <mat-tab label="Comprar Carros">
+            danonangus
+<!--            <form id="search">-->
+<!--                <p>-->
+<!--                    <mat-form-field appearance="outline">-->
+<!--                        <mat-label>Encontre seu carro</mat-label>-->
+<!--                        <input matInput placeholder="Placeholder">-->
+<!--                    </mat-form-field>-->
+<!--                </p>-->
+<!--                <button class="btnSearch" type="submit">Ver Ofertas</button>-->
+<!--            </form>-->
+        </mat-tab>
+        <mat-tab label="Vender Carros">
+            amogus
+        </mat-tab>
+        <mat-tab label="Comprar Peças">
+            amogus
+        </mat-tab>
+        <mat-tab label="Vender Peças">
+            amogus
+        </mat-tab>
+    </mat-tab-group>
+    </mat-card-content>
+</mat-card>
+
+<div id="categories">
+    <p class="categoriesTitle">Categorias</p>
+    <div id="categoriesAnchors">
+        <a href=""><img src="../assets/img/adventure_categories.svg" class="categoriesImg" alt=""></a>
+        <a href=""><img src="../assets/img/hatch_categories.svg" class="categoriesImg" alt=""></a>
+        <a href=""><img src="../assets/img/sedan_categories.svg" class="categoriesImg" alt=""></a>
+        <a href=""><img src="../assets/img/family-car_categories.svg" class="categoriesImg" alt=""></a>
+    </div>
+</div>
+
+<div id="announce" class="container">
+    <div id="announceAllign">
+        <p class="">Anuncie e venda o seu carro pelo melhor preço!</p>
+        <!-- <img  class="row-6"src="../assets/img/man_banner.svg" alt="" srcset=""> -->
+        <a href=""><input type="button" class="btn row-4 btnAnnounce" value="Saiba Mais"></a>
+    </div>
+</div>
+
+<div id="mostPopular" class="container">
+    <h2>Os Mais Procurados</h2>
+    <div class="row">
+        <div id="card1" class="card col-3">
+            <img src="../assets/img/adventure_categories.svg" alt="">
+            <p class="seller">vendedor</p>
+            <p class="carName">nome</p>
+            <p class="location">endereco</p>
+            <p class="price">preço</p>
+            <p class="installments">parcelamento</p>
+            <button class="btn btnOffer" onclick="">Ver oferta</button>
+        </div>
+        <div class="card col-3">
+            <img src="../assets/img/adventure_categories.svg" alt="">
+            <p class="seller">VENDEDOR</p>
+            <p class="carName">Carro Exemplo - Renault Stepway</p>
+            <p class="location">2016 - 180.000 Km - SOROCABA</p>
+            <p class="price">R$ 80.000</p>
+            <p class="installments">60 x R$ 5081,90/mês</p>
+            <button class="btn btnOffer" onclick="">Ver oferta</button>
+        </div>
+        <div id="card2" class="card col-3">
+            <img src="../assets/img/adventure_categories.svg" alt="">
+            <p class="seller">vendedor</p>
+            <p class="carName">nome</p>
+            <p class="location">endereco</p>
+            <p class="price">preço</p>
+            <p class="installments">parcelamento</p>
+            <button class="btn btnOffer" onclick="">Ver oferta</button>
+        </div>
+    </div>
+    <p class="btn btnCatalog col-2 offset-5">Ver Catálogo</p>
+</div>
+</body>
+</html>

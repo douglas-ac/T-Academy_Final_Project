@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* carousel */
+.carousel{
+    background-color: #F6184D;
+}
+
+.carousel .carousel-indicators button {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    margin: 10px;
+    /* margin-bottom: 100px; */
+}
+
+.carousel-indicators{
+    text-align: left;
+    float: left;
+    left: 2%;
+    right: inherit;
+
+}
+
+.carouselDiv{
+    display:block;
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.btnCarousel{
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    height: 50px;
+    color:#F6184D;
+    background-color:#FFFFFF;
+    /* padding-right: 10px;
+    padding-left: 10px; */
+    border-radius: 8px;
+}
+
+.carImg{
+    max-height: 60%;
+    margin-left: 20%;
+    padding-bottom: 20px;
+}
+
+.bannerText{
+    color:#ffffff;
+    max-width: 52%;
+    margin-right: 0;
+}
+
+.mini{
+    font-size: 25px;
+}
+
+.bannerBig{
+    font-size: 35px;
+    font-weight: 800;
+}
+
+/* carousel */
+
+/* search container */
+.searchContainer{
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+}
+
+.searchContainer button{
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btnSearch{
+    background-color: #F6184D;
+    color: white;
+}
+
+.btnSearch:hover{
+    background-color: #ff134a;
+}
+
+.radioSCont{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #94949E;
+    margin-bottom: 10px;
+}
+
+.radioSCont:checked{
+    border-bottom: 0px;
+    border-color: #F6184D;
+    background-color: #F6184D;
+    color: #000000;
+    transition:none;
+}
+
+.radioSCont :hover{
+    color: #F6184D;
+}
+
+/*.radioSCont:active{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+
+    border-radius: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 5px;
+} */
+
+.searchBar{
+    margin-left:20px;
+}
+
+.categoriesTitle{
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+
+    margin-top: 20px;
+    margin-left: 4.5%;
+    margin-bottom: 20px;
+}
+
+.categoriesImg{
+    border-radius:15px;
+    max-width: 280px;
+    max-height: 210px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#categoriesAnchors{
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+}
+
+#announce{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 15px;
+    background-color: #FFB254;
+    font-family: 'Inter', sans-serif;
+}
+
+#announceAllign{
+    margin-left: 7.5%;
+    padding: 15px;
+}
+
+#announce p{
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    max-width: 60%;
+    text-decoration: none;
+}
+
+/* #announce img{
+    margin-right: 20px;
+    margin-bottom: 0px;
+    width: 500px;
+} */
+
+.btnAnnounce{
+    background-color: #ffffff;
+    color: #FFB254;
+    font-size: large;
+    font-weight: bold;
+}
+
+.btnAnnounce:hover{
+    background-color: #ebebeb;
+    color: #fea941;
+    font-size: large;
+    font-weight: bold;
+}
+
+#mostPopular h2 {
+    text-align: center;
+    color: #413838;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+#card1{
+    margin-left: 120px;
+    margin-right: 20px;
+}
+
+#card2{
+    margin-right: 120px;
+    margin-left: 20px;
+}
+
+#mostPopular .card{
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#mostPopular img{
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+#mostPopular .card p{
+    font-family: 'Inter', sans-serif;
+}
+
+.seller{
+    margin-top:8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #94949E
+}
+
+.carName{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.location{
+    font-size: 15px;
+    font-weight: 500;
+    color: #94949E
+}
+
+.price{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.installments{
+    font-size: 14px;
+    font-weight: 700;
+    color: #94949E
+}
+
+.btnOffer{
+    color: #ffffff;
+    background-color: #F6184D;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btnCatalog{
+    margin-top: 60px;
+    color: #ffffff;
+    background-color: #FFB254;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btnCatalog:hover{
+    background-color: #FFB254;
+    color: #000000;
+    transition:0.2s;
+}
