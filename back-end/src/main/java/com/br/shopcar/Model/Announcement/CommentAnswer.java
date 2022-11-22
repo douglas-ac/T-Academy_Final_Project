@@ -24,9 +24,8 @@ public class CommentAnswer {
 
     public CommentAnswerDto convertToDto(){
         CommentAnswerDto commentAnswerDto = new CommentAnswerDto();
-        commentAnswerDto.setUserId(this.getUser().getId());
+        commentAnswerDto.setUser(this.getUser().converterDto());
         commentAnswerDto.setMessage(this.getMessage());
-        commentAnswerDto.setCommentId(this.getComment().getId());
         commentAnswerDto.setTimeCreated(this.getTimeCreated());
         return commentAnswerDto;
     }

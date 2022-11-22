@@ -42,10 +42,12 @@ public class User {
         userDto.setLogin(this.login.converter());
         userDto.setAnnouncementList(this.announcementList
                 .stream()
-                .map(Announcement::converter)
+                .map(Announcement::converterToSlim)
                 .collect(Collectors.toList()));
         userDto.setNacionalNumber(this.getNacionalNumber());
         userDto.setDescriminationColumn(this.getDescriminationColumn());
+        userDto.setFone(this.getFone());
+        userDto.setAdress(this.getAdress());
         return userDto;
     }
 
@@ -54,8 +56,7 @@ public class User {
         userDtoSlim.setId(this.getId());
         userDtoSlim.setName(this.getName());
         userDtoSlim.setEmail(this.getEmail());
-        userDtoSlim.setBirthDate(this.getBirthDate());
-        userDtoSlim.setNacionalNumber(this.getNacionalNumber());
+        userDtoSlim.setFone(this.getFone());
         return userDtoSlim;
     }
 

@@ -63,15 +63,12 @@ public class AnnouncementService {
 
     @Transactional
     public void delete(long idAnn){
-        try {
             //searching the object in the database
             Optional<Announcement> annToDelete = announcementRepository.findById(idAnn);
             //if founded -> delete else-> exception
             Announcement announcement = annToDelete.orElseThrow(() -> new EntityNotFoundException("Announce not found"));
             announcementRepository.delete(announcement);
-        } catch (Exception e){
-            return; //exception handler to develop
-        }
+
 
     }
 

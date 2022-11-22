@@ -1,5 +1,7 @@
 package com.br.shopcar.Dto.GET;
 
+import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
+import com.br.shopcar.Model.Announcement.Adress;
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,17 +25,18 @@ public class UserDto {
     private String name;
     @NotBlank
     private String email;
-    @NotBlank @Pattern(regexp = "^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\\d{4}$")
+    @NotBlank
     private String birthDate;
     @NotBlank
     private LoginDto login;
-    private List<AnnouncementDto> announcementList = new ArrayList<>();
+    private List<AnnouncementSlim> announcementList = new ArrayList<>();
     @NotBlank
     private String nacionalNumber;
     @NotBlank
     private String descriminationColumn;
-    @NotBlank @Pattern(regexp = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$")
+    @NotBlank
     private String fone;
+    private Adress adress;
 
     public User convertToModel(){
         User user = new User();
@@ -43,11 +46,12 @@ public class UserDto {
         user.setLogin(this.getLogin().convertToModel());
         user.setAnnouncementList(this.announcementList
                 .stream()
-                .map(AnnouncementDto::convertToModel)
+                .map(AnnouncementSlim::convertToModel)
                 .collect(Collectors.toList()));
         user.setNacionalNumber(this.getNacionalNumber());
         user.setDescriminationColumn(this.getDescriminationColumn());
         user.setFone(this.getFone());
+        user.setAdress(this.getAdress());
         return user;
     }
 }
