@@ -1,0 +1,25 @@
+.products-options{
+    display: flex;
+    gap: 40px;
+    padding: 20px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 25%);
+}
+
+.part-option{
+    opacity: 0.5;
+}
+
+div span{
+    cursor: pointer;
+    position: relative;
+}
+
+div span h2:after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background-color: red;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
