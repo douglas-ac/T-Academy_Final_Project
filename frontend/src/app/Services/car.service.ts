@@ -25,4 +25,8 @@ export class CarService {
   put(id:number, data:Car){
     return this.http.put<[Car]>(`http://localhost:8082/api/v1/cars/${id}`, data)
   }
+
+  delete(id:number){
+    return this.http.delete(`http://localhost:8082/api/v1/cars/${id}`)
+  }
 }

@@ -25,4 +25,8 @@ export class PartService {
   put(id:number, data:Part){
     return this.http.put<[Part]>(`http://localhost:8082/api/v1/parts/${id}`, data)
   }
+
+  delete(id:number){
+    return this.http.delete(`http://localhost:8082/api/v1/parts/${id}`)
+  }
 }
