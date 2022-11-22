@@ -6,3 +6,10 @@
     margin: 0;
     padding: 0;
 }
+
+:root{
+    --primary: #F6184D;
+    --secondary: white;
+    --tertiary: #FFB254;
+    --quaternary: #413838;
+}

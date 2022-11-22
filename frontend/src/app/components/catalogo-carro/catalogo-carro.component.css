@@ -18,7 +18,7 @@ div span h2:after{
     content: '';
     height: 3px;
     width: 100%;
-    background-color: red;
+    background-color: var(--primary);
     position: absolute;
     bottom: -10px;
     left: 0;
