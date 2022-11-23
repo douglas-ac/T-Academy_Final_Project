@@ -1,6 +1,7 @@
 package com.br.shopcar.GoogleMapsApi;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
+import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Service.AnnouncementService;
@@ -47,7 +48,7 @@ public class MapApiService {
     }
 
     public List<Map.Entry<Integer, Integer>> orderingAnnounces(long idUser){
-        List<AnnouncementDto> all = announcementService.findAll();
+        List<AnnouncementSlim> all = announcementService.findAll();
         HashMap<Integer, Integer> allDistances = new HashMap<>();
         all.forEach( a -> {
             int distanceForUserAndAnnouce = findDistanceForUserAndAnnouce(idUser, a.getId());

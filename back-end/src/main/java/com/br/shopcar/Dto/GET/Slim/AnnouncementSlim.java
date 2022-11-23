@@ -1,6 +1,7 @@
 package com.br.shopcar.Dto.GET.Slim;
 
 import com.br.shopcar.Dto.GET.Comment.CommentDto;
+import com.br.shopcar.Model.Announcement.Adress;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.ProductModel;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,6 +30,7 @@ public class AnnouncementSlim {
 
     @NotBlank
     private ProductModel product;
+    private Adress adress;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();
@@ -40,6 +42,7 @@ public class AnnouncementSlim {
                 .map(CommentDto::convertToModel)
                 .collect(Collectors.toList()));
         announcement.setProduct(this.getProduct());
+        announcement.setAdress(this.getAdress());
         return announcement;
     }
 

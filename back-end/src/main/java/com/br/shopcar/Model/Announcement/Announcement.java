@@ -55,6 +55,7 @@ public class Announcement {
         announcementDto.setAmount(this.getAmount());
         announcementDto.setDate(this.getDate());
         announcementDto.setProduct(this.getProduct());
+        announcementDto.setAdress(this.getAdress());
         return announcementDto;
     }
 
