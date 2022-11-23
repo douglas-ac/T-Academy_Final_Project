@@ -1,0 +1,17 @@
+.container {
+    margin: 60px 80px 100px 80px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container mat-form-field {
+    width: 436px;
+    margin-top: 10px;
+}
