@@ -5,23 +5,23 @@
         </div>
             <mat-form-field appearance="outline">
                 <mat-label>Nome completo</mat-label>
-                <input matInput formControlName="fullname">
+                <input matInput formControlName="fullname" type="text">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>E-mail</mat-label>
-                <input matInput formControlName="email">
+                <input matInput formControlName="email" type="email">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Senha</mat-label>
-                <input matInput formControlName="password">
+                <input matInput formControlName="password" type="password">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Confirmação de senha</mat-label>
-                <input matInput formControlName="confirmPassword">
+                <input matInput formControlName="confirmPassword" type="password">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>CPF</mat-label>
-                <input matInput placeholder="000.000.000-00" formControlName="cpf">
+                <input matInput placeholder="000.000.000-00" formControlName="cpf" type="text">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Data de nascimento</mat-label>
@@ -36,7 +36,7 @@
         </div>
             <mat-form-field appearance="outline">
                 <mat-label>CEP</mat-label>
-                <input matInput type="number" formControlName="zipCode">
+                <input matInput type="text" formControlName="zipCode">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Rua</mat-label>
@@ -59,7 +59,10 @@
                 <input matInput type="text" formControlName="addressComplement">
             </mat-form-field>
     </form>
-    <div class="example-button-row">
-        <button mat-flat-button color="primary">Criar conta</button>
+    <div class="create-account">
+        <button>Criar conta</button>
+    </div>
+    <div class="already-has-account">
+        <p>Já possui uma conta? <a href="">Login</a></p>
     </div>
 </div>

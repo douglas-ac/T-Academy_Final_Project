@@ -11,7 +11,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -29,8 +28,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatGridListModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
