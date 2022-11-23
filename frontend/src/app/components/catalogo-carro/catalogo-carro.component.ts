@@ -7,4 +7,23 @@ import { Component } from '@angular/core';
 })
 export class CatalogoCarroComponent {
 
+  isBrandShow:boolean = false;
+  isColorShow:boolean = false;
+  isCategoryShow:boolean = false;
+  
+  showAllBrands(){
+    this.isBrandShow = !this.isBrandShow;
+  }
+
+  showAllColors(){
+    this.isColorShow = !this.isColorShow;
+  }
+
+  showAllCategorys(){
+    this.isCategoryShow = !this.isCategoryShow;
+  }
+
+  
+
+
 }
