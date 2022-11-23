@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-/* carousel */
+/* ### carousel ### */
 .carousel{
     background-color: #F6184D;
 }
@@ -60,9 +60,9 @@
     font-weight: 800;
 }
 
-/* carousel */
+/* ### carousel end ### */
 
-/* search container */
+/* ### search container ### */
 .searchContainer{
     margin-top: 10px;
     margin-left: 10%;
@@ -71,13 +71,18 @@
     padding: 20px;
 }
 
-.searchContainer button{
-    margin-bottom: 20px;
-    margin-right: auto;
-    margin-left: auto;
+.inputSearch{
+    height:40px;
+    /*border-color:#D2CECE;
+    border-width:3px;
+    border-radius:5px*/
 }
 
 .btnSearch{
+    height:40px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    margin-left:20px;
     background-color: #F6184D;
     color: white;
 }
@@ -86,41 +91,15 @@
     background-color: #ff134a;
 }
 
-.radioSCont{
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #94949E;
-    margin-bottom: 10px;
-}
-
-.radioSCont:checked{
-    border-bottom: 0px;
-    border-color: #F6184D;
-    background-color: #F6184D;
-    color: #000000;
-    transition:none;
-}
-
-.radioSCont :hover{
-    color: #F6184D;
-}
-
-/*.radioSCont:active{
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #000000;
-
-    border-radius: 0px;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 5px;
-} */
-
 .searchBar{
     margin-left:20px;
+}
+/* ### search conteiner end ### */
+
+/* ### categories ### */
+#categories{
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .categoriesTitle{
@@ -131,6 +110,35 @@
     margin-top: 20px;
     margin-left: 4.5%;
     margin-bottom: 20px;
+}
+
+.cards{
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    font-weight:500;
+    font-size:40px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 15px;
+    width:275px;
+    height:205px;
+    padding-top:2px;
+}
+
+.card1{
+    background-image: url("../../../assets/img/adventure_categories.svg");
+}
+
+.card2{
+
+}
+
+.card3{
+
+}
+
+.card4{
+
 }
 
 .categoriesImg{
@@ -145,6 +153,7 @@
     margin-left: 4.5%;
     margin-right: 4.5%;
 }
+/* ### categories end ###*/
 
 #announce{
     margin-top: 60px;

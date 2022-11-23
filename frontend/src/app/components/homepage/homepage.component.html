@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="carouselDiv ">
                     <h1 class="bannerText bannerBig">Carros novos e seminovos com as melhores condições do mercado!</h1>
-                    <p class="bannerText mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+<!--                    <p class="bannerText mini">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>-->
                     <button mat-raised-button class="btnCarousel" >Ver catálogo</button>
                     <img src="../../../assets/img/car_sample.png" class="carImg" alt="Red Jeep">
                 </div>
@@ -49,40 +49,57 @@
 
 <mat-card class="searchContainer">
     <mat-card-content>
-    <mat-tab-group>
-        <mat-tab label="Comprar Carros">
-            danonangus
-<!--            <form id="search">-->
-<!--                <p>-->
-<!--                    <mat-form-field appearance="outline">-->
-<!--                        <mat-label>Encontre seu carro</mat-label>-->
-<!--                        <input matInput placeholder="Placeholder">-->
-<!--                    </mat-form-field>-->
-<!--                </p>-->
-<!--                <button class="btnSearch" type="submit">Ver Ofertas</button>-->
-<!--            </form>-->
-        </mat-tab>
-        <mat-tab label="Vender Carros">
-            amogus
-        </mat-tab>
-        <mat-tab label="Comprar Peças">
-            amogus
-        </mat-tab>
-        <mat-tab label="Vender Peças">
-            amogus
-        </mat-tab>
-    </mat-tab-group>
+        <mat-tab-group  >
+            <mat-tab label="Comprar Carros"> danonangus </mat-tab>
+            <mat-tab label="Vender Carros"> amogus </mat-tab>
+            <mat-tab label="Comprar Peças"> amogus </mat-tab>
+            <mat-tab label="Vender Peças"> amogus </mat-tab>
+        </mat-tab-group>
+
+
+        <form >
+            <input matNativeControl class="col-9 inputSearch" placeholder="Procure uma marca ou modelo">
+            <button mat-raised-button class="col-2 btnSearch" type="submit">VER OFERTAS</button>
+        </form>
     </mat-card-content>
 </mat-card>
 
 <div id="categories">
     <p class="categoriesTitle">Categorias</p>
-    <div id="categoriesAnchors">
-        <a href=""><img src="../assets/img/adventure_categories.svg" class="categoriesImg" alt=""></a>
-        <a href=""><img src="../assets/img/hatch_categories.svg" class="categoriesImg" alt=""></a>
-        <a href=""><img src="../assets/img/sedan_categories.svg" class="categoriesImg" alt=""></a>
-        <a href=""><img src="../assets/img/family-car_categories.svg" class="categoriesImg" alt=""></a>
-    </div>
+    <mat-grid-list [cols]= "4" rowHeight="">
+        <mat-grid-tile>
+            <mat-card class="cards card1">
+                <mat-card-content>
+                    <p>Adventurous</p>
+<!--                    <img class="categoriesImg" src="../../../assets/img/adventure_categories.svg" alt="">-->
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="cards card2">
+                <mat-card-content>
+                    <p>Hatch</p>
+<!--                    <img class="categoriesImg" src="../../../assets/img/hatch_categories.svg" alt="">-->
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="cards card3">
+                <mat-card-content>
+                    <p>Sedan</p>
+<!--                    <img class="categoriesImg" src="../../../assets/img/sedan_categories.svg" alt="">-->
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+        <mat-card class="cards card4">
+                <mat-card-content>
+                    <p>Familiar</p>
+<!--                    <img class="categoriesImg" src="../../../assets/img/family-car_categories.svg" alt="">-->
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
 
 <div id="announce" class="container">
