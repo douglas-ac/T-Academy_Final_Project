@@ -5,6 +5,8 @@ import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -19,9 +21,8 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public List<UserDto> findAll(){
-        List<User> allUser = userRepository.findAll();
-        return allUser.stream().map(User::converterDto).collect(Collectors.toList());
+    public Page<UserDto> findAll(Pageable pageable){
+        return userRepository.findAll(pageable).map(User::converterDto);
     }
 
     public UserDto findById(Long id){
