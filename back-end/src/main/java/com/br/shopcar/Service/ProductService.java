@@ -51,6 +51,16 @@ public class ProductService {
         return partModel.convertToDto();
     }
 
+    public List<CarDto> findCarName(String name) {
+        List<CarModel> byName = carRepository.findByNomeContains(name);
+        return byName.stream().map(CarModel::convertToDto).collect(Collectors.toList());
+    }
+
+    public List<PartDto> findPartName(String name) {
+        List<PartModel> byName = partRepository.findByNomeContains(name);
+        return byName.stream().map(PartModel::convertToDto).collect(Collectors.toList());
+    }
+
     public List<CarDto> findAllCars() {
         List<CarModel> all = carRepository.findAll();
         return all.stream().map(CarModel::convertToDto).collect(Collectors.toList());

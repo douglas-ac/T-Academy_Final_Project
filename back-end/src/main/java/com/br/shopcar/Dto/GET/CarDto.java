@@ -1,7 +1,6 @@
 package com.br.shopcar.Dto.GET;
 
 import com.br.shopcar.Model.CarModel;
-import com.br.shopcar.Model.ProductModel;
 import lombok.Data;
 
 @Data
