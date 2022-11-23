@@ -33,6 +33,8 @@ public class Announcement {
     private List<Comment> comments;
     @ManyToOne(cascade = CascadeType.REMOVE)
     private ProductModel product;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     public AnnouncementDto converter(){
         AnnouncementDto announcementDto = new AnnouncementDto();
@@ -45,6 +47,7 @@ public class Announcement {
                 .map(Comment::convertToDto)
                 .collect(Collectors.toList()));
         announcementDto.setProduct(this.getProduct());
+        announcementDto.setStatus(this.getStatus());
         return announcementDto;
     }
 
@@ -55,6 +58,8 @@ public class Announcement {
         announcementDto.setAmount(this.getAmount());
         announcementDto.setDate(this.getDate());
         announcementDto.setProduct(this.getProduct());
+        announcementDto.setAdress(this.getAdress());
+        announcementDto.setStatus(this.getStatus());
         return announcementDto;
     }
 
