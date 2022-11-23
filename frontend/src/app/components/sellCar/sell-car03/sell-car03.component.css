@@ -109,13 +109,11 @@
 
 .dropdown-pequeno {
     width: 180px;
-    /* margin-left: 25px; */
 }
 
 .botao-pequeno {
     width: 180px;
     height: 50px;
-    /* margin-left: 25px; */
     background-color: rgba(246, 24, 77, 1);
     color: white;
     border-width: 0px;
@@ -123,7 +121,20 @@
 }
 
 .botao-voltar {
+    width: 180px;
+    height: 50px;
+    color: white;
+    border-width: 0px;
+    border-radius: 5px;
     border-color: lightgrey;
     background-color: white;
     background-color: lightgrey;
+}
+
+.botao-voltar:hover {
+    background-color: gray;
+}
+
+.botao-pequeno:hover {
+    background-color: rgba(246, 24, 77, 0.7);
 }

@@ -104,3 +104,7 @@ b {
     border-width: 0px;
     border-radius: 5px;
 }
+
+.botao:hover {
+    background-color: rgba(246, 24, 77, 0.7);
+}

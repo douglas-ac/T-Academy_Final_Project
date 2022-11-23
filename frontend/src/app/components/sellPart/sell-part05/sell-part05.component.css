@@ -123,9 +123,22 @@
 }
 
 .botao-voltar {
+    width: 180px;
+    height: 50px;
+    color: white;
+    border-width: 0px;
+    border-radius: 5px;
     border-color: lightgrey;
     background-color: white;
     background-color: lightgrey;
+}
+
+.botao-voltar:hover {
+    background-color: gray;
+}
+
+.botao-pequeno:hover {
+    background-color: rgba(246, 24, 77, 0.7);
 }
 
 .opcao {
