@@ -7,7 +7,7 @@ import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-car
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
