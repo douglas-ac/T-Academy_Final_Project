@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-carro.component';
+
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SellCar01Component } from './components/sellCar/sell-car01/sell-car01.component';
 import { SellCar02Component } from './components/sellCar/sell-car02/sell-car02.component';
@@ -18,8 +21,10 @@ import { SellPart05Component } from './components/sellPart/sell-part05/sell-part
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 
 const routes: Routes = [
-  {path: 'catalogoCarros', component: CatalogoCarroComponent},
+  {path: '', component: HomeComponent},
+  {path: 'cars-catalog', component: CatalogoCarroComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'cadastro', component: RegisterComponent},
   {path: 'sell-car01', component: SellCar01Component},
   {path: 'sell-car02', component: SellCar02Component},
   {path: 'sell-car03', component: SellCar03Component},
