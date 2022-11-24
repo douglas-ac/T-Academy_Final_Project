@@ -1,8 +1,6 @@
 package com.br.shopcar.Model;
 
-import com.br.shopcar.Dto.GET.CarDto;
 import com.br.shopcar.Dto.GET.PartDto;
-import com.br.shopcar.enums.Automaker;
 import com.br.shopcar.enums.Condition;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Setter
 @Getter
@@ -19,18 +16,16 @@ import javax.persistence.Table;
 @DiscriminatorValue("2")
 public class PartModel extends ProductModel {
     private Condition part_condition;
-    private String category;
-    private Automaker automaker;
+    private String brand;
+    private String vehicle_type;
 
     public PartDto convertToDto(){
-        PartDto partDto = new PartDto();
-        partDto.setId(this.getId());
-        partDto.setNome(this.getNome());
-        partDto.setDescricao(this.getDescricao());
-        partDto.setPreco(this.getPreco());
+        PartDto partDto = super.convertToDto(new PartDto());
+
         partDto.setPart_condition(this.getPart_condition());
-        partDto.setAutomaker(this.getAutomaker());
-        partDto.setCategory(this.getCategory());
+        partDto.setBrand(this.getBrand());
+        partDto.setVehicle_type(this.getVehicle_type());
+
         return partDto;
     }
 }

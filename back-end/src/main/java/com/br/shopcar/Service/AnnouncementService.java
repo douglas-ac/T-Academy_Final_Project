@@ -26,6 +26,14 @@ public class AnnouncementService {
         return  announcementRepository.findAll(pageable).map(Announcement::converter);
     }
 
+    public Page<AnnouncementDto> findAllCars(Pageable pageable){
+        return  announcementRepository.findAllAnnouncesCar(pageable).map(Announcement::converter);
+    }
+
+    public Page<AnnouncementDto> findAllParts(Pageable pageable){
+        return  announcementRepository.findAllAnnouncesParts(pageable).map(Announcement::converter);
+    }
+
     public List<AnnouncementSlim> findAll(){
         return announcementRepository.findAll().stream().map(Announcement::converterToSlim).collect(Collectors.toList());
     }
