@@ -1,30 +1,22 @@
 package com.br.shopcar.Dto.GET;
 
 import com.br.shopcar.Model.PartModel;
-import com.br.shopcar.enums.Automaker;
 import com.br.shopcar.enums.Condition;
 import lombok.Data;
 
 @Data
-public class PartDto {
-
-    private long id;
-    private String nome;
-    private String descricao;
-    private double preco;
+public class PartDto extends ProductDto {
     private Condition part_condition;
-    private String category;
-    private Automaker automaker;
+    private String brand;
+    private String vehicle_type;
 
     public PartModel convertToModel(){
-        PartModel partModel = new PartModel();
-        partModel.setId(this.getId());
-        partModel.setNome(this.getNome());
-        partModel.setDescricao(this.getDescricao());
-        partModel.setPreco(this.getPreco());
+        PartModel partModel = super.convertToModel(new PartModel());
+
         partModel.setPart_condition(this.getPart_condition());
-        partModel.setCategory(this.getCategory());
-        partModel.setAutomaker(this.getAutomaker());
+        partModel.setBrand(this.getBrand());
+        partModel.setVehicle_type(this.getVehicle_type());
+
         return partModel;
     }
 }

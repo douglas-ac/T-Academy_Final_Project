@@ -28,6 +28,22 @@ public class AnnouncementController {
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAll(page));
     }
 
+    @GetMapping("/cars")
+    public ResponseEntity<Page<AnnouncementDto>> findCars(@PageableDefault(sort = "id",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 10) Pageable page){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(page));
+    }
+
+    @GetMapping("/parts")
+    public ResponseEntity<Page<AnnouncementDto>> findParts(@PageableDefault(sort = "id",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 10) Pageable page){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllParts(page));
+    }
+
     @GetMapping("/{idAnnounce}")
     public ResponseEntity<AnnouncementDto> findById(@PathVariable("idAnnounce") long idAnnounce){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findById(idAnnounce));

@@ -35,6 +35,11 @@ public class PartController {
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAllParts());
     }
 
+    @GetMapping("/search/{partName}")
+    public ResponseEntity<List<PartDto>> findById(@PathVariable("partName") String partName){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findPartName(partName));
+    }
+
     @DeleteMapping("/{idPart}")
     public ResponseEntity<Void> delete(@PathVariable("idPart") long idPart){
         productService.deletePartById(idPart);

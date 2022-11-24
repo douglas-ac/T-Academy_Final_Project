@@ -3,13 +3,6 @@ export interface Login {
     password: string;
 }
 
-export interface Product {
-    id: number;
-    nome: string;
-    descricao: string;
-    preco: number;
-}
-
 export interface AnnouncementList {
     id: number;
     amount: number;
@@ -74,20 +67,19 @@ export interface Announce {
     product: Product;
 }
 
-export interface Car {
+export interface Product {
     id: number;
     nome: string;
     descricao: string;
     preco: number;
+}
+
+export interface Car extends Product{
     quilomatragem: number;
     modelo: string;
 }
 
 export interface Part {
-    id: number;
-    nome: string;
-    descricao: string;
-    preco: number;
     part_condition: string;
     category: string;
     automaker: string;

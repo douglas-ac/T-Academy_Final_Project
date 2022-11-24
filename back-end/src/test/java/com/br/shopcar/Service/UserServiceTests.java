@@ -13,6 +13,10 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.persistence.EntityNotFoundException;
@@ -55,8 +59,11 @@ public class UserServiceTests {
     }
 
     @Test
-    void findAll_ShouldReturnListOfUserDTO(){
-       List<UserDto> usersDTO = userService.findAll();
+    void findAll_ShouldReturnListOfUserDTO(@PageableDefault(sort = "id",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 10) Pageable page){
+       Page<UserDto> usersDTO = userService.findAll(page);
 
        Assertions.assertTrue(!usersDTO.isEmpty());
        verify(userRepository).findAll();
