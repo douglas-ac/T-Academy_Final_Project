@@ -20,6 +20,7 @@ import { SellPart05Component } from './components/sellPart/sell-part05/sell-part
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'cars-catalog', component: CatalogoCarroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sell-car01', component: SellCar01Component},
