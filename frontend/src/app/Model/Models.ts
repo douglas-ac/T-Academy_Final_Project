@@ -1,6 +1,6 @@
-export interface Login {
-    username: string;
-    password: string;
+export class Login {
+    username: string = "";
+    password: string = "";
 }
 
 export interface AnnouncementList {
@@ -11,27 +11,27 @@ export interface AnnouncementList {
     product: Product;
 }
 
-export interface Adress {
-    cep: string;
+export class Address {
+    cep: string = "";
     logradouro?: string;
     complemento?: string;
     bairro?: string;
-    localidade: string;
-    uf: string;
+    localidade: string = "";
+    uf: string = "";
     ddd?: string;
 }
 
-export interface User {
-    id: number;
-    name: string;
-    email: string;
+export class User {
+    id: number = 0;
+    name: string = "";
+    email: string = "";
     birthDate?: string;
     login?: Login;
     announcementList?: AnnouncementList[];
     nacionalNumber?: string;
     descriminationColumn?: string;
-    fone: string;
-    adress?: Adress;
+    fone: string = "";
+    adress?: Address;
 }
 
 export interface Order {
