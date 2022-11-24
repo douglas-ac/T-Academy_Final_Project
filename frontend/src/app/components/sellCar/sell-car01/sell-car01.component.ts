@@ -11,5 +11,4 @@ export class SellCar01Component implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

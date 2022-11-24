@@ -24,6 +24,7 @@ import { SellPart04Component } from './components/sellPart/sell-part04/sell-part
 import { SellPart05Component } from './components/sellPart/sell-part05/sell-part05.component';
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     SellPart04Component,
     SellPart05Component,
     SellPart06Component,
-    ProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
