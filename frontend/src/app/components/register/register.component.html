@@ -1,0 +1,68 @@
+<div class="container">
+    <form [formGroup]="register"> 
+        <div class="title">
+            <h1>Criar conta</h1>
+        </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome completo</mat-label>
+                <input matInput formControlName="fullname" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email" type="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="password" type="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Confirmação de senha</mat-label>
+                <input matInput formControlName="confirmPassword" type="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="000.000.000-00" formControlName="cpf" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Data de nascimento</mat-label>
+                <input matInput type="date" formControlName="dateBirth">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Celular</mat-label>
+                <input matInput type="number" formControlName="cellphone">
+            </mat-form-field>
+        <div class="title">
+            <h1>Endereço</h1>
+        </div>
+            <mat-form-field appearance="outline">
+                <mat-label>CEP</mat-label>
+                <input matInput type="text" formControlName="zipCode">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Rua</mat-label>
+                <input matInput type="text" formControlName="street">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Número</mat-label>
+                <input matInput type="number" formControlName="addressNumber">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Cidade</mat-label>
+                <input matInput type="text" formControlName="city">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Bairro</mat-label>
+                <input matInput type="text" formControlName="neighboor">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Complemento</mat-label>
+                <input matInput type="text" formControlName="addressComplement">
+            </mat-form-field>
+    </form>
+    <div class="create-account">
+        <button>Criar conta</button>
+    </div>
+    <div class="already-has-account">
+        <p>Já possui uma conta? <a href="">Login</a></p>
+    </div>
+</div>

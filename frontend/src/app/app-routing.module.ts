@@ -4,6 +4,7 @@ import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-car
 
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SellCar01Component } from './components/sellCar/sell-car01/sell-car01.component';
 import { SellCar02Component } from './components/sellCar/sell-car02/sell-car02.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'cars-catalog', component: CatalogoCarroComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'cadastro', component: RegisterComponent},
   {path: 'sell-car01', component: SellCar01Component},
   {path: 'sell-car02', component: SellCar02Component},
   {path: 'sell-car03', component: SellCar03Component},

@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-carro.component';
 import { LoginComponent } from './components/login/login.component';
+import { MatButtonModule } from '@angular/material/button';
+import { RegisterComponent } from './components/register/register.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SellCar01Component } from './components/sellCar/sell-car01/sell-car01.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -30,6 +34,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppComponent,
     CatalogoCarroComponent,
     LoginComponent,
+    RegisterComponent,
     SellCar01Component,
     SellCar02Component,
     SellCar03Component,
@@ -50,6 +55,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,
