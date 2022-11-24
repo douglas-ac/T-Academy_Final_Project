@@ -4,6 +4,7 @@ import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.Announcement.Comment;
+import com.br.shopcar.Model.Announcement.Status;
 import com.br.shopcar.Model.ProductModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,6 +32,7 @@ public class AnnouncementDto {
     private List<CommentDto> comments = new ArrayList<>();
     @NotBlank
     private ProductModel product;
+    private Status status = Status.AVAILABLE;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();
@@ -42,6 +44,7 @@ public class AnnouncementDto {
                 .map(CommentDto::convertToModel)
                 .collect(Collectors.toList()));
         announcement.setProduct(this.getProduct());
+        announcement.setStatus(this.getStatus());
         return announcement;
     }
 }

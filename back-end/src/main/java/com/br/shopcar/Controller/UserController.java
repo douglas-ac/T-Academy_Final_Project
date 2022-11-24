@@ -4,10 +4,15 @@ import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,8 +23,11 @@ public class UserController {
     UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<UserDto>> findAll(){
-        return ResponseEntity.status(HttpStatus.OK).body(userService.findAll());
+    public ResponseEntity<Page<UserDto>> findAll(@PageableDefault(sort = "id",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 10) Pageable page){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.findAll(page));
     }
 
     @GetMapping("/{idUser}")
@@ -28,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> save(@RequestBody UserDtoPost userDtoPost){
+    public ResponseEntity<UserDto> save(@Valid @RequestBody UserDtoPost userDtoPost){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(userDtoPost));
     }
 

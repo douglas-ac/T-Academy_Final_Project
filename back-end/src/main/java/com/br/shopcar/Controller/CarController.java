@@ -30,6 +30,11 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.OK).body(productService.findCarById(idCar));
     }
 
+    @GetMapping("/search/{carName}")
+    public ResponseEntity<List<CarDto>> findById(@PathVariable("carName") String carName){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findCarName(carName));
+    }
+
     @PostMapping
     public ResponseEntity<CarDto> save(@RequestBody CarDto carDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.save(carDto));

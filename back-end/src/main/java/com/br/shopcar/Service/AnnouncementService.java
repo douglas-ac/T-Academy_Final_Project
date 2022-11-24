@@ -1,10 +1,13 @@
 package com.br.shopcar.Service;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
+import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.AnnouncementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -19,10 +22,20 @@ public class AnnouncementService {
     @Autowired
     AnnouncementRepository announcementRepository;
 
-    public List<AnnouncementDto> findAll(){
-        List<Announcement> allAnn = announcementRepository.findAll();
-        //map to convert the announcements to Dtos
-        return allAnn.stream().map(Announcement::converter).collect(Collectors.toList());
+    public Page<AnnouncementDto> findAll(Pageable pageable){
+        return  announcementRepository.findAll(pageable).map(Announcement::converter);
+    }
+
+    public Page<AnnouncementDto> findAllCars(Pageable pageable){
+        return  announcementRepository.findAllAnnouncesCar(pageable).map(Announcement::converter);
+    }
+
+    public Page<AnnouncementDto> findAllParts(Pageable pageable){
+        return  announcementRepository.findAllAnnouncesParts(pageable).map(Announcement::converter);
+    }
+
+    public List<AnnouncementSlim> findAll(){
+        return announcementRepository.findAll().stream().map(Announcement::converterToSlim).collect(Collectors.toList());
     }
 
     public AnnouncementDto findById(long id){
