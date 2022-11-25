@@ -11,7 +11,7 @@ export interface AnnouncementList {
     product: Product;
 }
 
-export interface Adress {
+export interface Address {
     cep: string;
     logradouro?: string;
     complemento?: string;
@@ -31,7 +31,7 @@ export interface User {
     nacionalNumber?: string;
     descriminationColumn?: string;
     fone: string;
-    adress?: Adress;
+    adress?: Address;
 }
 
 export interface Order {
@@ -65,6 +65,7 @@ export interface Announce {
     date: Date;
     comments?: Comment[];
     product: Product;
+    address: Address;
 }
 
 export interface Product {
@@ -72,14 +73,15 @@ export interface Product {
     nome: string;
     descricao: string;
     preco: number;
+    year: number;
 }
 
 export interface Car extends Product{
-    quilomatragem: number;
+    quilometragem: number;
     modelo: string;
 }
 
-export interface Part {
+export interface Part extends Product{
     part_condition: string;
     category: string;
     automaker: string;

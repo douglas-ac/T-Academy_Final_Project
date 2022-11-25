@@ -3,7 +3,6 @@ package com.br.shopcar.Service;
 import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
-import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.AnnouncementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -62,7 +61,7 @@ public class AnnouncementService {
         Announcement dtoToChangeModel = announcementDto.convertToModel();
 
         //setting the changes
-        announcement.setAdress(dtoToChangeModel.getAdress());
+        announcement.setAddress(dtoToChangeModel.getAddress());
         announcement.setAmount(dtoToChangeModel.getAmount());
         announcement.setDate(dtoToChangeModel.getDate());
 
