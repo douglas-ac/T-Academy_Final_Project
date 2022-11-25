@@ -1,0 +1,359 @@
+<section>
+  <div class="products-options">
+    <span><h2 class="car-option">Carro</h2></span>
+    <span><h2 class="part-option">Auto Peças</h2></span>
+  </div>
+  <div class="main-content">
+    <div class="filter-atributes">
+      <div class="location filter-option">
+        <h3>Localização</h3>
+        <input type="text" class="location-input" placeholder="Digite o nome da cidade ou estado" />
+      </div>
+
+      <div class="car-brand filter-option">
+        <h3>Marca do carro</h3>
+        <div class="brands-container">
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/mercedes-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/fiat-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/ford-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/mitsubish-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/hiunday-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/renault-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/bmw-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/chevrolet-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/carCatalogImages/volkswagem.svg"
+              alt=""
+            />
+          </div>
+
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/toyota-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/landRover-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/audi-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/porshe-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/volvo-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/peugeot-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/nissan-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/jeep-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/carCatalogImages/tesla-logo.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <p class="see-more" (click)="showAllBrands()">Ver todas as marcas</p>
+      </div>
+
+      <div class="cars filter-option">
+        <h3>Carros</h3>
+        <div class="checkbox-container-cars">
+          <div class="check-label">
+            <input type="checkbox" name="newCar" id="newCar" />
+            <label for="newCar">Novo</label>
+          </div>
+          <div class="check-label">
+            <input type="checkbox" name="usedCar" id="usedCar" />
+            <label for="usedCar">Seminovo</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="year filter-option">
+        <h3>Ano</h3>
+        <div class="input-container">
+          <div class="year-input">
+            <input type="number" name="" id="" placeholder="de" />
+            <p class="example">ex.: 2014</p>
+          </div>
+          <div class="year-input">
+            <input type="number" name="" id="" placeholder="até" />
+            <p class="example">ex.: 2019</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="price filter-option">
+        <h3>Preço</h3>
+        <div class="input-container">
+          <div>
+            <input type="number" name="" id="" placeholder="de" />
+            <p class="example">ex.: 20.000</p>
+          </div>
+          <div>
+            <input type="number" name="" id="" placeholder="até" />
+            <p class="example">ex.: 50.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="miles filter-option">
+        <h3>Quilometragem</h3>
+        <div class="input-container">
+          <div>
+            <input type="number" name="" id="" placeholder="de" />
+            <p class="example">ex.: 10.000</p>
+          </div>
+          <div>
+            <input type="number" name="" id="" placeholder="até" />
+            <p class="example">ex.: 50.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="colors filter-option">
+        <h3>Cores</h3>
+        <div class="checkbox-container">
+          <div>
+            <input type="checkbox" name="colorYellow" id="colorYellow" />
+            <label for="colorYellow">Amarelo</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colorBlue" id="colorBlue" />
+            <label for="colorBlue">Azul</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colorBege" id="colorBege" />
+            <label for="colorBege">Bege</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colorWhite" id="colorWhite" />
+            <label for="colorWhite">Branco</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorGrey" id="colorGrey" />
+            <label for="colorGrey">Cinza</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorBrown" id="colorBrown" />
+            <label for="colorBrown">Marrom</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorBlack" id="colorBlack" />
+            <label for="colorBlack">Preto</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorGreen" id="colorGreen" />
+            <label for="colorGreen">Verde</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorRed" id="colorRed" />
+            <label for="colorRed">Vermelho</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorWine" id="colorWine" />
+            <label for="colorWine">Vinho</label>
+          </div>
+          <div *ngIf="isColorShow">
+            <input type="checkbox" name="colorSilver" id="colorSilver" />
+            <label for="colorSilver">Prata</label>
+          </div>
+        </div>
+        <p class="see-more" (click)="showAllColors()">Ver todas as cores</p>
+      </div>
+
+      <div class="categories filter-option">
+        <h3>Categorias</h3>
+        <div class="checkbox-container">
+          <div>
+            <input
+              type="checkbox"
+              name="categoryFrontier"
+              id="categoryFrontier"
+            />
+            <label for="categoryFrontier">Frontier</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="categoryHatches"
+              id="categoryHatches"
+            />
+            <label for="categoryHatches">Hatches</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="categoryNewCity"
+              id="categoryNewCity"
+            />
+            <label for="categoryNewCity">New City</label>
+          </div>
+          <div>
+            <input type="checkbox" name="categorySUV" id="categorySUV" />
+            <label for="categorySUV">SUVs</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input type="checkbox" name="categoryJipes" id="categoryJipes" />
+            <label for="categoryJipes">Jipes</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryPicapes"
+              id="categoryPicapes"
+            />
+            <label for="categoryPicapes">Picapes</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input type="checkbox" name="categorySedan" id="categorySedan" />
+            <label for="categorySedan">Sedans</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryOldCars"
+              id="categoryOldCars"
+            />
+            <label for="categoryOldCars">Carros antigos</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categorySportCars"
+              id="categorySportCars"
+            />
+            <label for="categorySportCars">Carros esportivos</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryLuxCars"
+              id="categoryLuxCars"
+            />
+            <label for="categoryLuxCars">Carros de luxo</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryEletricCars"
+              id="categoryEletricCars"
+            />
+            <label for="categoryEletricCars">Carros elétricos</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryPcdCars"
+              id="categoryPcdCars"
+            />
+            <label for="categoryPcdCars">Carros para pcd</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryPopularCars"
+              id="categoryPopularCars"
+            />
+            <label for="categoryPopularCars">Carros populares</label>
+          </div>
+        </div>
+        <p class="see-more" (click)="showAllCategorys()">
+          Ver todas as categorias
+        </p>
+      </div>
+
+      <div class="clean-filter-container">
+        <p class="clean-filter">Limpar filtros</p>
+      </div>
+    </div>
+    
+    <div class="cars-catalog-right">
+      <div class="cards-container">
+        <div *ngFor="let ad of ads" class="card">
+          <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
+          <p class="username">{{ ad.user.name }}</p>
+          <p class="car-model">{{ getCar(ad.product).nome }} <br> {{ getCar(ad.product).modelo }}</p>
+          <p class="car-year-miles">{{ getCar(ad.product).year+' '+getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' }}</p>
+          <p class="location">{{ ad.address.localidade }}</p>
+          <p class="price">R$ {{ getCar(ad.product).preco.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
+          <p class="price-installment">60 x R$ {{ (getCar(ad.product).preco/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
+          <button class="see-offer-btn">Ver oferta</button>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+</section>

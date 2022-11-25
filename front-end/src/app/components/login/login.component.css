@@ -1,0 +1,74 @@
+.color-orange {
+    color: rgba(255, 178, 84, 1);
+}
+
+.color-gray{
+    color: rgba(156, 156, 156, 1);
+}
+
+.color-main{
+    color: rgba(246, 24, 77, 1);
+}
+
+.bg-logo-login {
+    background-color: rgba(246, 24, 77, 1);
+}
+
+.bg-shadow{
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.font-main {
+    font-family: sans-serif;
+}
+
+.font-thick {
+    font-weight: bold;
+}
+
+.font-thicker {
+    font-weight: 900;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bg-color-main{
+    background-color: rgba(246, 24, 77, 1);
+}
+
+.btn-min-width{
+    width: 48%;
+}
+
+button.bg-color-main:hover{
+    /* background-color: rgb(184, 28, 65); */
+    background-color: rgba(246, 24, 77, 0.7);
+}
+
+a.color-main:hover{
+    /* color: rgb(184, 28, 65); */
+    color: rgba(246, 24, 77, 0.7);
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+
+.separator:not(:empty)::before {
+    margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+    margin-left: .25em;
+}

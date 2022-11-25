@@ -2,11 +2,7 @@ package com.br.shopcar.Dto.GET;
 
 import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
-<<<<<<< HEAD
-import com.br.shopcar.Model.Announcement.Adress;
-=======
 import com.br.shopcar.Model.Announcement.Address;
->>>>>>> f9f6d5dbb91203b61105e3a707da82ba73b33378
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.Announcement.Status;
 import com.br.shopcar.Model.ProductModel;
@@ -38,7 +34,7 @@ public class AnnouncementDto {
     private ProductModel product;
     private Address address;
     private Status status = Status.AVAILABLE;
-    private Adress adress;
+    private Address adress;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();
@@ -51,11 +47,7 @@ public class AnnouncementDto {
                 .collect(Collectors.toList()));
         announcement.setProduct(this.getProduct());
         announcement.setStatus(this.getStatus());
-<<<<<<< HEAD
-        announcement.setAdress(this.getAdress());
-=======
         announcement.setAddress(this.getAddress());
->>>>>>> f9f6d5dbb91203b61105e3a707da82ba73b33378
         return announcement;
     }
 }
