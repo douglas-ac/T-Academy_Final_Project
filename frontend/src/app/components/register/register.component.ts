@@ -30,9 +30,23 @@ export class RegisterComponent {
   })
 
   registerUser(): void {
-    let address = new Address
-    let user = new User
-    let login = new Login
+    let address: Address  = {
+      cep: "",
+      localidade: "",
+      uf: ""
+    }
+
+    let user: User = {
+      id: 0,
+      name: "",
+      email: "",
+      fone: ""
+    }
+
+    let login: Login = {
+      username: "",
+      password: ""
+    }
 
     address.cep = this.register.value.zipCode
     address.logradouro = this.register.value.street
@@ -51,8 +65,12 @@ export class RegisterComponent {
     user.nacionalNumber = this.register.value.cpf
     user.fone = this.register.value.cellphone
     user.adress = address;
+    user.descriminationColumn = "cpf";
+
+    console.log(user)
 
     this.service.post(user)
+    .subscribe(() => {})
   }
   
 }
