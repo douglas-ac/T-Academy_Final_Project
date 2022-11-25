@@ -1,7 +1,7 @@
 package com.br.shopcar.Dto.GET;
 
 import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
-import com.br.shopcar.Model.Announcement.Adress;
+import com.br.shopcar.Model.Announcement.Address;
 import com.br.shopcar.Model.User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +35,7 @@ public class UserDto {
     private String descriminationColumn;
     @NotBlank
     private String fone;
-    private Adress adress;
+    private Address address;
 
     public User convertToModel(){
         User user = new User();
@@ -51,7 +50,7 @@ public class UserDto {
         user.setNacionalNumber(this.getNacionalNumber());
         user.setDescriminationColumn(this.getDescriminationColumn());
         user.setFone(this.getFone());
-        user.setAdress(this.getAdress());
+        user.setAddress(this.getAddress());
         return user;
     }
 }
