@@ -52,7 +52,7 @@ public class ProductService {
     }
 
     public List<CarDto> findCarName(String name) {
-        List<CarModel> byName = carRepository.findByNomeContains(name);
+        List<CarModel> byName = carRepository.findByNameContains(name);
         return byName.stream().map(CarModel::convertToDto).collect(Collectors.toList());
     }
 

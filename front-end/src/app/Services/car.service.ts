@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Car } from '../Model/Models';
+import { Car, CarClass } from '../Model/Models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
 
-  constructor(private http: HttpClient) { }
+  car : CarClass = new CarClass();
+
+  constructor(private http: HttpClient ) { }
 
   getAll() {
     return this.http.get<[Car]>("http://localhost:8082/api/v1/cars")
@@ -28,5 +30,13 @@ export class CarService {
 
   delete(id:number){
     return this.http.delete(`http://localhost:8082/api/v1/cars/${id}`)
+  }
+
+  getCarPage() {
+    return this.car;
+  }
+
+  saveCarPage(car : CarClass){
+    this.car = car;
   }
 }

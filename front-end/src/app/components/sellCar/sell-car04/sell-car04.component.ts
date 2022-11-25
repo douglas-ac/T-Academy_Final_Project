@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarClass } from 'src/app/Model/Models';
 
 @Component({
   selector: 'app-sell-car04',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sell-car04.component.css']
 })
 export class SellCar04Component implements OnInit {
+
+  car : CarClass = new CarClass();
 
   constructor() { }
 

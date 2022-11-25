@@ -1,24 +1,22 @@
-
-
 <div class="cartao">
     <h1 class="titulo"><b style="color: black;">Vamos começar o seu anúcio?</b></h1>
 
     <div>
-        <input type="text" class="campo-texto" placeholder="Informe uma marca">
+        <input type="text" class="campo-texto" placeholder="Informe uma marca" [(ngModel)]="car.automaker" >
     </div>
     
     <div>
-        <input type="text" class="campo-texto" placeholder="Informe um modelo">
+        <input type="text" class="campo-texto" placeholder="Informe um modelo" [(ngModel)]="car.model">
     </div>
     
     <mat-grid-list cols="2" rowHeight="100px">
 
         <mat-grid-tile>
-            <input type="text" class="campo-texto campo-texto-pequeno" placeholder="Informe uma cor">
+            <input type="text" class="campo-texto campo-texto-pequeno" placeholder="Informe uma cor" [(ngModel)]="car.color" >
         </mat-grid-tile>
     
         <mat-grid-tile>
-            <input type="date" class="campo-texto campo-texto-pequeno" placeholder="Informe um ano">
+            <input type="number" min="1910" max="2023" class="campo-texto campo-texto-pequeno" placeholder="Informe um ano" [(ngModel)]="car.year">
         </mat-grid-tile>
 
     </mat-grid-list>
@@ -27,7 +25,7 @@
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-voltar" value="Voltar" name="" id="">
+            <input type="button" class="botao-voltar" value="Voltar" name="" id="" onclick="window.location.href='sell-car01'">
 
         </mat-grid-tile>
 

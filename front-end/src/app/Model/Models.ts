@@ -70,19 +70,66 @@ export interface Announce {
 
 export interface Product {
     id: number;
-    nome: string;
-    descricao: string;
-    preco: number;
-    year: number;
+    name: string;
+    description: string;
+    price: number;
+    automaker: string;
+    year:number;
+    model:string;
+    category:string;
 }
 
 export interface Car extends Product{
     quilometragem: number;
-    modelo: string;
+    color : string ;
 }
 
 export interface Part extends Product{
     part_condition: string;
-    category: string;
-    automaker: string;
+    brand : string;
+    vehicle_type :string;
+}
+
+export class AnnounceCarClass {
+    user!: User;
+    amount!: number;
+    date!: Date;
+    comments?: Comment[];
+    product!: CarClass;
+    adress !: AdressClass;
+}
+
+export class CarClass implements Product{
+    id : number = 0;
+    name: string = "";
+    description: string = "";
+    price: number = 0;
+    automaker: string = "";
+    year: number = 0;
+    model: string = "";
+    category: string = "";
+    quilometragem: number = 0;
+    color : string = "";
+}
+
+export class UserClass {
+    id!: number;
+    name!: string;
+    email!: string;
+    birthDate?: string;
+    login?: Login;
+    announcementList?: AnnouncementList[];
+    nacionalNumber?: string;
+    descriminationColumn?: string;
+    fone!: string;
+    adress?: Address;
+}
+
+export class AdressClass {
+    cep?: string;
+    logradouro?: string;
+    complemento?: string;
+    bairro?: string;
+    localidade?: string;
+    uf?: string;
 }
