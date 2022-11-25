@@ -67,7 +67,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatSelectModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
