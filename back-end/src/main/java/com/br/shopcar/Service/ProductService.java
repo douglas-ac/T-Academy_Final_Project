@@ -52,12 +52,12 @@ public class ProductService {
     }
 
     public List<CarDto> findCarName(String name) {
-        List<CarModel> byName = carRepository.findByNomeContains(name);
+        List<CarModel> byName = carRepository.findByNameContains(name);
         return byName.stream().map(CarModel::convertToDto).collect(Collectors.toList());
     }
 
     public List<PartDto> findPartName(String name) {
-        List<PartModel> byName = partRepository.findByNomeContains(name);
+        List<PartModel> byName = partRepository.findByNameContains(name);
         return byName.stream().map(PartModel::convertToDto).collect(Collectors.toList());
     }
 

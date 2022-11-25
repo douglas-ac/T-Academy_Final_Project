@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CarClass } from 'src/app/Model/Models';
+import { CarService } from 'src/app/Services/car.service';
 
 @Component({
   selector: 'app-sell-car03',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellCar03Component implements OnInit {
 
-  constructor() { }
+  car : CarClass = new CarClass();
+
+  constructor(private service : CarService, private router : Router) { }
 
   ngOnInit(): void {
+    this.car = this.service.getCarPage();
+  }
+
+  continue(){
+    this.service.saveCarPage(this.car)
+    this.router.navigate(['sell-car06'])
   }
 
 }

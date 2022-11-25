@@ -34,7 +34,6 @@ public class AnnouncementDto {
     private ProductModel product;
     private Address address;
     private Status status = Status.AVAILABLE;
-    private Address adress;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();

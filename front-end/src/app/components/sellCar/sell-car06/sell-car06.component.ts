@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Announce } from 'src/app/Model/Models';
+import { AdressClass, AnnounceCarClass, Car, CarClass, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import { CarService } from 'src/app/Services/car.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sell-car06',
@@ -10,41 +12,49 @@ import { AnnounceService } from 'src/app/Services/announce.service';
 })
 export class SellCar06Component implements OnInit {
 
-  constructor(private servico:AnnounceService) { }
+  car : CarClass = new CarClass();
 
-  vetor:Announce[] = [];
+  constructor(private serviceAnnounce:AnnounceService, private serviceCar : CarService, private router : Router) { }
+
+  announce : AnnounceCarClass = new AnnounceCarClass();
+  product : CarClass = new CarClass();
+  carPosted: CarClass = new CarClass();
+  user : UserClass = new UserClass();
 
   ngOnInit(): void { 
+    this.car = this.serviceCar.getCarPage()
+    this.announce.adress = new AdressClass();
   }
 
-  formulario = new FormGroup({
-    cep: new FormControl(),
-    rua: new FormControl(),
-    numero: new FormControl(),
-    bairro: new FormControl(),
-    cidade: new FormControl()
-  })
+  continue(){
+    this.serviceCar.post(this.car).subscribe( data => {
+      this.product = data
+      this.announce.amount = 1;
 
-  testarFormulario():void {
-    console.log(this.formulario);
+      this.announce.user = this.user
+      this.announce.user.id = 1
+      
+      this.announce.product = this.product
+  
+      var obj = 
+      `{   
+        "user" : {"id" : ${this.announce.user.id}},
+        "amount" : 1,
+        "product" : {"id" : ${this.announce.product.id}},
+        "address" : {
+          "cep" : "${this.announce.adress.cep}",
+          "localidade" : "${this.announce.adress.localidade}",
+          "bairro" : "${this.announce.adress.bairro}",
+          "logradouro" : "${this.announce.adress.logradouro}",
+          "complemento" : "${this.announce.adress.complemento}",
+          "uf" : "${this.announce.adress.uf}"
+        }
+      }`;
+      
+      console.log(obj)
+      this.serviceAnnounce.post(obj).subscribe()});
+      this.router.navigate(['sell-car07'])
   }
-
-  // cadastrar():void {
-  //   let a = new Announce();
-
-  //   a.cep = this.formulario.value.cep;
-  //   a.rua = this.formulario.value.rua;
-  //   a.numero = this.formulario.value.numero;
-  //   a.bairro = this.formulario.value.bairro;
-  //   a.cidade = this.formulario.value.cidade;
-
-  //   this.servico.post(a)
-  //   .subscribe(retorno => {
-  //     this.vetor.push(retorno);
-  //   })
-
-  //   console.log(this.vetor);
-
-  // }
-
 }
+
+

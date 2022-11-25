@@ -15,23 +15,23 @@ public class ProductModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nome;
-    private String descricao;
-    private double preco;
+    private String name;
+    private String description;
+    private double price;
     private Integer year;
     private Automaker automaker;
-    private String modelo;
+    private String model;
     private String category;
 
     public <T extends ProductDto> T convertToDto(T productDTO){
 
         productDTO.setId(this.getId());
-        productDTO.setName(this.getNome());
-        productDTO.setDescription(this.getDescricao());
-        productDTO.setPrice(this.getPreco());
+        productDTO.setName(this.getName());
+        productDTO.setDescription(this.getDescription());
+        productDTO.setPrice(this.getPrice());
         productDTO.setYear(this.getYear());
         productDTO.setAutomaker(this.getAutomaker());
-        productDTO.setModel(getModelo());
+        productDTO.setModel(getModel());
         productDTO.setCategory(this.getCategory());
 
         return productDTO;

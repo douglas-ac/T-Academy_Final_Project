@@ -5,30 +5,30 @@
 
     <div>
         Qual é a quilometragem do seu carro?
-        <input type="text" class="campo-texto" placeholder="ex.: 50.000 km">
+        <input type="text" class="campo-texto" placeholder="ex.: 50.000 km" [(ngModel)]="car.quilometragem">
     </div>
     
     <div>
         Fale um pouco mais sobre os diferenciais do seu carro:
-        <input type="text" class="campo-texto" placeholder="ex.: único dono" name="" id="">
+        <input type="text" class="campo-texto" placeholder="ex.: único dono" name="" [(ngModel)]="car.description">
     </div>
 
     <div>
         Por quanto você quer vender o seu carro?
-        <input type="text" class="campo-texto" placeholder="ex.: R$ 50.000,00" name="" id="">
+        <input type="text" class="campo-texto" placeholder="ex.: R$ 50.000,00" [(ngModel)]="car.price">
     </div>
    
     <mat-grid-list cols="2" rowHeight="100px">
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-voltar" value="Voltar" name="" id="">
+            <input type="button" class="botao-voltar" value="Voltar">
 
         </mat-grid-tile>
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-pequeno" value="Continuar">
+            <input type="button" class="botao-pequeno" value="Continuar" (click)="continue()">
 
         </mat-grid-tile>
     </mat-grid-list>
