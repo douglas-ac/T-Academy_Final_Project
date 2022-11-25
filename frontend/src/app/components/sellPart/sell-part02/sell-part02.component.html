@@ -18,7 +18,7 @@
         </mat-grid-tile>
     
         <mat-grid-tile>
-            <input type="date" class="campo-texto campo-texto-pequeno" placeholder="Informe um ano">
+            <input type="number" class="campo-texto campo-texto-pequeno" placeholder="Informe um ano" min="1900" max="2099">
         </mat-grid-tile>
 
     </mat-grid-list>
@@ -27,13 +27,13 @@
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-voltar" value="Voltar" name="" id="">
+            <input type="button" class="botao-voltar" value="Voltar" name="" id="" onclick="window.location.href='sell-part01'">
 
         </mat-grid-tile>
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-pequeno" value="Continuar">
+            <input type="button" class="botao-pequeno" value="Continuar" onclick="window.location.href='sell-part03'">
 
         </mat-grid-tile>
     </mat-grid-list>

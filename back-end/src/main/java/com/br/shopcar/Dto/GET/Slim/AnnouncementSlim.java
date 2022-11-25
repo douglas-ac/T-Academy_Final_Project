@@ -1,7 +1,7 @@
 package com.br.shopcar.Dto.GET.Slim;
 
 import com.br.shopcar.Dto.GET.Comment.CommentDto;
-import com.br.shopcar.Model.Announcement.Adress;
+import com.br.shopcar.Model.Announcement.Address;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.Announcement.Status;
 import com.br.shopcar.Model.ProductModel;
@@ -31,7 +31,7 @@ public class AnnouncementSlim {
 
     @NotBlank
     private ProductModel product;
-    private Adress adress;
+    private Address address;
     private Status status;
 
     public Announcement convertToModel(){
@@ -44,7 +44,7 @@ public class AnnouncementSlim {
                 .map(CommentDto::convertToModel)
                 .collect(Collectors.toList()));
         announcement.setProduct(this.getProduct());
-        announcement.setAdress(this.getAdress());
+        announcement.setAddress(this.getAddress());
         announcement.setStatus(this.getStatus());
         return announcement;
     }

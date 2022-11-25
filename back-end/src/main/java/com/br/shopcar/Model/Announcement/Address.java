@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.Embeddable;
 @Data
 @Embeddable
-public class Adress {
+public class Address {
 
     private String cep;
     private String logradouro;
