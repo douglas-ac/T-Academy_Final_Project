@@ -3,7 +3,6 @@ package com.br.shopcar.Dto.GET;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Model.OrderModel;
 import com.br.shopcar.Model.ProductModel;
-import com.br.shopcar.Model.User.User;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;

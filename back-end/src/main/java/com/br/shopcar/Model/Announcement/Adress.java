@@ -13,6 +13,5 @@ public class Adress {
     private String bairro;
     private String localidade;
     private String uf;
-    private String ddd;
 
 }

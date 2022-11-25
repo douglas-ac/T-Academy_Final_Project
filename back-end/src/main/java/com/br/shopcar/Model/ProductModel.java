@@ -26,12 +26,12 @@ public class ProductModel {
     public <T extends ProductDto> T convertToDto(T productDTO){
 
         productDTO.setId(this.getId());
-        productDTO.setNome(this.getNome());
-        productDTO.setDescricao(this.getDescricao());
-        productDTO.setPreco(this.getPreco());
+        productDTO.setName(this.getNome());
+        productDTO.setDescription(this.getDescricao());
+        productDTO.setPrice(this.getPreco());
         productDTO.setYear(this.getYear());
         productDTO.setAutomaker(this.getAutomaker());
-        productDTO.setModelo(getModelo());
+        productDTO.setModel(getModelo());
         productDTO.setCategory(this.getCategory());
 
         return productDTO;
