@@ -28,7 +28,7 @@ public class Announcement {
     @CreationTimestamp
     private LocalDateTime date;
     @Embedded
-    private Adress adress;
+    private Address address;
     @OneToMany(mappedBy = "announcement")
     private List<Comment> comments;
     @ManyToOne(cascade = CascadeType.REMOVE)
@@ -48,6 +48,7 @@ public class Announcement {
                 .collect(Collectors.toList()));
         announcementDto.setProduct(this.getProduct());
         announcementDto.setStatus(this.getStatus());
+        announcementDto.setAddress(this.getAddress());
         return announcementDto;
     }
 
@@ -58,7 +59,7 @@ public class Announcement {
         announcementDto.setAmount(this.getAmount());
         announcementDto.setDate(this.getDate());
         announcementDto.setProduct(this.getProduct());
-        announcementDto.setAdress(this.getAdress());
+        announcementDto.setAddress(this.getAddress());
         announcementDto.setStatus(this.getStatus());
         return announcementDto;
     }

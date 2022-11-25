@@ -2,7 +2,7 @@ package com.br.shopcar.Model.User;
 
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.GET.UserDto;
-import com.br.shopcar.Model.Announcement.Adress;
+import com.br.shopcar.Model.Announcement.Address;
 import com.br.shopcar.Model.Announcement.Announcement;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +31,7 @@ public class User {
     private String nacionalNumber; //NUMERO IDENTIFICADOR(CPF OU CNPJ)
     private String descriminationColumn; //STRING DESCRIMINATORIA (CPF OU CNPJ)
     private String fone;
-    private Adress adress;
+    private Address address;
 
     public UserDto converterDto(){
         UserDto userDto = new UserDto();
@@ -47,7 +47,7 @@ public class User {
         userDto.setNacionalNumber(this.getNacionalNumber());
         userDto.setDescriminationColumn(this.getDescriminationColumn());
         userDto.setFone(this.getFone());
-        userDto.setAdress(this.getAdress());
+        userDto.setAddress(this.getAddress());
         return userDto;
     }
 

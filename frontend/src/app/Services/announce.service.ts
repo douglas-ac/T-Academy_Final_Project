@@ -15,7 +15,7 @@ export class AnnounceService {
   }
 
   getAllCars() {
-    return this.http.get<[Announce]>("http://localhost:8082/api/v1/announce/cars")
+    return this.http.get<Announce>("http://localhost:8082/api/v1/announce/cars")
   }
 
   getAllParts() {

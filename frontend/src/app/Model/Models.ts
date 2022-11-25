@@ -65,6 +65,7 @@ export interface Announce {
     date: Date;
     comments?: Comment[];
     product: Product;
+    address: Address;
 }
 
 export interface Product {
@@ -72,14 +73,15 @@ export interface Product {
     nome: string;
     descricao: string;
     preco: number;
+    year: number;
 }
 
 export interface Car extends Product{
-    quilomatragem: number;
+    quilometragem: number;
     modelo: string;
 }
 
-export interface Part {
+export interface Part extends Product{
     part_condition: string;
     category: string;
     automaker: string;

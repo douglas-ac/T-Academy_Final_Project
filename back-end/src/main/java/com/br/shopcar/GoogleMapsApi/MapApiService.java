@@ -26,18 +26,18 @@ public class MapApiService {
     public int findDistanceForUserAndAnnouce(long idUser, long idAnnouce ){
         User user = userService.findByIdModel(idUser);
         Announcement announcement = announcementService.findByIdModel(idAnnouce);
-        String adressUser = user.getAdress().getLocalidade() + "," +
-                user.getAdress().getUf() + ",BR";
-        String adressAnnounce = announcement.getAdress().getLocalidade() + "," +
-                announcement.getAdress().getUf() + ",BR";
+        String adressUser = user.getAddress().getLocalidade() + "," +
+                user.getAddress().getUf() + ",BR";
+        String adressAnnounce = announcement.getAddress().getLocalidade() + "," +
+                announcement.getAddress().getUf() + ",BR";
         String distance = RequestMapApi.calculateDistance(adressUser, adressAnnounce);
         return filterDistance(distance);
     }
 
     public int findDistanceForPlaceAndAnnouce(String place, long idAnnouce ){
         Announcement announcement = announcementService.findByIdModel(idAnnouce);
-        String adressAnnounce = announcement.getAdress().getLocalidade() + "," +
-                announcement.getAdress().getUf() + ",BR";
+        String adressAnnounce = announcement.getAddress().getLocalidade() + "," +
+                announcement.getAddress().getUf() + ",BR";
         String distance = RequestMapApi.calculateDistance(place, adressAnnounce);
         return filterDistance(distance);
     }
