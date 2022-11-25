@@ -57,7 +57,7 @@ public class ProductService {
     }
 
     public List<PartDto> findPartName(String name) {
-        List<PartModel> byName = partRepository.findByNomeContains(name);
+        List<PartModel> byName = partRepository.findByNameContains(name);
         return byName.stream().map(PartModel::convertToDto).collect(Collectors.toList());
     }
 

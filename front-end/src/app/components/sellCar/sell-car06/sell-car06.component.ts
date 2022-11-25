@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdressClass, AnnounceCarClass, Car, CarClass, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CarService } from 'src/app/Services/car.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sell-car06',
@@ -12,7 +14,7 @@ export class SellCar06Component implements OnInit {
 
   car : CarClass = new CarClass();
 
-  constructor(private serviceAnnounce:AnnounceService, private serviceCar : CarService) { }
+  constructor(private serviceAnnounce:AnnounceService, private serviceCar : CarService, private router : Router) { }
 
   announce : AnnounceCarClass = new AnnounceCarClass();
   product : CarClass = new CarClass();
@@ -39,7 +41,7 @@ export class SellCar06Component implements OnInit {
         "user" : {"id" : ${this.announce.user.id}},
         "amount" : 1,
         "product" : {"id" : ${this.announce.product.id}},
-        "adress" : {
+        "address" : {
           "cep" : "${this.announce.adress.cep}",
           "localidade" : "${this.announce.adress.localidade}",
           "bairro" : "${this.announce.adress.bairro}",
@@ -51,6 +53,7 @@ export class SellCar06Component implements OnInit {
       
       console.log(obj)
       this.serviceAnnounce.post(obj).subscribe()});
+      this.router.navigate(['sell-car07'])
   }
 }
 
