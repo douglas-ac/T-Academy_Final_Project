@@ -2,13 +2,13 @@
 <div class="cartao login">
     <h1 class="titulo"><b>Confirme a localização do anúncio:</b></h1>
 
-    <form [formGroup]="formulario"></form>
-    <input type="text" class="campo-texto" placeholder="CEP">
-    <input type="text" class="campo-texto" placeholder="Rua">
-    <input type="text" class="campo-texto" placeholder="Número">
-    <input type="text" class="campo-texto" placeholder="Bairro">
-    <input type="text" class="campo-texto" placeholder="Cidade">
-
+    <input type="text" class="campo-texto" placeholder="CEP" [(ngModel)]="announce.adress.cep">
+    <input type="text" class="campo-texto" placeholder="Rua" [(ngModel)]="announce.adress.logradouro">
+    <input type="text" class="campo-texto" placeholder="Número" [(ngModel)]="announce.adress.complemento">
+    <input type="text" class="campo-texto" placeholder="Bairro" [(ngModel)]="announce.adress.bairro">
+    <input type="text" class="campo-texto" placeholder="Cidade" [(ngModel)]="announce.adress.localidade">
+    <input type="text" class="campo-texto" placeholder="Estado" [(ngModel)]="announce.adress.uf">
+    <button (click)="continue()">Continuar</button>
     <mat-grid-list cols="2" rowHeight="100px">
 
         <mat-grid-tile>
@@ -19,7 +19,7 @@
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-pequeno" value="Continuar">
+            <input type="button" class="botao-pequeno" value="Continuar" (click)="continue()">
 
         </mat-grid-tile>
     </mat-grid-list>

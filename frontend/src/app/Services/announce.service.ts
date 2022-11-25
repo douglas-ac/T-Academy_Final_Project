@@ -1,7 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Announce } from '../Model/Models';
+import { Announce, AnnounceCarClass} from '../Model/Models';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +33,8 @@ export class AnnounceService {
     return this.http.get<[Announce]>(`http://localhost:8082/api/v1/announce/${id}`)
   }
 
-  post(data: Announce){
-    return this.http.post<Announce>("http://localhost:8082/api/v1/announce",data)
+  post(data : string){
+    return this.http.post<AnnounceCarClass>("http://localhost:8082/api/v1/announce",data , httpOptions)
   }
   
   delete(id:number){
