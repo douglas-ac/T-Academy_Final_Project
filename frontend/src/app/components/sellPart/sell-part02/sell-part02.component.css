@@ -93,6 +93,11 @@
     border-radius: 0px;
 }
 
+.campo-texto-pequeno {
+    width: 180px;
+    /* margin-left: 25px; */
+}
+
 b {
     color: rgba(246, 24, 77, 1);
 }
