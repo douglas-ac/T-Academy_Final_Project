@@ -1,0 +1,62 @@
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#cartElement">Test</a>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartElement">
+  <div class="cart-header">
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
+      <p class="header-p">Carrinho </p>
+  </div>
+  <div class="cart-main">
+    <div class="cart-item">
+      <mat-grid-list cols="6">
+        <mat-grid-tile colspan="2" rowspan="2" class="cart-img">
+          <img src="../../../assets/img/cartImages/partMock.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4" rowspan="1" class="item-text">
+          <p>Kit embreagem Chevrolet Corsa Classic 1.099 2016</p>
+          <input type="image" class="btn-delete" src="../../../assets/img/cartImages/deleteIcon.svg">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+          <div class="btn-group-qtd">
+            <button type="button">-</button>
+            <input type="number" readonly>
+            <button type="button">+</button>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+          <p class="price">R$ 323.27</p>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="2" rowHeight="60px">
+      <mat-grid-tile colspan="1" rowspan="1">
+        <p class="footer-text">Subtotal</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1" rowspan="1">
+        <p class="footer-text">R$ 222</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="60px">
+      <mat-divider></mat-divider>
+      <mat-grid-tile colspan="2" rowspan="1" >
+        <p class="footer-text footer-text-light">Digite o Cep:</p>
+        <input type="text" class="cep-input">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1" rowspan="1">
+        <button class="shipping-btn">calcular frete</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-divider></mat-divider>
+    <mat-grid-list cols="2" rowHeight="60px">
+      <mat-grid-tile colspan="1" rowspan="1">
+        <p class="footer-text">Total</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1" rowspan="1">
+        <p class="footer-text footer-price">R$ </p>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
