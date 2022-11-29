@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User, Address, Login } from 'src/app/Model/Models';
+import { CepService } from 'src/app/Services/cep.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent {
 
   sent: boolean = false
 
-  constructor(private service: UserService, private formBuilder: FormBuilder) {}
+  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService) {}
   
   register = new FormGroup ({
     fullname: new FormControl('', [Validators.required]),
@@ -36,6 +37,27 @@ export class RegisterComponent {
     let dateFormated = (date.getUTCDate()) + "-" + (date.getUTCMonth() + 1) + "-" + (date.getUTCFullYear())
 
     return dateFormated
+  }
+  
+   address: Address  = {
+    cep: "",
+    logradouro: "",
+    complemento: "",
+    bairro: "",
+    localidade: "",
+    uf: ""
+  }
+
+  fetchCep() {
+    this.serviceCEP.getCep(Number(this.address.cep)).subscribe(
+      data => {
+        this.address.cep = data.cep,
+        this.address.logradouro = data.logradouro,
+        this.address.localidade = data.localidade,
+        this.address.uf = data.uf,
+        this.address.bairro = data.bairro
+      }
+    )
   }
   
   registerUser(): void {   
@@ -80,7 +102,7 @@ export class RegisterComponent {
 
     console.log(user)
 
-    this.service.post(user)
+    this.serviceRegister.post(user)
     .subscribe(() => {})
   }
   

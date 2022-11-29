@@ -47,11 +47,11 @@
         </div>
             <mat-form-field appearance="outline">
                 <mat-label>CEP</mat-label>
-                <input matInput type="text" formControlName="zipCode">
+                <input matInput type="text" formControlName="zipCode" [(ngModel)]="address.cep" (change)="fetchCep()">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Rua</mat-label>
-                <input matInput type="text" formControlName="street">
+                <input matInput type="text" formControlName="street" [(ngModel)]="address.logradouro">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Número</mat-label>
@@ -59,15 +59,15 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Cidade</mat-label>
-                <input matInput type="text" formControlName="city">
+                <input matInput type="text" formControlName="city" [(ngModel)]="address.localidade">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Estado</mat-label>
-                <input matInput type="text" formControlName="state">
+                <input matInput type="text" formControlName="state" [(ngModel)]="address.uf">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Bairro</mat-label>
-                <input matInput type="text" formControlName="neighborhood">
+                <input matInput type="text" formControlName="neighborhood" [(ngModel)]="address.bairro">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Complemento</mat-label>
