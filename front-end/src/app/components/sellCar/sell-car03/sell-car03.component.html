@@ -8,7 +8,7 @@
     
     <mat-form-field appearance="fill">
         <mat-label>Qual é a quilometragem do seu carro?</mat-label>
-        <input matInput placeholder="Ex. 50.000" [(ngModel)]="car.quilometragem">
+        <input matInput placeholder="Ex. 50.000" [(ngModel)]="car.quilometragem" mask="separator.0" thousandSeparator="." suffix=" km">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -18,7 +18,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label> Por quanto você quer vender o seu carro?</mat-label>
-        <input matInput placeholder="Ex. 60.000,00" [(ngModel)]="car.price">
+        <input matInput placeholder="Ex. 60.000,00" [(ngModel)]="car.price" mask="separator.0" thousandSeparator="." prefix="R$ ">
     </mat-form-field>
 
 </div>
