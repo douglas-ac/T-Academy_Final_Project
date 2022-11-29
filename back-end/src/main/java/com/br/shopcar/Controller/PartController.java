@@ -1,9 +1,6 @@
 package com.br.shopcar.Controller;
 
-import com.br.shopcar.Dto.GET.CarDto;
 import com.br.shopcar.Dto.GET.PartDto;
-import com.br.shopcar.Dto.GET.UserDto;
-import com.br.shopcar.Repository.PartRepository;
 import com.br.shopcar.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

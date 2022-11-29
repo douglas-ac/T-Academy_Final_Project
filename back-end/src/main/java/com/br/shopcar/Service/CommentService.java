@@ -4,9 +4,7 @@ import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.Announcement.Comment;
 import com.br.shopcar.Model.User.User;
-import com.br.shopcar.Repository.AnnouncementRepository;
 import com.br.shopcar.Repository.CommentRepository;
-import com.br.shopcar.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

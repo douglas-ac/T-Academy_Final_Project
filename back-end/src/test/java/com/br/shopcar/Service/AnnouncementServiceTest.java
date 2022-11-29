@@ -1,11 +1,8 @@
 package com.br.shopcar.Service;
 
-import com.br.shopcar.Dto.GET.AnnouncementDto;
-import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.AnnouncementRepository;
-import com.br.shopcar.Service.AnnouncementService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +20,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 
 @ExtendWith(SpringExtension.class)
 public class AnnouncementServiceTest {

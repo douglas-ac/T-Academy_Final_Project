@@ -20,6 +20,10 @@ export class CarService {
     return this.http.get<[Car]>(`http://localhost:8082/api/v1/cars/${id}`)
   }
 
+  getAutomakers() {
+    return this.http.get<String[]>("http://localhost:8082/api/v1/cars/automakers")
+  }
+
   post(data: Car){
     return this.http.post<Car>("http://localhost:8082/api/v1/cars",data)
   }

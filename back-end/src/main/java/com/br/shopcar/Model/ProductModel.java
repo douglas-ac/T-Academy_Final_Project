@@ -19,6 +19,7 @@ public class ProductModel {
     private String description;
     private double price;
     private Integer year;
+    @Enumerated(EnumType.STRING)
     private Automaker automaker;
     private String model;
     private String category;
