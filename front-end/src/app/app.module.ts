@@ -30,6 +30,9 @@ import { SellPart05Component } from './components/sellPart/sell-part05/sell-part
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartComponent } from './components/cart/cart.component';
+import { MatDividerModule } from '@angular/material/divider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +53,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SellPart05Component,
     SellPart06Component,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

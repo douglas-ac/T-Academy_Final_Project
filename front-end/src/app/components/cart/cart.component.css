@@ -103,7 +103,18 @@ padding-top:12px;
 .shipping-btn{
   color:#000000;
   padding: 6px;
-  background-color: var(--quartenary);
+  background-color: var(--secondary);
   border-radius: 4px;
+}
+
+.buy-btn{
+  height: 60px;
+  width: 300px;
+  background-color: var(--tertiary);
+  color: var(--secondary);
+  font-weight:bold;
+  font-size: 20px;
+  border:0px;
+  border-radius: 3px;
 }
 
