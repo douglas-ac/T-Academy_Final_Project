@@ -60,15 +60,6 @@
     font-size: medium;
 }
 
-.cartao {
-    width: 500px;
-    padding: 30px;
-    margin: 100px auto; 
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
 .login {
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
@@ -91,7 +82,10 @@
     border-right: 0px;
     border-bottom: 3px solid black;
     border-radius: 0px;
-    margin-bottom: 20px;
+}
+
+b {
+    color: rgba(246, 24, 77, 1);
 }
 
 .botao {
@@ -107,7 +101,7 @@
     width: 400px;
 }
 
-.dropdown-pequeno {
+.campo-texto-pequeno {
     width: 180px;
     /* margin-left: 25px; */
 }
@@ -140,18 +134,19 @@
 .botao-pequeno:hover {
     background-color: rgba(246, 24, 77, 0.7);
 }
-
-.opcao {
-    border: 3px solid black;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-right: 20px;
-    padding-bottom: 10px;
+.cartao {
+    width: 500px;
+    margin: 100px auto; 
     text-align: center;
-}
-
-.opcao-espaco {
     margin-top: 40px;
     margin-bottom: 40px;
+    justify-content: center;
+}
+
+.container {
+}
+
+.container mat-form-field {
+    width: 436px;
+    margin-top: 10px;
 }

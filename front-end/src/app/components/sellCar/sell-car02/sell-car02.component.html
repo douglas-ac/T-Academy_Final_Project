@@ -1,25 +1,39 @@
 <div class="cartao">
     <h1 class="titulo"><b style="color: black;">Vamos começar o seu anúcio?</b></h1>
 
-    <div>
-        <input type="text" class="campo-texto" placeholder="Informe uma marca" [(ngModel)]="car.automaker" >
-    </div>
-    
-    <div>
-        <input type="text" class="campo-texto" placeholder="Informe um modelo" [(ngModel)]="car.model">
-    </div>
-    
-    <mat-grid-list cols="2" rowHeight="100px">
+    <div class="container">
+    <mat-form-field appearance="fill" class="dropdown">
+        <mat-label>Escolha uma marca</mat-label>
+        <mat-select appearance="fill" [(ngModel)]="car.automaker">
+            <mat-option *ngFor="let auto of automakers" value="{{auto}}">{{auto}}</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-        <mat-grid-tile>
-            <input type="text" class="campo-texto campo-texto-pequeno" placeholder="Informe uma cor" [(ngModel)]="car.color" >
-        </mat-grid-tile>
-    
-        <mat-grid-tile>
-            <input type="number" min="1910" max="2023" class="campo-texto campo-texto-pequeno" placeholder="Informe um ano" [(ngModel)]="car.year">
-        </mat-grid-tile>
+    <mat-form-field appearance="fill">
+        <mat-label>Informe um modelo</mat-label>
+        <input matInput placeholder="Ex. Celta, Uno" [(ngModel)]="car.model">
+    </mat-form-field>
 
-    </mat-grid-list>
+    <mat-form-field appearance="fill">
+        <mat-label>Informe a cor</mat-label>
+        <input matInput placeholder="Ex. Branca, Prata" [(ngModel)]="car.color">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="dropdown">
+        <mat-label>Informe o ano de fabricação</mat-label>
+        <mat-select appearance="fill" [(ngModel)]="car.year">
+            <mat-option *ngFor="let year of years" value="{{year}}">{{year}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="dropdown">
+        <mat-label>Informe a categoria do seu carro</mat-label>
+        <mat-select appearance="fill" [(ngModel)]="car.category">
+            <mat-option *ngFor="let category of categorys" value="{{category}}">{{category}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    
     
     <mat-grid-list cols="2" rowHeight="100px">
 
@@ -35,5 +49,5 @@
 
         </mat-grid-tile>
     </mat-grid-list>
-
+    </div>
 </div>

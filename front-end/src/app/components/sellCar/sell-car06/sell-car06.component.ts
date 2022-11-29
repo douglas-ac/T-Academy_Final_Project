@@ -3,6 +3,7 @@ import { AdressClass, AnnounceCarClass, Car, CarClass, UserClass } from 'src/app
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CarService } from 'src/app/Services/car.service';
 import { Router } from '@angular/router';
+import { CepService } from 'src/app/Services/cep.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class SellCar06Component implements OnInit {
 
   car : CarClass = new CarClass();
 
-  constructor(private serviceAnnounce:AnnounceService, private serviceCar : CarService, private router : Router) { }
+  constructor(private serviceAnnounce:AnnounceService, private serviceCar : CarService, private router : Router, private cepService : CepService) { }
 
   announce : AnnounceCarClass = new AnnounceCarClass();
   product : CarClass = new CarClass();
@@ -24,6 +25,17 @@ export class SellCar06Component implements OnInit {
   ngOnInit(): void { 
     this.car = this.serviceCar.getCarPage()
     this.announce.adress = new AdressClass();
+  }
+
+  atualizarCep(){
+    this.cepService.getCep(Number(this.announce.adress.cep)).subscribe(
+      data => {
+        this.announce.adress.bairro = data.bairro
+        this.announce.adress.localidade = data.localidade
+        this.announce.adress.uf = data.uf
+        this.announce.adress.logradouro = data.logradouro
+      }
+    )
   }
 
   continue(){

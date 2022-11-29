@@ -3,20 +3,25 @@
 <div class="cartao">
     <h1 class="titulo"><b>Conte-nos mais sobre o seu carro:</b></h1>
 
-    <div>
-        Qual é a quilometragem do seu carro?
-        <input type="text" class="campo-texto" placeholder="ex.: 50.000 km" [(ngModel)]="car.quilometragem">
-    </div>
-    
-    <div>
-        Fale um pouco mais sobre os diferenciais do seu carro:
-        <input type="text" class="campo-texto" placeholder="ex.: único dono" name="" [(ngModel)]="car.description">
-    </div>
+    <div class="container">
 
-    <div>
-        Por quanto você quer vender o seu carro?
-        <input type="text" class="campo-texto" placeholder="ex.: R$ 50.000,00" [(ngModel)]="car.price">
-    </div>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Qual é a quilometragem do seu carro?</mat-label>
+        <input matInput placeholder="Ex. 50.000" [(ngModel)]="car.quilometragem">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Fale um pouco mais sobre seu carro:</mat-label>
+        <input matInput placeholder="Ex. Novo, unico dono.." [(ngModel)]="car.description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label> Por quanto você quer vender o seu carro?</mat-label>
+        <input matInput placeholder="Ex. 60.000,00" [(ngModel)]="car.price">
+    </mat-form-field>
+
+</div>
    
     <mat-grid-list cols="2" rowHeight="100px">
 
