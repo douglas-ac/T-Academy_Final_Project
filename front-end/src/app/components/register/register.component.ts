@@ -29,6 +29,13 @@ export class RegisterComponent {
     addressComplement: new FormControl()
   })
 
+  convertBirthDate() {
+    let date = new Date(this.register.value.birthDate);
+    let dateFormated = (date.getUTCDate()) + "-" + (date.getUTCMonth() + 1) + "-" + (date.getUTCFullYear())
+
+    return dateFormated
+  }
+  
   registerUser(): void {
     let address: Address  = {
       cep: "",
@@ -60,7 +67,7 @@ export class RegisterComponent {
 
     user.name = this.register.value.fullname
     user.email = this.register.value.email
-    user.birthDate = this.register.value.birthDate
+    user.birthDate = this.convertBirthDate()
     user.login = login;
     user.nacionalNumber = this.register.value.cpf
     user.fone = this.register.value.cellphone
