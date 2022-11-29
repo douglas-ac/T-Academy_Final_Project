@@ -30,6 +30,7 @@ import { SellPart05Component } from './components/sellPart/sell-part05/sell-part
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
