@@ -67,6 +67,10 @@ export class SellCar06Component implements OnInit {
       this.serviceAnnounce.post(obj).subscribe()});
       this.router.navigate(['sell-car07'])
   }
+
+  navigate(route : string){
+    this.router.navigate([`${route}`])
+  }
 }
 
 

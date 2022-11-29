@@ -23,4 +23,7 @@ export class SellCar03Component implements OnInit {
     this.router.navigate(['sell-car06'])
   }
 
+  navigate(route : string){
+    this.router.navigate([`${route}`])
+  }
 }
