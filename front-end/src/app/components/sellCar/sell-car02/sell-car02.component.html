@@ -11,12 +11,12 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Informe um modelo</mat-label>
-        <input matInput placeholder="Ex. Celta, Uno" [(ngModel)]="car.model">
+        <input matInput placeholder="Ex. Celta, Uno" [(ngModel)]="car.model" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Informe a cor</mat-label>
-        <input matInput placeholder="Ex. Branca, Prata" [(ngModel)]="car.color">
+        <input matInput placeholder="Ex. Branca, Prata" [(ngModel)]="car.color" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="dropdown">

@@ -7,7 +7,7 @@
     
     <mat-form-field appearance="fill">
         <mat-label>CEP</mat-label>
-        <input matInput placeholder="Ex. Novo, unico dono.." [(ngModel)]="announce.adress.cep" (change)="atualizarCep()">
+        <input matInput placeholder="Ex. Novo, unico dono.." [(ngModel)]="announce.adress.cep" (change)="atualizarCep()" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
