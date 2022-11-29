@@ -7,6 +7,7 @@ import com.br.shopcar.Model.CarModel;
 import com.br.shopcar.Model.PartModel;
 import com.br.shopcar.Repository.CarRepository;
 import com.br.shopcar.Repository.PartRepository;
+import com.br.shopcar.enums.Automaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -89,5 +90,9 @@ public class ProductService {
         } catch (Exception e){
             return; //exception handler
         }
+    }
+
+    public List<Automaker> findAllMakers() {
+        return List.of(Automaker.values());
     }
 }

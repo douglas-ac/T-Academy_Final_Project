@@ -1,10 +1,8 @@
 package com.br.shopcar.Controller;
 
 import com.br.shopcar.Dto.GET.CarDto;
-import com.br.shopcar.Dto.GET.UserDto;
-import com.br.shopcar.Dto.POST.UserDtoPost;
-import com.br.shopcar.Repository.CarRepository;
 import com.br.shopcar.Service.ProductService;
+import com.br.shopcar.enums.Automaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,5 +41,10 @@ public class CarController {
     public ResponseEntity<Void> delete(@PathVariable("idCar") long idCar){
         productService.deleteCarById(idCar);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/automakers")
+    public ResponseEntity<List<Automaker>> allMakers(){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findAllMakers());
     }
 }
