@@ -35,6 +35,8 @@ public class Announcement {
     private ProductModel product;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @OneToOne
+    private Images image;
 
     public AnnouncementDto converter(){
         AnnouncementDto announcementDto = new AnnouncementDto();
@@ -49,6 +51,7 @@ public class Announcement {
         announcementDto.setProduct(this.getProduct());
         announcementDto.setStatus(this.getStatus());
         announcementDto.setAddress(this.getAddress());
+        announcementDto.setImage(this.getImage());
         return announcementDto;
     }
 
