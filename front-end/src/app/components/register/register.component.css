@@ -73,6 +73,8 @@ a {
 
 .warning-form {
     color: red;
-    margin-top: 0px;
     font-size: 12px;
+    text-align: left;
+    width: 436px;
+    margin: 0 auto;
 }
