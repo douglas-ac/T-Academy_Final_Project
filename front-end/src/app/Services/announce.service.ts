@@ -19,7 +19,7 @@ export class AnnounceService {
   }
   
   getCarsByCriteria(filters: any) {
-    return this.http.post<Announce[]>("http://localhost:8082/api/v1/announce/cars/filters", filters)
+    return this.http.post<Announce>("http://localhost:8082/api/v1/announce/cars/filters", filters)
   }
 
   getAllParts() {

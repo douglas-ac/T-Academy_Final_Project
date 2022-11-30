@@ -50,7 +50,6 @@ export class CatalogoCarroComponent {
   }
 
   getAll(){
-    // this.service.getAllCars().subscribe( (data: any) => console.log(data.content))
     this.service.getAllCars().subscribe( (data: any) => this.ads = <Announce[]>data.content)
   }
 
@@ -63,7 +62,8 @@ export class CatalogoCarroComponent {
   }
 
   filter(){
-    this.service.getCarsByCriteria(this.filters).subscribe((data) => this.ads = <Announce[]>data)
+    this.service.getCarsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
+    console.log(this.ads)
   }
 
   addFilterOption(key: any, value: any, elem: any){
