@@ -42,7 +42,7 @@ button {
     color: white;
 }
 
-button:disabled {
+button:hover {
     background-color: rgba(246, 24, 77, 0.7);
     border: 0.5px solid var(--primary);
     color: white;
@@ -73,8 +73,6 @@ a {
 
 .warning-form {
     color: red;
-    justify-content: left;
     margin-top: 0px;
-    align-content: flex-start;
     font-size: 12px;
 }

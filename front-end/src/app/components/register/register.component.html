@@ -47,7 +47,7 @@
         </div>
             <mat-form-field appearance="outline">
                 <mat-label>CEP</mat-label>
-                <input matInput type="text" formControlName="zipCode" [(ngModel)]="address.cep" (change)="fetchCep()">
+                <input matInput type="text" formControlName="zipCode" [(ngModel)]="address.cep" (change)="fetchCep()" required>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Rua</mat-label>
@@ -75,7 +75,7 @@
             </mat-form-field>
     </form>
     <div class="create-account">
-        <button [disabled]="!register.valid" (click)="registerUser()">Criar conta</button>
+        <button (click)="registerUser()">Criar conta</button>
     </div>
     <div class="already-has-account">
         <p>Já possui uma conta? <a href="">Login</a></p>
