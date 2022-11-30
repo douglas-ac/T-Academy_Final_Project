@@ -79,6 +79,9 @@ input::-webkit-inner-spin-button {
     max-width: 250px;
     height: 425px;
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card .username{

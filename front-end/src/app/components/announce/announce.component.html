@@ -1,23 +1,27 @@
 <section>
-
-    <h1>{{car.model}} {{car.description}}</h1>
-    <div>
-        <div id="image-box">
-            <img height="500px" width="500px" src="">
-        </div>
-        <div id="car-details">
-            <h3> O que você precisa saber:</h3>
-            <ul>
-                <li>Marca : {{car.automaker}}</li>
-                <li>Modelo : {{car.model}}</li>
-                <li>Cor : {{car.color}}</li>
-                <li>Ano : {{car.year}}</li>
-                <li>Km : {{car.quilometragem}}</li>
-            </ul>
-            <span id="price">  </span>
-            <span id="cidade"> <img src="" alt="Localização"> {{announce.address.localidade}} </span>
-            <button> Fale com vendedor </button>
-        </div>
+  <div class="center">
+    <h1>{{ car.name }} {{ car.description }}</h1>
+    <div class="announce-container">
+      <div id="image-box">
+        <img class="product-image"
+          src="https://1.bp.blogspot.com/-kxQh4bambxk/YUzGF0el5uI/AAAAAAAA3rU/5Ar5YmAjnWMoFIeDHiEWJyc1a8Of6orGACLcBGAsYHQ/s2048/RS%2Be-tron%2BGT%2B2.jpg"
+        />
+      </div>
+      <div id="car-details">
+        <h3>Detalhes do carro</h3>
+        <ul>
+          <li><span class="car-topic">Marca: </span>{{ car.automaker }}</li>
+          <li><span class="car-topic">Modelo: </span>{{ car.model }}</li>
+          <li><span class="car-topic">Ano: </span>{{ car.year }}</li>
+          <li><span class="car-topic">Km: </span>{{ car.quilometragem }}</li>
+          <li><span class="car-topic">Cor: </span><span class="color-square"></span></li>
+        </ul>
+        <span id="price">R$ {{car.price | number:'1.2-2'}} </span>
+        <span id="cidade">
+          <img class="location-icon" src="../../../assets/img/icons/pino-de-localizacao.png" alt="Localização" /> {{ announce.address.localidade }}
+        </span>
+        <button>Fale com vendedor</button>
+      </div>
     </div>
-
+  </div>
 </section>

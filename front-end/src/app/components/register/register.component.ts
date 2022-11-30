@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User, Address, Login } from 'src/app/Model/Models';
+import { CepService } from 'src/app/Services/cep.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -10,26 +11,58 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class RegisterComponent {
 
-  constructor(private service: UserService) {}
+  sent: boolean = false
 
-  register = new FormGroup({
-    fullname: new FormControl(),
-    email: new FormControl(),
-    password: new FormControl(),
-    confirmPassword: new FormControl(),
-    cpf: new FormControl(),
-    birthDate: new FormControl(),
-    cellphone: new FormControl(),
-    zipCode: new FormControl(),
-    street: new FormControl(),
-    addressNumber: new FormControl(),
-    city: new FormControl(),
-    state: new FormControl(),
-    neighborhood: new FormControl(),
+  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService) {}
+  
+  register = new FormGroup ({
+    fullname: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$')]),
+    confirmPassword: new FormControl('', [Validators.required]),
+    cpf: new FormControl('', [Validators.required, Validators.pattern('[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}')]),
+    birthDate: new FormControl('', [Validators.required]),
+    cellphone: new FormControl('', [Validators.required]),
+    zipCode: new FormControl('', [Validators.required]),
+    street: new FormControl('', [Validators.required]),
+    addressNumber: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
+    neighborhood: new FormControl('', [Validators.required]),
     addressComplement: new FormControl()
   })
 
-  registerUser(): void {
+  convertBirthDate() {
+    let date = new Date(this.register.value.birthDate || '');
+    let dateFormated = (date.getUTCDate()) + "-" + (date.getUTCMonth() + 1) + "-" + (date.getUTCFullYear())
+
+    return dateFormated
+  }
+  
+   address: Address  = {
+    cep: "",
+    logradouro: "",
+    complemento: "",
+    bairro: "",
+    localidade: "",
+    uf: ""
+  }
+
+  fetchCep() {
+    this.serviceCEP.getCep(Number(this.address.cep)).subscribe(
+      data => {
+        this.address.cep = data.cep,
+        this.address.logradouro = data.logradouro,
+        this.address.localidade = data.localidade,
+        this.address.uf = data.uf,
+        this.address.bairro = data.bairro
+      }
+    )
+  }
+  
+  registerUser(): void {   
+    this.sent = true
+     
     let address: Address  = {
       cep: "",
       localidade: "",
@@ -48,28 +81,28 @@ export class RegisterComponent {
       password: ""
     }
 
-    address.cep = this.register.value.zipCode
-    address.logradouro = this.register.value.street
-    address.complemento = this.register.value.addressNumber
-    address.bairro = this.register.value.neighborhood
-    address.localidade = this.register.value.city
-    address.uf = this.register.value.state
+    address.cep = this.register.value.zipCode || ''
+    address.logradouro = this.register.value.street || ''
+    address.complemento = this.register.value.addressNumber || ''
+    address.bairro = this.register.value.neighborhood || ''
+    address.localidade = this.register.value.city || ''
+    address.uf = this.register.value.state || ''
 
-    login.username = this.register.value.email
-    login.password = this.register.value.password
+    login.username = this.register.value.email || ''
+    login.password = this.register.value.password || ''
 
-    user.name = this.register.value.fullname
-    user.email = this.register.value.email
-    user.birthDate = this.register.value.birthDate
+    user.name = this.register.value.fullname || ''
+    user.email = this.register.value.email || ''
+    user.birthDate = this.convertBirthDate()
     user.login = login;
-    user.nacionalNumber = this.register.value.cpf
-    user.fone = this.register.value.cellphone
+    user.nacionalNumber = this.register.value.cpf || ''
+    user.fone = this.register.value.cellphone || ''
     user.adress = address;
     user.descriminationColumn = "cpf";
 
     console.log(user)
 
-    this.service.post(user)
+    this.serviceRegister.post(user)
     .subscribe(() => {})
   }
   
