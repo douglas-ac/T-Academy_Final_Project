@@ -3,34 +3,20 @@
 <div class="cartao">
     <h1 class="titulo"><b>Anúnicos com fotos vendem mais rápido :)<br>Que tal adicioná-las agora?</b></h1>
 
-    <mat-grid-list cols="2">
+    <mat-grid-list cols="1">
 
         <mat-grid-tile>
-
            <img src="../../assets/img/photo.png" alt="">
-
         </mat-grid-tile>
-
+        
         <mat-grid-tile>
-
-            <img src="../../assets/img/photo.png" alt="">
-
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="2">
-
-        <mat-grid-tile>
-
-            <img src="../../assets/img/photo.png" alt="">
-
+            <form id="form" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input id="file" type="file" multiple />
+                </div>
+            </form>
         </mat-grid-tile>
 
-        <mat-grid-tile>
-
-            <img src="../../assets/img/photo.png" alt="">
-
-        </mat-grid-tile>
     </mat-grid-list>
 
     <mat-grid-list cols="2" rowHeight="100px">
@@ -43,7 +29,7 @@
 
         <mat-grid-tile>
 
-            <input type="button" class="botao-pequeno" value="Continuar" routerLink="sell-car06">
+            <input type="button" class="botao-pequeno" value="Continuar" (click)="continue()">
 
         </mat-grid-tile>
     </mat-grid-list>
