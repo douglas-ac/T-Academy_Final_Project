@@ -7,41 +7,41 @@
                 <mat-label>Nome completo</mat-label>
                 <input matInput formControlName="fullname" type="text" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.fullname.errors?.['required']">O nome deve estar preenchido!</div>
+            <div *ngIf="sent && this.register.controls.fullname.errors?.['required']" class="warning-form">O nome deve estar preenchido!</div>
             <mat-form-field appearance="outline">
                 <mat-label>E-mail</mat-label>
                 <input matInput formControlName="email" type="email" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.email.errors?.['required']">O e-mail deve estar preenchido!</div>
-            <div *ngIf="sent && this.register.controls.email.errors?.['email']">E-mail inválido!</div>
+            <div *ngIf="sent && this.register.controls.email.errors?.['required']" class="warning-form">O e-mail deve estar preenchido!</div>
+            <div *ngIf="sent && this.register.controls.email.errors?.['email']" class="warning-form">E-mail inválido!</div>
             <mat-form-field appearance="outline">
                 <mat-label>Senha</mat-label>
                 <input matInput formControlName="password" type="password" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.password.errors?.['required']">A senha deve estar preenchida!</div>
-            <div *ngIf="sent && this.register.controls.password.errors?.['pattern']">A senha deve ter entre 6 e 15 caracteres.
+            <div *ngIf="sent && this.register.controls.password.errors?.['required']" class="warning-form">A senha deve estar preenchida!</div>
+            <div *ngIf="sent && this.register.controls.password.errors?.['pattern']" class="warning-form">A senha deve ter entre 6 e 15 caracteres.
                  Ao menos uma letra maiúscula e minúscula. Ao menos um número e caractere especial.</div>
             <mat-form-field appearance="outline">
                 <mat-label>Confirmação de senha</mat-label>
                 <input matInput formControlName="confirmPassword" type="password" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.confirmPassword.errors?.['required']">A confirmação de senha deve estar preenchida!</div>
+            <div *ngIf="sent && this.register.controls.confirmPassword.errors?.['required']" class="warning-form">A confirmação de senha deve estar preenchida!</div>
             <mat-form-field appearance="outline">
                 <mat-label>CPF</mat-label>
                 <input matInput placeholder="000.000.000-00" formControlName="cpf" type="text" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.cpf.errors?.['required']">O CPF deve estar preenchido!</div>
-            <div *ngIf="sent && this.register.controls.cpf.errors?.['pattern']">CPF inválido!!</div>
+            <div *ngIf="sent && this.register.controls.cpf.errors?.['required']" class="warning-form">O CPF deve estar preenchido!</div>
+            <div *ngIf="sent && this.register.controls.cpf.errors?.['pattern']" class="warning-form">CPF inválido!!</div>
             <mat-form-field appearance="outline">
                 <mat-label>Data de nascimento</mat-label>
                 <input matInput type="date" formControlName="birthDate" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.birthDate.errors?.['required']">A data de nascimento deve estar preenchida!</div>
+            <div *ngIf="sent && this.register.controls.birthDate.errors?.['required']" class="warning-form">A data de nascimento deve estar preenchida!</div>
             <mat-form-field appearance="outline">
                 <mat-label>Celular</mat-label>
                 <input matInput type="text" formControlName="cellphone" required>
             </mat-form-field>
-            <div *ngIf="sent && this.register.controls.cellphone.errors?.['required']">O número de celular deve estar preenchido!</div>
+            <div *ngIf="sent && this.register.controls.cellphone.errors?.['required']" class="warning-form">O número de celular deve estar preenchido!</div>
         <div class="title">
             <h1>Endereço</h1>
         </div>
@@ -75,7 +75,7 @@
             </mat-form-field>
     </form>
     <div class="create-account">
-        <button (click)="registerUser()">Criar conta</button>
+        <button [disabled]="!register.valid" (click)="registerUser()">Criar conta</button>
     </div>
     <div class="already-has-account">
         <p>Já possui uma conta? <a href="">Login</a></p>
