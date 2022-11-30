@@ -7,13 +7,13 @@ header {
   width: 100%;
 }
 
-h1{
+h1 {
     color: var(--secondary);
     cursor: pointer;
     font-size: 1.7rem;
 }
 
-h1 span{
+h1 span {
     color: var(--tertiary);
 }
 
@@ -39,25 +39,25 @@ nav ul li {
 }
 
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
     color: var(--secondary);
     font-weight: 700;
     cursor: pointer;
 }
 
-ul a{
+ul a {
     display: flex;
     align-items: center;
     gap: 3px;
     position: relative;
 }
 
-ul img{
+ul img {
     width: 20px;
 }
 
-ul li a::after{
+ul li a::after {
     content: '';
     height: 3px;
     width: 100%;
@@ -70,14 +70,37 @@ ul li a::after{
     transform-origin: right;
 }
 
-ul li a:hover::after{
+ul li a:hover::after {
     transition: transform 0.5s ease;
     transform: scaleX(100%);
     transform-origin: left;
 }
 
-h1{
+h1 {
     font-weight: 700;
     margin-bottom: 0px;
 
+}
+
+.responsive-menu div {
+    width: 32px;
+    height: 2px;
+    background-color: white;
+    margin: 8px;
+}
+
+.responsive-menu {
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .responsive-menu {
+        display: block;
+    }
+
+    .menu-list li{
+        display: none;
+    }
+    
 }
