@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AnnouncementRepository extends JpaRepository<Announcement, Long> {
+public interface AnnouncementRepository extends JpaRepository<Announcement, Long>, AnnouncementRepositoryCustom {
     @Query(value = "select * from announcement a join product_model p where a.product_id = p.id and p.product_type = 1",
     nativeQuery = true)
     Page<Announcement> findAllAnnouncesCar(Pageable pageable);

@@ -9,7 +9,26 @@ import { Announce, Car, Product, Address } from '../../Model/Models'
 })
 export class CatalogoCarroComponent {
   ads: Announce[] = []
-
+  
+  // Filters' options
+  filters = {
+    year: {
+      from: null,
+      to: null
+    },
+    price: {
+      from: null,
+      to: null
+    },
+    mileage: {
+      from: null,
+      to: null
+    },
+    color: [],
+    condition: [],
+    category: []
+  };
+  
   isBrandShow:boolean = false;
   isColorShow:boolean = false;
   isCategoryShow:boolean = false;
@@ -43,5 +62,25 @@ export class CatalogoCarroComponent {
     return data as Car
   }
 
+  filter(){
+    this.service.getCarsByCriteria(this.filters).subscribe((data) => this.ads = <Announce[]>data)
+  }
+
+  addFilterOption(key: any, value: any, elem: any){
+    let k = key as keyof typeof this.filters
+    let e = elem as HTMLInputElement
+    if(Array.isArray(this.filters[k])){
+      const myArray = (this.filters[k] as Array<any>)
+      if(e.checked){
+        myArray.push(value)
+      } else{
+        const index = myArray.indexOf(value);
+        if (index > -1) {
+          myArray.splice(index, 1);
+        }
+      }
+      this.filter()
+    }
+  }
 
 }

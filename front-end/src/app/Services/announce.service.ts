@@ -17,6 +17,10 @@ export class AnnounceService {
   getAllCars() {
     return this.http.get<Announce>("http://localhost:8082/api/v1/announce/cars")
   }
+  
+  getCarsByCriteria(filters: any) {
+    return this.http.post<Announce[]>("http://localhost:8082/api/v1/announce/cars/filters", filters)
+  }
 
   getAllParts() {
     return this.http.get<[Announce]>("http://localhost:8082/api/v1/announce/parts")
