@@ -1,8 +1,10 @@
 package com.br.shopcar.Service;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
+import com.br.shopcar.Dto.GET.CarDto;
 import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
+import com.br.shopcar.Model.CarModel;
 import com.br.shopcar.Repository.AnnouncementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,6 +30,12 @@ public class AnnouncementService {
 
     public Page<AnnouncementDto> findAllCars(Pageable pageable){
         return  announcementRepository.findAllAnnouncesCar(pageable).map(Announcement::converter);
+    }
+
+    public Page<AnnouncementDto> filterCarAnnounceByCriteria(Pageable pageable, LinkedHashMap filters) {
+        Page<Announcement> carAnnounces = announcementRepository.filterCarAnnounceByCriteria(pageable, filters);
+        return carAnnounces.map(Announcement::converter);
+
     }
 
     public Page<AnnouncementDto> findAllParts(Pageable pageable){
