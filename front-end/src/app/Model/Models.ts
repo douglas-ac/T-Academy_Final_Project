@@ -88,6 +88,7 @@ export interface Part extends Product{
     part_condition: string;
     brand : string;
     vehicle_type :string;
+    amount : number;
 }
 
 export class AnnounceCarClass {

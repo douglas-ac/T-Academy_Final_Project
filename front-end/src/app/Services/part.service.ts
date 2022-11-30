@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Part } from '../Model/Models';
 
@@ -14,8 +15,8 @@ export class PartService {
     return this.http.get<[Part]>("http://localhost:8082/api/v1/parts")
   }
 
-  getOne(id:number){
-    return this.http.get<[Part]>(`http://localhost:8082/api/v1/parts/${id}`)
+  getOne(id:number):Observable<Part>{
+    return this.http.get<Part>(`http://localhost:8082/api/v1/parts/${id}`)
   }
 
   post(data: Part){
