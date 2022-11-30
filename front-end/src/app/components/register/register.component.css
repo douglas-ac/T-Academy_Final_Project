@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 .container {
-    margin: 60px 80px 100px 80px;
+    margin: 60px 30px 60px 30px auto;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 20px;
@@ -77,4 +77,48 @@ a {
     text-align: left;
     width: 436px;
     margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 0px auto;
+        padding: 5px;
+        width: 460px;
+    }
+
+    .container mat-form-field {
+        width: 280px;
+        margin-top: 5px;
+    }
+
+    .warning-form {
+        color: red;
+        font-size: 12px;
+        text-align: left;
+        width: 280px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        margin: 0px auto;
+    }
+
+    .container mat-form-field {
+        width: 250px;
+        margin-top: 10px;
+    }
+
+    .warning-form {
+        color: red;
+        font-size: 12px;
+        text-align: left;
+        width: 250px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
 }
