@@ -333,12 +333,12 @@
           />
           <p class="username">{{ ad.user.name }}</p>
           <p class="car-model">
-            {{ getPart(ad.product).nome }} 
+            {{ getPart(ad.product).name }} 
           </p>
           <p class="car-year-miles">{{ getCar(ad.product).year</p>
           <p class="location">{{ ad.address.localidade }}</p>
-          <p class="price">R$ {{ getPart(ad.product).preco.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
-          <p class="price-installment">60 x R$ {{ (getPart(ad.product).preco/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
+          <p class="price">R$ {{ getPart(ad.product).price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
+          <p class="price-installment">60 x R$ {{ (getPart(ad.product).price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
           <button class="see-offer-btn">Ver oferta</button>
         </div>
       </div>

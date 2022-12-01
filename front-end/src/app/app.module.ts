@@ -55,8 +55,8 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
     SellPart05Component,
     SellPart06Component,
     ProfileComponent,
-    NavbarComponent
-    PartsCatalogComponent
+    NavbarComponent,
+    PartsCatalogComponent,
     AnnounceComponent
   ],
   imports: [

@@ -45,6 +45,10 @@ export class PartsCatalogComponent {
     return data as Part
   }
 
+  log(){
+    console.log(this.ads)
+  }
+
 
 
 }
