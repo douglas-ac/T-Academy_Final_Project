@@ -22,7 +22,7 @@
    //params for option in html
    years : number[] = []
    categories : string[] = ["Motorização", "Transmissão", "Suspensão", "Frenagem", "Carroceria", "Segurança", "Injeção e ignição", "Exaustão" , "Elétrica", "Outro"]
-   automakers : String[] = []
+   automakers : string[] = ["Bosch", "SEG", "Continental", "Nytron", "Haldex", "Fremax", "Maxgear", "Ymax", "Valeo", "Outros"]
 
    constructor(private PartService : PartService, private router : Router,
                private cepService : CepService, private announceService : AnnounceService) { }
@@ -48,9 +48,9 @@
    ngOnInit( ): void {
      this.PartService.getPartPage()
 
-     this.PartService.getAutomakers().subscribe(data => {
-       this.automakers = data
-     })
+    //  this.PartService.getAutomakers().subscribe(data => {
+    //    this.automakers = data
+    //  })
 
      for(let i=1920 ; i<= 2023 ; i++){
        this.years.push(i)

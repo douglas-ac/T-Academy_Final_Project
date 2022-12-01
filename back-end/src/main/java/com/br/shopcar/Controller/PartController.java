@@ -2,6 +2,8 @@ package com.br.shopcar.Controller;
 
 import com.br.shopcar.Dto.GET.PartDto;
 import com.br.shopcar.Service.ProductService;
+import com.br.shopcar.enums.Partmaker;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +43,10 @@ public class PartController {
     public ResponseEntity<Void> delete(@PathVariable("idPart") long idPart){
         productService.deletePartById(idPart);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/partmakers")
+    public ResponseEntity<List<Partmaker>> allMakers(){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findAllPartMakers());
     }
 }

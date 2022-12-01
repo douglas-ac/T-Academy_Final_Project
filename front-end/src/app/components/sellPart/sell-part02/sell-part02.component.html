@@ -22,7 +22,7 @@
 
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Informe um modelo</mat-label>
-            <input matInput placeholder="Ex. Celta, Uno" [(ngModel)]="Part.model" formControlName="model" required>
+            <input matInput placeholder="Ex. Porca, parafuso" [(ngModel)]="Part.model" formControlName="model" required>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.model.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 

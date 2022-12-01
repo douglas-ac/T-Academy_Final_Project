@@ -1,6 +1,5 @@
 package com.br.shopcar.Service;
 
-
 import com.br.shopcar.Dto.GET.CarDto;
 import com.br.shopcar.Dto.GET.PartDto;
 import com.br.shopcar.Model.CarModel;
@@ -8,6 +7,8 @@ import com.br.shopcar.Model.PartModel;
 import com.br.shopcar.Repository.CarRepository;
 import com.br.shopcar.Repository.PartRepository;
 import com.br.shopcar.enums.Automaker;
+import com.br.shopcar.enums.Partmaker;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,5 +95,9 @@ public class ProductService {
 
     public List<Automaker> findAllMakers() {
         return List.of(Automaker.values());
+    }
+
+    public List<Partmaker> findAllPartMakers() {
+        return List.of(Partmaker.values());
     }
 }
