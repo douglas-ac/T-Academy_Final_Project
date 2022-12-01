@@ -93,14 +93,3 @@ h1 {
     cursor: pointer;
     display: none;
 }
-
-@media screen and (max-width: 900px) {
-    .responsive-menu {
-        display: block;
-    }
-
-    .menu-list li{
-        display: none;
-    }
-    
-}
