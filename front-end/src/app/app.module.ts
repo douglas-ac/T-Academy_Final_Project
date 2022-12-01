@@ -29,6 +29,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AnnounceComponent } from './components/announce/announce.component';
 import { LOCALE_ID } from '@angular/core';
+import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { LOCALE_ID } from '@angular/core';
     SellPart06Component,
     ProfileComponent,
     NavbarComponent,
+    PartsCatalogComponent,
     AnnounceComponent
   ],
   imports: [
