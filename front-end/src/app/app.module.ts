@@ -32,6 +32,8 @@ import { SellPart06Component } from './components/sellPart/sell-part06/sell-part
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AnnounceComponent } from './components/announce/announce.component';
+import { LOCALE_ID } from '@angular/core';
+import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { AnnounceComponent } from './components/announce/announce.component';
     SellPart06Component,
     ProfileComponent,
     NavbarComponent,
+    PartsCatalogComponent,
     AnnounceComponent
   ],
   imports: [
@@ -71,7 +74,9 @@ import { AnnounceComponent } from './components/announce/announce.component';
     HttpClientModule,
     NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'en-US'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

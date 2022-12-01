@@ -21,9 +21,12 @@ export class SellCar02Component implements OnInit {
   constructor(private service : CarService, private router : Router) { }
 
   ngOnInit( ): void {
+    this.service.getCarPage()
+
     this.service.getAutomakers().subscribe(data => {
       this.automakers = data
     })
+    
     for(let i=1920 ; i<= 2023 ; i++){
       this.years.push(i)
     }
@@ -31,10 +34,6 @@ export class SellCar02Component implements OnInit {
   }
 
   continue(){
-    console.log(this.car.automaker)
-    console.log(this.car.model)
-    console.log(this.car.color)
-    console.log(this.car.year)
     this.service.saveCarPage(this.car)
     this.router.navigate(['sell-car03'])
   }

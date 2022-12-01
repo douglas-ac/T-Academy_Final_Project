@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Car, CarClass } from '../Model/Models';
+import { Car, CarClass, Images } from '../Model/Models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ import { Car, CarClass } from '../Model/Models';
 export class CarService {
 
   car : CarClass = new CarClass();
+  images : any 
 
   constructor(private http: HttpClient ) { }
 
@@ -36,11 +37,23 @@ export class CarService {
     return this.http.delete(`http://localhost:8082/api/v1/cars/${id}`)
   }
 
+  postImage(image : FormData){
+    return this.http.post<number>("http://localhost:8082/api/v1/image/upload",image)
+  }
+
   getCarPage() {
     return this.car;
   }
 
   saveCarPage(car : CarClass){
     this.car = car;
+  }
+
+  getImage() {
+    return this.images
+  }
+
+  saveImage(image : any){
+    this.images = image
   }
 }

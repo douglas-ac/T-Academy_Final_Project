@@ -58,6 +58,11 @@ export interface Comment {
     commentAnswerDtos: CommentAnswerDto[];
 }
 
+export interface Images{
+    id ?: number
+    name ?: string
+}
+
 export interface Announce {
     id: number;
     user: User;
@@ -66,6 +71,7 @@ export interface Announce {
     comments?: Comment[];
     product: Product;
     address: Address;
+    image : Images
 }
 
 export interface Product {
@@ -90,6 +96,11 @@ export interface Part extends Product{
     vehicle_type :string;
 }
 
+export class Images{
+    id ?: number
+    name ?: string
+}
+
 export class AnnounceCarClass {
     user!: User;
     amount!: number;
@@ -97,6 +108,7 @@ export class AnnounceCarClass {
     comments?: Comment[];
     product!: CarClass;
     adress !: AdressClass;
+    image!: Images;
 }
 
 export class CarClass implements Product{

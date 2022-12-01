@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdressClass, AnnounceCarClass, Car, CarClass, UserClass } from 'src/app/Model/Models';
+import { AdressClass, AnnounceCarClass, Car, CarClass, Images, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CarService } from 'src/app/Services/car.service';
 import { Router } from '@angular/router';
@@ -25,6 +25,7 @@ export class SellCar06Component implements OnInit {
   ngOnInit(): void { 
     this.car = this.serviceCar.getCarPage()
     this.announce.adress = new AdressClass();
+    this.announce.image = new Images();
   }
 
   atualizarCep(){
@@ -39,38 +40,46 @@ export class SellCar06Component implements OnInit {
   }
 
   continue(){
-    this.serviceCar.post(this.car).subscribe( data => {
-      this.product = data
-      this.announce.amount = 1;
 
-      this.announce.user = this.user
-      this.announce.user.id = 1
-      
-      this.announce.product = this.product
+    this.serviceCar.postImage(this.serviceCar.getImage()).subscribe( response => {
+      this.serviceCar.post(this.car).subscribe( data => {
+        this.product = data
+        this.announce.amount = 1;
   
-      var obj = 
-      `{   
-        "user" : {"id" : ${this.announce.user.id}},
-        "amount" : 1,
-        "product" : {"id" : ${this.announce.product.id}},
-        "address" : {
-          "cep" : "${this.announce.adress.cep}",
-          "localidade" : "${this.announce.adress.localidade}",
-          "bairro" : "${this.announce.adress.bairro}",
-          "logradouro" : "${this.announce.adress.logradouro}",
-          "complemento" : "${this.announce.adress.complemento}",
-          "uf" : "${this.announce.adress.uf}"
-        }
-      }`;
-      
-      console.log(obj)
-      this.serviceAnnounce.post(obj).subscribe()});
-      this.router.navigate(['sell-car07'])
+        this.announce.user = this.user
+        this.announce.user.id = 1
+        
+        this.announce.product = this.product
+
+        this.announce.image.id = response
+    
+        var obj = 
+        `{   
+          "user" : {"id" : ${this.announce.user.id}},
+          "amount" : 1,
+          "product" : {"id" : ${this.announce.product.id}},
+          "address" : {
+            "cep" : "${this.announce.adress.cep}",
+            "localidade" : "${this.announce.adress.localidade}",
+            "bairro" : "${this.announce.adress.bairro}",
+            "logradouro" : "${this.announce.adress.logradouro}",
+            "complemento" : "${this.announce.adress.complemento}",
+            "uf" : "${this.announce.adress.uf}"
+          },
+          "image" : { "id" : ${this.announce.image.id}
+            }
+        }`;
+        
+        console.log(obj)
+        this.serviceAnnounce.post(obj).subscribe()
+      });
+        this.router.navigate(['sell-car07'])
+    })
   }
+    
 
   navigate(route : string){
     this.router.navigate([`${route}`])
   }
 }
-
 

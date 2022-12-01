@@ -1,12 +1,12 @@
 package com.br.shopcar.enums;
 
 public enum Automaker {
-    BMW,
-    FORD,
-    HONDA,
-    AUDI,
-    FIAT,
-    VOLKSWAGEN,
-    CHEVROLET,
-    OUTROS
+    /* 01 */ BMW,
+    /* 02 */ FORD,
+    /* 03 */ HONDA,
+    /* 04 */ AUDI,
+    /* 05 */ FIAT,
+    /* 06 */ VOLKSWAGEN,
+    /* 07 */ CHEVROLET,
+    /* 08 */ OUTROS
 }

@@ -20,10 +20,12 @@ import { SellPart04Component } from './components/sellPart/sell-part04/sell-part
 import { SellPart05Component } from './components/sellPart/sell-part05/sell-part05.component';
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 import { AnnounceComponent } from './components/announce/announce.component';
+import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'cars-catalog', component: CatalogoCarroComponent},
+  {path: 'parts-catalog', component: PartsCatalogComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cadastro', component: RegisterComponent},
   {path: 'sell-car01', component: SellCar01Component},
