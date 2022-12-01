@@ -15,7 +15,7 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
     Page<Announcement> findAllAnnouncesCar(Pageable pageable);
 
     @Query(value = "select * from announcement a join product_model p where a.product_id = p.id and p.product_type = 2",
-    countQuery = "select * from announcement a join product_model p where a.product_id = p.id and p.product_type = 2",
+    countQuery = "select count(1) from announcement a join product_model p where a.product_id = p.id and p.product_type = 2",
     nativeQuery = true)
     Page<Announcement> findAllAnnouncesParts(Pageable pageable);
 }
