@@ -66,7 +66,6 @@ export class CatalogoCarroComponent {
   }
 
   filter(){
-    console.log(this.filters)
     this.service.getCarsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
   }
 
@@ -99,7 +98,6 @@ export class CatalogoCarroComponent {
         }
       }
       this.filter()
-      console.log(myArray)
     }
   }
 
