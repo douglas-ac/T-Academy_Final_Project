@@ -13,12 +13,37 @@ export class CartComponent {
   constructor(private servico:PartService){}
 
   cart:Part[] = [];
-  itemsId:number[] = [11, 12, 13];
-  //zerar depois ^^, usar o de baixo com input/output
+  itemsId:number[] = [];
 
   ngOnInit(){
-  this.addToCart();
+    this.loadCart();
   }
+
+  loadCart(){
+    localStorage.setItem('itemList', JSON.stringify(this.itemsId));
+    this.getIds();
+    this.addToCart();
+  }
+
+  getIds(){
+      console.log(localStorage.getItem('itemList'));
+      if (localStorage.getItem('itemList') === undefined){
+         localStorage.setItem('itemList', JSON.stringify(this.itemsId));
+      } else {
+        let itemsString = localStorage.getItem('itemList');
+        let length = text.split(",");
+
+        this.itemsId = []
+        for (let i = 0; i < length; i++){
+          //ir apendando pelo splice/split dai
+        }
+      }
+
+  }
+
+  1,3,4,5,6
+
+  splite()
 
   addToCart():void{
     for (let i=0; i<this.itemsId.length; i++){
@@ -35,7 +60,7 @@ export class CartComponent {
 
   plusOne(c:Part){
     c.amount += 1;
-    //verificar estoque qnd implementado
+    //verificar estoque no anouncement
   }
 
   minusOne(c:Part){
@@ -45,15 +70,22 @@ export class CartComponent {
     }
   }
 
+  getPrice(c:Part){
+    return c.price*c.amount;
+  }
+
   removeFromCart(c:Part){
   let pesquisaId = this.cart.findIndex(obj => {return obj.id === c.id})
   this.cart.splice(pesquisaId, 1);
+  this.itemsId.splice(pesquisaId, 1);
+  localStorage.setItem('itemList', JSON.stringify(this.itemsId));
   }
 
   getSubtotal():number{
     let subtotal:number = 0;
     for (let i=0; i<this.itemsId.length; i++){
       subtotal += (this.cart[i].amount+this.cart[i].price);
+      subtotal += this.getPrice(this.cart[i]);
     }
     return subtotal;
   }
