@@ -24,6 +24,7 @@ export class CatalogoCarroComponent {
       from: null,
       to: null
     },
+    automaker: [],
     color: [],
     condition: [],
     category: []
@@ -53,8 +54,9 @@ export class CatalogoCarroComponent {
     this.service.getAllCars().subscribe( (data: any) => this.ads = <Announce[]>data.content)
   }
 
-  log(){
-    console.log(this.ads)
+  log(data: any){
+    let d = data as HTMLInputElement
+    console.log(d.type)
   }
 
   getCar(data: Product){
@@ -63,15 +65,13 @@ export class CatalogoCarroComponent {
 
   filter(){
     this.service.getCarsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
-    console.log(this.ads)
   }
 
-  addFilterOption(key: any, value: any, elem: any){
+  addFilterOption(key: any, value: any){
     let k = key as keyof typeof this.filters
-    let e = elem as HTMLInputElement
     if(Array.isArray(this.filters[k])){
       const myArray = (this.filters[k] as Array<any>)
-      if(e.checked){
+      if(myArray.indexOf(value) == -1){
         myArray.push(value)
       } else{
         const index = myArray.indexOf(value);
@@ -80,6 +80,7 @@ export class CatalogoCarroComponent {
         }
       }
       this.filter()
+      console.log(myArray)
     }
   }
 

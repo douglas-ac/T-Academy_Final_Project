@@ -78,18 +78,27 @@ public class AnnouncementRepositoryCustomImpl implements AnnouncementRepositoryC
                             .append(")");
                 }
 
+                if(filters.get("automaker") != null && ((ArrayList<String>) filters.get("automaker")).size()>0){
+                    ArrayList<String> tmpArr = (ArrayList<String>) filters.get("automaker");
+                    sb.append(" and p.automaker in ('").
+                            append(String.join("', '", tmpArr))
+                            .append("')");
+                }
+
                 if(filters.get("color") != null && ((ArrayList<String>) filters.get("color")).size()>0){
                     ArrayList<String> tmpArr = (ArrayList<String>) filters.get("color");
                     sb.append(" and p.color in ('").
                             append(String.join("', '", tmpArr))
                             .append("')");
                 }
+
                 if(filters.get("category") != null && ((ArrayList<String>) filters.get("category")).size()>0){
                     ArrayList<String> tmpArr = (ArrayList<String>) filters.get("category");
                     sb.append(" and p.category in ('").
                             append(String.join("', '", tmpArr))
                             .append("')");
                 }
+
                 if(filters.get("brand") != null && ((ArrayList<String>) filters.get("brand")).size()>0){
                     ArrayList<String> tmpArr = (ArrayList<String>) filters.get("brand");
                     sb.append(" and p.automaker in ('").
