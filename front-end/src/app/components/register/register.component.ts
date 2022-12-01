@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User, Address, Login } from 'src/app/Model/Models';
 import { CepService } from 'src/app/Services/cep.service';
 import { UserService } from 'src/app/Services/user.service';
@@ -13,7 +14,7 @@ export class RegisterComponent {
 
   sent: boolean = false
 
-  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService) {}
+  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService, private router: Router) {}
   
   register = new FormGroup ({
     fullname: new FormControl('', [Validators.required]),
@@ -104,6 +105,10 @@ export class RegisterComponent {
 
     this.serviceRegister.post(user)
     .subscribe(() => {})
+  }
+
+  navigateToLogin(route: String) {
+    this.router.navigate([`${route}`])
   }
   
 }
