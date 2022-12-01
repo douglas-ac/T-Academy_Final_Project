@@ -1,13 +1,29 @@
 <header>
-    <nav>
-        <h1 (click)="naviBar('')">Shop<span class="tertiary-color">Car</span></h1> 
-        <ul>
-            <li><a (click)="naviBar('cars-catalog')">Comprar</a></li>
-            <li><a (click)="naviBar('sell-car01')">Vender</a></li>
-            <li><a data-bs-toggle="offcanvas" href="#cartElement"><img src="../../../assets/img/navbarImages/shop-cart-icon.svg" alt="">Carrinho</a></li>
-            <li><a><img src="../../../assets/img/navbarImages/profile-icon.svg" alt="" (click)="naviBar('login')">Login ou Cadastre-se</a></li>
-        </ul> 
-    </nav>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <h1 (click)="naviBar('')">Shop<span class="tertiary-color">Car</span></h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a (click)="naviBar('cars-catalog')">Comprar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="naviBar('sell-car01')">Vender</a>
+            </li>
+            <li class="nav-item">
+                <a data-bs-toggle="offcanvas" href="#cartElement" class="nav-link"><img src="../../../assets/img/navbarImages/shop-cart-icon.svg" alt="">Carrinho</a>
+            </li>
+            <li>
+                <a class="nav-link" (click)="naviBar('login')"><img src="../../../assets/img/navbarImages/profile-icon.svg" alt="">Login ou Cadastre-se</a>
+            </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
 </header>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="cartElement">

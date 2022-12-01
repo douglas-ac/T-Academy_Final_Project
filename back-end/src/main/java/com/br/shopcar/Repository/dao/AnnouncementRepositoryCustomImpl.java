@@ -71,7 +71,7 @@ public class AnnouncementRepositoryCustomImpl implements AnnouncementRepositoryC
                         novo = "(p.quilometragem = 0)";
                     }
                     if(tmpArr.contains("usado")){
-                        usado = "(p.quilometragem >= 0)";
+                        usado = "(p.quilometragem > 0)";
                     }
                     sb.append(" and (")
                             .append(String.join(" or ", novo, usado))

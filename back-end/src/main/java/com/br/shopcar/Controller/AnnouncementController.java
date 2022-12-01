@@ -36,10 +36,7 @@ public class AnnouncementController {
             size = 10) Pageable page){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(page));
     }
-/*    @GetMapping("/cars/search/{nome}")
-    public ResponseEntity<List<AnnouncementDto>> filterCarAnnounceByCriteria(@PathVariable("nome") String nome){
-        return ResponseEntity.status(HttpStatus.OK).body(announcementService.filterCarAnnounceByCriteria(nome));
-    }*/
+
     @PostMapping("/cars/filters")
     public ResponseEntity<Page<AnnouncementDto>> filterCarAnnounceByCriteria2(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
