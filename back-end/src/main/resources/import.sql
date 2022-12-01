@@ -41,6 +41,8 @@ INSERT INTO `announcement`(`bairro`,`cep`,`complemento`, `localidade`,`logradour
 INSERT INTO `announcement`(`bairro`,`cep`,`complemento`, `localidade`,`logradouro`,`uf`,`amount`,`date`,`product_id`,`user_id`) VALUES ('Matriz','41000-000',NULL,'Vitoria da Conquista','Praça da Matriz','BA',7,'2022-07-29 00:00:00',15,2);
 INSERT INTO `announcement`(`bairro`,`cep`,`complemento`, `localidade`,`logradouro`,`uf`,`amount`,`date`,`product_id`,`user_id`) VALUES ('Matriz','41000-000',NULL,'Vitoria da Conquista','Praça da Matriz','BA',4,'2022-07-29 00:00:00',16,3);
 
+insert into role(authority)values('ROLE_USER');
+insert into role(authority)values('ROLE_ADMIN');
 -- -- ORDERS' INSERTS
 -- insert into `orders` (`discount`, `sub_total`, `user_id`) values (10, 450, 2);
 
