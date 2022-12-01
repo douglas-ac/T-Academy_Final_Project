@@ -18,10 +18,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { SellCar02Component } from './components/sellCar/sell-car02/sell-car02.component'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { SellCar03Component } from './components/sellCar/sell-car03/sell-car03.component';
-import { SellCar04Component } from './components/sellCar/sell-car04/sell-car04.component';
-import { SellCar05Component } from './components/sellCar/sell-car05/sell-car05.component';
-import { SellCar06Component } from './components/sellCar/sell-car06/sell-car06.component';
 import { SellCar07Component } from './components/sellCar/sell-car07/sell-car07.component';
 import { SellPart01Component } from './components/sellPart/sell-part01/sell-part01.component';
 import { SellPart02Component } from './components/sellPart/sell-part02/sell-part02.component';
@@ -42,10 +38,6 @@ import { LOCALE_ID } from '@angular/core';
     RegisterComponent,
     SellCar01Component,
     SellCar02Component,
-    SellCar03Component,
-    SellCar04Component,
-    SellCar05Component,
-    SellCar06Component,
     SellCar07Component,
     SellPart01Component,
     SellPart02Component,
