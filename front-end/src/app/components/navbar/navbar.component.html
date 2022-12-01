@@ -4,10 +4,12 @@
         <ul>
             <li><a href="">Comprar</a></li>
             <li><a href="">Vender</a></li>
-            <li><a (click)="openCart()"><img src="../../../assets/img/navbarImages/shop-cart-icon.svg" alt="">Carrinho</a></li>
+            <li><a data-bs-toggle="offcanvas" href="#cartElement"><img src="../../../assets/img/navbarImages/shop-cart-icon.svg" alt="">Carrinho</a></li>
             <li><a href=""><img src="../../../assets/img/navbarImages/profile-icon.svg" alt="">Login ou Cadastre-se</a></li>
         </ul>
     </nav>
 </header>
-<app-cart [receiveOpen]="open" (openFeedback)="receiveFeedback($event)"></app-cart>
-<!-- aqui vai ter que mexer c input e output -->
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartElement">
+  <app-cart></app-cart>
+</div>

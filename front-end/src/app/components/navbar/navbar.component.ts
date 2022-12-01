@@ -7,21 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  open:boolean = false;
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  openCart(){
-    this.open = true;
-    console.log(this.open);
-  }
-
-  receiveFeedback(){
-    this.open=false;
-    console.log(this.open);
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+//import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Part } from 'src/app/Model/Models';
 import { PartService } from 'src/app/Services/part.service';
 
@@ -9,22 +10,14 @@ import { PartService } from 'src/app/Services/part.service';
 })
 export class CartComponent {
 
-  @Input() receiveOpen:boolean = false;
-  @Output() feedback = new EventEmitter();
-
   constructor(private servico:PartService){}
 
   cart:Part[] = [];
   itemsId:number[] = [4, 12, 13];
+  //zerar depois ^^, usar o de baixo com input/output
 
   ngOnInit(){
   this.addToCart();
-  }
-
-  openFeedback(){
-    console.log(this.receiveOpen);
-    this.receiveOpen = false;
-    console.log(this.receiveOpen);
   }
 
   addToCart():void{
