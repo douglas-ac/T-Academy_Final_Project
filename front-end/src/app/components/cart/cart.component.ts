@@ -13,7 +13,7 @@ export class CartComponent {
   constructor(private servico:PartService){}
 
   cart:Part[] = [];
-  itemsId:number[] = [4, 12, 13];
+  itemsId:number[] = [11, 12, 13];
   //zerar depois ^^, usar o de baixo com input/output
 
   ngOnInit(){
