@@ -132,8 +132,8 @@ input::-webkit-inner-spin-button {
     margin-bottom: 5px;
 }
 
-.card .see-offer-btn{
-    width: 100%;
+.see-offer-btn{
+    min-width: 40px;
     background-color: var(--primary);
     color: white;
     font-weight: 700;
@@ -144,8 +144,12 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.card .see-offer-btn:hover{
+.see-offer-btn:hover{
     opacity: 0.8;
+}
+
+.card .see-offer-btn{
+    width: 100%;
 }
 
 .filter-option{
@@ -167,6 +171,13 @@ input::-webkit-inner-spin-button {
 
 .filter-option .location-input{
     background-image: url(../../../assets/img/carCatalogImages/location-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-y:center;
+    background-position-x: 97%;
+}
+
+.name-input{
     background-repeat: no-repeat;
     background-size: 20px;
     background-position-y:center;
@@ -272,4 +283,9 @@ h2,h3{
 
 .filter-option input[type=checkbox], .filter-option label{
     cursor: pointer;
+}
+
+button.btn{
+    background-color: var(--primary);
+    color: white;
 }

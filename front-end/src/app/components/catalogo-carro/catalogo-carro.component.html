@@ -5,9 +5,23 @@
   </div>
   <div class="main-content">
     <div class="filter-atributes">
-      <div class="location filter-option">
+      <div class="filter-option">
+        <h3>Nome</h3>
+        <div class="input-container">
+          <input type="text" class="name-input" placeholder="Digite o nome do carro" [(ngModel)]="filters.name"/>
+          <div>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-option">
         <h3>Localização</h3>
-        <input type="text" class="location-input" placeholder="Digite o nome da cidade ou estado" />
+        <div class="input-container">
+          <input type="text" class="location-input" placeholder="Digite o nome da cidade ou estado" [(ngModel)]="filters.location"/>
+          <div>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
+          </div>
+        </div>
       </div>
 
       <div class="car-brand filter-option">
@@ -171,7 +185,7 @@
             <p class="example">ex.: 2019</p>
           </div>
           <div>
-            <button (click)="filter()" class="btn btn-primary">Ir</button>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
           </div>
         </div>
       </div>
@@ -188,7 +202,7 @@
             <p class="example">ex.: 50.000</p>
           </div>
           <div>
-            <button (click)="filter()" class="btn btn-primary">Ir</button>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
           </div>
         </div>
       </div>
@@ -205,7 +219,7 @@
             <p class="example">ex.: 50.000</p>
           </div>
           <div>
-            <button (click)="filter()" class="btn btn-primary">Ir</button>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
           </div>
         </div>
       </div>
@@ -363,7 +377,7 @@
       </div>
 
       <div class="clean-filter-container">
-        <p class="clean-filter">Limpar filtros</p>
+        <p (click)="clearAllFilters()" class="clean-filter">Limpar filtros</p>
       </div>
     </div>
     
