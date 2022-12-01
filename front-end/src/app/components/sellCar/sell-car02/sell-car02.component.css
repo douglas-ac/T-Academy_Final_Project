@@ -135,7 +135,7 @@ b {
     background-color: rgba(246, 24, 77, 0.7);
 }
 .cartao {
-    width: 500px;
+    width: 700px;
     margin: 100px auto; 
     text-align: center;
     margin-top: 40px;
@@ -149,4 +149,13 @@ b {
 .container mat-form-field {
     width: 436px;
     margin-top: 10px;
+}
+
+.warning-form {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    width: 436px;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
