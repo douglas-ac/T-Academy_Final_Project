@@ -44,11 +44,11 @@ public class AnnouncementRepositoryCustomImpl implements AnnouncementRepositoryC
                 if(filters.get("price") != null){
                     Integer tmpPrice = (Integer) ((LinkedHashMap) filters.get("price")).get("from");
                     if(tmpPrice != null){
-                        sb.append(" and p.preco >= "+tmpPrice);
+                        sb.append(" and p.price >= "+tmpPrice);
                     }
                     tmpPrice = (Integer) ((LinkedHashMap) filters.get("price")).get("to");
                     if(tmpPrice != null){
-                        sb.append(" and p.preco <= "+tmpPrice);
+                        sb.append(" and p.price <= "+tmpPrice);
                     }
                 }
 
