@@ -50,9 +50,6 @@ export class CartComponent {
   this.cart.splice(pesquisaId, 1);
   }
 
-
-  //calcular cep e total
-
   getSubtotal():number{
     let subtotal:number = 0;
     for (let i=0; i<this.itemsId.length; i++){
@@ -65,6 +62,7 @@ export class CartComponent {
     let shippingPrice = 25;
     return shippingPrice;
   }
+  //ajustar ^^
 
   getTotal():number{
     return (this.getSubtotal() + this.getShippingPrice());
