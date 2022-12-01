@@ -31,7 +31,7 @@ export class PartService {
   }
 
   getAutomakers() {
-    return this.http.get<String[]>("http://localhost:8082/api/v1/cars/automakers")
+    return this.http.get<String[]>("http://localhost:8082/api/v1/parts/partmakers")
   }
 
   delete(id:number){
