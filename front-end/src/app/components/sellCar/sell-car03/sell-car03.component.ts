@@ -20,7 +20,10 @@ export class SellCar03Component implements OnInit {
 
   continue(){
     this.service.saveCarPage(this.car)
-    this.router.navigate(['sell-car06'])
+    this.router.navigate(['sell-car05'])
   }
 
+  navigate(route : string){
+    this.router.navigate([`${route}`])
+  }
 }

@@ -43,6 +43,7 @@ nav ul li a{
     text-decoration: none;
     color: var(--secondary);
     font-weight: 700;
+    cursor: pointer;
 }
 
 ul a{

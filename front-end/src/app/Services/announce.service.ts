@@ -17,19 +17,23 @@ export class AnnounceService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<[Announce]>("http://localhost:8082/api/v1/announce")
+    return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce")
   }
 
   getAllCars() {
     return this.http.get<Announce>("http://localhost:8082/api/v1/announce/cars")
   }
+  
+  getCarsByCriteria(filters: any) {
+    return this.http.post<Announce>("http://localhost:8082/api/v1/announce/cars/filters", filters)
+  }
 
   getAllParts() {
-    return this.http.get<[Announce]>("http://localhost:8082/api/v1/announce/parts")
+    return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce/parts")
   }
 
   getOne(id:number){
-    return this.http.get<[Announce]>(`http://localhost:8082/api/v1/announce/${id}`)
+    return this.http.get<Announce>(`http://localhost:8082/api/v1/announce/${id}`)
   }
 
   post(data : string){

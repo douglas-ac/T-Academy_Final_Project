@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { AnnounceComponent } from './components/announce/announce.component';
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { MatDividerModule } from '@angular/material/divider';
     SellPart06Component,
     ProfileComponent,
     NavbarComponent,
-    CartComponent
+    CartComponent,
+    AnnounceComponent
   ],
   imports: [
     BrowserModule,
@@ -64,18 +68,17 @@ import { MatDividerModule } from '@angular/material/divider';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule,
     MatToolbarModule,
     MatGridListModule,
-    MatFormFieldModule,
     MatSelectModule,
-    HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'en-US'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

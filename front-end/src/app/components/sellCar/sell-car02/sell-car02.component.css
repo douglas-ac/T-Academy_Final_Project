@@ -60,15 +60,6 @@
     font-size: medium;
 }
 
-.cartao {
-    width: 500px;
-    padding: 30px;
-    margin: 100px auto; 
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
 .login {
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
@@ -142,4 +133,20 @@ b {
 
 .botao-pequeno:hover {
     background-color: rgba(246, 24, 77, 0.7);
+}
+.cartao {
+    width: 500px;
+    margin: 100px auto; 
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.container {
+}
+
+.container mat-form-field {
+    width: 436px;
+    margin-top: 10px;
 }

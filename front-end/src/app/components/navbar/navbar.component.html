@@ -1,12 +1,12 @@
 <header>
     <nav>
-        <h1>Shop<span class="tertiary-color">Car</span></h1>
+        <h1 (click)="naviBar('')">Shop<span class="tertiary-color">Car</span></h1> 
         <ul>
-            <li><a href="">Comprar</a></li>
-            <li><a href="">Vender</a></li>
+            <li><a (click)="naviBar('cars-catalog')">Comprar</a></li>
+            <li><a (click)="naviBar('sell-car01')">Vender</a></li>
             <li><a data-bs-toggle="offcanvas" href="#cartElement"><img src="../../../assets/img/navbarImages/shop-cart-icon.svg" alt="">Carrinho</a></li>
-            <li><a href=""><img src="../../../assets/img/navbarImages/profile-icon.svg" alt="">Login ou Cadastre-se</a></li>
-        </ul>
+            <li><a><img src="../../../assets/img/navbarImages/profile-icon.svg" alt="" (click)="naviBar('login')">Login ou Cadastre-se</a></li>
+        </ul> 
     </nav>
 </header>
 

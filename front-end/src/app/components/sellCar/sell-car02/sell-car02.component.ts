@@ -10,11 +10,28 @@ import { CarService } from 'src/app/Services/car.service';
 })
 export class SellCar02Component implements OnInit {
 
+  years : number[] = []
+
+  categorys : string[] = ["Hatch", "Sedan", "SUV", "Cupê", "Pick-up", "Conversivel", "Minivan", "Van" , "Station Wagon", "Outro"]
+
   car : CarClass = new CarClass();
+
+  automakers : String[] = [] 
   
   constructor(private service : CarService, private router : Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit( ): void {
+    this.service.getCarPage()
+
+    this.service.getAutomakers().subscribe(data => {
+      this.automakers = data
+    })
+    
+    for(let i=1920 ; i<= 2023 ; i++){
+      this.years.push(i)
+    }
+    this.years = this.years.reverse()
+  }
 
   continue(){
     this.service.saveCarPage(this.car)

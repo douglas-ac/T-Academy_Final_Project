@@ -20,6 +20,7 @@ import { SellPart04Component } from './components/sellPart/sell-part04/sell-part
 import { SellPart05Component } from './components/sellPart/sell-part05/sell-part05.component';
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AnnounceComponent } from './components/announce/announce.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'sell-part05', component: SellPart05Component},
   {path: 'sell-part06', component: SellPart06Component},
   {path: 'profile', component: ProfileComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'anuncio/:id', component : AnnounceComponent}
 ];
 
 @NgModule({
