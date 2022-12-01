@@ -1,0 +1,347 @@
+<section>
+  <div class="products-options">
+    <span><h2 class="car-option" routerLink="/cars-catalog">Carro</h2></span>
+    <span><h2 class="part-option">Auto Peças</h2></span>
+  </div>
+  <div class="main-content">
+    <div class="filter-atributes">
+      <div class="location filter-option">
+        <h3>Localização</h3>
+        <input
+          type="text"
+          class="location-input"
+          placeholder="Digite o nome da cidade ou estado"
+        />
+      </div>
+
+      <div class="car-brand filter-option">
+        <h3>Marca do carro</h3>
+        <div class="brands-container">
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/bosch-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/seg-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/continental-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/nytron-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/haldex-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/freemax-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/maxgear-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/ymax-logo.svg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="../../../assets/img/partCatalogImages/valeo-logo.svg"
+              alt=""
+            />
+          </div>
+
+          <div *ngIf="isBrandShow">
+            <img 
+              src="../../../assets/img/partCatalogImages/nakata-logo.svg"
+              alt=""
+            />
+          </div>
+
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/wisa-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/monroe-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/mann-filter-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/luk-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/cobreq-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/sabo-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/goodyear-logo.svg"
+              alt=""
+            />
+          </div>
+          <div *ngIf="isBrandShow">
+            <img
+              src="../../../assets/img/partCatalogImages/kyb-logo.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <p class="see-more" (click)="showAllBrands()">Ver todas as marcas</p>
+      </div>
+
+      <div class="vehicle-type filter-option">
+        <h3>Tipo de veículo</h3>
+        <div class="checkbox-container">
+          <div>
+            <input type="checkbox" name="forTruck" id="forTruck" />
+            <label for="forTruck">Para caminhões</label>
+          </div>
+          <div>
+            <input type="checkbox" name="forCars" id="forCars" />
+            <label for="forCars">Para carros</label>
+          </div>
+          <div>
+            <input type="checkbox" name="forMotorcycles" id="forMotorcycles" />
+            <label for="forMotorcycles">Para motos</label>
+          </div>
+          <div>
+            <input type="checkbox" name="forBus" id="forBus" />
+            <label for="forBus">Para ônibus</label>
+          </div>
+          <div *ngIf="isVehicleTypeShow">
+            <input type="checkbox" name="forAgro" id="forAgro" />
+            <label for="forAgro">OTR e Agrícola </label>
+          </div>
+          <div *ngIf="isVehicleTypeShow">
+            <input type="checkbox" name="forPickUpTruck" id="forPickUpTruck" />
+            <label for="forPickUpTruck">Para SUVs e caminhonetes</label>
+          </div>
+          <div *ngIf="isVehicleTypeShow">
+            <input type="checkbox" name="forVans" id="forVans" />
+            <label for="forVans">Para Vans</label>
+          </div>
+        </div>
+        <p class="see-more" (click)="showAllVehicleTypes()">Ver todos os tipos</p>
+      </div>
+
+      <div class="year filter-option">
+        <h3>Ano</h3>
+        <div class="input-container">
+          <div class="year-input">
+            <input type="number" name="" id="" placeholder="de" />
+            <p class="example">ex.: 2014</p>
+          </div>
+          <div class="year-input">
+            <input type="number" name="" id="" placeholder="até" />
+            <p class="example">ex.: 2019</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="price filter-option">
+        <h3>Preço</h3>
+        <div class="input-container">
+          <div>
+            <input type="number" name="" id="" placeholder="de" />
+            <p class="example">ex.: 20.000</p>
+          </div>
+          <div>
+            <input type="number" name="" id="" placeholder="até" />
+            <p class="example">ex.: 50.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="categories filter-option">
+        <h3>Categorias</h3>
+        <div class="checkbox-container">
+          <div>
+            <input
+              type="checkbox"
+              name="categoryArmotecedor"
+              id="categoryArmotecedor"
+            />
+            <label for="categoryArmotecedor">Armotecedor</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="categoryClimatizacao"
+              id="categoryClimatizacao"
+            />
+            <label for="categoryClimatizacao">Climatização</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="categoryCorreias"
+              id="categoryCorreias"
+            />
+            <label for="categoryCorreias">Correias</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="categoryDirecao"
+              id="categoryDirecao"
+            />
+            <label for="categoryDirecao">Direção</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input type="checkbox" name="categoryEmbreagem" id="categoryEmbreagem" />
+            <label for="categoryEmbreagem">Embreagem</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input type="checkbox" name="categoryFreios" id="categoryFreios" />
+            <label for="categoryFreios">Freios</label>
+          </div>
+
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryMotor"
+              id="categoryMotor"
+            />
+            <label for="categoryMotor">Motor</label>
+          </div>
+          <div *ngIf="isCategoryShow">
+            <input type="checkbox" name="categorySuspensao" id="categorySuspensao" />
+            <label for="categorySuspensao">Suspensão</label>
+          </div>
+
+          <div *ngIf="isCategoryShow">
+            <input
+              type="checkbox"
+              name="categoryTransmissao"
+              id="categoryTransmissao"
+            />
+            <label for="categoryTransmissao">Transmissão</label>
+          </div>
+  
+        </div>
+        <p class="see-more" (click)="showAllCategorys()">
+          Ver todas as categorias
+        </p>
+      </div>
+
+      <div class="montadora filter-option">
+        <h3>Montadora</h3>
+        <div class="checkbox-container">
+          <div>
+            <input type="checkbox" name="montadoraAUDI" id="montadoraAUDI" />
+            <label for="montadoraAUDI">AUDI</label>
+          </div>
+          <div>
+            <input type="checkbox" name="montadoraBMW" id="montadoraBMW" />
+            <label for="montadoraBMW">BMW</label>
+          </div>
+          <div>
+            <input type="checkbox" name="colorBlue" id="colorBlue" />
+            <label for="colorBlue">CHEVROLET</label>
+          </div>    
+          <div>
+            <input type="checkbox" name="montadoraFIAT" id="montadoraFIAT" />
+            <label for="montadoraFIAT">FIAT</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraFORD" id="montadoraFORD" />
+            <label for="montadoraFORD">FORD</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraJEEP" id="montadoraJEEP" />
+            <label for="montadoraJEEP">JEEP</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraLANDROVER" id="montadoraLANDROVER" />
+            <label for="montadoraLANDROVER">LAND ROVER</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraMERCEDES" id="montadoraMERCEDES" />
+            <label for="montadoraMERCEDES">MERCEDES</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraMITSUBISH" id="montadoraMITSUBISH" />
+            <label for="montadoraMITSUBISH">MITSUBISH</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraNISSAN" id="montadoraNISSAN" />
+            <label for="montadoraNISSAN">NISSAN</label>
+          </div>
+          <div *ngIf="isMontadoraShow">
+            <input type="checkbox" name="montadoraPEUGEOT" id="montadoraPEUGEOT" />
+            <label for="montadoraPEUGEOT">PEUGEOT</label>
+          </div>
+        </div>
+        <p class="see-more" (click)="showAllMontadoras()">
+          Ver todas as montadoras
+        </p>
+      </div>
+
+      <div class="clean-filter-container">
+        <p class="clean-filter">Limpar filtros</p>
+      </div>
+    </div>
+
+    <div class="cars-catalog-right">
+      <div class="cards-container">
+        <div *ngFor="let ad of ads" class="card">
+          <img
+            src="../../../assets/img/partCatalogImages/cardImage.svg"
+            alt=""
+          />
+          <p class="username">{{ ad.user.name }}</p>
+          <p class="car-model">
+            {{ getPart(ad.product).nome }} 
+          </p>
+          <p class="car-year-miles">{{ getCar(ad.product).year</p>
+          <p class="location">{{ ad.address.localidade }}</p>
+          <p class="price">R$ {{ getPart(ad.product).preco.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
+          <p class="price-installment">60 x R$ {{ (getPart(ad.product).preco/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
+          <button class="see-offer-btn">Ver oferta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

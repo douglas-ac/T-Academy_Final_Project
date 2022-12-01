@@ -5,11 +5,11 @@
     
 }
 
-.part-option{
+.car-option{
     opacity: 0.5;
 }
 
-.part-option:hover{
+.car-option:hover{
     opacity: 1;
 }
 
@@ -37,7 +37,7 @@ div span h2:hover::after{
     
 }
 
-div span .car-option::after{
+div span .part-option::after{
     transform:scaleX(100%);
 }
 
@@ -79,9 +79,6 @@ input::-webkit-inner-spin-button {
     max-width: 250px;
     height: 425px;
     border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .card .username{
@@ -102,7 +99,8 @@ input::-webkit-inner-spin-button {
 }
 
 .card img{
-    width: 100%;
+    width: 208px;
+    height: 156px;
     margin-bottom: 5px;
 }
 
@@ -188,6 +186,14 @@ input::-webkit-inner-spin-button {
     align-items: center;
     cursor: pointer;
     
+    
+}
+
+
+.brands-container div img{
+    height: 90%;
+    width: 90%;
+    
 }
 
 .brands-container div:hover{
@@ -269,6 +275,7 @@ input[type=checkbox]{
 h2,h3{
     font-weight: 700;
 }
+
 
 .filter-option input[type=checkbox], .filter-option label{
     cursor: pointer;
