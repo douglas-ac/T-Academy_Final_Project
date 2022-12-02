@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-//import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Part } from 'src/app/Model/Models';
 import { PartService } from 'src/app/Services/part.service';
 
@@ -20,30 +19,27 @@ export class CartComponent {
   }
 
   loadCart(){
-    localStorage.setItem('itemList', JSON.stringify(this.itemsId));
+//     localStorage.setItem('itemList', this.itemsId.toString());
     this.getIds();
     this.addToCart();
   }
 
   getIds(){
       console.log(localStorage.getItem('itemList'));
-      if (localStorage.getItem('itemList') === undefined){
+      console.log(this.itemsId);
+      if (localStorage.getItem('itemList') === undefined || localStorage.getItem('itemList') === null){
          localStorage.setItem('itemList', JSON.stringify(this.itemsId));
       } else {
-        let itemsString = localStorage.getItem('itemList');
-        let length = text.split(",");
-
+        let itemsString:string = JSON.stringify(localStorage.getItem('itemList'))
+        let itemsArray = itemsString.split(",");
         this.itemsId = []
-        for (let i = 0; i < length; i++){
-          //ir apendando pelo splice/split dai
+        for (let i = 0; i < itemsArray.length; i++){
+          this.itemsId.push(parseInt(itemsArray[i]));
         }
       }
-
+        console.log(this.itemsId);
+        localStorage.setItem('itemList', this.itemsId.toString());
   }
-
-  1,3,4,5,6
-
-  splite()
 
   addToCart():void{
     for (let i=0; i<this.itemsId.length; i++){
