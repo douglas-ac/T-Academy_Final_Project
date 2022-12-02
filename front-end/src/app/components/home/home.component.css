@@ -3,7 +3,14 @@
   padding: 70px 70px 150px 70px;
   min-width: 100vw;
   transition: 0.7s;
+  
+ 
+  
 }
+
+
+
+
 
 .slider-banner-buyCar {
   background-color: var(--primary);
@@ -69,11 +76,16 @@
   margin-top: 50px;
   display: flex;
   gap: 10px;
-  position: absolute;
-  left: 70px;
-  bottom: 90px;
-  z-index: 2;
+ 
+  z-index: 4;
+  height: 0;
 }
+
+.test{
+  position: relative;
+}
+
+
 
 .dots-container span {
   height: 12px;
@@ -544,7 +556,7 @@ h1,h2,h3{
 
 @media screen and (max-width: 1380px){
   .category{
-    width: 240px;
+    width: 230px;
   }
 }
 
