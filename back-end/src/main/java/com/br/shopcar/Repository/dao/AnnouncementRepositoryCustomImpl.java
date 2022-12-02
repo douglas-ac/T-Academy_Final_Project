@@ -30,6 +30,19 @@ public class AnnouncementRepositoryCustomImpl implements AnnouncementRepositoryC
         StringBuilder sb = new StringBuilder();
 
         sb.append("select * from announcement a left join product_model p on a.product_id = p.id WHERE p.product_type = 1");
+                if(filters.get("name") != null){
+                    sb.append(" and p.name like  '%").append(filters.get("name")).append("%'");
+                }
+
+                if(filters.get("location") != null){
+                    sb.append(" and (")
+                            .append("(a.localidade like  '%").append(filters.get("location")).append("%')")
+                                    .append(" or ")
+                            .append("(a.uf like  '%").append(filters.get("location")).append("%')")
+                            .append(")");
+
+                }
+
                 if(filters.get("year") != null){
                     Integer tmpYear = (Integer) ((LinkedHashMap) filters.get("year")).get("from");
                     if(tmpYear != null){

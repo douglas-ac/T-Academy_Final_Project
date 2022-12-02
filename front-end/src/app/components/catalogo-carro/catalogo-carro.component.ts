@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { Announce, Car, Product, Address } from '../../Model/Models'
 
@@ -12,6 +13,8 @@ export class CatalogoCarroComponent {
   
   // Filters' options
   filters = {
+    name: null,
+    location: null,
     year: {
       from: null,
       to: null
@@ -34,7 +37,7 @@ export class CatalogoCarroComponent {
   isColorShow:boolean = false;
   isCategoryShow:boolean = false;
 
-  constructor(private service: AnnounceService){
+  constructor(private service: AnnounceService, private router: Router){
     this.getAll()
   }
   
@@ -54,9 +57,8 @@ export class CatalogoCarroComponent {
     this.service.getAllCars().subscribe( (data: any) => this.ads = <Announce[]>data.content)
   }
 
-  log(data: any){
-    let d = data as HTMLInputElement
-    console.log(d.type)
+  log(){
+    console.log(Object.keys(this.filters))
   }
 
   getCar(data: Product){
@@ -65,6 +67,22 @@ export class CatalogoCarroComponent {
 
   filter(){
     this.service.getCarsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
+  }
+
+  clearAllFilters(){
+    window.location.reload()
+  }
+
+  clearFilter(filter: any){
+    for(let [key, value] of Object.entries(filter)){
+      if(Array.isArray(value)){
+        filter[key] = []
+      } else if(typeof value == 'object' && value != null){
+        this.clearFilter(value)
+      } else{
+        filter[key] = null
+      }
+    }
   }
 
   addFilterOption(key: any, value: any){
@@ -80,7 +98,6 @@ export class CatalogoCarroComponent {
         }
       }
       this.filter()
-      console.log(myArray)
     }
   }
 
