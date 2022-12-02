@@ -329,4 +329,8 @@ button.btn{
     .brands-container{
         justify-content: flex-start;
     }
+
+    .input-container{
+        flex-direction: row;
+    }
 }
