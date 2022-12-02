@@ -71,7 +71,7 @@
   gap: 10px;
   position: absolute;
   left: 70px;
-  bottom: 120px;
+  bottom: 90px;
   z-index: 2;
 }
 
@@ -113,9 +113,13 @@
 
 .search-bar .links-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
+
+
 
 .links-container a {
   text-decoration: none;
@@ -215,12 +219,15 @@
 
 .category-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+ 
 }
 
 .category{
-    height: 170px;
-    width: 270px;
+   height: 200px;
+   width: 22%;
     padding: 15px;
     border-radius: 15px;
     position: relative;
@@ -235,26 +242,31 @@
 
 .categories .adventurous{
     background-image: url(../../../assets/img/homeImages/advebturous-category.svg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .categories .hatch{
     background-image: url(../../../assets/img/homeImages/hatch-category.svg);
-    background-size: 100%;
+    background-size:cover;
     background-repeat: no-repeat;
+    background-position: center;
+    
 }
 
 .categories .sedan{
     background-image: url(../../../assets/img/homeImages/sedan-category.svg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .categories .familiar{
     background-image: url(../../../assets/img/homeImages/familiar-category.svg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .dark-bg{
@@ -287,7 +299,7 @@
     color: var(--secondary);
     margin-bottom: 40px;
     font-size: 2.3rem;
-    max-width: 65%;
+    max-width: 60%;
 }
 
 .know-more-btn{
@@ -393,7 +405,9 @@ footer{
 
 .footer-top{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .footer-bottom{
@@ -525,4 +539,145 @@ margin-bottom: 30px;
 
 h1,h2,h3{
   font-weight: 700;
+}
+
+
+@media screen and (max-width: 1380px){
+  .category{
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 1092px){
+  .announce-advertise-section{
+    padding: 70px;
+  }
+
+  .announce-advertise{
+    height: 400px;
+    padding: 35px 60px;
+  }
+
+  .announce-advertise img{
+    width: 400px;
+  }
+
+  .announce-advertise h2{
+    max-width: none;
+  }
+
+  .circle-left, .circle-right{
+    display: none;
+  }
+
+
+  .see-offers{
+    font-size: 0.8rem;
+    padding: 0 5px;
+    
+  }
+}
+
+
+
+@media screen and (max-width: 1050px){
+  .jeep-image, .parts-image{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 960px){
+ .content-container{
+  flex-direction: column;
+ }
+
+ .smartphone2, .smartphone1{
+  width: 50%;
+ }
+
+}
+
+
+
+@media screen and (max-width: 869px){
+  .slider-banner .subtitle, .slider-banner .text{
+    max-width: none;
+  }
+
+  
+}
+
+
+
+
+@media screen and (max-width: 724px){
+  .category{
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 692px) {
+  .search-input::placeholder{
+    font-size: 0.8rem;
+  
+  }
+
+  .search-container{
+    flex-direction: column;
+  }
+
+  .see-offers, .search-input{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 641px){
+  .announce-advertise img{
+    display: none;
+  }
+
+  .announce-advertise{
+    height: auto;
+    padding: 30px;
+  }
+
+  .announce-advertise h2, .announce-advertise button{
+    font-size: 1.5rem;
+  }
+
+  .smartphone1{
+    visibility: hidden;
+  }
+
+  .smartphone2{
+    right: 50%;
+    top: 0;
+  }
+
+  .content-right{
+    padding: 30px;
+  }
+
+}
+
+
+@media screen and (max-width: 477px) {
+  .slider-banner .text{
+    font-size: 1rem;
+  }
+
+  .slider-banner{
+    padding: 35px;
+  }
+
+  .slider-banner .subtitle{
+    font-size: 1.5rem;
+  }
+
+
+  .mobile-devices-soon{
+    padding: 32px;
+  }
 }
