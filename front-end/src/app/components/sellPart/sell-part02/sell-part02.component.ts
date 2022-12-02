@@ -16,13 +16,13 @@
 
    //classes used to build object
    announce : AnnouncePartClass = new AnnouncePartClass();
-   Part : PartClass = new PartClass();
+   part : PartClass = new PartClass();
    user : UserClass = new UserClass();
 
    //params for option in html
    years : number[] = []
    categories : string[] = ["Motorização", "Transmissão", "Suspensão", "Frenagem", "Carroceria", "Segurança", "Injeção e ignição", "Exaustão" , "Elétrica", "Outro"]
-   automakers : string[] = ["Bosch", "SEG", "Continental", "Nytron", "Haldex", "Fremax", "Maxgear", "Ymax", "Valeo", "Outros"]
+   partmakers : String[] = [];
 
    constructor(private PartService : PartService, private router : Router,
                private cepService : CepService, private announceService : AnnounceService) { }
@@ -48,9 +48,9 @@
    ngOnInit( ): void {
      this.PartService.getPartPage()
 
-    //  this.PartService.getAutomakers().subscribe(data => {
-    //    this.automakers = data
-    //  })
+     this.PartService.getPartmakers().subscribe(data => {
+       this.partmakers = data
+     })
 
      for(let i=1920 ; i<= 2023 ; i++){
        this.years.push(i)
@@ -77,14 +77,14 @@
 
      this.saveImage()
      this.PartService.postImage(this.PartService.getImage()).subscribe( response => {
-       this.PartService.post(this.Part).subscribe( data => {
-         this.Part = data
+       this.PartService.post(this.part).subscribe( data => {
+         this.part = data
          this.announce.amount = 1;
 
          this.announce.user = this.user
          this.announce.user.id = 1
 
-         this.announce.product = this.Part
+         this.announce.product = this.part
 
          this.announce.image.id = response
 

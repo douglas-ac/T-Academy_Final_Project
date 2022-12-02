@@ -6,7 +6,7 @@
 
             <mat-form-field appearance="fill" class="dropdown">
                 <mat-label>Informe a categoria do seu produto</mat-label>
-                <mat-select appearance="fill" [(ngModel)]="Part.category" formControlName="category">
+                <mat-select appearance="fill" [(ngModel)]="part.category" formControlName="category">
                     <mat-option *ngFor="let category of categories" value="{{category}}">{{category}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -14,21 +14,21 @@
 
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Escolha um fabricante</mat-label>
-            <mat-select appearance="fill" [(ngModel)]="Part.automaker" formControlName="brand">
-                <mat-option *ngFor="let auto of automakers" value="{{auto}}">{{auto}}</mat-option>
+            <mat-select appearance="fill" [(ngModel)]="part.partmaker" formControlName="brand">
+                <mat-option *ngFor="let part of partmakers" value="{{part}}">{{part}}</mat-option>
             </mat-select>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Informe um modelo</mat-label>
-            <input matInput placeholder="Ex. Porca, parafuso" [(ngModel)]="Part.model" formControlName="model" required>
+            <input matInput placeholder="Ex. Porca, parafuso" [(ngModel)]="part.model" formControlName="model" required>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.model.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Informe o ano de fabricação</mat-label>
-            <mat-select appearance="fill" [(ngModel)]="Part.year" formControlName="year">
+            <mat-select appearance="fill" [(ngModel)]="part.year" formControlName="year">
                 <mat-option *ngFor="let year of years" value="{{year}}">{{year}}</mat-option>
             </mat-select>
         </mat-form-field>
@@ -38,14 +38,14 @@
         <div class="container">
             <mat-form-field appearance="fill" class="dropdown">
                 <mat-label>Fale um pouco mais sobre seu produto:</mat-label>
-                <input matInput placeholder="Ex. Original de fábrica.." [(ngModel)]="Part.description" 
+                <input matInput placeholder="Ex. Original de fábrica.." [(ngModel)]="part.description" 
                 formControlName="description" required>
             </mat-form-field>
             <div *ngIf="sent && this.AnnounceForm.controls.description.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
             <mat-form-field appearance="fill" class="dropdown">
                 <mat-label> Por quanto você quer vender o seu carro?</mat-label>
-                <input matInput placeholder="Ex. 5.000,00" [(ngModel)]="Part.price" mask="separator.0"
+                <input matInput placeholder="Ex. 5.000,00" [(ngModel)]="part.price" mask="separator.0"
                     thousandSeparator="." prefix="RS " formControlName="price">
             </mat-form-field>
             <div *ngIf="sent && this.AnnounceForm.controls.price.errors?.['pattern']" class="warning-form">Preencha o valor corretamente</div>
