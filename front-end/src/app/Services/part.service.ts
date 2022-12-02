@@ -30,7 +30,7 @@ export class PartService {
     return this.http.put<[Part]>(`http://localhost:8082/api/v1/parts/${id}`, data)
   }
 
-  getAutomakers() {
+  getPartmakers() {
     return this.http.get<String[]>("http://localhost:8082/api/v1/parts/partmakers")
   }
 

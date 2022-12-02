@@ -79,7 +79,6 @@ export interface Product {
     name: string;
     description: string;
     price: number;
-    automaker: string;
     year:number;
     model:string;
     category:string;
@@ -88,6 +87,7 @@ export interface Product {
 export interface Car extends Product{
     quilometragem: number;
     color : string ;
+    automaker:string;
 }
 
 export interface Part extends Product{
@@ -95,6 +95,7 @@ export interface Part extends Product{
     brand : string;
     vehicle_type :string;
     amount : number;
+    partmaker:string;
 }
 
 export class Images{
@@ -140,7 +141,7 @@ export class PartClass implements Product {
     name: string = "";
     description: string = "";
     price: number = 0;
-    automaker: string = "";
+    partmaker: string = "";
     year: number = 0;
     model: string = "";
     category: string = "";
