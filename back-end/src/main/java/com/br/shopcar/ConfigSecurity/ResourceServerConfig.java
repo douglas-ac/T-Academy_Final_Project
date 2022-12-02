@@ -23,7 +23,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String[] PUBLIC = {"/oauth/token","/api/v1/announce","api/v1/comment"};
     private static final String[] ADMIN = {"/api/v1/announce/**","api/v1/comment/**","api/v1/user/**"};
-    private static final String[] USER = {"api/v1/user", "/api/v1/announce/**","api/v1/comment/**","api/v1/comment/answer"};
+    private static final String[] USER = {"api/v1/user", "/api/v1/announce/**","api/v1/comment/**","api/v1/comment/answer/**"};
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {

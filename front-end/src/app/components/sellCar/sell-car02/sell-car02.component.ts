@@ -33,7 +33,7 @@ export class SellCar02Component implements OnInit {
     color: new FormControl('', [Validators.required]),
     year: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    quilometragem: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,}.[0-9]{3} +km+$')]),
+    quilometragem: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,}.[0-9]{3} +km$')]),
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required, Validators.pattern('RS [0-9]{1,3}.[0-9]{3}')]),
     cep: new FormControl('', [Validators.required]),
