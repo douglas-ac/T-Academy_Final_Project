@@ -10,7 +10,7 @@ import { Announce, Car, Product, Address, Part } from '../../Model/Models'
 export class PartsCatalogComponent {
 
   ads: Announce[] = []
-  itemList: number[] = [];
+  itemList: Announce[] = [];
 
   isBrandShow:boolean = false;
   isMontadoraShow:boolean = false;
@@ -49,13 +49,12 @@ export class PartsCatalogComponent {
   log(){
     console.log(this.ads)
   }
-
-  addToCart(id: number){
-    if (localStorage.getItem('itemList') != undefined){
-      //this.itemList = JSON.parse(localStorage.getItem('itemList'));
-    }
-    this.itemList.push(id);
-    localStorage.setItem('itemList', JSON.stringify(this.itemList));
-  }
+//
+//   addToCart(id: number){
+//     let json = JSON.parse(this.localStorage.getItem('itemList'));
+//
+//     this.itemList.push(id);
+//     localStorage.setItem('itemList', JSON.stringify(this.itemList));
+//   }
 
 }
