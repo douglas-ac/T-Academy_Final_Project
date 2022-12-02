@@ -21,7 +21,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private JwtTokenStore tokenStore;
 
-    private static final String[] PUBLIC = {"/oauth/token","/api/v1/announce/cars","api/v1/comment"};
+    private static final String[] PUBLIC = {"/oauth/token","/api/v1/announce/cars/**","api/v1/comment","/api/v1/announce/*"};
 
     private static final String[] OTHER = {"/api/v1/announce/cars/filters","/api/v1/announce/cars/filters/**"};
     private static final String[] ADMIN = {"/api/v1/announce/**","api/v1/comment/**","api/v1/user/**"};
@@ -42,6 +42,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, PUBLIC).permitAll()
                 //filter
                 .antMatchers(HttpMethod.POST,OTHER).permitAll()
+                .antMatchers(HttpMethod.GET,OTHER).permitAll()
                 //user
                 .antMatchers(HttpMethod.GET, USER).hasRole("USER")
                 .antMatchers(HttpMethod.POST, USER).hasRole("USER")
