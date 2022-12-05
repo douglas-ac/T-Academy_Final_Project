@@ -94,10 +94,18 @@ export class RegisterComponent {
       fone: ""
     }
 
+    let roles = {
+      id: 1,
+      authority: "ROLE_USER"
+    }
+
     let login: Login = {
       username: "",
-      password: ""
+      password: "",
+      roles: []
     }
+
+
 
     address.cep = this.register.value.zipCode || ''
     address.logradouro = this.register.value.street || ''
@@ -108,6 +116,7 @@ export class RegisterComponent {
 
     login.username = this.register.value.email || ''
     login.password = this.register.value.password || ''
+    login.roles.push(roles)
 
     user.name = this.register.value.fullname || ''
     user.email = this.register.value.email || ''
