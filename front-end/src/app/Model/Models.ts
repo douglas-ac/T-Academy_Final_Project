@@ -1,6 +1,12 @@
+export interface Roles {
+    id: number;
+    authority: string;
+}
+
 export interface Login {
     username: string;
     password: string;
+    roles: Roles[];
 }
 
 export interface AnnouncementList {

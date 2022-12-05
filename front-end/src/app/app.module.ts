@@ -27,6 +27,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AnnounceComponent } from './components/announce/announce.component';
 import { LOCALE_ID } from '@angular/core';
 import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +62,10 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
     ReactiveFormsModule,
     HttpClientModule,
     MatDividerModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatDatepickerModule,
+    MatIconModule,
+    MatNativeDateModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US'}
