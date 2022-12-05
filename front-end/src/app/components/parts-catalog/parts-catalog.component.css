@@ -68,6 +68,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    justify-content: space-around;
     
 }
 
@@ -286,4 +287,43 @@ h2,h3{
 
 .filter-option input[type=checkbox], .filter-option label{
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 900px) {
+    .input-container{
+        flex-direction: column;
+    }
+
+    .main-content{
+        flex-direction: column;
+    }
+
+    .filter-atributes{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .filter-option{
+        width: 100%;
+    }
+
+    .checkbox-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .cards-container{
+        width: 100%;
+    }
+
+    .clean-filter-container{
+        margin: 0 auto;
+    }
+
+    .brands-container{
+        justify-content: flex-start;
+    }
 }
