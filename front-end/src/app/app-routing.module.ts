@@ -23,8 +23,8 @@ const routes: Routes = [
   {path: 'sell-car02', component: SellCar02Component , canActivate:[AuthService]},
   {path: 'sell-car07', component: SellCar07Component, canActivate:[AuthService]},
 
-  {path: 'sell-part02', component: SellPart02Component},
-  {path: 'sell-part06', component: SellPart06Component},
+  {path: 'sell-part02', component: SellPart02Component, canActivate:[AuthService]},
+  {path: 'sell-part06', component: SellPart06Component, canActivate:[AuthService]},
   {path: 'profile', component: ProfileComponent},
   {path: 'anuncio/:id', component : AnnounceComponent}
 ];

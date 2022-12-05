@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Part, PartClass } from '../Model/Models';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PartService {
   part:PartClass = new PartClass();
   images:any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authService : AuthService) { }
 
   getAll() {
     return this.http.get<[Part]>("http://localhost:8082/api/v1/parts")
@@ -23,7 +24,9 @@ export class PartService {
   }
 
   post(data: Part){
-    return this.http.post<Part>("http://localhost:8082/api/v1/parts",data)
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
+    return this.http.post<Part>("http://localhost:8082/api/v1/parts",data, { headers: header })
   }
 
   put(id:number, data:Part){

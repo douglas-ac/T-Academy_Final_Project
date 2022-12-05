@@ -5,6 +5,7 @@
  import { AnnounceService } from 'src/app/Services/announce.service';
  import { PartService } from 'src/app/Services/part.service';
  import { CepService } from 'src/app/Services/cep.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
  @Component({
    selector: 'app-sell-part02',
@@ -25,7 +26,7 @@
    partmakers : String[] = [];
 
    constructor(private PartService : PartService, private router : Router,
-               private cepService : CepService, private announceService : AnnounceService) { }
+               private cepService : CepService, private announceService : AnnounceService, private authService : AuthService) { }
 
    AnnounceForm = new FormGroup ({
      brand: new FormControl('', [Validators.required]),
@@ -82,7 +83,7 @@
          this.announce.amount = 1;
 
          this.announce.user = this.user
-         this.announce.user.id = 1
+         this.announce.user.id = Number(this.authService.getId())
 
          this.announce.product = this.part
 

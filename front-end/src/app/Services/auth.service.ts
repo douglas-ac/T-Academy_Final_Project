@@ -7,14 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class AuthService implements CanActivate{
 
+  token ?: string
+
   constructor(private router: Router) { }
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let token = localStorage.getItem('token') || '' 
+    let token = sessionStorage.getItem('token') || '' 
     if(token == ''){
       this.router.navigate(['login'])
     }
-
     return true
+  }
+
+  getToken(){
+    return sessionStorage.getItem('token')
+  }
+
+  getId(){
+    return sessionStorage.getItem('idUser')
   }
 }
