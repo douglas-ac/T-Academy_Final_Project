@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/Model/Models';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -22,6 +21,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.service.login(this.username, this.password).subscribe(data => console.log(data))
+    this.service.login(this.username, this.password).subscribe((data:any) => {
+      sessionStorage.setItem('token', data.access_token)
+      sessionStorage.setItem('idUser' , data.id)
+      this.router.navigate([''])
+    })
   }
 }

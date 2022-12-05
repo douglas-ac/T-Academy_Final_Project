@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/announce")
@@ -25,7 +24,7 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> findAll(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 10) Pageable page){
+            size = 20) Pageable page){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAll(page));
     }
 
@@ -33,7 +32,7 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> findCars(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 10) Pageable page){
+            size = 20) Pageable page){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(page));
     }
 
@@ -41,7 +40,7 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> filterCarAnnounceByCriteria2(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 10) Pageable page, @RequestBody LinkedHashMap filters){
+            size = 20) Pageable page, @RequestBody LinkedHashMap filters){
 //        System.out.println(filters.toString());
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.filterCarAnnounceByCriteria(page, filters));
     }
@@ -50,7 +49,7 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> findParts(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 10) Pageable page){
+            size = 20) Pageable page){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllParts(page));
     }
 

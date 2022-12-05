@@ -44,7 +44,7 @@
             <div *ngIf="sent && this.AnnounceForm.controls.description.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
             <mat-form-field appearance="fill" class="dropdown">
-                <mat-label> Por quanto você quer vender o seu carro?</mat-label>
+                <mat-label> Por quanto você quer vender o seu produto?</mat-label>
                 <input matInput placeholder="Ex. 5.000,00" [(ngModel)]="part.price" mask="separator.0"
                     thousandSeparator="." prefix="RS " formControlName="price">
             </mat-form-field>

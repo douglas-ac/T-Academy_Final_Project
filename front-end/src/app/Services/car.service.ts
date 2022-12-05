@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Car, CarClass, Images } from '../Model/Models';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CarService {
   car : CarClass = new CarClass();
   images : any 
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient,private authService : AuthService ) { }
 
   getAll() {
     return this.http.get<[Car]>("http://localhost:8082/api/v1/cars")
@@ -26,7 +27,9 @@ export class CarService {
   }
 
   post(data: Car){
-    return this.http.post<Car>("http://localhost:8082/api/v1/cars",data)
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
+    return this.http.post<Car>("http://localhost:8082/api/v1/cars",data, { headers: header })
   }
 
   put(id:number, data:Car){

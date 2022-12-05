@@ -78,3 +78,9 @@ h1 {
     margin-bottom: 0px;
 }
 
+
+@media screen and (max-width: 477px) {
+    header{
+        padding: 35px;
+    }
+}

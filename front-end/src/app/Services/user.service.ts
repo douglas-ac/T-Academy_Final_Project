@@ -2,24 +2,29 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { User, Login, AnnouncementList, Address } from "../Model/Models"
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService : AuthService) { }
 
   post(data: User){
     return this.http.post<User>("http://localhost:8082/api/v1/user", data)
   }
 
   getOne(id:number){
-    return this.http.get<[User]>(`http://localhost:8082/api/v1/user/${id}`)
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
+    return this.http.get<[User]>(`http://localhost:8082/api/v1/user/${id}`, { headers: header })
   }
 
   put(id:number, data:User){
-    return this.http.put<[User]>(`http://localhost:8082/api/v1/user/${id}`, data)
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
+    return this.http.put<[User]>(`http://localhost:8082/api/v1/user/${id}`, data , { headers: header })
   }
 
   login(username : string, password:string){
