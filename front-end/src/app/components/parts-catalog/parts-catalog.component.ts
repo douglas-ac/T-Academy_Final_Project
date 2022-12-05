@@ -49,12 +49,12 @@ export class PartsCatalogComponent {
   log(){
     console.log(this.ads)
   }
-//
-//   addToCart(id: number){
-//     let json = JSON.parse(this.localStorage.getItem('itemList'));
-//
-//     this.itemList.push(id);
-//     localStorage.setItem('itemList', JSON.stringify(this.itemList));
-//   }
+
+  addToCart(id: number){
+    let json = JSON.parse(localStorage.getItem('itemList'));
+    let an = this.service.getOne(id);
+    this.itemList.push(an);
+    localStorage.setItem('itemList', JSON.stringify(this.itemList));
+  }
 
 }

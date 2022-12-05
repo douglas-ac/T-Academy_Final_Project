@@ -94,7 +94,7 @@ export interface Part extends Product{
     part_condition: string;
     brand : string;
     vehicle_type :string;
-    amount : number;
+    reserved_amount : number;
 }
 
 export class Images{
