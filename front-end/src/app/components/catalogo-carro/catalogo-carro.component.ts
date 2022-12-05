@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import { UtilsService } from 'src/app/Services/utils.service';
 import { Announce, Car, Product, Address } from '../../Model/Models'
 
 @Component({
@@ -37,7 +38,7 @@ export class CatalogoCarroComponent {
   isColorShow:boolean = false;
   isCategoryShow:boolean = false;
 
-  constructor(private service: AnnounceService, private router: Router){
+  constructor(private service: AnnounceService, private utils: UtilsService){
     this.getAll()
   }
   
@@ -73,32 +74,9 @@ export class CatalogoCarroComponent {
     window.location.reload()
   }
 
-  clearFilter(filter: any){
-    for(let [key, value] of Object.entries(filter)){
-      if(Array.isArray(value)){
-        filter[key] = []
-      } else if(typeof value == 'object' && value != null){
-        this.clearFilter(value)
-      } else{
-        filter[key] = null
-      }
-    }
-  }
-
   addFilterOption(key: any, value: any){
-    let k = key as keyof typeof this.filters
-    if(Array.isArray(this.filters[k])){
-      const myArray = (this.filters[k] as Array<any>)
-      if(myArray.indexOf(value) == -1){
-        myArray.push(value)
-      } else{
-        const index = myArray.indexOf(value);
-        if (index > -1) {
-          myArray.splice(index, 1);
-        }
-      }
-      this.filter()
-    }
+    this.utils.addValueToObject(this.filters, key, value)
+    this.filter()
   }
 
 }
