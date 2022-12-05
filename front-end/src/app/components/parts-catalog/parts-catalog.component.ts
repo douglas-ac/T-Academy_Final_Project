@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import { UtilsService } from 'src/app/Services/utils.service';
 import { Announce, Car, Product, Address, Part } from '../../Model/Models'
 
 @Component({
@@ -8,15 +9,33 @@ import { Announce, Car, Product, Address, Part } from '../../Model/Models'
   styleUrls: ['./parts-catalog.component.css']
 })
 export class PartsCatalogComponent {
-
   ads: Announce[] = []
+
+  // Filters' options
+  filters = {
+    name: null,
+    location: null,
+    year: {
+      from: null,
+      to: null
+    },
+    price: {
+      from: null,
+      to: null
+    },
+    automaker: [],
+    category: [],
+    part_condition: [],
+    brand: [],
+    vehicle_type: []
+  };  
 
   isBrandShow:boolean = false;
   isMontadoraShow:boolean = false;
   isCategoryShow:boolean = false;
   isVehicleTypeShow:boolean = false;
 
-  constructor(private service: AnnounceService){
+  constructor(private service: AnnounceService, private utils: UtilsService){
     this.getAll()
   }
 
@@ -37,7 +56,6 @@ export class PartsCatalogComponent {
   }
 
   getAll(){
-    // this.service.getAllCars().subscribe( (data: any) => console.log(data.content))
     this.service.getAllParts().subscribe( (data: any) => this.ads = <Announce[]>data.content)
   }
 
@@ -49,6 +67,18 @@ export class PartsCatalogComponent {
     console.log(this.ads)
   }
 
+  filter(){
+    this.service.getAutopartsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
+  }
+
+  clearAllFilters(){
+    window.location.reload()
+  }
+
+  addFilterOption(key: any, value: any){
+    this.utils.addValueToObject(this.filters, key, value)
+    this.filter()
+  }
 
 
 }
