@@ -502,6 +502,14 @@ footer{
   margin-bottom: 5px;
 }
 
+.test{
+  position: relative; 
+  width: 0; 
+  height: 0; 
+  left: 70px;
+  top: -165px;
+}
+
 .card .car-year-miles, .card .location{
    color: rgb(126, 126, 126);
    font-size: 0.8rem;
@@ -556,7 +564,7 @@ h1,h2,h3{
 
 @media screen and (max-width: 1380px){
   .category{
-    width: 230px;
+    width: 255px;
   }
 }
 
@@ -691,5 +699,9 @@ h1,h2,h3{
 
   .mobile-devices-soon{
     padding: 32px;
+  }
+
+  .test{
+    left: 30px;
   }
 }
