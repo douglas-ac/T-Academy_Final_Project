@@ -61,3 +61,13 @@ h2 {
 .dados {
     margin-top: 100px;
 }
+
+.descricao {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.icones {
+    text-align: right;
+    vertical-align: top;
+}
