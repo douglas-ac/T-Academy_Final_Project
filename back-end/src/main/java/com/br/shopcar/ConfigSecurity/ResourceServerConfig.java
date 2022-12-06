@@ -28,14 +28,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private JwtTokenStore tokenStore;
 
-<<<<<<< HEAD
     private static final String[] PUBLIC_POST = {"/oauth/token","/api/v1/user","/api/v1/announce/cars/filters","/api/v1/announce/parts/filters"};
     private static final String[] PUBLIC_GET = {"/api/v1/announce/cars","/api/v1/announce/cars/**","/api/v1/announce/**",
     "/api/v1/cars/automakers"};
-=======
-    private static final String[] PUBLIC_POST = {"/oauth/token","/api/v1/user", "/api/v1/announce/cars/filters", "/api/v1/announce/parts/filters"};
-    private static final String[] PUBLIC_GET = {"/api/v1/announce/cars","/api/v1/announce/cars/**","/api/v1/announce/**"};
->>>>>>> b21149581c4fcd91c5b9291c416b02ed1ffe3555
 
 
     @Override
