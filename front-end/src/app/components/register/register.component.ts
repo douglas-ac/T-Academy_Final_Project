@@ -63,7 +63,6 @@ export class RegisterComponent {
     // Separar a data
     let vetor = dateFormated.split('-');
 
-    // Verifica se o mês possui apenas um dígito
     if (vetor[0].length == 1 && vetor[1].length == 1) {
       vetor[0] = '0' + vetor[0];
       vetor[1] = '0' + vetor[1];
@@ -71,6 +70,10 @@ export class RegisterComponent {
       dateFormated = vetor[0] + '-' + vetor[1] + '-' + vetor[2];
     } else if (vetor[1].length == 1) {
       vetor[1] = '0' + vetor[1];
+
+      dateFormated = vetor[0] + '-' + vetor[1] + '-' + vetor[2];
+    } else if (vetor[0].length == 1) {
+      vetor[0] = '0' + vetor[0];
 
       dateFormated = vetor[0] + '-' + vetor[1] + '-' + vetor[2];
     }
