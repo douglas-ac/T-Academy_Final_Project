@@ -1,41 +1,37 @@
-section{
+section {
     padding: 40px 200px;
 }
 
-.center{
+.center {
     margin: 0 auto;
 }
 
-
-.announce-container{
+.announce-container {
     display: flex;
     gap: 50px;
     height: 100%;
     height: 350px;
-
 }
 
-h1{
+h1 {
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 40px;
 }
 
-
-
-.product-image{
+.product-image {
     border-radius: 8px;
     height: 350px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-h3{
+h3 {
     text-transform: uppercase;
     font-weight: 700;
    
 }
 
-ul li{
+ul li {
     list-style: none;
     color: #7e7e7e;
     display: flex;
@@ -43,44 +39,43 @@ ul li{
     font-size: 1rem;
 }
 
-.car-topic{
+.car-topic {
     font-weight: 700;
     color: black;
     margin-right: 5px;
 }
 
-ul{
+ul {
     padding: 0;
 }
 
-.color-square{
+.color-square {
     width: 15px;
     height: 15px;
     border: 1px solid black;
     background-color: red;
-    
 }
 
 
-#car-details{
+#car-details {
     height: 100%;
     display: flex;
     flex-direction: column;
-   justify-content: space-around;
+    justify-content: space-around;
 }
 
 
-h3, ul{
+h3, ul {
     margin: 0;
 }
 
-#price{
+#price {
     font-weight: 700;
     font-size: 2rem;
 }
 
 
-button{
+button {
     height: 40px;
     width: 100%;
     background-color: var(--primary);
@@ -89,15 +84,68 @@ button{
     border-radius: 4px;
     font-weight: 700;
     font-size: 1rem;
-    
 }
 
-.location-icon{
+.location-icon {
     width: 20px;
 }
 
-#cidade{
+#cidade {
     display: flex;
     align-items: center;
     color: #7e7e7e;
+}
+
+.add-comment textarea {
+    background-color: rgba(241, 239, 239, 1);
+    border-radius: 8px;
+    margin: 30px auto;
+    width: 800px;
+    border-style: none;
+    outline: 0;
+    padding: 10px;
+}
+
+.add-comment textarea::-moz-placeholder {
+    color: rgba(148, 148, 158, 1);
+    background-color: red;
+}
+
+.add-comment button {
+    width: 275px;
+}
+
+.comment {
+    margin: 30px auto;
+}
+
+.comment-title h4 {
+    color: var(--primary);
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.comment-title p {
+    color: rgba(184, 184, 189, 1);
+    font-weight: bold;
+}
+
+.comment-content p {
+    color: black;
+    font-weight: normal;
+}
+
+.comment-title {
+    display: flex;
+    justify-content: flex-start;
+    width: 480px;
+    margin: 0;
+    text-align: center;
+}
+
+.comment-btn {
+    width: 186px;
+    background-color: white;
+    margin: 30px;
+    margin-left: 0;
 }
