@@ -32,10 +32,16 @@
             </mat-form-field>
             <div *ngIf="sent && this.register.controls.cpf.errors?.['required']" class="warning-form">O CPF deve estar preenchido!</div>
             <div *ngIf="sent && this.register.controls.cpf.errors?.['pattern']" class="warning-form">CPF inválido!!</div>
+                      
             <mat-form-field appearance="outline">
                 <mat-label>Data de nascimento</mat-label>
-                <input matInput type="date" formControlName="birthDate" required>
+                <input matInput [matDatepicker]="picker" formControlName="birthDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
+
             <div *ngIf="sent && this.register.controls.birthDate.errors?.['required']" class="warning-form">A data de nascimento deve estar preenchida!</div>
             <mat-form-field appearance="outline">
                 <mat-label>Celular</mat-label>
@@ -78,6 +84,6 @@
         <button (click)="registerUser()">Criar conta</button>
     </div>
     <div class="already-has-account">
-        <p>Já possui uma conta? <a href="">Login</a></p>
+        <p>Já possui uma conta? <a (click)="navigateToLogin('login')">Login</a></p>
     </div>
 </div>

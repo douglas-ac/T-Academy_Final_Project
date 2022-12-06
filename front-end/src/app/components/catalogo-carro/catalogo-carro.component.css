@@ -66,6 +66,7 @@ input::-webkit-inner-spin-button {
     padding: 30px;
     width: 70vw;
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 30px;
     
@@ -132,8 +133,8 @@ input::-webkit-inner-spin-button {
     margin-bottom: 5px;
 }
 
-.card .see-offer-btn{
-    width: 100%;
+.see-offer-btn{
+    min-width: 40px;
     background-color: var(--primary);
     color: white;
     font-weight: 700;
@@ -144,8 +145,12 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.card .see-offer-btn:hover{
+.see-offer-btn:hover{
     opacity: 0.8;
+}
+
+.card .see-offer-btn{
+    width: 100%;
 }
 
 .filter-option{
@@ -173,9 +178,17 @@ input::-webkit-inner-spin-button {
     background-position-x: 97%;
 }
 
+.name-input{
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position-y:center;
+    background-position-x: 97%;
+}
+
 .brands-container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     gap: 10px;
 }
 
@@ -272,4 +285,52 @@ h2,h3{
 
 .filter-option input[type=checkbox], .filter-option label{
     cursor: pointer;
+}
+
+button.btn{
+    background-color: var(--primary);
+    color: white;
+}
+
+
+@media screen and (max-width: 900px) {
+    .input-container{
+        flex-direction: column;
+    }
+
+    .main-content{
+        flex-direction: column;
+    }
+
+    .filter-atributes{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .filter-option{
+        width: 100%;
+    }
+
+    .checkbox-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .cards-container{
+        width: 100%;
+    }
+
+    .clean-filter-container{
+        margin: 0 auto;
+    }
+
+    .brands-container{
+        justify-content: flex-start;
+    }
+
+    .input-container{
+        flex-direction: row;
+    }
 }

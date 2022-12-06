@@ -1,6 +1,6 @@
 <div class="font-main container-fluid d-flex justify-content-center align-items-center vh-100 vw-100">
     <div class="row justify-content-center w-75 h-75">
-        <div class="col col-xl-4 d-flex flex-column align-items-center justify-content-around bg-logo-login text-white bg-shadow">
+        <div class="col col-xl-4 d-flex flex-column align-items-center justify-content-around bg-logo-login text-white bg-shadow" id="logo">
             <div class="mt-3 text-center">
                 <h3 class="font-thick">Bem vindo(a) ao</h3>
                 <h1 class="display-2 font-thicker">Shop <span class="color-orange">Car</span></h1>
@@ -9,26 +9,26 @@
                 <img class="img-fluid" src="../assets/img/car_sample.png" alt="carro-exemplo">
             </div>
         </div>
-        <div class="col col-xl-4 d-flex flex-column justify-content-center bg-shadow">
+        <div class="col col-xl-4 d-flex flex-column justify-content-center bg-shadow access-account">
             <h3 class="color-gray">Entre na sua conta</h3>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="username">
                 <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
                 <label for="floatingPassword">Senha</label>
             </div>
             <span><a href="#" class="color-main font-thick">Esqueceu a senha?</a></span>
             <div class="d-grid">
-                <button class="btn bg-color-main text-white font-thick mb-3" type="button">Entrar</button>
+                <button class="btn bg-color-main text-white font-thick mb-3" type="button" (click)="login()">Entrar</button>
             </div>
             <div class="separator mb-3">Ou</div>
             <div class="d-flex justify-content-between mb-3">
                 <button type="button" class="btn btn-min-width border"><img src="../assets/img/google.png" alt=""></button>
                 <button style="background-color:rgba(59, 87, 157, 1);" type="button" class="btn btn-min-width "><img src="../assets/img/facebook.png" alt=""></button>
             </div>
-            <span class="color-gray">Não tem conta? <a href="#" class="color-main font-thick">Criar conta</a></span>
+            <span class="color-gray">Não tem conta? <a (click)="navigateToRegisterUser('cadastro')" class="color-main font-thick">Criar conta</a></span>
         </div>
     </div>
 </div>

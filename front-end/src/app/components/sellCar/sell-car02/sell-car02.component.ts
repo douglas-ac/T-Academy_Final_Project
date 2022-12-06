@@ -33,7 +33,7 @@ export class SellCar02Component implements OnInit {
     color: new FormControl('', [Validators.required]),
     year: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    quilometragem: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,}.[0-9]{3} +km+$')]),
+    quilometragem: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,}.[0-9]{3} +km$')]),
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required, Validators.pattern('RS [0-9]{1,3}.[0-9]{3}')]),
     cep: new FormControl('', [Validators.required]),
@@ -74,9 +74,6 @@ export class SellCar02Component implements OnInit {
 
   registerAnnounce(){
     this.sent = true
-
-    this.saveImage()
-    this.carService.postImage(this.carService.getImage()).subscribe( response => {
       this.carService.post(this.car).subscribe( data => {
         this.car = data
         this.announce.amount = 1;
@@ -85,8 +82,6 @@ export class SellCar02Component implements OnInit {
         this.announce.user.id = 1
         
         this.announce.product = this.car
-
-        this.announce.image.id = response
     
         var obj = 
         `{   
@@ -101,7 +96,7 @@ export class SellCar02Component implements OnInit {
             "complemento" : "${this.announce.adress.complemento}",
             "uf" : "${this.announce.adress.uf}"
           },
-          "image" : { "id" : ${this.announce.image.id}
+          "image" : { "id" : 0
             }
         }`;
         
@@ -109,21 +104,6 @@ export class SellCar02Component implements OnInit {
         this.announceService.post(obj).subscribe()
       });
         this.router.navigate(['sell-car07'])
-    })
-  }
-
-
-  saveImage(){
-    const form : any = document.getElementById("form");
-    const inputFile : any = document.getElementById("file");
-
-    const formData = new FormData();
-    
-    for (const file of inputFile.files) {
-      formData.append("image", file);
-      
-    } 
-
-    this.carService.saveImage(formData)
-  }
+    }
 }
+

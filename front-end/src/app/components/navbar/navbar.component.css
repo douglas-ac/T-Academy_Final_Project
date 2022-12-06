@@ -4,7 +4,6 @@ header {
   display: flex;
   align-items: center;
   padding: 0px 70px;
-  padding-right: 0px;
   width: 100%;
 }
 
@@ -23,7 +22,6 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -80,3 +78,9 @@ h1 {
     margin-bottom: 0px;
 }
 
+
+@media screen and (max-width: 477px) {
+    header{
+        padding: 35px;
+    }
+}

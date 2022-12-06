@@ -64,40 +64,24 @@
         </div>
 
 
-        <h1 class="titulo"><b>Anúnicos com fotos vendem mais rápido :)<br>Que tal adicioná-las agora?</b></h1>
-        <mat-grid-list cols="2">
-            <mat-grid-tile>
-                <img src="../../assets/img/photo.png" alt="">
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <form id="form" enctype="multipart/form-data">
-                    <div class="input-group">
-                        <input id="file" type="file" multiple required/>
-                    </div>
-                </form>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-
         <h1 class="titulo"><b>Confirme a localização do anúncio:</b></h1>
         <div class="container">
             <mat-form-field appearance="fill">
                 <mat-label>CEP</mat-label>
-                <input matInput placeholder="Ex. Novo, unico dono.." [(ngModel)]="announce.adress.cep"
+                <input matInput placeholder="Ex. 1234-567.." [(ngModel)]="announce.adress.cep"
                     (change)="atualizarCep()" formControlName="cep" required>
             </mat-form-field>
             <div *ngIf="sent && this.AnnounceForm.controls.cep.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
             <mat-form-field appearance="fill">
                 <mat-label>Rua</mat-label>
-                <input matInput placeholder="Ex. Novo, unico dono.." [(ngModel)]="announce.adress.logradouro"
+                <input matInput placeholder="Ex. XV de Novembro.." [(ngModel)]="announce.adress.logradouro"
                                 formControlName="logradouro">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Bairro</mat-label>
-                <input matInput [(ngModel)]="announce.adress.bairro" formControlName="bairro">
+                <input matInput placeholder="Ex. Centro" [(ngModel)]="announce.adress.bairro" formControlName="bairro">
             </mat-form-field>
             <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 

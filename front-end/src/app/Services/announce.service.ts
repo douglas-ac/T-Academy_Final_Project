@@ -3,19 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Announce, AnnounceCarClass} from '../Model/Models';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnnounceService {
 
-  constructor(private http: HttpClient) { }
+  token = sessionStorage.getItem('token')
+
+  constructor(private http: HttpClient, private authService : AuthService) { }
 
   getAll() {
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce")
@@ -38,7 +35,9 @@ export class AnnounceService {
   }
 
   post(data : string){
-    return this.http.post<AnnounceCarClass>("http://localhost:8082/api/v1/announce",data , httpOptions)
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
+    return this.http.post<AnnounceCarClass>("http://localhost:8082/api/v1/announce",data , { headers: header })
   }
 
   delete(id:number){

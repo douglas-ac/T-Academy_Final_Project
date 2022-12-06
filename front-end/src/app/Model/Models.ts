@@ -1,6 +1,12 @@
+export interface Roles {
+    id: number;
+    authority: string;
+}
+
 export interface Login {
     username: string;
     password: string;
+    roles: Roles[];
 }
 
 export interface AnnouncementList {
@@ -79,7 +85,6 @@ export interface Product {
     name: string;
     description: string;
     price: number;
-    automaker: string;
     year:number;
     model:string;
     category:string;
@@ -88,13 +93,15 @@ export interface Product {
 export interface Car extends Product{
     quilometragem: number;
     color : string ;
+    automaker:string;
 }
 
 export interface Part extends Product{
     part_condition: string;
     brand : string;
     vehicle_type :string;
-    reserved_amount: number;
+    reserved_amount : number;
+    partmaker:string;
 }
 
 export class Images{
@@ -135,19 +142,19 @@ export class CarClass implements Product{
     color : string = "";
 }
 
-export class PartClass implements Product{
+export class PartClass implements Product {
     id : number = 0;
     name: string = "";
     description: string = "";
     price: number = 0;
-    automaker: string = "";
+    partmaker: string = "";
     year: number = 0;
     model: string = "";
     category: string = "";
     part_condition: string = "";
     brand : string = "";
     vehicle_type :string = "";
-    reserved_amount : number = 1;
+    reserved_amount : number = 1; //ver isso
 }
 
 export class UserClass {

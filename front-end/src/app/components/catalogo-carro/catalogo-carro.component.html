@@ -5,119 +5,152 @@
   </div>
   <div class="main-content">
     <div class="filter-atributes">
-      <div class="location filter-option">
+      <div class="filter-option">
+        <h3>Nome</h3>
+        <div class="input-container">
+          <input type="text" class="name-input" placeholder="Digite o nome do carro" [(ngModel)]="filters.name"/>
+          <div>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-option">
         <h3>Localização</h3>
-        <input type="text" class="location-input" placeholder="Digite o nome da cidade ou estado" />
+        <div class="input-container">
+          <input type="text" class="location-input" placeholder="Digite o nome da cidade ou estado" [(ngModel)]="filters.location"/>
+          <div>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
+          </div>
+        </div>
       </div>
 
       <div class="car-brand filter-option">
         <h3>Marca do carro</h3>
         <div class="brands-container">
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'MERCEDES_BENZ')"
               src="../../../assets/img/carCatalogImages/mercedes-logo.svg"
               alt=""
+              checked="false"
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'FIAT')"
               src="../../../assets/img/carCatalogImages/fiat-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'FORD')"
               src="../../../assets/img/carCatalogImages/ford-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'MITSUBISHI')"
               src="../../../assets/img/carCatalogImages/mitsubish-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'HYUNDAI')"
               src="../../../assets/img/carCatalogImages/hiunday-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'RENAULT')"
               src="../../../assets/img/carCatalogImages/renault-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'BMW')"
               src="../../../assets/img/carCatalogImages/bmw-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'CHEVROLET')"
               src="../../../assets/img/carCatalogImages/chevrolet-logo.svg"
               alt=""
             />
           </div>
           <div>
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'VOLKSWAGEN')"
               src="../../../assets/img/carCatalogImages/volkswagem.svg"
               alt=""
             />
           </div>
 
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'TOYOTA')"
               src="../../../assets/img/carCatalogImages/toyota-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'LAND_ROVER')"
               src="../../../assets/img/carCatalogImages/landRover-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'AUDI')"
               src="../../../assets/img/carCatalogImages/audi-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'PORSCHE')"
               src="../../../assets/img/carCatalogImages/porshe-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'VOLVO')"
               src="../../../assets/img/carCatalogImages/volvo-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'PEUGEOT')"
               src="../../../assets/img/carCatalogImages/peugeot-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'NISSAN')"
               src="../../../assets/img/carCatalogImages/nissan-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'JEEP')"
               src="../../../assets/img/carCatalogImages/jeep-logo.svg"
               alt=""
             />
           </div>
           <div *ngIf="isBrandShow">
-            <img
+            <input type="image"
+              (click)="addFilterOption('automaker', 'TESLA')"
               src="../../../assets/img/carCatalogImages/tesla-logo.svg"
               alt=""
             />
@@ -130,11 +163,11 @@
         <h3>Carros</h3>
         <div class="checkbox-container-cars">
           <div class="check-label">
-            <input type="checkbox" name="newCar" id="newCar" (change)="addFilterOption('condition', 'novo', $event.target)"/>
+            <input type="checkbox" name="newCar" id="newCar" (change)="addFilterOption('condition', 'novo')"/>
             <label for="newCar">Novo</label>
           </div>
           <div class="check-label">
-            <input type="checkbox" name="usedCar" id="usedCar" (change)="addFilterOption('condition', 'usado', $event.target)"/>
+            <input type="checkbox" name="usedCar" id="usedCar" (change)="addFilterOption('condition', 'usado')"/>
             <label for="usedCar">Seminovo</label>
           </div>
         </div>
@@ -152,7 +185,7 @@
             <p class="example">ex.: 2019</p>
           </div>
           <div>
-            <button (click)="filter()" class="btn btn-primary">Ir</button>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
           </div>
         </div>
       </div>
@@ -169,7 +202,7 @@
             <p class="example">ex.: 50.000</p>
           </div>
           <div>
-            <button (click)="filter()" class="btn btn-primary">Ir</button>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
           </div>
         </div>
       </div>
@@ -186,7 +219,7 @@
             <p class="example">ex.: 50.000</p>
           </div>
           <div>
-            <button (click)="filter()" class="btn btn-primary">Ir</button>
+            <button (click)="filter()" class="see-offer-btn">Ir</button>
           </div>
         </div>
       </div>
@@ -195,47 +228,47 @@
         <h3>Cores</h3>
         <div class="checkbox-container">
           <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'amarelo', $event.target)" name="colorYellow" id="colorYellow" />
+            <input type="checkbox" (change)="addFilterOption('color', 'amarelo')" name="colorYellow" id="colorYellow" />
             <label for="colorYellow">Amarelo</label>
           </div>
           <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'azul', $event.target)" name="colorBlue" id="colorBlue" />
+            <input type="checkbox" (change)="addFilterOption('color', 'azul')" name="colorBlue" id="colorBlue" />
             <label for="colorBlue">Azul</label>
           </div>
           <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'bege', $event.target)" name="colorBege" id="colorBege" />
+            <input type="checkbox" (change)="addFilterOption('color', 'bege')" name="colorBege" id="colorBege" />
             <label for="colorBege">Bege</label>
           </div>
           <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'branco', $event.target)" name="colorWhite" id="colorWhite" />
+            <input type="checkbox" (change)="addFilterOption('color', 'branco')" name="colorWhite" id="colorWhite" />
             <label for="colorWhite">Branco</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'cinza', $event.target)" name="colorGrey" id="colorGrey" />
+            <input type="checkbox" (change)="addFilterOption('color', 'cinza')" name="colorGrey" id="colorGrey" />
             <label for="colorGrey">Cinza</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'marrom', $event.target)" name="colorBrown" id="colorBrown" />
+            <input type="checkbox" (change)="addFilterOption('color', 'marrom')" name="colorBrown" id="colorBrown" />
             <label for="colorBrown">Marrom</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'preto', $event.target)" name="colorBlack" id="colorBlack" />
+            <input type="checkbox" (change)="addFilterOption('color', 'preto')" name="colorBlack" id="colorBlack" />
             <label for="colorBlack">Preto</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'verde', $event.target)" name="colorGreen" id="colorGreen" />
+            <input type="checkbox" (change)="addFilterOption('color', 'verde')" name="colorGreen" id="colorGreen" />
             <label for="colorGreen">Verde</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'vermelho', $event.target)" name="colorRed" id="colorRed" />
+            <input type="checkbox" (change)="addFilterOption('color', 'vermelho')" name="colorRed" id="colorRed" />
             <label for="colorRed">Vermelho</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'vinho', $event.target)" name="colorWine" id="colorWine" />
+            <input type="checkbox" (change)="addFilterOption('color', 'vinho')" name="colorWine" id="colorWine" />
             <label for="colorWine">Vinho</label>
           </div>
           <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'prata', $event.target)" name="colorSilver" id="colorSilver" />
+            <input type="checkbox" (change)="addFilterOption('color', 'prata')" name="colorSilver" id="colorSilver" />
             <label for="colorSilver">Prata</label>
           </div>
         </div>
@@ -247,7 +280,7 @@
         <div class="checkbox-container">
           <div>
             <input
-              type="checkbox" (change)="addFilterOption('category', 'frontier', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'frontier')"
               name="categoryFrontier"
               id="categoryFrontier"
             />
@@ -255,7 +288,7 @@
           </div>
           <div>
             <input
-              type="checkbox" (change)="addFilterOption('category', 'hatches', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'hatches')"
               name="categoryHatches"
               id="categoryHatches"
             />
@@ -263,35 +296,35 @@
           </div>
           <div>
             <input
-              type="checkbox" (change)="addFilterOption('category', 'new_city', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'new_city')"
               name="categoryNewCity"
               id="categoryNewCity"
             />
             <label for="categoryNewCity">New City</label>
           </div>
           <div>
-            <input type="checkbox" (change)="addFilterOption('category', 'suv', $event.target)" name="categorySUV" id="categorySUV" />
+            <input type="checkbox" (change)="addFilterOption('category', 'suv')" name="categorySUV" id="categorySUV" />
             <label for="categorySUV">SUVs</label>
           </div>
           <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'jipe', $event.target)" name="categoryJipes" id="categoryJipes" />
+            <input type="checkbox" (change)="addFilterOption('category', 'jipe')" name="categoryJipes" id="categoryJipes" />
             <label for="categoryJipes">Jipes</label>
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'picape', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'picape')"
               name="categoryPicapes"
               id="categoryPicapes"
             />
             <label for="categoryPicapes">Picapes</label>
           </div>
           <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'sedan', $event.target)" name="categorySedan" id="categorySedan" />
+            <input type="checkbox" (change)="addFilterOption('category', 'sedan')" name="categorySedan" id="categorySedan" />
             <label for="categorySedan">Sedans</label>
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'antigo', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'antigo')"
               name="categoryOldCars"
               id="categoryOldCars"
             />
@@ -299,7 +332,7 @@
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'esportivo', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'esportivo')"
               name="categorySportCars"
               id="categorySportCars"
             />
@@ -307,7 +340,7 @@
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'luxo', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'luxo')"
               name="categoryLuxCars"
               id="categoryLuxCars"
             />
@@ -315,7 +348,7 @@
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'eletrico', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'eletrico')"
               name="categoryEletricCars"
               id="categoryEletricCars"
             />
@@ -323,7 +356,7 @@
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'pcd', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'pcd')"
               name="categoryPcdCars"
               id="categoryPcdCars"
             />
@@ -331,7 +364,7 @@
           </div>
           <div *ngIf="isCategoryShow">
             <input
-              type="checkbox" (change)="addFilterOption('category', 'popular', $event.target)"
+              type="checkbox" (change)="addFilterOption('category', 'popular')"
               name="categoryPopularCars"
               id="categoryPopularCars"
             />
@@ -344,7 +377,7 @@
       </div>
 
       <div class="clean-filter-container">
-        <p class="clean-filter">Limpar filtros</p>
+        <p (click)="clearAllFilters()" class="clean-filter">Limpar filtros</p>
       </div>
     </div>
     
@@ -358,7 +391,7 @@
           <p class="location">{{ ad.address.localidade }}</p>
           <p class="price">R$ {{ getCar(ad.product).price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
           <p class="price-installment">60 x R$ {{ (getCar(ad.product).price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
-          <button class="see-offer-btn" routerLink="/anuncio/{{getCar(ad.product).id}}" >Ver oferta</button>
+          <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
         </div>
 
       </div>

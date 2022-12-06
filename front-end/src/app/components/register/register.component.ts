@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User, Address, Login } from 'src/app/Model/Models';
 import { CepService } from 'src/app/Services/cep.service';
 import { UserService } from 'src/app/Services/user.service';
@@ -13,7 +14,7 @@ export class RegisterComponent {
 
   sent: boolean = false
 
-  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService) {}
+  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService, private router: Router) {}
   
   register = new FormGroup ({
     fullname: new FormControl('', [Validators.required]),
@@ -33,9 +34,26 @@ export class RegisterComponent {
   })
 
   convertBirthDate() {
-    let date = new Date(this.register.value.birthDate || '');
-    let dateFormated = (date.getUTCDate()) + "-" + (date.getUTCMonth() + 1) + "-" + (date.getUTCFullYear())
+    let date = new Date(this.register.value.birthDate || '')
 
+    let dateFormated = (date.getUTCDate()) + "-" + (date.getUTCMonth() + 1) + "-" + (date.getUTCFullYear()).toString()
+    
+    // Separar a data
+    let vetor = dateFormated.split("-")
+
+    // Verifica se o mês possui apenas um dígito
+    if(vetor[0].length == 1 && vetor[1].length == 1){
+    	vetor[0] = "0" + vetor[0];
+      vetor[1] = "0" + vetor[1];
+
+      dateFormated = vetor[0]+"-"+vetor[1]+"-"+vetor[2];
+    } else if (vetor[1].length == 1) {
+      vetor[1] = "0" + vetor[1];
+
+      dateFormated = vetor[0]+"-"+vetor[1]+"-"+vetor[2];
+    }
+
+    console.log(dateFormated)
     return dateFormated
   }
   
@@ -76,10 +94,18 @@ export class RegisterComponent {
       fone: ""
     }
 
+    let roles = {
+      id: 1,
+      authority: "ROLE_USER"
+    }
+
     let login: Login = {
       username: "",
-      password: ""
+      password: "",
+      roles: []
     }
+
+
 
     address.cep = this.register.value.zipCode || ''
     address.logradouro = this.register.value.street || ''
@@ -90,6 +116,7 @@ export class RegisterComponent {
 
     login.username = this.register.value.email || ''
     login.password = this.register.value.password || ''
+    login.roles.push(roles)
 
     user.name = this.register.value.fullname || ''
     user.email = this.register.value.email || ''
@@ -104,6 +131,10 @@ export class RegisterComponent {
 
     this.serviceRegister.post(user)
     .subscribe(() => {})
+  }
+
+  navigateToLogin(route: String) {
+    this.router.navigate([`${route}`])
   }
   
 }
