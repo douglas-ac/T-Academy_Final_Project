@@ -4,7 +4,6 @@ import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Model.Announcement.Address;
 import com.br.shopcar.Model.Announcement.Announcement;
-import com.br.shopcar.Model.Announcement.Images;
 import com.br.shopcar.Model.Announcement.Status;
 import com.br.shopcar.Model.ProductModel;
 import lombok.AllArgsConstructor;
@@ -35,7 +34,7 @@ public class AnnouncementDto {
     private ProductModel product;
     private Address address;
     private Status status = Status.AVAILABLE;
-    private Images image;
+    private String imageUrl;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();
@@ -49,7 +48,7 @@ public class AnnouncementDto {
         announcement.setProduct(this.getProduct());
         announcement.setStatus(this.getStatus());
         announcement.setAddress(this.getAddress());
-        announcement.setImage(this.getImage());
+        announcement.setImageUrl(this.getImageUrl());
         return announcement;
     }
 }
