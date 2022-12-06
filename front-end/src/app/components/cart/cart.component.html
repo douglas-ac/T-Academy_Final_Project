@@ -1,3 +1,4 @@
+
 <div class="cart-header">
     <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
     <p class="header-p">Carrinho </p>
@@ -12,13 +13,13 @@
 
       </mat-grid-tile>
       <mat-grid-tile colspan="4" rowspan="1" class="item-text">
-        <div class="name">{{c.product.name}}</div>
+        <div class="name">{{c.name}}</div>
         <input type="image" (click)="removeFromCart(c)" class="btn-delete" src="../../../assets/img/cartImages/deleteIcon.svg">
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="1">
         <div class="btn-group-qtd">
           <button type="button" (click)="minusOne(c)">-</button>
-          <input type="number" readonly value={{c.amount}}>
+          <input type="number" readonly value={{c.reserved_amount}}>
 <!--            AJUSTAR QUANTIDADE DEPOIS, INCLUIR NO TS QUANDO PUXAR -->
           <button type="button" (click)="plusOne(c)" >+</button>
         </div>

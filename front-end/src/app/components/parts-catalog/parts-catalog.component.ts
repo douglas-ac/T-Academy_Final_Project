@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AnnounceService } from 'src/app/Services/announce.service';
-import { Announce, Car, Product, Address, Part } from '../../Model/Models'
+import { PartService } from 'src/app/Services/part.service';
+import { Announce, Car, Product, Address, Part, PartClass } from '../../Model/Models'
 
 @Component({
   selector: 'app-parts-catalog',
@@ -10,14 +11,14 @@ import { Announce, Car, Product, Address, Part } from '../../Model/Models'
 export class PartsCatalogComponent {
 
   ads: Announce[] = []
-  itemList: Announce[] = [];
+  cart: PartClass[] = [];
 
   isBrandShow:boolean = false;
   isMontadoraShow:boolean = false;
   isCategoryShow:boolean = false;
   isVehicleTypeShow:boolean = false;
 
-  constructor(private service: AnnounceService){
+  constructor(private service:AnnounceService, private partService:PartService){
     this.getAll()
   }
 
@@ -51,10 +52,16 @@ export class PartsCatalogComponent {
   }
 
   addToCart(id: number){
-    let json = JSON.parse(localStorage.getItem('itemList'));
-    let an = this.service.getOne(id);
-    this.itemList.push(an);
-    localStorage.setItem('itemList', JSON.stringify(this.itemList));
+    let receivedCart = JSON.parse(localStorage.getItem('cart') || '{}');
+    let p = new PartClass();
+    this.partService.getOne(id).subscribe(retorno => {
+      p = retorno;
+      this.cart = receivedCart;
+      p.reserved_amount = 1;
+      this.cart.push(p);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+      window.location.reload();
+    });
   }
 
 }

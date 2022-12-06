@@ -94,7 +94,7 @@ export interface Part extends Product{
     part_condition: string;
     brand : string;
     vehicle_type :string;
-    reserved_amount : number;
+    reserved_amount: number;
 }
 
 export class Images{
@@ -112,6 +112,16 @@ export class AnnounceCarClass {
     image!: Images;
 }
 
+export class AnnouncePartClass {
+    user!: User;
+    amount!: number;
+    date!: Date;
+    comments?: Comment[];
+    product!: PartClass;
+    adress !: AdressClass;
+    image!: Images;
+}
+
 export class CarClass implements Product{
     id : number = 0;
     name: string = "";
@@ -123,6 +133,21 @@ export class CarClass implements Product{
     category: string = "";
     quilometragem: number = 0;
     color : string = "";
+}
+
+export class PartClass implements Product{
+    id : number = 0;
+    name: string = "";
+    description: string = "";
+    price: number = 0;
+    automaker: string = "";
+    year: number = 0;
+    model: string = "";
+    category: string = "";
+    part_condition: string = "";
+    brand : string = "";
+    vehicle_type :string = "";
+    reserved_amount : number = 1;
 }
 
 export class UserClass {
