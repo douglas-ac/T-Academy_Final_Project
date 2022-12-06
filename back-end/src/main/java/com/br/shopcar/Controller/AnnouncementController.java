@@ -37,12 +37,18 @@ public class AnnouncementController {
     }
 
     @PostMapping("/cars/filters")
-    public ResponseEntity<Page<AnnouncementDto>> filterCarAnnounceByCriteria2(@PageableDefault(sort = "id",
+    public ResponseEntity<Page<AnnouncementDto>> filterCarAnnounceByCriteria(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
             size = 20) Pageable page, @RequestBody LinkedHashMap filters){
-//        System.out.println(filters.toString());
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.filterCarAnnounceByCriteria(page, filters));
+    }
+    @PostMapping("/parts/filters")
+    public ResponseEntity<Page<AnnouncementDto>> filterAutopartAnnounceByCriteria(@PageableDefault(sort = "id",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 20) Pageable page, @RequestBody LinkedHashMap filters){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.filterAutopartAnnounceByCriteria(page, filters));
     }
 
     @GetMapping("/parts")

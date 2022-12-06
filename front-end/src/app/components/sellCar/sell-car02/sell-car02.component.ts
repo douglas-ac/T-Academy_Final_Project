@@ -96,8 +96,6 @@ export class SellCar02Component implements OnInit {
             "complemento" : "${this.announce.adress.complemento}",
             "uf" : "${this.announce.adress.uf}"
           },
-          "image" : { "id" : 0
-            }
         }`;
         
         console.log(obj)

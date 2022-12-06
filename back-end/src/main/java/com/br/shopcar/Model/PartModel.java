@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 @Setter
 @Getter
@@ -15,6 +17,7 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("2")
 public class PartModel extends ProductModel {
+    @Enumerated(EnumType.STRING)
     private Condition part_condition;
     private String brand;
     private String vehicle_type;

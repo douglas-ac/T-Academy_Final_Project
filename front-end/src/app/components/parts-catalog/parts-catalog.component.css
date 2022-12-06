@@ -136,8 +136,8 @@ input::-webkit-inner-spin-button {
     margin-bottom: 5px;
 }
 
-.card .see-offer-btn{
-    width: 100%;
+.see-offer-btn{
+    min-width: 40px;
     background-color: var(--primary);
     color: white;
     font-weight: 700;
@@ -148,8 +148,12 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.card .see-offer-btn:hover{
+.see-offer-btn:hover{
     opacity: 0.8;
+}
+
+.card .see-offer-btn{
+    width: 100%;
 }
 
 .filter-option{

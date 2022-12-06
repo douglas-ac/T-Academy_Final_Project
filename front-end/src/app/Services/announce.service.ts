@@ -29,6 +29,10 @@ export class AnnounceService {
   getAllParts():Observable<Announce[]>{
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce/parts")
   }
+  
+  getAutopartsByCriteria(filters: any) {
+    return this.http.post<Announce>("http://localhost:8082/api/v1/announce/parts/filters", filters)
+  }
 
   getOne(id:number){
     return this.http.get<Announce>(`http://localhost:8082/api/v1/announce/${id}`)
