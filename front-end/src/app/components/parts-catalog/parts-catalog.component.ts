@@ -30,7 +30,7 @@ export class PartsCatalogComponent {
     part_condition: [],
     brand: [],
     vehicle_type: []
-  };  
+  };
 
   isBrandShow:boolean = false;
   isMontadoraShow:boolean = false;
@@ -70,17 +70,23 @@ export class PartsCatalogComponent {
   }
 
   addToCart(id: number){
-    let receivedCart = JSON.parse(localStorage.getItem('cart') || '{}');
-    let p = new PartClass();
-    this.partService.getOne(id).subscribe(retorno => {
-      p = retorno;
-      this.cart = receivedCart;
-      p.reserved_amount = 1;
-      this.cart.push(p);
-      localStorage.setItem('cart', JSON.stringify(this.cart));
-      window.location.reload();
-    });
-  }
+      let receivedCart = JSON.parse(localStorage.getItem('cart') || '{}');
+      let p = new PartClass();
+      this.partService.getOne(id).subscribe(retorno => {
+       p = retorno;
+            this.cart = receivedCart;
+            p.reserved_amount = 1;
+            this.cart.push(p);
+            localStorage.setItem('cart', JSON.stringify(this.cart));
+            window.location.reload();
+      },
+      error => {
+        if (error.status == 401){
+          alert("Você precisa estar logado para adicionar produtos ao carrinho")
+        }
+      });
+    }
+
   filter(){
     this.service.getAutopartsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
   }

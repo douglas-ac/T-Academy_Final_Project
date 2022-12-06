@@ -11,6 +11,7 @@ import { SellCar07Component } from './components/sellCar/sell-car07/sell-car07.c
 import { SellPart02Component } from './components/sellPart/sell-part02/sell-part02.component';
 import { SellPart06Component } from './components/sellPart/sell-part06/sell-part06.component';
 import { AnnounceComponent } from './components/announce/announce.component';
+import { AnnouncePartComponent } from './components/announce-part/announce-part.component';
 import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 import { AuthService } from './Services/auth.service';
 
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'sell-part02', component: SellPart02Component, canActivate:[AuthService]},
   {path: 'sell-part06', component: SellPart06Component, canActivate:[AuthService]},
   {path: 'profile', component: ProfileComponent},
-  {path: 'anuncio/:id', component : AnnounceComponent}
+  {path: 'anuncio/:id', component : AnnounceComponent},
+  {path: 'anuncio-part/:id', component : AnnouncePartComponent}
 ];
 
 @NgModule({

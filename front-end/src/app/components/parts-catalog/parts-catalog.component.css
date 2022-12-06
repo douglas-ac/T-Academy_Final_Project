@@ -148,6 +148,11 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+.add-cart-btn{
+  margin-top: 5px;
+  background-color: var(--tertiary);
+}
+
 .see-offer-btn:hover{
     opacity: 0.8;
 }
@@ -195,15 +200,12 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
-
 }
 
 
 .brands-container div img{
     height: 90%;
     width: 90%;
-
 }
 
 .brands-container div:hover{
