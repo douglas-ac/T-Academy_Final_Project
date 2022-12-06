@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { User, Address, Login } from 'src/app/Model/Models';
 import { CepService } from 'src/app/Services/cep.service';
@@ -8,20 +13,32 @@ import { UserService } from 'src/app/Services/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  sent: boolean = false;
 
-  sent: boolean = false
+  constructor(
+    private serviceRegister: UserService,
+    private formBuilder: FormBuilder,
+    private serviceCEP: CepService,
+    private router: Router
+  ) {}
 
-  constructor(private serviceRegister: UserService, private formBuilder: FormBuilder, private serviceCEP: CepService, private router: Router) {}
-  
-  register = new FormGroup ({
+  register = new FormGroup({
     fullname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$')]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        '^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$'
+      ),
+    ]),
     confirmPassword: new FormControl('', [Validators.required]),
-    cpf: new FormControl('', [Validators.required, Validators.pattern('[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}')]),
+    cpf: new FormControl('', [
+      Validators.required,
+      Validators.pattern('[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}'),
+    ]),
     birthDate: new FormControl('', [Validators.required]),
     cellphone: new FormControl('', [Validators.required]),
     zipCode: new FormControl('', [Validators.required]),
@@ -30,111 +47,112 @@ export class RegisterComponent {
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
     neighborhood: new FormControl('', [Validators.required]),
-    addressComplement: new FormControl()
-  })
+    addressComplement: new FormControl(),
+  });
 
   convertBirthDate() {
-    let date = new Date(this.register.value.birthDate || '')
+    let date = new Date(this.register.value.birthDate || '');
 
-    let dateFormated = (date.getUTCDate()) + "-" + (date.getUTCMonth() + 1) + "-" + (date.getUTCFullYear()).toString()
-    
+    let dateFormated =
+      date.getUTCDate() +
+      '-' +
+      (date.getUTCMonth() + 1) +
+      '-' +
+      date.getUTCFullYear().toString();
+
     // Separar a data
-    let vetor = dateFormated.split("-")
+    let vetor = dateFormated.split('-');
 
     // Verifica se o mês possui apenas um dígito
-    if(vetor[0].length == 1 && vetor[1].length == 1){
-    	vetor[0] = "0" + vetor[0];
-      vetor[1] = "0" + vetor[1];
+    if (vetor[0].length == 1 && vetor[1].length == 1) {
+      vetor[0] = '0' + vetor[0];
+      vetor[1] = '0' + vetor[1];
 
-      dateFormated = vetor[0]+"-"+vetor[1]+"-"+vetor[2];
+      dateFormated = vetor[0] + '-' + vetor[1] + '-' + vetor[2];
     } else if (vetor[1].length == 1) {
-      vetor[1] = "0" + vetor[1];
+      vetor[1] = '0' + vetor[1];
 
-      dateFormated = vetor[0]+"-"+vetor[1]+"-"+vetor[2];
+      dateFormated = vetor[0] + '-' + vetor[1] + '-' + vetor[2];
     }
 
-    console.log(dateFormated)
-    return dateFormated
+    console.log(dateFormated);
+    return dateFormated;
   }
-  
-   address: Address  = {
-    cep: "",
-    logradouro: "",
-    complemento: "",
-    bairro: "",
-    localidade: "",
-    uf: ""
-  }
+
+  address: Address = {
+    cep: '',
+    logradouro: '',
+    complemento: '',
+    bairro: '',
+    localidade: '',
+    uf: '',
+  };
 
   fetchCep() {
-    this.serviceCEP.getCep(Number(this.address.cep)).subscribe(
-      data => {
-        this.address.cep = data.cep,
-        this.address.logradouro = data.logradouro,
-        this.address.localidade = data.localidade,
-        this.address.uf = data.uf,
-        this.address.bairro = data.bairro
-      }
-    )
+    this.serviceCEP.getCep(Number(this.address.cep)).subscribe((data) => {
+      (this.address.cep = data.cep),
+        (this.address.logradouro = data.logradouro),
+        (this.address.localidade = data.localidade),
+        (this.address.uf = data.uf),
+        (this.address.bairro = data.bairro);
+    });
   }
-  
-  registerUser(): void {   
-    this.sent = true
-     
-    let address: Address  = {
-      cep: "",
-      localidade: "",
-      uf: ""
-    }
+
+  registerUser(): void {
+    this.sent = true;
+
+    let address: Address = {
+      cep: '',
+      localidade: '',
+      uf: '',
+    };
 
     let user: User = {
       id: 0,
-      name: "",
-      email: "",
-      fone: ""
-    }
+      name: '',
+      email: '',
+      fone: '',
+    };
 
     let roles = {
       id: 1,
-      authority: "ROLE_USER"
-    }
+      authority: 'ROLE_USER',
+    };
 
     let login: Login = {
-      username: "",
-      password: "",
-      roles: []
-    }
+      username: '',
+      password: '',
+      roles: [],
+    };
 
+    address.cep = this.register.value.zipCode || '';
+    address.logradouro = this.register.value.street || '';
+    address.complemento = this.register.value.addressNumber || '';
+    address.bairro = this.register.value.neighborhood || '';
+    address.localidade = this.register.value.city || '';
+    address.uf = this.register.value.state || '';
 
+    login.username = this.register.value.email || '';
+    login.password = this.register.value.password || '';
+    login.roles.push(roles);
 
-    address.cep = this.register.value.zipCode || ''
-    address.logradouro = this.register.value.street || ''
-    address.complemento = this.register.value.addressNumber || ''
-    address.bairro = this.register.value.neighborhood || ''
-    address.localidade = this.register.value.city || ''
-    address.uf = this.register.value.state || ''
-
-    login.username = this.register.value.email || ''
-    login.password = this.register.value.password || ''
-    login.roles.push(roles)
-
-    user.name = this.register.value.fullname || ''
-    user.email = this.register.value.email || ''
-    user.birthDate = this.convertBirthDate()
+    user.name = this.register.value.fullname || '';
+    user.email = this.register.value.email || '';
+    user.birthDate = this.convertBirthDate();
     user.login = login;
-    user.nacionalNumber = this.register.value.cpf || ''
-    user.fone = this.register.value.cellphone || ''
-    user.adress = address;
-    user.descriminationColumn = "cpf";
+    user.nacionalNumber = this.register.value.cpf || '';
+    user.fone = this.register.value.cellphone || '';
+    user.address = address;
+    user.descriminationColumn = 'cpf';
 
-    console.log(user)
+    console.log(user);
 
-    this.serviceRegister.post(user)
-    .subscribe(() => {})
+    this.serviceRegister.post(user).subscribe(() => {
+      this.navigateToLogin('login')
+    });
   }
 
   navigateToLogin(route: String) {
-    this.router.navigate([`${route}`])
+    this.router.navigate([`${route}`]);
   }
-  
 }

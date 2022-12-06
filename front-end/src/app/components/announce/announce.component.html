@@ -38,9 +38,9 @@
     </div>
   </div>
   <div class="add-comment">
-      <textarea name="" id="" cols="30" rows="10">Digite seu comentário aqui</textarea>
+      <textarea [(ngModel)]="comment" name="" id="comment-input" cols="30" rows="10" placeholder="Digite seu comentário aqui"></textarea>
     <div>
-      <button>Adicionar comentário</button>
+      <button (click)="addComment()">Adicionar comentário</button>
     </div>
   </div>
 </section>

@@ -37,7 +37,7 @@ export interface User {
     nacionalNumber?: string;
     descriminationColumn?: string;
     fone: string;
-    adress?: Address;
+    address?: Address;
 }
 
 export interface Order {
