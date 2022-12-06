@@ -391,7 +391,7 @@
           <p class="location">{{ ad.address.localidade }}</p>
           <p class="price">R$ {{ getCar(ad.product).price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
           <p class="price-installment">60 x R$ {{ (getCar(ad.product).price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
-          <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
+          <button class="see-offer-btn" routerLink="/anuncio/{{ad.product.id}}" >Ver oferta</button>
         </div>
 
       </div>

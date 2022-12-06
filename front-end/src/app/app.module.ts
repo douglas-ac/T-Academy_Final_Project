@@ -30,8 +30,6 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FileInputComponent } from './components/file-input/file-input.component';
-
 
 @NgModule({
   declarations: [
@@ -48,8 +46,7 @@ import { FileInputComponent } from './components/file-input/file-input.component
     CartComponent,
     PartsCatalogComponent,
     AnnounceComponent,
-    FileInputComponent
-  ],
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,

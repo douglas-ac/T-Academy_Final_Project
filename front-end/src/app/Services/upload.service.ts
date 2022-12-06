@@ -7,7 +7,8 @@ import * as S3 from 'aws-sdk/clients/s3';
 })
 export class UploadService {
 
-   id: number = 1;
+   id !: number 
+   dataLocation !: any
 
   constructor() {}
 
@@ -33,30 +34,19 @@ export class UploadService {
       ContentType: contentType,
     };
 
-    bucket.upload(params, function (err, data) {
+    let dataUrl = bucket.upload(params, function (err, data) : string {
       if (err) {
         console.log('There was an error uploading your file: ', err);
-        return false;
+        return "Error";
       }
 
      
       console.log('Successfully uploaded file.', data);
       
       console.log('image path is ' + data.Location);
-      return true;
+      return data.Location;
     });
 
-    this.id ++ ;
-    //for upload progress
-    /*bucket.upload(params).on('httpUploadProgress', function (evt) {
-          console.log(evt.loaded + ' of ' + evt.total + ' Bytes');
-      }).send(function (err, data) {
-          if (err) {
-              console.log('There was an error uploading your file: ', err);
-              return false;
-          }
-          console.log('Successfully uploaded file.', data);
-          return true;
-      });*/
+    return dataUrl
   }
 }

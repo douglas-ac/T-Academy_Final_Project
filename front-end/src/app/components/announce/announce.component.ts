@@ -17,6 +17,8 @@ export class AnnounceComponent {
   image : any
   http: any;
 
+  imageUrl !: string 
+
   constructor(private announceService : AnnounceService, private route: ActivatedRoute){
     this.route.params.subscribe(params => this.announceId = params['id']);
   }
@@ -25,7 +27,7 @@ export class AnnounceComponent {
     this.announceService.getOne(Number(this.announceId)).subscribe( data => {
       this.announce = data
       this.car = this.getCar(data.product)
-      this.getImage()
+      this.imageUrl = `https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img${this.announce.id}`
     })
   }
 
@@ -33,12 +35,4 @@ export class AnnounceComponent {
     return data as Car
   }
 
-  getImage(){
-      this.http.get(`http://localhost:8082/api/v1/image/get/${this.announce.image.id}`).subscribe(
-        (data: any) => {
-          this.image = data
-          console.log(data)
-        }
-      )
-  }
 }
