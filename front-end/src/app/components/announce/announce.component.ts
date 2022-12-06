@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Announce, Car, Product } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 
-
 @Component({
   selector: 'app-announce',
   templateUrl: './announce.component.html',

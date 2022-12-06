@@ -10,6 +10,7 @@ import { AnnounceService } from 'src/app/Services/announce.service';
 })
 export class ProfileComponent implements OnInit {
 
+  username:string = sessionStorage.getItem('username');
   id:number;
   valor:string;
   http:any;
@@ -29,7 +30,6 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-
   remover(id:number) {
     let opcao = confirm("Você realmente quer excluir esse anúncio? Esta ação não poderá ser desfeita.");
 
@@ -37,6 +37,11 @@ export class ProfileComponent implements OnInit {
       this.http.delete(`http://localhost:8082/api/v1/announce/${id}`);
     }
 
+  }
+
+  removeFromCart(a:Announce){
+    let pesquisaId = this.anuncios.findIndex(obj => {return obj.id === a.id})
+    this.anuncios.splice(pesquisaId, 1);
   }
 
 }

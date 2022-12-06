@@ -60,17 +60,5 @@ export class HomeComponent implements OnInit {
   navigation(route : string){
     this.router.navigate([`${route}`])
   }
-
- 
-
   
-
-
-  
-
-
-
-  
-
-
 }
