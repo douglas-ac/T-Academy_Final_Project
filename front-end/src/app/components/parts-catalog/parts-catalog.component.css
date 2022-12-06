@@ -286,9 +286,6 @@ h2,h3{
 .filter-option input[type=checkbox], .filter-option label{
     cursor: pointer;
 }
-<<<<<<< HEAD
-=======
-
 
 @media screen and (max-width: 900px) {
     .input-container{
@@ -327,4 +324,3 @@ h2,h3{
         justify-content: flex-start;
     }
 }
->>>>>>> develop
