@@ -31,7 +31,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,8 +45,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NavbarComponent,
     CartComponent,
     PartsCatalogComponent,
-    AnnounceComponent
-  ],
+    AnnounceComponent,
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -65,7 +64,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NgxMaskModule.forRoot(),
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US'}
