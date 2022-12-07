@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Announce, Car, Product } from 'src/app/Model/Models';
+import { Announce, Car, Product, User } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import { UserService } from 'src/app/Services/user.service'
 
 @Component({
   selector: 'app-profile',
@@ -10,38 +11,51 @@ import { AnnounceService } from 'src/app/Services/announce.service';
 })
 export class ProfileComponent implements OnInit {
 
-  username:string = sessionStorage.getItem('username');
-  id:number;
-  valor:string;
-  http:any;
-
   anuncios:Announce[] = [];
   itensId:number[] = [];
+  vetor:Announce[] = [];
 
-  constructor(private announceService : AnnounceService, private route: ActivatedRoute){
-    this.route.params.subscribe(params => this.id = params['id']);
+  usuario:string = sessionStorage.getItem("idUser") || "";
+  username:string = sessionStorage.getItem("username") || "Usuário";
+
+  constructor(private servico : AnnounceService, private route: ActivatedRoute){
   }
 
   ngOnInit(): void {
-    this.announceService.getOne(Number(this.id)).subscribe( data => {
-      this.announce = data
-      this.car = this.getCar(data.product)
-      this.getImage()
-    })
+    this.selecionar();
+    this.listar();
   }
 
   remover(id:number) {
-    let opcao = confirm("Você realmente quer excluir esse anúncio? Esta ação não poderá ser desfeita.");
+    let confirmado = confirm("Você tem certeza de que quer remover esse anúncio? Esta ação não pode ser desfeita.");
 
-    if (opcao) {
-      this.http.delete(`http://localhost:8082/api/v1/announce/${id}`);
+    if (confirmado == true) {
+      this.servico.delete(id).subscribe(() => {
+        let pesquisaId = this.vetor.findIndex(obj => {return obj.id === id});
+  
+        this.vetor.splice(pesquisaId, 1);
+  
+      })
     }
-
+ 
   }
 
-  removeFromCart(a:Announce){
-    let pesquisaId = this.anuncios.findIndex(obj => {return obj.id === a.id})
-    this.anuncios.splice(pesquisaId, 1);
+  selecionar():void {
+    this.servico.getAll().subscribe({
+      next: retorno => this.anuncios = retorno
+    })
+    
+  }
+
+  listar():void {
+    let usuario = parseInt(this.usuario);
+
+    for (let i = 0; i < this.anuncios.length; i++) {
+      if (this.anuncios[i].user.id == usuario) {
+        this.vetor.push(this.anuncios[i]);
+      }
+    }
+
   }
 
 }

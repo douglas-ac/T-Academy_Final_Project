@@ -14,23 +14,23 @@
 
     <h1 class="titulo-anuncios">Seus anúncios</h1>
 
-    <div class="cartao card anuncio" id="anuncio">
-        <b style="text-align: left;">Carro vermelho</b><br>
+    <div class="cartao card anuncio" id="anuncio" *ngFor="let v of vetor; index as i">
+        <b style="text-align: left;">{{v.product}}</b><br>
 
         <mat-grid-list cols="3" rowHeight="100px">
-            <input type="hidden" name="" id="" value="{{id}}">
+            <input type="hidden" name="" id="" value="{{v.id}}">
 
             <mat-grid-tile class="card">
                 <img src="../../../assets/img/carro (2).png" alt="" height="100px" style="padding: 10px;">
             </mat-grid-tile>
 
             <mat-grid-tile class="descricao">
-                <input type="text" value="{{valor}}">
-                Funcional e esteticamente agradável
+                <input type="text" value="{{0}}">
+                Funcional e esteticamente agradável.
             </mat-grid-tile>
 
             <mat-grid-tile class="icones">
-                <img src="../../../assets/img/lapis.png" alt="" height="20px" onclick="remover(id)">
+                <img src="../../../assets/img/lapis.png" alt="" height="20px" onclick="remover(v.id)">
                 <img src="../../../assets/img/lixo (2).png" alt="" height="20px">
             </mat-grid-tile>
         </mat-grid-list>
