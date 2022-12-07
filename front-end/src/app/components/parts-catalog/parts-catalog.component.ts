@@ -73,6 +73,7 @@ export class PartsCatalogComponent {
     let receivedCart = JSON.parse(localStorage.getItem('cart') || '{}');
     let p = new PartClass();
     this.partService.getOne(id).subscribe(retorno => {
+      console.log("amogus");
       p = retorno;
       this.cart = receivedCart;
       p.reserved_amount = 1;
@@ -82,7 +83,7 @@ export class PartsCatalogComponent {
     },
     error => {
       if (error.status == 401){
-        alert("Você precisa estar logado para adicionar produtos ao carrinho")
+        alert("Você precisa estar logado para adicionar produtos ao carrinho "+error.status)
       }
     });
     }
