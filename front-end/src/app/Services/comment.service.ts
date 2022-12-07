@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CommentClass } from '../Model/Models';
 
 import { AuthService } from './auth.service';
 
@@ -12,17 +13,17 @@ export class CommentService {
   constructor(private http: HttpClient,private authService : AuthService) { }
 
   getAll() {
-    return this.http.get<[Comment]>("http://localhost:8082/api/v1/comment")
+    return this.http.get<[CommentClass]>("http://localhost:8082/api/v1/comment")
   }
 
-  getOne(id:number):Observable<Comment>{
-    return this.http.get<Comment>(`http://localhost:8082/api/v1/comment/${id}`)
+  getOne(id:number):Observable<CommentClass>{
+    return this.http.get<CommentClass>(`http://localhost:8082/api/v1/comment/${id}`)
   }
 
-  post(data: Comment){
+  post(data: CommentClass){
    // let token = this.authService.getToken()
    // var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
-    return this.http.post<Comment>("http://localhost:8082/api/v1/comment",data)
+    return this.http.post<CommentClass>("http://localhost:8082/api/v1/comment",data)
   }
 
   delete(id:number){

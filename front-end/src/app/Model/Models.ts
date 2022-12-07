@@ -183,6 +183,17 @@ export class CommentClass {
     id!: number;
     message!: string;
     user?: User;
-    announcement? : Announce;
+    announcement? : AnnounceClass;
     commentAnswerDtos!: CommentAnswerDto[];
+}
+
+export class AnnounceClass {
+    id!: number;
+    user?: User;
+    amount?: number;
+    date?: Date;
+    comments?: Comment[];
+    product?: Product;
+    address?: Address;
+    image?: Images
 }
