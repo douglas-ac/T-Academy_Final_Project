@@ -1,43 +1,44 @@
 
 <body>
-    <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
-        <img src="../../assets/img/user.png" alt="" height="150px">
+    <div *ngIf="estaLogado">
+        <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
+            <img src="../../assets/img/user.png" alt="" height="150px">
+        
+            <h1 class="nome">{{username}}</h1>
     
-        <h1 class="nome">{{username}}</h1>
-
-        <div class="dados">
-            <h2>Celular: (47) 99912-3456</h2>
-            <h2>E-mail: usuario@gmail.com</h2>
-            <h2>Localização: Blumenau, SC</h2>
+            <div class="dados">
+                <h2>Celular: (47) 99912-3456</h2>
+                <h2>E-mail: usuario@gmail.com</h2>
+                <h2>Localização: Blumenau, SC</h2>
+            </div>
+        </div>
+    
+        <h1 class="titulo-anuncios">Seus anúncios</h1>
+    
+        <div class="cartao card anuncio" id="anuncio" *ngFor="let v of vetor; index as i">
+            <b style="text-align: left;">{{v.product}}</b><br>
+    
+            <mat-grid-list cols="3" rowHeight="100px">
+                <input type="hidden" name="" id="" value="{{v.id}}">
+    
+                <mat-grid-tile class="card">
+                    <p>{{v.image}}</p>
+                </mat-grid-tile>
+    
+                <mat-grid-tile class="descricao">
+                    <input type="text" value="{{0}}">
+                    Funcional e esteticamente agradável.
+                </mat-grid-tile>
+    
+                <mat-grid-tile class="icones">
+                    <img src="../../../assets/img/lapis.png" alt="" height="20px" onclick="window.location.href='/anuncio/' + v.id">
+                    <img src="../../../assets/img/lixo (2).png" alt="" height="20px" onclick="remover(v.id)">
+                </mat-grid-tile>
+            </mat-grid-list>
         </div>
     </div>
 
-    <h1 class="titulo-anuncios">Seus anúncios</h1>
-
-    <div class="cartao card anuncio" id="anuncio" *ngFor="let v of vetor; index as i">
-        <b style="text-align: left;">{{v.product}}</b><br>
-
-        <mat-grid-list cols="3" rowHeight="100px">
-            <input type="hidden" name="" id="" value="{{v.id}}">
-
-            <mat-grid-tile class="card">
-                <p>{{v.image}}</p>
-            </mat-grid-tile>
-
-            <mat-grid-tile class="descricao">
-                <input type="text" value="{{0}}">
-                Funcional e esteticamente agradável.
-            </mat-grid-tile>
-
-            <mat-grid-tile class="icones">
-                <img src="../../../assets/img/lapis.png" alt="" height="20px" onclick="window.location.href='/anuncio/' + v.id">
-                <img src="../../../assets/img/lixo (2).png" alt="" height="20px" onclick="remover(v.id)">
-            </mat-grid-tile>
-        </mat-grid-list>
+    <div *ngIf="!estaLogado" class="mensagem">
+        <b>Você precisa entrar em uma conta para visualizar o perfil de usuário :(</b>
     </div>
-
-    <div>
-        placeholder
-    </div>
-
 </body>

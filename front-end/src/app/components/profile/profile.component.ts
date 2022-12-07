@@ -15,8 +15,12 @@ export class ProfileComponent implements OnInit {
   itensId:number[] = [];
   vetor:Announce[] = [];
 
+  teste:boolean = false;
+
   usuario:string = sessionStorage.getItem("idUser") || "";
-  username:string = sessionStorage.getItem("username") || "Usuário";
+  username:string = sessionStorage.getItem("username") || "";
+
+  estaLogado:boolean = this.usuario != "";
 
   constructor(private servico : AnnounceService, private route: ActivatedRoute){
   }
@@ -56,6 +60,10 @@ export class ProfileComponent implements OnInit {
       }
     }
 
+  }
+
+  redirecionar() {
+    window.location.href="login";
   }
 
 }
