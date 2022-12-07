@@ -3,8 +3,10 @@ package com.br.shopcar.Model.Announcement;
 import com.br.shopcar.Dto.GET.Comment.CommentDto;
 import com.br.shopcar.Model.User.User;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +24,8 @@ public class Comment {
     private String message;
     @OneToMany(mappedBy = "comment")
     private List<CommentAnswer> answers = new ArrayList<>();
+    @CreationTimestamp
+    private Timestamp time;
 
     public CommentDto convertToDto(){
         CommentDto commentDto = new CommentDto();
@@ -32,6 +36,7 @@ public class Comment {
                 .stream()
                 .map(CommentAnswer::convertToDto)
                 .collect(Collectors.toList()));
+        commentDto.setTime(this.getTime());
         return commentDto;
     }
 }

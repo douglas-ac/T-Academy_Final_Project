@@ -57,18 +57,21 @@ export class AnnounceComponent {
     let user = new UserClass()
     let comment = new CommentClass()
     let announce = new AnnounceClass()
+    let date = new Date()
 
     user.id = Number(idUser)
     announce.id = annouceId
+    date.getDate()
 
     comment.user = user
     comment.message = message
     comment.announcement = announce
+    comment.time = date
     
    this.commentService.post(comment).subscribe(() => {})
 
    console.log(comment)
-   location.reload()
+   window.location.href = window.location.href;
   }
 
   getComment() {
@@ -76,7 +79,7 @@ export class AnnounceComponent {
     .subscribe({
       next: data => this.comments = data,
       error: () => console.log("falha")
-
     })
   }
+
 }

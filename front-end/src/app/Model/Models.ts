@@ -185,6 +185,7 @@ export class CommentClass {
     user?: User;
     announcement? : AnnounceClass;
     commentAnswerDtos!: CommentAnswerDto[];
+    time!: Date;
 }
 
 export class AnnounceClass {

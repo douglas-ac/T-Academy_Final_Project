@@ -7,8 +7,10 @@ import com.br.shopcar.Model.Announcement.Comment;
 import com.br.shopcar.Model.User.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.validation.constraints.NotBlank;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,15 +19,18 @@ import java.util.stream.Collectors;
 public class CommentDto {
 
     private long id;
-    @NotBlank @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotBlank //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UserDto user;
-    @NotBlank @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotBlank //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private AnnouncementDto announcement;
 
     @NotBlank
     private String message;
 
     private List<CommentAnswerDto> commentAnswerDtos = new ArrayList<>();
+
+    @CreationTimestamp
+    private Timestamp time;
 
     public Comment convertToModel(){
         Comment comment = new Comment();
@@ -36,6 +41,7 @@ public class CommentDto {
         comment.setAnswers(this.getCommentAnswerDtos().stream()
                 .map(CommentAnswerDto::convertToModel)
                 .collect(Collectors.toList()));
+        comment.setTime(this.getTime());
         return comment;
     }
 
@@ -48,6 +54,7 @@ public class CommentDto {
         comment.setAnswers(this.getCommentAnswerDtos().stream()
                 .map(CommentAnswerDto::convertToModel)
                 .collect(Collectors.toList()));
+        comment.setTime(this.getTime());
         return comment;
     }
 }

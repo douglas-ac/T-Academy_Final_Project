@@ -141,6 +141,7 @@ button {
     width: 480px;
     margin: 0;
     text-align: center;
+    align-items: center;
 }
 
 .comment-btn {
