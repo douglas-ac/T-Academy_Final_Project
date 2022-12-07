@@ -1,5 +1,6 @@
 package com.br.shopcar.Controller;
 
+import com.br.shopcar.Dto.ChangePassordDTO;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Dto.GET.UserDto;
@@ -51,5 +52,11 @@ public class UserController {
     public ResponseEntity<Void> delete(@PathVariable("idUser") long idUser){
         userService.delete(idUser);
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping("/changePassword/{idUser}")
+    public ResponseEntity changePassword(@PathVariable("idUser") long idUser,
+                                                  @RequestBody ChangePassordDTO content){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.changePassword(idUser, content.getOldPassword(), content.getNewPassword()));
     }
 }

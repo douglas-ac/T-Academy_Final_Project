@@ -5,6 +5,7 @@ import { AdressClass, AnnounceCarClass, CarClass, Images, UserClass } from 'src/
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CarService } from 'src/app/Services/car.service';
 import { CepService } from 'src/app/Services/cep.service';
+import { UploadService } from 'src/app/Services/upload.service';
 
 @Component({
   selector: 'app-sell-car02',
@@ -13,6 +14,9 @@ import { CepService } from 'src/app/Services/cep.service';
 })
 export class SellCar02Component implements OnInit {
   sent: boolean = false
+
+  //images 
+  selectedFiles!: FileList;
 
   //classes used to build object
   announce : AnnounceCarClass = new AnnounceCarClass();
@@ -25,7 +29,7 @@ export class SellCar02Component implements OnInit {
   automakers : String[] = [] 
   
   constructor(private carService : CarService, private router : Router,
-              private cepService : CepService, private announceService : AnnounceService) { }
+              private cepService : CepService, private announceService : AnnounceService, private serciceUploadPhoto : UploadService) { }
 
   AnnounceForm = new FormGroup ({
     brand: new FormControl('', [Validators.required]),
@@ -74,6 +78,7 @@ export class SellCar02Component implements OnInit {
 
   registerAnnounce(){
     this.sent = true
+    
       this.carService.post(this.car).subscribe( data => {
         this.car = data
         this.announce.amount = 1;
@@ -94,14 +99,26 @@ export class SellCar02Component implements OnInit {
             "bairro" : "${this.announce.adress.bairro}",
             "logradouro" : "${this.announce.adress.logradouro}",
             "complemento" : "${this.announce.adress.complemento}",
-            "uf" : "${this.announce.adress.uf}"
-          },
-        }`;
+            "uf" : "${this.announce.adress.uf}"}
+          }`;
         
         console.log(obj)
-        this.announceService.post(obj).subscribe()
+        this.announceService.post(obj).subscribe( (data:any) => {
+          this.serciceUploadPhoto.id = data.id
+          this.upload()
+        })
       });
         this.router.navigate(['sell-car07'])
     }
-}
+
+    upload() : string {
+      const file = this.selectedFiles.item(0);
+      let location = this.serciceUploadPhoto.uploadFile(file);
+      return location as any as string
+      }
+      
+    selectFile(event) {
+      this.selectedFiles = event.target.files;
+      }
+  }
 

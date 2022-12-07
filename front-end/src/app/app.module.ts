@@ -30,7 +30,7 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NavbarComponent,
     CartComponent,
     PartsCatalogComponent,
-    AnnounceComponent
+    AnnounceComponent,
+    PasswordRecoveryComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NgxMaskModule.forRoot(),
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US'}

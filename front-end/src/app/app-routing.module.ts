@@ -14,6 +14,7 @@ import { AnnounceComponent } from './components/announce/announce.component';
 import { AnnouncePartComponent } from './components/announce-part/announce-part.component';
 import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 import { AuthService } from './Services/auth.service';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'anuncio/:id', component : AnnounceComponent},
   {path: 'anuncio-part/:id', component : AnnouncePartComponent}
+  {path: 'password-recovery', component: PasswordRecoveryComponent}
 ];
 
 @NgModule({

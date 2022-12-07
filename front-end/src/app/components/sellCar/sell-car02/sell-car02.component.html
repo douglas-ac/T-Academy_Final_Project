@@ -64,6 +64,19 @@
         </div>
 
 
+        <h1 class="titulo"><b>Anúnicos com fotos vendem mais rápido :)<br>Que tal adicioná-las agora?</b></h1>
+        <mat-grid-list cols="1">
+            <mat-grid-tile>
+                <img src="../../assets/img/photo.png" alt="">
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <label class="btn btn-default">
+            <input type="file" (change)="selectFile($event)">
+        </label>
+          
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+
         <h1 class="titulo"><b>Confirme a localização do anúncio:</b></h1>
         <div class="container">
             <mat-form-field appearance="fill">

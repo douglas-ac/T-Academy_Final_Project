@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Announce, AnnounceCarClass} from '../Model/Models';
+import { Announce, AnnounceCarClass, User} from '../Model/Models';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -47,4 +47,5 @@ export class AnnounceService {
   delete(id:number){
     return this.http.delete(`http://localhost:8082/api/v1/announce/${id}`)
   }
+
 }

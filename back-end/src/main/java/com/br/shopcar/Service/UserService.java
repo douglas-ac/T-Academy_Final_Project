@@ -4,6 +4,7 @@ import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Model.User.User;
+import com.br.shopcar.Repository.PasswordTokenRepository;
 import com.br.shopcar.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,9 @@ public class UserService implements UserDetailsService{
 
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    PasswordTokenRepository passwordTokenRepository;
 
     public Page<UserDto> findAll(Pageable pageable){
         return userRepository.findAll(pageable).map(User::converterDto);
@@ -81,4 +85,20 @@ public class UserService implements UserDetailsService{
         User byLoginUsername = userRepository.findByLoginUsername(username);
         return byLoginUsername.getLogin();
     }
-}
+
+    public UserDtoSlim changePassword(long idUser, String oldPassword, String password) {
+        System.out.println(oldPassword);
+        System.out.println(password);
+        Optional<User> byId = userRepository.findById(idUser);
+        User user = byId.orElseThrow(() -> new EntityNotFoundException("User not found"));
+        if (passwordEncoder.matches(oldPassword, user.getLogin().getPassword())){
+            System.out.println("true");
+            user.getLogin().setPassword(passwordEncoder.encode(password));
+            userRepository.save(user);
+            return user.converterDtoSlim();
+        }
+        else {
+            throw new IllegalArgumentException("Old password wrong");
+        }
+    }
+ }

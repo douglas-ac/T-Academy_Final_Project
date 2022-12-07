@@ -62,7 +62,7 @@ public class UserControllerTest {
         userDto.setName("Mario Bezerra");
         userDto.setFone("77988589023");
         userDto.setEmail("mario@gmail.com");
-        userDto.setLogin(new LoginDto("mariozin", "123456"));
+        //userDto.setLogin(new LoginDto("mariozin", "123456"));
         userDto.setBirthDate("05-03-1999");
         userDto.setNacionalNumber("05896515455");
         userDto.setDescriminationColumn("CPF");
@@ -82,7 +82,7 @@ public class UserControllerTest {
         userDto.setName("Teste teste");
         userDto.setFone("77988589023");
         userDto.setEmail("mario@gmail.com");
-        userDto.setLogin(new LoginDto("mariozin", "123456"));
+        //userDto.setLogin(new LoginDto("mariozin", "123456"));
         userDto.setBirthDate("05-03-1999");
         userDto.setNacionalNumber("05896515455");
         userDto.setDescriminationColumn("CPF");
