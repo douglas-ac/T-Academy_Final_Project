@@ -178,3 +178,11 @@ export class AdressClass {
     localidade?: string;
     uf?: string;
 }
+
+export class CommentClass {
+    id!: number;
+    message!: string;
+    user?: User;
+    announcement? : Announce;
+    commentAnswerDtos!: CommentAnswerDto[];
+}

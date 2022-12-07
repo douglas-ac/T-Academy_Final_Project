@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Announce, Car, Product } from 'src/app/Model/Models';
+import { Announce, Car, Product, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CommentService } from 'src/app/Services/comment.service';
 
@@ -51,6 +51,8 @@ export class AnnounceComponent {
     let message = (document.querySelector('#comment-input') as HTMLInputElement)
       .value;
     let annouceId = this.announceId;
+
+    let user = new UserClass()
 
    // let comment: Comment = {
       
