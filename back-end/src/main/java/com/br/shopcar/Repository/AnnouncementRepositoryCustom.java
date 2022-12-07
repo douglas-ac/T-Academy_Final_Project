@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface AnnouncementRepositoryCustom {
     Page<Announcement> filterCarAnnounceByCriteria(Pageable pageable, LinkedHashMap filters);
+    Page<Announcement> filterAutopartAnnounceByCriteria(Pageable pageable, LinkedHashMap filters);
 }

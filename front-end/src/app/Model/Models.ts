@@ -100,7 +100,7 @@ export interface Part extends Product{
     part_condition: string;
     brand : string;
     vehicle_type :string;
-    amount : number;
+    reserved_amount : number;
     partmaker:string;
 }
 
@@ -154,7 +154,7 @@ export class PartClass implements Product {
     part_condition: string = "";
     brand : string = "";
     vehicle_type :string = "";
-    amount : number = 0;
+    reserved_amount : number = 1; //ver isso
 }
 
 export class UserClass {

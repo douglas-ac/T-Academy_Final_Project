@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-//import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Part } from 'src/app/Model/Models';
+import { AnnouncePartClass, PartClass } from 'src/app/Model/Models';
+import { AnnounceService } from 'src/app/Services/announce.service';
 import { PartService } from 'src/app/Services/part.service';
 
 @Component({
@@ -10,50 +10,69 @@ import { PartService } from 'src/app/Services/part.service';
 })
 export class CartComponent {
 
-  constructor(private servico:PartService){}
+  constructor(private announceService:AnnounceService, private partService:PartService){}
 
-  cart:Part[] = [];
-  itemsId:number[] = [11, 12, 13];
-  //zerar depois ^^, usar o de baixo com input/output
+  cart:PartClass[] = [];
 
   ngOnInit(){
-  this.addToCart();
-  }
-
-  addToCart():void{
-    for (let i=0; i<this.itemsId.length; i++){
-      this.servico.getOne(this.itemsId[i])
-      .subscribe(retorno => {
-      console.log(retorno);
-      retorno.amount=1;
-      this.cart.push(retorno);
-      })
+    if (localStorage.getItem('cart') == undefined){
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     }
-  console.log(this.cart);
+    this.getItems();
   }
 
-
-  plusOne(c:Part){
-    c.amount += 1;
-    //verificar estoque qnd implementado
+  getItems():void{
+      let receivedCart:PartClass[] = JSON.parse(localStorage.getItem('cart') || '{}' );
+      this.cart = receivedCart;
+      localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
-  minusOne(c:Part){
-    c.amount -= 1;
-    if (c.amount == 0){
+  getAnnounce(id:number):any{
+    this.announceService.getAllParts()
+    .subscribe(dados => {
+      console.log(dados)
+      for (let i=0;i<dados.length;i++){
+        if (dados[i].product.id == id){
+          return dados[i];
+        }
+      }
+    });
+    return false;
+  }
+
+  plusOne(c:PartClass):void{
+    let an : AnnouncePartClass = this.getAnnounce(c.id);
+    if (c.reserved_amount < an.amount){
+      c.reserved_amount += 1;
+    } else {
+      alert("Você já reservou o máximo em estoque")
+    }
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  minusOne(c:PartClass):void{
+    c.reserved_amount -= 1;
+    if (c.reserved_amount == 0){
       this.removeFromCart(c);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     }
   }
 
-  removeFromCart(c:Part){
-  let pesquisaId = this.cart.findIndex(obj => {return obj.id === c.id})
-  this.cart.splice(pesquisaId, 1);
+  removeFromCart(c:PartClass):void{
+    let pesquisaId = this.cart.findIndex(obj => {return obj.id === c.id})
+    this.cart.splice(pesquisaId, 1);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
+
+  getPrice(c:PartClass):number{
+    return c.price*c.reserved_amount;
+  }
+
 
   getSubtotal():number{
     let subtotal:number = 0;
-    for (let i=0; i<this.itemsId.length; i++){
-      subtotal += (this.cart[i].amount+this.cart[i].price);
+    for (let i=0; i<this.cart.length; i++){
+      subtotal += this.getPrice(this.cart[i]);
     }
     return subtotal;
   }
