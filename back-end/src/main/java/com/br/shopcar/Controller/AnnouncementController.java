@@ -36,6 +36,14 @@ public class AnnouncementController {
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
     }
 
+    @GetMapping("/cars/most-clicked")
+    public ResponseEntity<Page<AnnouncementDto>> findMostClikedCars(@PageableDefault(sort = "access_count",
+            direction = Sort.Direction.DESC,
+            page = 0,
+            size = 3) Pageable page){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars("", page));
+    }
+
     @GetMapping("/cars/count")
     public ResponseEntity<Long> countAvailableAnnounceCar(){
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.countAvailableAnnounceCar());

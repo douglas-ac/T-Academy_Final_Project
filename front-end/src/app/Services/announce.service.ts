@@ -17,9 +17,13 @@ export class AnnounceService {
   getAll() {
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce")
   }
-
+  
   getCountCars() {
     return this.http.get<number>("http://localhost:8082/api/v1/announce/cars/count")
+  }
+  
+  getMostClickedCars() {
+    return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce/cars/most-clicked")
   }
 
   getAllCars(search: string="") {
