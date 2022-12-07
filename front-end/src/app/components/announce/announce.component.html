@@ -30,9 +30,18 @@
     </div>
     <div class="comment-content">
       <p>{{comment.message}}</p>
-    <div class="comment-btn">
-      <button>Responder</button>
     </div>
+    <div class="comment-answer">
+      <div class="comment-answer-title">
+        <h5>{{comment.user?.name}}</h5><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p>
+        <div class="comment-answer-content">
+          <p></p>
+        </div>
+      </div>
+      <textarea id="comment-answer" placeholder="Responder"></textarea>
+      <div>
+        <button>Responder</button>
+      </div>
     </div>
   </div>
   <div class="add-comment">

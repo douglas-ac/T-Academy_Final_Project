@@ -82,4 +82,8 @@ export class AnnounceComponent {
     })
   }
 
+  addComentAnswer() {
+    let message = (document.querySelector('#comment-answer') as HTMLInputElement).value;
+  }
+
 }
