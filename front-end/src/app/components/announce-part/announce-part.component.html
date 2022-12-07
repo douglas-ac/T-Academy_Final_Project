@@ -1,0 +1,26 @@
+<section>
+  <div class="center">
+    <h1>{{ part.name }} - {{ part.description }}</h1>
+    <div class="announce-container">
+      <div id="image-box">
+        <img class="product-image"
+             src="../../../assets/img/cartImages/partMock.png"
+        />
+      </div>
+      <div id="car-details">
+        <h3>Detalhes do produto:</h3>
+        <ul>
+          <li><span class="car-topic">Marca: </span>{{ part.partmaker }}</li>
+          <li><span class="car-topic">Modelo: </span>{{ part.model }}</li>
+          <li><span class="car-topic">Ano: </span>{{ part.year }}</li>
+        </ul>
+        <span id="price">R$ {{part.price.toFixed(2)}} </span>
+        <span id="cidade">
+          <img class="location-icon" src="../../../assets/img/icons/pino-de-localizacao.png" alt="Localização" /> {{ announce.address.localidade }}
+        </span>
+        <button (click)="addToCart(announceId)">Adicionar ao carrinho </button>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -93,7 +93,7 @@
 
           <div *ngIf="isBrandShow">
             <img
-              (click)="addFilterOption('brand', 'nakata')" 
+              (click)="addFilterOption('brand', 'nakata')"
               src="../../../assets/img/partCatalogImages/nakata-logo.svg"
               alt=""
             />
@@ -455,8 +455,8 @@
           <p class="location">{{ ad.address.localidade }}</p>
           <p class="price">R$ {{ getPart(ad.product).price.toFixed(2) }}</p>
           <p class="price-installment">60 x R$ {{ (getPart(ad.product).price/60).toFixed(2) }}/mês</p>
-          <button routerLink="/anuncio/{{getPart(ad.product).id}}" class="see-offer-btn">Ver oferta</button>
-          <!-- <button class="see-offer-btn" (click)="addToCart(ad.product.id)">Adicionar ao Carrinho</button> -->
+          <button routerLink="/anuncio-part/{{getPart(ad.product).id}}" class="see-offer-btn">Ver oferta</button>
+          <button class="see-offer-btn add-cart-btn" (click)="addToCart(ad.product.id)">Adicionar ao Carrinho</button>
         </div>
       </div>
     </div>
