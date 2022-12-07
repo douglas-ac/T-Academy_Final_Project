@@ -20,6 +20,8 @@ export class PartService {
   }
 
   getOne(id:number):Observable<Part>{
+    let token = this.authService.getToken();
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
     return this.http.get<Part>(`http://localhost:8082/api/v1/parts/${id}`)
   }
 
