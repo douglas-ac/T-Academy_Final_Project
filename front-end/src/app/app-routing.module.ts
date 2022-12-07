@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'sell-part06', component: SellPart06Component, canActivate:[AuthService]},
   {path: 'profile', component: ProfileComponent},
   {path: 'anuncio/:id', component : AnnounceComponent},
-  {path: 'anuncio-part/:id', component : AnnouncePartComponent}
+  {path: 'anuncio-part/:id', component : AnnouncePartComponent},
   {path: 'password-recovery', component: PasswordRecoveryComponent}
 ];
 
