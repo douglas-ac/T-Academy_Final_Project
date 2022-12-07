@@ -16,6 +16,7 @@ export class AnnounceComponent {
   car!: Car;
   image: any;
   http: any;
+  comments: CommentClass[] = []
 
   constructor(
     private announceService: AnnounceService,
@@ -23,6 +24,7 @@ export class AnnounceComponent {
     private commentService: CommentService
   ) {
     this.route.params.subscribe((params) => (this.announceId = params['id']));
+    this.getComment()
   }
 
   ngOnInit(): void {
@@ -66,5 +68,14 @@ export class AnnounceComponent {
    this.commentService.post(comment).subscribe(() => {})
 
    console.log(comment)
+  }
+
+  getComment() {
+    this.commentService.getAll()
+    .subscribe({
+      next: data => this.comments = data,
+      error: () => alert("falha")
+
+    })
   }
 }

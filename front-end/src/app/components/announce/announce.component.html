@@ -24,14 +24,12 @@
       </div>
     </div>
   </div>
-  <div class="comment">
+  <div *ngFor="let comment of comments" class="comment">
     <div class="comment-title">
-      <h4>Eula Paula Pereira</h4><p>05 de Mar, 2022, 09:58 am</p>
+      <h4></h4><p></p>
     </div>
     <div class="comment-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-         incididunt ut labore et dolore magna aliqua
-      </p>
+      <p>{{comment.message}}</p>
     <div class="comment-btn">
       <button>Responder</button>
     </div>
