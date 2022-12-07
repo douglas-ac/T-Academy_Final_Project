@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-carro.component';
 
@@ -14,6 +14,7 @@ import { AnnounceComponent } from './components/announce/announce.component';
 import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 import { AuthService } from './Services/auth.service';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
   {path: 'cadastro', component: RegisterComponent},
   {path: 'sell-car02', component: SellCar02Component , canActivate:[AuthService]},
   {path: 'sell-car07', component: SellCar07Component, canActivate:[AuthService]},
-
+  {path: 'editar-anuncio', component: EditarAnuncioComponent},
   {path: 'sell-part02', component: SellPart02Component, canActivate:[AuthService]},
   {path: 'sell-part06', component: SellPart06Component, canActivate:[AuthService]},
   {path: 'profile', component: ProfileComponent},
