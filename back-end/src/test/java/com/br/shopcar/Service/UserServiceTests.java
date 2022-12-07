@@ -136,14 +136,4 @@ public class UserServiceTests {
         verify(userRepository).findById(notExistingId);
     }
 
-
-
-
-
-
-
-
-
-
-
 }

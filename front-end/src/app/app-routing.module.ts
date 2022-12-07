@@ -13,6 +13,7 @@ import { SellPart06Component } from './components/sellPart/sell-part06/sell-part
 import { AnnounceComponent } from './components/announce/announce.component';
 import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 import { AuthService } from './Services/auth.service';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'sell-part02', component: SellPart02Component, canActivate:[AuthService]},
   {path: 'sell-part06', component: SellPart06Component, canActivate:[AuthService]},
   {path: 'profile', component: ProfileComponent},
-  {path: 'anuncio/:id', component : AnnounceComponent}
+  {path: 'anuncio/:id', component : AnnounceComponent},
+  {path: 'password-recovery', component: PasswordRecoveryComponent}
 ];
 
 @NgModule({
