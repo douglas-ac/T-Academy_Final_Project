@@ -16,8 +16,8 @@ export class CommentService {
     return this.http.get<[CommentClass]>("http://localhost:8082/api/v1/comment")
   }
 
-  getOne(id:number):Observable<CommentClass>{
-    return this.http.get<CommentClass>(`http://localhost:8082/api/v1/comment/${id}`)
+  getOne(id:number){
+    return this.http.get<[CommentClass]>(`http://localhost:8082/api/v1/comment/${id}`)
   }
 
   post(data: CommentClass){

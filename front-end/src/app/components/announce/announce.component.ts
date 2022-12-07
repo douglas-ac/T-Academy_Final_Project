@@ -75,7 +75,7 @@ export class AnnounceComponent {
   }
 
   getComment() {
-    this.commentService.getAll()
+    this.commentService.getOne(this.announceId)
     .subscribe({
       next: data => this.comments = data,
       error: () => console.log("falha")
