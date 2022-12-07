@@ -26,7 +26,7 @@
   </div>
   <div *ngFor="let comment of comments" class="comment">
     <div class="comment-title">
-      <h4>{{comment.user}}</h4><p>{{comment.time}}</p>
+      <h4>{{comment.user}}</h4><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p>
     </div>
     <div class="comment-content">
       <p>{{comment.message}}</p>

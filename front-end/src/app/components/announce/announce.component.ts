@@ -68,7 +68,7 @@ export class AnnounceComponent {
     comment.announcement = announce
     comment.time = date
     
-   this.commentService.post(comment).subscribe(() => {})
+    this.commentService.post(comment).subscribe(() => {})
 
    console.log(comment)
    window.location.href = window.location.href;
