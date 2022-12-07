@@ -13,7 +13,7 @@ import { SellPart06Component } from './components/sellPart/sell-part06/sell-part
 import { AnnounceComponent } from './components/announce/announce.component';
 import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.component';
 import { AuthService } from './Services/auth.service';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},

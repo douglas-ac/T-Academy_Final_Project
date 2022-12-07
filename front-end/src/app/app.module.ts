@@ -30,7 +30,7 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
 
 @NgModule({
