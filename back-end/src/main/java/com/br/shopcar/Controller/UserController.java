@@ -57,6 +57,6 @@ public class UserController {
     @PostMapping("/changePassword/{idUser}")
     public ResponseEntity changePassword(@PathVariable("idUser") long idUser,
                                                   @RequestBody ChangePassordDTO content){
-        return ResponseEntity.status(HttpStatus.OK).body(userService.changePassword(idUser, content.getOldPassord(), content.getNewPassord()));
+        return ResponseEntity.status(HttpStatus.OK).body(userService.changePassword(idUser, content.getOldPassword(), content.getNewPassword()));
     }
 }

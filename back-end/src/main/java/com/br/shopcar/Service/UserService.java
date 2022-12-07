@@ -87,9 +87,12 @@ public class UserService implements UserDetailsService{
     }
 
     public UserDto changePassword(long idUser, String oldPassword, String password) {
+        System.out.println(oldPassword);
+        System.out.println(password);
         Optional<User> byId = userRepository.findById(idUser);
         User user = byId.orElseThrow(() -> new EntityNotFoundException("User not found"));
-        if (passwordEncoder.encode(oldPassword).equals(user.getLogin().getPassword())){
+        if (passwordEncoder.matches(oldPassword, user.getLogin().getPassword())){
+            System.out.println("true");
             user.getLogin().setPassword(passwordEncoder.encode(password));
             userRepository.save(user);
             return user.converterDto();

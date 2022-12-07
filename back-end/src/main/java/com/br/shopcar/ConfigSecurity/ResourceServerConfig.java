@@ -9,6 +9,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -32,7 +33,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     private static final String[] PUBLIC_POST = {"/oauth/token","/api/v1/user","/api/v1/announce/cars/filters","/api/v1/announce/parts/filters",
             "/api/v1/user/resetPassword/*"};
     private static final String[] PUBLIC_GET = {"/api/v1/announce/cars","/api/v1/announce/cars/**","/api/v1/announce/**",
-    "/api/v1/cars/automakers"};
+    "/api/v1/cars/automakers","swagger-ui.html","swagger-ui.html/**"};
 
 
     @Override
@@ -74,5 +75,16 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 = new FilterRegistrationBean<>(new CorsFilter(corsConfigurationSource()));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring()
+                .antMatchers("/api/auth/**")
+                .antMatchers("/v3/api-docs/**")
+                .antMatchers("configuration/**")
+                .antMatchers("/swagger*/**")
+                .antMatchers("/webjars/**")
+                .antMatchers("/swagger-ui/**");
     }
 }
