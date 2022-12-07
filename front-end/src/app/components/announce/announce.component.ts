@@ -68,13 +68,14 @@ export class AnnounceComponent {
    this.commentService.post(comment).subscribe(() => {})
 
    console.log(comment)
+   location.reload()
   }
 
   getComment() {
     this.commentService.getAll()
     .subscribe({
       next: data => this.comments = data,
-      error: () => alert("falha")
+      error: () => console.log("falha")
 
     })
   }
