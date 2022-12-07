@@ -32,7 +32,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +47,12 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     CartComponent,
     PartsCatalogComponent,
     AnnounceComponent,
+<<<<<<< HEAD
     PasswordRecoveryComponent
   ],
+=======
+      ],
+>>>>>>> changePassword
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,7 +70,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     NgxMaskModule.forRoot(),
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US'}
