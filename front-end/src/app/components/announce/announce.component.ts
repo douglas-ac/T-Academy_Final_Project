@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Announce, AnnounceClass, Car, CommentAnswerDto, CommentAnswerDtoClass, CommentClass, Product, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import { CommentAnswerService } from 'src/app/Services/comment-answer.service';
 import { CommentService } from 'src/app/Services/comment.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class AnnounceComponent {
   constructor(
     private announceService: AnnounceService,
     private route: ActivatedRoute,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private commentAnswerService: CommentAnswerService
   ) {
     this.route.params.subscribe((params) => (this.announceId = params['id']));
     this.getComment()
@@ -99,7 +101,10 @@ export class AnnounceComponent {
     commentAnswer.timeCreated = date
     commentAnswer.user = user
     commentAnswer.comment = comment
+
+    this.commentAnswerService.post(commentAnswer).subscribe(() => {})
     
+    console.log(commentAnswer)
   }
 
 }
