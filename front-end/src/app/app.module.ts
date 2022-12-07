@@ -47,12 +47,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     CartComponent,
     PartsCatalogComponent,
     AnnounceComponent,
-<<<<<<< HEAD
     PasswordRecoveryComponent
   ],
-=======
-      ],
->>>>>>> changePassword
   imports: [
     BrowserModule,
     AppRoutingModule,

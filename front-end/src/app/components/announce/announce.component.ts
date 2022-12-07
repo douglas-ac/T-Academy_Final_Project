@@ -34,15 +34,4 @@ export class AnnounceComponent {
     return data as Car
   }
 
-<<<<<<< HEAD
-  getImage(){
-      this.http.get(`http://localhost:8082/api/v1/announce/${this.announce.image.id}`).subscribe(
-        (data: any) => {
-          this.image = data
-          console.log(data)
-        }
-      )
-  }
-=======
->>>>>>> changePassword
 }

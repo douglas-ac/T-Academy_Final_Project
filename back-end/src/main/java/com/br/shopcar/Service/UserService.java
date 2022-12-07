@@ -86,7 +86,7 @@ public class UserService implements UserDetailsService{
         return byLoginUsername.getLogin();
     }
 
-    public UserDto changePassword(long idUser, String oldPassword, String password) {
+    public UserDtoSlim changePassword(long idUser, String oldPassword, String password) {
         System.out.println(oldPassword);
         System.out.println(password);
         Optional<User> byId = userRepository.findById(idUser);
@@ -95,7 +95,7 @@ public class UserService implements UserDetailsService{
             System.out.println("true");
             user.getLogin().setPassword(passwordEncoder.encode(password));
             userRepository.save(user);
-            return user.converterDto();
+            return user.converterDtoSlim();
         }
         else {
             throw new IllegalArgumentException("Old password wrong");
