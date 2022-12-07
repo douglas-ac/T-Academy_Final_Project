@@ -32,8 +32,13 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> findCars(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 20) Pageable page){
-        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(page));
+            size = 20) Pageable page, @RequestParam(value = "search", defaultValue = "") String search){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
+    }
+
+    @GetMapping("/cars/count")
+    public ResponseEntity<Long> countAvailableAnnounceCar(){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.countAvailableAnnounceCar());
     }
 
     @PostMapping("/cars/filters")

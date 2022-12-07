@@ -245,6 +245,10 @@
     position: relative;
 }
 
+.category:hover{
+  cursor: pointer;
+}
+
 .category h3{
     color: var(--secondary);
     font-size: 1.5rem;
@@ -252,8 +256,8 @@
     z-index: 2;
 }
 
-.categories .adventurous{
-    background-image: url(../../../assets/img/homeImages/advebturous-category.svg);
+.categories .popular{
+    background-image: url(../../../assets/img/homeImages/popular-category.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -274,8 +278,8 @@
     background-position: center;
 }
 
-.categories .familiar{
-    background-image: url(../../../assets/img/homeImages/familiar-category.svg);
+.categories .suv{
+    background-image: url(../../../assets/img/homeImages/suv-category.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

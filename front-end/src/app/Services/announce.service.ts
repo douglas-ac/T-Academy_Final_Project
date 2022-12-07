@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -18,8 +18,16 @@ export class AnnounceService {
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce")
   }
 
-  getAllCars() {
-    return this.http.get<Announce>("http://localhost:8082/api/v1/announce/cars")
+  getCountCars() {
+    return this.http.get<number>("http://localhost:8082/api/v1/announce/cars/count")
+  }
+
+  getAllCars(search: string="") {
+    let params = new HttpParams()
+    if(search != ""){
+      params = params.set('search', search)
+    }
+    return this.http.get<Announce>("http://localhost:8082/api/v1/announce/cars", {params: params})
   }
 
   getCarsByCriteria(filters: any) {

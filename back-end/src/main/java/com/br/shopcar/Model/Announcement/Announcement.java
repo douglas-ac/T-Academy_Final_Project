@@ -34,7 +34,7 @@ public class Announcement {
     @ManyToOne(cascade = CascadeType.REMOVE)
     private ProductModel product;
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.AVAILABLE;
     private String imageUrl;
 
     public AnnouncementDto converter(){

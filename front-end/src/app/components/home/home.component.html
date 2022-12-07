@@ -30,7 +30,7 @@
           Não perca a chance de trocar de carro! Somente neste final de semana
           você compra carro com zero de entrada!
         </p>
-        <button class="banner-btn" (click)="navigation('sell-car01')">
+        <button class="banner-btn see-car-catalog-btn" (click)="navigation('sell-car02')">
           Eu quero vender
         </button>
       </div>
@@ -45,7 +45,8 @@
           Não perca a chance de trocar de carro! Somente neste final de semana
           você compra carro com zero de entrada!
         </p>
-        <button class="banner-btn" id="btn-banner-parts">
+        <button class="banner-btn" id="btn-banner-parts"
+        (click)="navigation('parts-catalog')">
           Veja o catálogo
         </button>
 
@@ -67,39 +68,34 @@
 </div>
 
 <div class="search-bar">
-  <div class="links-container">
-    <a href="#" class="buy-car">Comprar carro</a>
-    <a href="#" class="buy-part">Comprar peça</a>
-    <a href="#" class="sell-car">Vender carro</a>
-    <a href="#" class="sell-part">Vender peça</a>
-  </div>
   <div class="search-container">
     <input
+      [(ngModel)]="search"
       class="search-input"
       type="text"
       placeholder="Digite a marca ou modelo do carro"
     />
-    <button class="see-offers">Veja as ofertas(10)</button>
+    <button (click)="navigation('cars-catalog', search ? {search: search} : null)" class="see-offers">Veja as ofertas({{ countAddCar }})</button>
   </div>
 </div>
 
 <section class="categories">
   <h2>Categorias</h2>
   <div class="category-container">
-    <div class="category adventurous">
-      <h3>Adventurous</h3>
+    <div (click)="navigation('cars-catalog', {category: 'popular'})" class="category popular">
+      <h3>Popular</h3>
       <div class="dark-bg"></div>
     </div>
-    <div class="category hatch">
+    <div (click)="navigation('cars-catalog', {category: 'hatch'})" class="category hatch">
       <h3>Hatch</h3>
       <div class="dark-bg"></div>
     </div>
-    <div class="category sedan">
+    <div (click)="navigation('cars-catalog', {category: 'sedan'})" class="category sedan">
       <h3>Sedan</h3>
       <div class="dark-bg"></div>
     </div>
-    <div class="category familiar">
-      <h3>Familiar</h3>
+    <div (click)="navigation('cars-catalog', {category: 'suv'})" class="category suv">
+      <h3>SUV</h3>
       <div class="dark-bg"></div>
     </div>
   </div>

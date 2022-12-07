@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnnounceService } from 'src/app/Services/announce.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  search: string = ""
+  countAddCar: number = 0
+
+constructor(private router : Router, private announceService: AnnounceService) { }
 
   ngOnInit(): void {
 
       setTimeout(this.handleDot2Click, 2000)
       setTimeout(this.handleDot3Click, 4000)
       setTimeout(this.handleDot1Click, 6000)
-   
+    
+    this.announceService.getCountCars().subscribe(count => this.countAddCar = count)
  
    
   }
@@ -57,8 +62,8 @@ export class HomeComponent implements OnInit {
     dot3!.style.backgroundColor = "white";
   }
 
-  navigation(route : string){
-    this.router.navigate([`${route}`])
+  navigation(route : string, param:object|null=null){
+    this.router.navigate([`${route}`], {  queryParams: param })
   }
 
  

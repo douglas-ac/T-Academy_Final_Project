@@ -5,6 +5,7 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-carro.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NavbarComponent,
     CartComponent,
     PartsCatalogComponent,
-    AnnounceComponent
+    AnnounceComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
