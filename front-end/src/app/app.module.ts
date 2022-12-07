@@ -31,6 +31,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     CartComponent,
     PartsCatalogComponent,
     AnnounceComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    EditarAnuncioComponent
   ],
   imports: [
     BrowserModule,
