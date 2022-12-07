@@ -198,3 +198,11 @@ export class AnnounceClass {
     address?: Address;
     image?: Images
 }
+
+export class CommentAnswerDtoClass {
+    idCommentAnswer!: number;
+    message!: string;
+    user?: User;
+    comment?: CommentClass;
+    timeCreated!: Date;
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Announce, AnnounceClass, Car, CommentClass, Product, UserClass } from 'src/app/Model/Models';
+import { Announce, AnnounceClass, Car, CommentAnswerDto, CommentAnswerDtoClass, CommentClass, Product, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CommentService } from 'src/app/Services/comment.service';
 
@@ -82,8 +82,24 @@ export class AnnounceComponent {
     })
   }
 
-  addComentAnswer() {
+  addComentAnswer(id: number) {
     let message = (document.querySelector('#comment-answer') as HTMLInputElement).value;
+    let date = new Date()
+    date.getDate()
+
+    let idUser = sessionStorage.getItem('idUser') || ''
+    let user = new UserClass()
+    user.id = Number(idUser)
+
+    let comment = new CommentClass()
+    comment.id = id
+
+    let commentAnswer = new CommentAnswerDtoClass()
+    commentAnswer.message = message
+    commentAnswer.timeCreated = date
+    commentAnswer.user = user
+    commentAnswer.comment = comment
+    
   }
 
 }
