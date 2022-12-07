@@ -32,8 +32,8 @@
 .anuncio {
     margin-left: 200px;
     margin-right: 200px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -70,4 +70,9 @@ h2 {
 .icones {
     text-align: right;
     vertical-align: top;
+}
+
+.mensagem {
+    text-align: center;
+    margin: 50px;
 }
