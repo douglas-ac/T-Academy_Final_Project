@@ -5,6 +5,7 @@ import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { CatalogoCarroComponent } from './components/catalogo-carro/catalogo-carro.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -33,6 +34,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +51,13 @@ import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anunc
     CartComponent,
     PartsCatalogComponent,
     AnnounceComponent,
+<<<<<<< HEAD
     PasswordRecoveryComponent,
     EditarAnuncioComponent
+=======
+    HomeComponent,
+    PasswordRecoveryComponent
+>>>>>>> f22f8b76990f56a42a099f2b95ffb9a8149605bc
   ],
   imports: [
     BrowserModule,
