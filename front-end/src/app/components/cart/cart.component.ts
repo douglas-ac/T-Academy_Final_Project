@@ -78,7 +78,7 @@ export class CartComponent {
   }
 
   getShippingPrice():number{
-    let shippingPrice = 25;
+    let shippingPrice = 0;
     return shippingPrice;
   }
   //ajustar ^^

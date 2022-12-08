@@ -59,7 +59,7 @@ export class AnnouncePartComponent {
     },
     error => {
       if (error.status == 401){
-        alert("Você precisa estar logado para adicionar produtos ao carrinho")
+        alert("Você precisa estar logado para adicionar produtos ao carrinho");
       }
     });
   }
