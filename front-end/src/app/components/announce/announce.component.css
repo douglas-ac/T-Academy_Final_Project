@@ -190,3 +190,8 @@ button {
     color: black;
     font-weight: normal;
 }
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+}

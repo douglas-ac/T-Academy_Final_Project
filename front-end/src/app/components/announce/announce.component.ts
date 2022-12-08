@@ -19,7 +19,6 @@ export class AnnounceComponent {
   http: any;
   comments: CommentClass[] = []
   commentAnswer: CommentAnswerDtoClass[] = []
-  commentId: number = 0
 
   constructor(
     private announceService: AnnounceService,
@@ -87,8 +86,6 @@ export class AnnounceComponent {
   }
 
   addCommentAnswer(id: number) {
-    this.commentId = id
-
     let message = (document.querySelector('#comment-answer') as HTMLInputElement).value;
     let date = new Date()
     date.getDate()
@@ -107,6 +104,12 @@ export class AnnounceComponent {
     commentAnswer.comment = comment
 
     this.commentAnswerService.post(commentAnswer).subscribe(() => {})  
+    window.location.href = window.location.href;
+  }
+
+  deleteComment(id: number) {
+    this.commentService.delete(id)
+    .subscribe(() => {})
     window.location.href = window.location.href;
   }
 

@@ -22,7 +22,7 @@ public class Comment {
     @ManyToOne
     private Announcement announcement;
     private String message;
-    @OneToMany(mappedBy = "comment")
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.REMOVE)
     private List<CommentAnswer> answers = new ArrayList<>();
     @CreationTimestamp
     private Timestamp time;

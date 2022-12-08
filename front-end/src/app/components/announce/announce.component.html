@@ -26,7 +26,8 @@
   </div>
   <div *ngFor="let comment of comments" class="comment">
     <div class="comment-title">
-      <h4>{{comment.user?.name}}</h4><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p>
+      <div hidden id="user-id">{{comment.user?.id}}</div>
+      <h4>{{comment.user?.name}}</h4><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p><img (click)="deleteComment(comment.id)" src="../../../assets/img/trash.png" class="delete-icon">
     </div>
     <div class="comment-content">
       <p>{{comment.message}}</p>

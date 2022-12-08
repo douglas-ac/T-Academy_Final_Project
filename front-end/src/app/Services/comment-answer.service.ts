@@ -21,7 +21,7 @@ export class CommentAnswerService {
   }
 
   delete(id:number){
-    return this.http.delete(`http://localhost:8082/api/v1/comment/${id}`)
+    return this.http.delete(`http://localhost:8082/api/v1/comment/answer/${id}`)
   }
 
 }
