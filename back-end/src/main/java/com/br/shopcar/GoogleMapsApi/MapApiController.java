@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+/*@RestController
 @RequestMapping("api/v1/distance")
 public class MapApiController {
 
@@ -36,4 +36,4 @@ public class MapApiController {
         List<Map.Entry<Integer, Integer>> entries = mapApiService.orderingAnnouncesParts(idUser);
         return ResponseEntity.status(HttpStatus.OK).body(mapApiService.colletctAnnounces(entries));
     }
-}
+}*/

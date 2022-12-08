@@ -9,6 +9,9 @@ import com.br.shopcar.Service.AnnouncementService;
 import com.br.shopcar.Service.UserService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -83,12 +86,12 @@ public class MapApiService {
                 .collect(Collectors.toList());
     }
 
-    public List<AnnouncementDto> colletctAnnounces(List<Map.Entry<Integer, Integer>> map){
+    public Page<AnnouncementDto> colletctAnnounces(List<Map.Entry<Integer, Integer>> map, Pageable pageable){
         List<AnnouncementDto> listOfAnnounces = new ArrayList<>();
         map.forEach( m -> {
             AnnouncementDto byId = announcementService.findById(Long.valueOf(m.getKey()));
             listOfAnnounces.add(byId);
         });
-        return listOfAnnounces;
+        return new PageImpl<AnnouncementDto> (listOfAnnounces, pageable, listOfAnnounces.size());
     }
 }

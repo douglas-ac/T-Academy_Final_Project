@@ -53,12 +53,17 @@ export class CatalogoCarroComponent {
     this.router.queryParams.subscribe(params => {
       if('search' in params){
         this.getAll(params['search'])
+      } 
+      if (Object.entries(params).length == 0 && this.isLogged()){
+        let id = sessionStorage.getItem('idUser')
+        this.service.getAllCarsLocation(id || "").subscribe((data: any) => this.ads = <Announce[]>data.content)
       } else{
         for(let [key, value] of Object.entries(params)){
           this.utils.addValueToObject(this.filters, key, value)
         }
         this.filter()
       }
+
     });
   }
   
@@ -117,6 +122,10 @@ export class CatalogoCarroComponent {
     } else {
       this.pagination(this.actualPage + 1)
     }
+  }
+
+  isLogged() : boolean{
+    return sessionStorage.getItem('token') ? true : false
   }
 
 }
