@@ -274,6 +274,17 @@
         </div>
 
       </div>
+      <nav aria-label="Navegação de página exemplo">
+        <ul class="pagination">
+          <li class="page-item" [ngClass]="{'disabled':actualPage == 0}">
+            <a class="page-link" (click)="paginationAnt('ant')">Anterior</a>
+          </li>
+          <li *ngFor="let page of arrayOfPages" class="page-item"><a class="page-link" (click)="pagination(page)" style="color: red;">{{page + 1}}</a></li>
+          <li class="page-item" [ngClass]="{'disabled':actualPage + 1 == totalOfPages}">
+            <a class="page-link" (click)="paginationAnt('ant')">Próximo</a>
+          </li>
+        </ul>
+      </nav>
     </div>
     
   </div>

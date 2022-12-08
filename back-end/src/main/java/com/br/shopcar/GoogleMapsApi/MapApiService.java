@@ -4,6 +4,7 @@ import com.br.shopcar.Dto.GET.AnnouncementDto;
 import com.br.shopcar.Dto.GET.Slim.AnnouncementSlim;
 import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Model.User.User;
+import com.br.shopcar.Repository.AnnouncementRepository;
 import com.br.shopcar.Service.AnnouncementService;
 import com.br.shopcar.Service.UserService;
 import com.google.gson.Gson;
@@ -22,6 +23,8 @@ public class MapApiService {
     UserService userService;
     @Autowired
     AnnouncementService announcementService;
+    @Autowired
+    AnnouncementRepository announcementRepository;
 
     public int findDistanceForUserAndAnnouce(long idUser, long idAnnouce ){
         User user = userService.findByIdModel(idUser);
@@ -49,6 +52,28 @@ public class MapApiService {
 
     public List<Map.Entry<Integer, Integer>> orderingAnnounces(long idUser){
         List<AnnouncementSlim> all = announcementService.findAll();
+        HashMap<Integer, Integer> allDistances = new HashMap<>();
+        all.forEach( a -> {
+            int distanceForUserAndAnnouce = findDistanceForUserAndAnnouce(idUser, a.getId());
+            allDistances.put((int) a.getId(), distanceForUserAndAnnouce);
+        });
+        return allDistances.entrySet().stream().sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList());
+    }
+
+    public List<Map.Entry<Integer, Integer>> orderingAnnouncesCars(long idUser){
+        List<Announcement> all = announcementRepository.findAllAnnouncesCarList();
+        HashMap<Integer, Integer> allDistances = new HashMap<>();
+        all.forEach( a -> {
+            int distanceForUserAndAnnouce = findDistanceForUserAndAnnouce(idUser, a.getId());
+            allDistances.put((int) a.getId(), distanceForUserAndAnnouce);
+        });
+        return allDistances.entrySet().stream().sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList());
+    }
+
+    public List<Map.Entry<Integer, Integer>> orderingAnnouncesParts(long idUser){
+        List<Announcement> all = announcementRepository.findAllAnnouncesPartList();
         HashMap<Integer, Integer> allDistances = new HashMap<>();
         all.forEach( a -> {
             int distanceForUserAndAnnouce = findDistanceForUserAndAnnouce(idUser, a.getId());

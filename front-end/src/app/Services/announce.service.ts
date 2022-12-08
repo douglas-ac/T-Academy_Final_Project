@@ -60,4 +60,11 @@ export class AnnounceService {
     return this.http.delete(`http://localhost:8082/api/v1/announce/${id}`)
   }
 
+  getPageCars(number:number){
+    return this.http.get<Announce>(`http://localhost:8082/api/v1/announce/cars?page=${number}`)
+  }
+
+  getPageParts(number:number){
+    return this.http.get<Announce>(`http://localhost:8082/api/v1/announce/parts?page=${number}`)
+  }
 }

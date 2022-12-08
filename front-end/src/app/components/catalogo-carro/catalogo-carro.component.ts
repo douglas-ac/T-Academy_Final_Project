@@ -9,7 +9,13 @@ import { Announce, Car, Product, Address } from '../../Model/Models'
   templateUrl: './catalogo-carro.component.html',
   styleUrls: ['./catalogo-carro.component.css']
 })
-export class CatalogoCarroComponent implements OnInit{
+export class CatalogoCarroComponent {
+
+  actualPage !: number
+  totalOfPages !: number
+  arrayOfPages : number[] = []
+
+  //anuncios
   ads: Announce[] = []
 
   categories : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
@@ -68,8 +74,15 @@ export class CatalogoCarroComponent implements OnInit{
     this.isCategoryShow = !this.isCategoryShow;
   }
 
-  getAll(search: string = ""){
-    this.service.getAllCars(search).subscribe( (data: any) => this.ads = <Announce[]>data.content)
+  getAll(search){
+    this.service.getAllCars(search).subscribe( (data: any) => {
+      this.ads = <Announce[]>data.content
+      this.totalOfPages = data.totalPages
+      for(let i = 0; i < this.totalOfPages ; i++){
+        this.arrayOfPages.push(i)
+      }
+      this.actualPage = 0
+    })
   }
 
   log(){
@@ -91,6 +104,19 @@ export class CatalogoCarroComponent implements OnInit{
   addFilterOption(key: any, value: any){
     this.utils.addValueToObject(this.filters, key, value)
     this.filter()
+  }
+
+  pagination(number:number){
+    this.service.getPageCars(number).subscribe((data: any) => this.ads = <Announce[]>data.content)
+    this.actualPage = number
+  }
+  
+  paginationAnt(word : string){
+    if(word == 'ant'){
+      this.pagination(this.actualPage - 1)
+    } else {
+      this.pagination(this.actualPage + 1)
+    }
   }
 
 }

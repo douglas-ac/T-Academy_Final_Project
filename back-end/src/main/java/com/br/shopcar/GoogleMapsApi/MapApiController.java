@@ -24,4 +24,16 @@ public class MapApiController {
         List<Map.Entry<Integer, Integer>> entries = mapApiService.orderingAnnounces(idUser);
         return ResponseEntity.status(HttpStatus.OK).body(mapApiService.colletctAnnounces(entries));
     }
+
+    @GetMapping("cars/{idUser}")
+    public ResponseEntity<List<AnnouncementDto>> findByAnnounceCars(@PathVariable("idUser") long idUser){
+        List<Map.Entry<Integer, Integer>> entries = mapApiService.orderingAnnouncesCars(idUser);
+        return ResponseEntity.status(HttpStatus.OK).body(mapApiService.colletctAnnounces(entries));
+    }
+
+    @GetMapping("parts/{idUser}")
+    public ResponseEntity<List<AnnouncementDto>> findByAnnounceParts(@PathVariable("idUser") long idUser){
+        List<Map.Entry<Integer, Integer>> entries = mapApiService.orderingAnnouncesParts(idUser);
+        return ResponseEntity.status(HttpStatus.OK).body(mapApiService.colletctAnnounces(entries));
+    }
 }

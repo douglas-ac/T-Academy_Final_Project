@@ -11,7 +11,7 @@ import java.time.Duration;
 @Component
 public class RequestMapApi {
 
-    private static final String API_KEY="";
+    private static final String API_KEY="AIzaSyCUjaBfyXWqm_lljkdY4cBuJdYV3Sk9EQA";
 
     public static String getUrl(String origin, String destination){
         String URL_GET = "https://maps.googleapis.com/maps/api/distancematrix/json?" +
