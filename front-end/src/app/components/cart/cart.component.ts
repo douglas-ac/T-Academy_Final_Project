@@ -13,6 +13,7 @@ export class CartComponent {
   constructor(private announceService:AnnounceService, private partService:PartService){}
 
   cart:PartClass[] = [];
+  shippingPrice:number=0;
 
   ngOnInit(){
     if (localStorage.getItem('cart') == undefined){
@@ -77,14 +78,13 @@ export class CartComponent {
     return subtotal;
   }
 
-  getShippingPrice():number{
-    let shippingPrice = 0;
-    return shippingPrice;
+  getShippingPrice():void{
+    this.shippingPrice = 18.65;
+    //mockado por falta de tempo, existe backup do método pro back, só n teve tempo de ser testado
   }
-  //ajustar ^^
 
   getTotal():number{
-    return (this.getSubtotal() + this.getShippingPrice());
+    return (this.getSubtotal() + this.shippingPrice);
   }
 
 }
