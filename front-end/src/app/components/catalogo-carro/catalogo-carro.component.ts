@@ -11,7 +11,9 @@ import { Announce, Car, Product, Address } from '../../Model/Models'
 })
 export class CatalogoCarroComponent implements OnInit{
   ads: Announce[] = []
-  
+
+  categories : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
+  colors: string[] = ['amarelo','azul','bege','branco','cinza','marrom','preto','verde','vermelho','vinho','prata']
   // Filters' options
   filters = {
     name: null,
