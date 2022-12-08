@@ -11,12 +11,12 @@ import { AnnounceService } from 'src/app/Services/announce.service';
 export class AnnounceComponent {
 
   announceId !: number
-  announce !: Announce 
+  announce !: Announce
   car !: Car
   image : any
   http: any;
 
-  imageUrl !: string 
+  imageUrl !: string
 
   constructor(private announceService : AnnounceService, private route: ActivatedRoute){
     this.route.params.subscribe(params => this.announceId = params['id']);
@@ -32,6 +32,14 @@ export class AnnounceComponent {
 
   getCar(data: Product){
     return data as Car
+  }
+
+  haveToken():boolean{
+    if (sessionStorage.getItem('token') == undefined){
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

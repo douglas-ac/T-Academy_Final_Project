@@ -20,7 +20,26 @@
         <span id="cidade">
           <img class="location-icon" src="../../../assets/img/icons/pino-de-localizacao.png" alt="Localização" /> {{ announce.address.localidade }}
         </span>
-        <button>Fale com vendedor</button>
+
+        <div *ngIf="haveToken()">
+          <button data-bs-toggle="modal" data-bs-target="#sellerInfo">Fale com vendedor</button>
+          <div class="modal fade" id="sellerInfo" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3>Dados do vendedor:</h3>
+                </div>
+                <div class="modal-body">
+                <h4>{{announce.user.name}}</h4>
+                <h4>{{announce.user.fone}}</h4>
+                <h4>{{announce.user.email}}</h4>
+                <button data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
