@@ -32,15 +32,15 @@
       <p>{{comment.message}}</p>
     </div>
     <div class="comment-answer">
-      <div class="comment-answer-title">
-        <h5>{{comment.user?.name}}</h5><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p>
-        <div class="comment-answer-content">
-          <p></p>
+      <div *ngFor="let message of comment.commentAnswerDtos" class="comment-answer-title">
+        <h5>{{message.user?.name}}</h5><p>{{message.timeCreated | date: 'dd/MM/yyyy - HH:mm'}}</p>
+        <div  class="comment-answer-content">
+          <p>{{message.message}}</p>
         </div>
       </div>
       <textarea id="comment-answer" placeholder="Responder"></textarea>
       <div>
-        <button (click)="addComentAnswer(comment.id)">Responder</button>
+        <button (click)="addCommentAnswer(comment.id)">Responder</button>
       </div>
     </div>
   </div>

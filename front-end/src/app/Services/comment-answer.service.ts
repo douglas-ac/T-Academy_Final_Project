@@ -11,7 +11,7 @@ export class CommentAnswerService {
   constructor(private http: HttpClient, private authService : AuthService) { }
 
   get(id:number){
-    return this.http.get<[CommentAnswerDtoClass]>(`http://localhost:8082/api/v1/comment/${id}`)
+    return this.http.get<[CommentAnswerDtoClass]>(`http://localhost:8082/api/v1/comment/answer/${id}`)
   }
 
   post(data: CommentAnswerDtoClass){

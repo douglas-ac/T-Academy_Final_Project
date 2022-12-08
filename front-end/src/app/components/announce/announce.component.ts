@@ -18,6 +18,8 @@ export class AnnounceComponent {
   image: any;
   http: any;
   comments: CommentClass[] = []
+  commentAnswer: CommentAnswerDtoClass[] = []
+  commentId: number = 0
 
   constructor(
     private announceService: AnnounceService,
@@ -84,7 +86,9 @@ export class AnnounceComponent {
     })
   }
 
-  addComentAnswer(id: number) {
+  addCommentAnswer(id: number) {
+    this.commentId = id
+
     let message = (document.querySelector('#comment-answer') as HTMLInputElement).value;
     let date = new Date()
     date.getDate()
@@ -98,13 +102,12 @@ export class AnnounceComponent {
 
     let commentAnswer = new CommentAnswerDtoClass()
     commentAnswer.message = message
-    //commentAnswer.timeCreated = date
+    commentAnswer.timeCreated = date
     commentAnswer.user = user
     commentAnswer.comment = comment
 
-    this.commentAnswerService.post(commentAnswer).subscribe(() => {})
-    
-    console.log(commentAnswer)
+    this.commentAnswerService.post(commentAnswer).subscribe(() => {})  
+    window.location.href = window.location.href;
   }
 
 }
