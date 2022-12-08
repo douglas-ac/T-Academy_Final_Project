@@ -19,6 +19,8 @@ export class AnnounceComponent {
   http: any;
   comments: CommentClass[] = []
   commentAnswer: CommentAnswerDtoClass[] = []
+  userId = sessionStorage.getItem('idUser') || ''
+  id = Number(this.userId)
 
   constructor(
     private announceService: AnnounceService,

@@ -116,10 +116,15 @@ button {
 }
 
 .comment {
-    margin: 30px auto;
-    background-color: rgba(241, 239, 239, 1);
     padding: 15px;
     border-radius: 8px;
+    border: 1px solid;
+    border-color: var(--primary);
+    padding-left: 20px;
+    padding-right: 30px;
+    margin-top: 30px;
+    width: 800px;
+
 }
 
 .comment-title h4 {
@@ -140,11 +145,15 @@ button {
 
 .comment-title {
     display: flex;
-    justify-content: flex-start;
-    width: 480px;
-    margin: 0;
-    text-align: center;
-    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    display: flex;
+}
+
+.title p{
+    margin-top: 4px;
 }
 
 .comment-answer {
@@ -153,11 +162,12 @@ button {
 }
 
 .comment-answer textarea {
-    width: 480px;
+    width: 100%;
     outline: 0;
     border-style: none;
     border-radius: 8px;
     padding: 5px;
+    background-color: rgba(241, 239, 239, 1);
 }
 
 .comment-answer-title {
@@ -179,11 +189,13 @@ button {
     color: var(--primary);
     font-weight: bold;
     margin-right: 30px;
+    margin-bottom: 0;
 }
 
 .comment-answer-title p {
     color: rgba(184, 184, 189, 1);
     font-weight: bold;
+    font-size: 10px;
 }
 
 .comment-answer-content p {
@@ -195,3 +207,4 @@ button {
     width: 20px;
     height: 20px;
 }
+
