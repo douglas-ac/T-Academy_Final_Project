@@ -369,9 +369,10 @@
       <div class="cards-container">
         <div *ngFor="let ad of ads" class="card">
           <img
-            src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}"
+            src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" onerror="this.src='../../../assets/img/partCatalogImages/default-part-image.svg' "
             alt=""
           />
+         
           <p class="username">{{ ad.user.name }}</p>
           <p class="car-model">
             {{ getPart(ad.product).name }}
