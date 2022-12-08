@@ -41,11 +41,11 @@ public class AnnouncementController {
             page = 0,
             size = 20) Pageable page, @RequestParam(value = "search", defaultValue = "") String search,
                                      @RequestParam(value = "id", defaultValue = "") String id){
-        if (!search.isEmpty() || id.isEmpty()){
-            return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
+        if (search.isEmpty() && !id.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(mapApiService.colletctAnnounces(mapApiService.orderingAnnouncesCars(Long.valueOf(id)),page));
         }
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(mapApiService.colletctAnnounces(mapApiService.orderingAnnouncesCars(Long.valueOf(id)),page));
+            return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
 
     }
 
