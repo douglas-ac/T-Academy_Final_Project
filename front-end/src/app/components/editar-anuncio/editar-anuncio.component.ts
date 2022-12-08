@@ -25,8 +25,8 @@ export class EditarAnuncioComponent implements OnInit {
 
   //params for option in html
   years : number[] = []
-  categorys : string[] = ["Hatch", "Sedan", "SUV", "Cupê", "Pick-up", "Conversivel", "Minivan", "Van" , "Station Wagon", "Outro"]
-  automakers : String[] = [] 
+  categorys : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
+  automakers : object = {} 
   
   constructor(private carService : CarService, private router : Router,
               private cepService : CepService, private announceService : AnnounceService, private serciceUploadPhoto : UploadService) { }

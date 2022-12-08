@@ -4,12 +4,12 @@
         <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
             <img src="../../assets/img/user.png" alt="" height="150px">
         
-            <h1 class="nome">{{username}}</h1>
+            <h1 class="nome">{{user.name}}</h1>
     
             <div class="dados">
-                <h2>Celular: (47) 99912-3456</h2>
-                <h2>E-mail: usuario@gmail.com</h2>
-                <h2>Localização: Blumenau, SC</h2>
+                <h2>Celular: {{user.fone}}</h2>
+                <h2>E-mail: {{user.email}}</h2>
+                <h2>Localização: {{user.adress}}</h2>
             </div>
         </div>
     
