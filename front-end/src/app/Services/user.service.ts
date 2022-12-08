@@ -18,7 +18,7 @@ export class UserService {
   getOne(id:number){
     let token = this.authService.getToken()
     var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
-    return this.http.get<[User]>(`http://localhost:8082/api/v1/user/${id}`, { headers: header })
+    return this.http.get<User>(`http://localhost:8082/api/v1/user/${id}`, { headers: header })
   }
 
   put(id:number, data:User){

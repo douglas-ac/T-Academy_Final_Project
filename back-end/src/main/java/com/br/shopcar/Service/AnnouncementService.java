@@ -28,14 +28,24 @@ public class AnnouncementService {
         return  announcementRepository.findAll(pageable).map(Announcement::converter);
     }
 
-    public Page<AnnouncementDto> findAllCars(Pageable pageable){
-        return  announcementRepository.findAllAnnouncesCar(pageable).map(Announcement::converter);
+    public Long countAvailableAnnounceCar(){
+        return  announcementRepository.countAvailableAnnounceCar();
+    }
+
+    public Page<AnnouncementDto> findAllCars(String search, Pageable pageable){
+        if(search.isEmpty()){
+            return  announcementRepository.findAllAnnouncesCar(pageable).map(Announcement::converter);
+        } else{
+            return  announcementRepository.findAnnouncesCarWithinNameDescModel(search, pageable).map(Announcement::converter);
+        }
     }
 
     public Page<AnnouncementDto> filterCarAnnounceByCriteria(Pageable pageable, LinkedHashMap filters) {
-        Page<Announcement> carAnnounces = announcementRepository.filterCarAnnounceByCriteria(pageable, filters);
-        return carAnnounces.map(Announcement::converter);
+        return announcementRepository.filterCarAnnounceByCriteria(pageable, filters).map(Announcement::converter);
+    }
 
+    public Page<AnnouncementDto> filterAutopartAnnounceByCriteria(Pageable pageable, LinkedHashMap filters) {
+        return announcementRepository.filterAutopartAnnounceByCriteria(pageable, filters).map(Announcement::converter);
     }
 
     public Page<AnnouncementDto> findAllParts(Pageable pageable){

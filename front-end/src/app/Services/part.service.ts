@@ -20,7 +20,9 @@ export class PartService {
   }
 
   getOne(id:number):Observable<Part>{
-    return this.http.get<Part>(`http://localhost:8082/api/v1/parts/${id}`)
+    let token = this.authService.getToken();
+    var header = new HttpHeaders({'Authorization': 'Bearer' + token });
+    return this.http.get<Part>(`http://localhost:8082/api/v1/parts/${id}`, { headers: header });
   }
 
   post(data: Part){
@@ -34,7 +36,7 @@ export class PartService {
   }
 
   getPartmakers() {
-    return this.http.get<String[]>("http://localhost:8082/api/v1/parts/partmakers")
+    return this.http.get<Object>("http://localhost:8082/api/v1/parts/partmakers")
   }
 
   delete(id:number){

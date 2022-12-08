@@ -6,7 +6,7 @@
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Escolha uma marca</mat-label>
             <mat-select appearance="fill" [(ngModel)]="car.automaker" formControlName="brand">
-                <mat-option *ngFor="let auto of automakers" value="{{auto}}">{{auto}}</mat-option>
+                <mat-option *ngFor="let auto of automakers|keyvalue" value="{{auto.key}}">{{auto.value}}</mat-option>
             </mat-select>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
@@ -65,20 +65,17 @@
 
 
         <h1 class="titulo"><b>Anúnicos com fotos vendem mais rápido :)<br>Que tal adicioná-las agora?</b></h1>
-        <mat-grid-list cols="2">
+        <mat-grid-list cols="1">
             <mat-grid-tile>
                 <img src="../../assets/img/photo.png" alt="">
             </mat-grid-tile>
-
-            <mat-grid-tile>
-                <form id="form" enctype="multipart/form-data">
-                    <div class="input-group">
-                        <input id="file" type="file" multiple required/>
-                    </div>
-                </form>
-            </mat-grid-tile>
         </mat-grid-list>
 
+        <label class="btn btn-default">
+            <input type="file" (change)="selectFile($event)">
+        </label>
+          
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
 
         <h1 class="titulo"><b>Confirme a localização do anúncio:</b></h1>
         <div class="container">

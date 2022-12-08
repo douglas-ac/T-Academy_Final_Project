@@ -21,6 +21,8 @@ export class AnnounceComponent {
   commentAnswer: CommentAnswerDtoClass[] = []
   userId = sessionStorage.getItem('idUser') || ''
   id = Number(this.userId)
+  imageUrl !: string 
+  isLogged: boolean = false;
 
   constructor(
     private announceService: AnnounceService,
@@ -36,21 +38,21 @@ export class AnnounceComponent {
     this.announceService.getOne(Number(this.announceId)).subscribe((data) => {
       this.announce = data;
       this.car = this.getCar(data.product);
-      this.getImage();
+      this.imageUrl = `https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img${this.announce.id}`
+      this.userIsLogged()
     });
+  }
+
+  userIsLogged() {
+    let token = sessionStorage.getItem('token')
+
+    if (token != null) {
+      this.isLogged = true
+    } 
   }
 
   getCar(data: Product) {
     return data as Car;
-  }
-
-  getImage() {
-    this.http
-      .get(`http://localhost:8082/api/v1/image/get/${this.announce.image.id}`)
-      .subscribe((data: any) => {
-        this.image = data;
-        console.log(data);
-      });
   }
 
   addComment() {

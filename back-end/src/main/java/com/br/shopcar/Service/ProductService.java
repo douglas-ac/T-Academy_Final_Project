@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -93,11 +94,11 @@ public class ProductService {
         }
     }
 
-    public List<Automaker> findAllMakers() {
-        return List.of(Automaker.values());
+    public LinkedHashMap<String, String> findAllMakers() {
+        return Automaker.map();
     }
 
-    public List<Partmaker> findAllPartMakers() {
-        return List.of(Partmaker.values());
+    public LinkedHashMap<String, String> findAllPartMakers() {
+        return Partmaker.map();
     }
 }

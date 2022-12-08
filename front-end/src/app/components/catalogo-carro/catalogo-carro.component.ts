@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AnnounceService } from 'src/app/Services/announce.service';
+import { UtilsService } from 'src/app/Services/utils.service';
 import { Announce, Car, Product, Address } from '../../Model/Models'
 
 @Component({
@@ -8,9 +9,11 @@ import { Announce, Car, Product, Address } from '../../Model/Models'
   templateUrl: './catalogo-carro.component.html',
   styleUrls: ['./catalogo-carro.component.css']
 })
-export class CatalogoCarroComponent {
+export class CatalogoCarroComponent implements OnInit{
   ads: Announce[] = []
-  
+
+  categories : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
+  colors: string[] = ['amarelo','azul','bege','branco','cinza','marrom','preto','verde','vermelho','vinho','prata']
   // Filters' options
   filters = {
     name: null,
@@ -37,8 +40,20 @@ export class CatalogoCarroComponent {
   isColorShow:boolean = false;
   isCategoryShow:boolean = false;
 
-  constructor(private service: AnnounceService, private router: Router){
-    this.getAll()
+  constructor(private service: AnnounceService, private router:ActivatedRoute, private utils: UtilsService){
+  }
+
+  ngOnInit(): void {
+    this.router.queryParams.subscribe(params => {
+      if('search' in params){
+        this.getAll(params['search'])
+      } else{
+        for(let [key, value] of Object.entries(params)){
+          this.utils.addValueToObject(this.filters, key, value)
+        }
+        this.filter()
+      }
+    });
   }
   
   showAllBrands(){
@@ -53,8 +68,8 @@ export class CatalogoCarroComponent {
     this.isCategoryShow = !this.isCategoryShow;
   }
 
-  getAll(){
-    this.service.getAllCars().subscribe( (data: any) => this.ads = <Announce[]>data.content)
+  getAll(search: string = ""){
+    this.service.getAllCars(search).subscribe( (data: any) => this.ads = <Announce[]>data.content)
   }
 
   log(){
@@ -73,32 +88,9 @@ export class CatalogoCarroComponent {
     window.location.reload()
   }
 
-  clearFilter(filter: any){
-    for(let [key, value] of Object.entries(filter)){
-      if(Array.isArray(value)){
-        filter[key] = []
-      } else if(typeof value == 'object' && value != null){
-        this.clearFilter(value)
-      } else{
-        filter[key] = null
-      }
-    }
-  }
-
   addFilterOption(key: any, value: any){
-    let k = key as keyof typeof this.filters
-    if(Array.isArray(this.filters[k])){
-      const myArray = (this.filters[k] as Array<any>)
-      if(myArray.indexOf(value) == -1){
-        myArray.push(value)
-      } else{
-        const index = myArray.indexOf(value);
-        if (index > -1) {
-          myArray.splice(index, 1);
-        }
-      }
-      this.filter()
-    }
+    this.utils.addValueToObject(this.filters, key, value)
+    this.filter()
   }
 
 }

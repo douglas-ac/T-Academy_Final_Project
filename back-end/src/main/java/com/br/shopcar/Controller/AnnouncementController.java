@@ -32,17 +32,36 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> findCars(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 20) Pageable page){
-        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(page));
+            size = 20) Pageable page, @RequestParam(value = "search", defaultValue = "") String search){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
+    }
+
+    @GetMapping("/cars/most-clicked")
+    public ResponseEntity<Page<AnnouncementDto>> findMostClikedCars(@PageableDefault(sort = "access_count",
+            direction = Sort.Direction.DESC,
+            page = 0,
+            size = 3) Pageable page){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars("", page));
+    }
+
+    @GetMapping("/cars/count")
+    public ResponseEntity<Long> countAvailableAnnounceCar(){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.countAvailableAnnounceCar());
     }
 
     @PostMapping("/cars/filters")
-    public ResponseEntity<Page<AnnouncementDto>> filterCarAnnounceByCriteria2(@PageableDefault(sort = "id",
+    public ResponseEntity<Page<AnnouncementDto>> filterCarAnnounceByCriteria(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
             size = 20) Pageable page, @RequestBody LinkedHashMap filters){
-//        System.out.println(filters.toString());
         return ResponseEntity.status(HttpStatus.OK).body(announcementService.filterCarAnnounceByCriteria(page, filters));
+    }
+    @PostMapping("/parts/filters")
+    public ResponseEntity<Page<AnnouncementDto>> filterAutopartAnnounceByCriteria(@PageableDefault(sort = "id",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 20) Pageable page, @RequestBody LinkedHashMap filters){
+        return ResponseEntity.status(HttpStatus.OK).body(announcementService.filterAutopartAnnounceByCriteria(page, filters));
     }
 
     @GetMapping("/parts")

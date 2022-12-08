@@ -15,7 +15,7 @@
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Escolha um fabricante</mat-label>
             <mat-select appearance="fill" [(ngModel)]="part.partmaker" formControlName="brand">
-                <mat-option *ngFor="let part of partmakers" value="{{part}}">{{part}}</mat-option>
+                <mat-option *ngFor="let part of partmakers|keyvalue" value="{{part.key}}">{{part.value}}</mat-option>
             </mat-select>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
@@ -33,6 +33,22 @@
             </mat-select>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.year.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
+
+        <mat-form-field appearance="fill" class="dropdown">
+            <mat-label>Informe a categoria do seu carro</mat-label>
+            <mat-select appearance="fill" [(ngModel)]="part.category" formControlName="category">
+                <mat-option *ngFor="let category of categorys" value="{{category}}">{{category}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div *ngIf="sent && this.AnnounceForm.controls.category.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
+
+        <mat-form-field appearance="fill" class="dropdown">
+            <mat-label>Escolha uma montadora</mat-label>
+            <mat-select appearance="fill" [(ngModel)]="car.automaker" formControlName="brand">
+                <mat-option *ngFor="let auto of automakers|keyvalue" value="{{auto.key}}">{{auto.value}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
         <h1 class="titulo"><b>Conte-nos mais sobre o seu produto:</b></h1>
         <div class="container">

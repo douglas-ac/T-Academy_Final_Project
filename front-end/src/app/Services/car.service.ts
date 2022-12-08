@@ -23,7 +23,7 @@ export class CarService {
   }
 
   getAutomakers() {
-    return this.http.get<String[]>("http://localhost:8082/api/v1/cars/automakers")
+    return this.http.get<Object>("http://localhost:8082/api/v1/cars/automakers")
   }
 
   post(data: Car){

@@ -24,18 +24,32 @@
     text-decoration: underline;
 }
 
-body {
-    background-color: rgba(246, 24, 77, 1);
-}
-
 .cartao {
     text-align: center;
+    padding: 30px;
 }
 
-h1 {
+.anuncio {
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.titulo-anuncios {
+    text-align: center;
+    padding: 30px;
+}
+
+.nome {
     color: white;
     font-size: 50px;
     margin: 30px;
+}
+
+img {
+    margin: 10px;
 }
 
 h2 {
@@ -46,4 +60,19 @@ h2 {
 
 .dados {
     margin-top: 100px;
+}
+
+.descricao {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.icones {
+    text-align: right;
+    vertical-align: top;
+}
+
+.mensagem {
+    text-align: center;
+    margin: 50px;
 }

@@ -34,9 +34,9 @@ public class Announcement {
     @ManyToOne(cascade = CascadeType.REMOVE)
     private ProductModel product;
     @Enumerated(EnumType.STRING)
-    private Status status;
-    @OneToOne
-    private Images image;
+    private Status status = Status.AVAILABLE;
+    private String imageUrl;
+    private Long access_count = 0L;
 
     public AnnouncementDto converter(){
         AnnouncementDto announcementDto = new AnnouncementDto();
@@ -51,7 +51,6 @@ public class Announcement {
         announcementDto.setProduct(this.getProduct());
         announcementDto.setStatus(this.getStatus());
         announcementDto.setAddress(this.getAddress());
-        announcementDto.setImage(this.getImage());
         return announcementDto;
     }
 

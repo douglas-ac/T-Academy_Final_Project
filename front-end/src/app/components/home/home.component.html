@@ -27,10 +27,9 @@
       <div class="slider-content-container">
         <h2 class="subtitle">Troque ou venda seu carro em menos de 24 horas</h2>
         <p class="text">
-          Não perca a chance de trocar de carro! Somente neste final de semana
-          você compra carro com zero de entrada!
+          A melhor e mais inovadora plataforma de anúncios e vendas para carros!
         </p>
-        <button class="banner-btn" (click)="navigation('sell-car01')">
+        <button class="banner-btn see-car-catalog-btn" (click)="navigation('sell-car02')">
           Eu quero vender
         </button>
       </div>
@@ -42,10 +41,10 @@
           Compre Auto Peças pelo melhor preço
         </h2>
         <p class="text" id="p-banner-parts">
-          Não perca a chance de trocar de carro! Somente neste final de semana
-          você compra carro com zero de entrada!
+          Venda suas peças e ganhe um cupom para impulsionar anúncios!
         </p>
-        <button class="banner-btn" id="btn-banner-parts">
+        <button class="banner-btn" id="btn-banner-parts"
+        (click)="navigation('parts-catalog')">
           Veja o catálogo
         </button>
 
@@ -67,39 +66,34 @@
 </div>
 
 <div class="search-bar">
-  <div class="links-container">
-    <a href="#" class="buy-car">Comprar carro</a>
-    <a href="#" class="buy-part">Comprar peça</a>
-    <a href="#" class="sell-car">Vender carro</a>
-    <a href="#" class="sell-part">Vender peça</a>
-  </div>
   <div class="search-container">
     <input
+      [(ngModel)]="search"
       class="search-input"
       type="text"
       placeholder="Digite a marca ou modelo do carro"
     />
-    <button class="see-offers">Veja as ofertas(10)</button>
+    <button (click)="navigation('cars-catalog', search ? {search: search} : null)" class="see-offers">Veja as ofertas({{ countAddCar }})</button>
   </div>
 </div>
 
 <section class="categories">
   <h2>Categorias</h2>
   <div class="category-container">
-    <div class="category adventurous">
-      <h3>Adventurous</h3>
+    <div (click)="navigation('cars-catalog', {category: 'popular'})" class="category popular">
+      <h3>Popular</h3>
       <div class="dark-bg"></div>
     </div>
-    <div class="category hatch">
+    <div (click)="navigation('cars-catalog', {category: 'hatch'})" class="category hatch">
       <h3>Hatch</h3>
       <div class="dark-bg"></div>
     </div>
-    <div class="category sedan">
+    <div (click)="navigation('cars-catalog', {category: 'sedan'})" class="category sedan">
       <h3>Sedan</h3>
       <div class="dark-bg"></div>
     </div>
-    <div class="category familiar">
-      <h3>Familiar</h3>
+    <div (click)="navigation('cars-catalog', {category: 'suv'})" class="category suv">
+      <h3>SUV</h3>
       <div class="dark-bg"></div>
     </div>
   </div>
@@ -118,47 +112,17 @@
 <section class="most-searched-cars">
   <h2>Os anúncios mais procurados</h2>
   <div class="cards-container">
-    <div class="card">
-      <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
-      <p class="username">PONTO FORTE VEICULOS</p>
-      <p class="car-model">
-        Nissan Frontier Se Attack Cd 4x4<br />
-        2.5 Tb Diesel
-      </p>
-      <p class="car-year-miles">2016/2016 - 181.000KM</p>
-      <p class="location">SOROCABA</p>
-      <p class="price">R$ 140.900</p>
-      <p class="price-installment">60 x R$ 5.081,25/mês</p>
-      <button class="see-offer-btn">Ver oferta</button>
+    <div *ngFor="let ad of mostClickedCarads" class="card">
+      <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" alt="" />
+      <p class="username">{{ ad.user.name }}</p>
+      <p class="car-model">{{ getCar(ad.product).name }} <br> {{ getCar(ad.product).model }}</p>
+      <p class="car-year-miles">{{ getCar(ad.product).year+' '+getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' }}</p>
+      <p class="location">{{ ad.address.localidade }}</p>
+      <p class="price">R$ {{ getCar(ad.product).price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
+      <p class="price-installment">60 x R$ {{ (getCar(ad.product).price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
+      <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
     </div>
 
-    <div class="card">
-      <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
-      <p class="username">PONTO FORTE VEICULOS</p>
-      <p class="car-model">
-        Nissan Frontier Se Attack Cd 4x4<br />
-        2.5 Tb Diesel
-      </p>
-      <p class="car-year-miles">2016/2016 - 181.000KM</p>
-      <p class="location">SOROCABA</p>
-      <p class="price">R$ 140.900</p>
-      <p class="price-installment">60 x R$ 5.081,25/mês</p>
-      <button class="see-offer-btn">Ver oferta</button>
-    </div>
-
-    <div class="card">
-      <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
-      <p class="username">PONTO FORTE VEICULOS</p>
-      <p class="car-model">
-        Nissan Frontier Se Attack Cd 4x4<br />
-        2.5 Tb Diesel
-      </p>
-      <p class="car-year-miles">2016/2016 - 181.000KM</p>
-      <p class="location">SOROCABA</p>
-      <p class="price">R$ 140.900</p>
-      <p class="price-installment">60 x R$ 5.081,25/mês</p>
-      <button class="see-offer-btn">Ver oferta</button>
-    </div>
   </div>
 </section>
 
@@ -208,31 +172,31 @@
     <div>
       <p>Comprar</p>
       <ul>
-        <li><a href="">Carros</a></li>
-        <li><a href="">Peças</a></li>
+        <li><a routerLink="cars-catalog">Carros</a></li>
+        <li><a routerLink="parts-catalog">Peças</a></li>
       </ul>
     </div>
 
     <div>
       <p>Vender</p>
       <ul>
-        <li><a href="">Carros</a></li>
-        <li><a href="">Peças</a></li>
+        <li><a routerLink="sell-car02">Carros</a></li>
+        <li><a routerLink="sell-part02">Peças</a></li>
       </ul>
     </div>
 
     <div>
       <p>Ajuda e Suporte</p>
       <ul>
-        <li><a href="">Meus anúncios</a></li>
-        <li><a href="">Meu carrinho</a></li>
+        <li><a routerLink="profile">Meus anúncios</a></li>
+        <li><a data-bs-toggle="offcanvas" href="#cartElement">Meu carrinho</a></li>
       </ul>
     </div>
 
     <div>
       <p>Nossos desenvolvedores</p>
       <ul>
-        <li><a href="">Douglas Carneiro</a></li>
+        <li><a href=""  >Douglas Carneiro</a></li>
         <li><a href="">Eula Paula</a></li>
         <li><a href="">João Marcelo</a></li>
         <li><a href="">Mario Gabriel</a></li>

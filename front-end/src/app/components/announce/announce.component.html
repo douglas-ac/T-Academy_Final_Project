@@ -4,7 +4,7 @@
     <div class="announce-container">
       <div id="image-box">
         <img class="product-image"
-          src="https://1.bp.blogspot.com/-kxQh4bambxk/YUzGF0el5uI/AAAAAAAA3rU/5Ar5YmAjnWMoFIeDHiEWJyc1a8Of6orGACLcBGAsYHQ/s2048/RS%2Be-tron%2BGT%2B2.jpg"
+          src= {{imageUrl}}
         />
       </div>
       <div id="car-details">
@@ -14,7 +14,7 @@
           <li><span class="car-topic">Modelo: </span>{{ car.model }}</li>
           <li><span class="car-topic">Ano: </span>{{ car.year }}</li>
           <li><span class="car-topic">Km: </span>{{ car.quilometragem }}</li>
-          <li><span class="car-topic">Cor: </span><span class="color-square"></span></li>
+          <li><span class="car-topic">Cor: </span>{{ car.color }}</li>
         </ul>
         <span id="price">R$ {{car.price | number:'1.2-2'}} </span>
         <span id="cidade">
@@ -41,13 +41,13 @@
           <p>{{message.message}}</p>
         </div>
       </div>
-      <textarea id="comment-answer" placeholder="Responder" rows="5"></textarea>
+      <textarea *ngIf="isLogged" id="comment-answer" placeholder="Responder" rows="5"></textarea>
       <div>
-        <button (click)="addCommentAnswer(comment.id)">Responder</button>
+        <button *ngIf="isLogged" (click)="addCommentAnswer(comment.id)">Responder</button>
       </div>
     </div>
   </div>
-  <div class="add-comment">
+  <div *ngIf="isLogged" class="add-comment">
       <textarea [(ngModel)]="comment" name="" id="comment-input" cols="30" rows="10" placeholder="Digite seu comentário aqui"></textarea>
     <div>
       <button (click)="addComment()">Adicionar comentário</button>

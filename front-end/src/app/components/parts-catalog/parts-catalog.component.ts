@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AnnounceService } from 'src/app/Services/announce.service';
-import { Announce, Car, Product, Address, Part } from '../../Model/Models'
+import { PartService } from 'src/app/Services/part.service';
+import { UtilsService } from 'src/app/Services/utils.service';
+import { Announce, Car, Product, Address, Part, PartClass } from '../../Model/Models'
 
 @Component({
   selector: 'app-parts-catalog',
@@ -8,15 +10,38 @@ import { Announce, Car, Product, Address, Part } from '../../Model/Models'
   styleUrls: ['./parts-catalog.component.css']
 })
 export class PartsCatalogComponent {
-
   ads: Announce[] = []
+  cart: PartClass[] = [];
+
+  categories : string[] = ['Amortecedor', 'Climatização', 'Direção', 'Motorização', 'Transmissão', 'Suspensão', 'Frenagem', 'Carroceria', 'Segurança', 'Injeção e ignição', 'Exaustão', 'Elétrica', 'Outro']
+
+  vehicle_types: string[] = ['Caminhao', 'Carro', 'Motocileta', 'Onibus', 'Agro', 'Suv', 'Van', 'Outro']
+
+  // Filters' options
+  filters = {
+    name: null,
+    location: null,
+    year: {
+      from: null,
+      to: null
+    },
+    price: {
+      from: null,
+      to: null
+    },
+    automaker: [],
+    category: [],
+    part_condition: [],
+    brand: [],
+    vehicle_type: []
+  };
 
   isBrandShow:boolean = false;
   isMontadoraShow:boolean = false;
   isCategoryShow:boolean = false;
   isVehicleTypeShow:boolean = false;
 
-  constructor(private service: AnnounceService){
+  constructor(private service: AnnounceService, private utils: UtilsService, private partService:PartService){
     this.getAll()
   }
 
@@ -32,12 +57,11 @@ export class PartsCatalogComponent {
     this.isMontadoraShow = !this.isMontadoraShow;
   }
 
-  showAllCategorys(){
+  showAllCategories(){
     this.isCategoryShow = !this.isCategoryShow;
   }
 
   getAll(){
-    // this.service.getAllCars().subscribe( (data: any) => console.log(data.content))
     this.service.getAllParts().subscribe( (data: any) => this.ads = <Announce[]>data.content)
   }
 
@@ -49,6 +73,37 @@ export class PartsCatalogComponent {
     console.log(this.ads)
   }
 
+  addToCart(id: number){
+    let receivedCart = JSON.parse(localStorage.getItem('cart') || '{}');
+    let p = new PartClass();
+    this.partService.getOne(id).subscribe(retorno => {
+      console.log("amogus");
+      p = retorno;
+      this.cart = receivedCart;
+      p.reserved_amount = 1;
+      this.cart.push(p);
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+      window.location.reload();
+    },
+    error => {
+      if (error.status == 401){
+        alert("Você precisa estar logado para adicionar produtos ao carrinho "+error.status)
+      }
+    });
+    }
+
+  filter(){
+    this.service.getAutopartsByCriteria(this.filters).subscribe((data: any) => this.ads = <Announce[]>data.content)
+  }
+
+  clearAllFilters(){
+    window.location.reload()
+  }
+
+  addFilterOption(key: any, value: any){
+    this.utils.addValueToObject(this.filters, key, value)
+    this.filter()
+  }
 
 
 }
