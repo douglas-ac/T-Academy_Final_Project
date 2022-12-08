@@ -36,7 +36,7 @@ export class PartService {
   }
 
   getPartmakers() {
-    return this.http.get<String[]>("http://localhost:8082/api/v1/parts/partmakers")
+    return this.http.get<Object>("http://localhost:8082/api/v1/parts/partmakers")
   }
 
   delete(id:number){

@@ -22,8 +22,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 
    //params for option in html
    years : number[] = []
-   categories : string[] = ["Motorização", "Transmissão", "Suspensão", "Frenagem", "Carroceria", "Segurança", "Injeção e ignição", "Exaustão" , "Elétrica", "Outro"]
-   partmakers : String[] = [];
+   categories : string[] = ['Amortecedor', 'Climatização', 'Direção', 'Motorização', 'Transmissão', 'Suspensão', 'Frenagem', 'Carroceria', 'Segurança', 'Injeção e ignição', 'Exaustão', 'Elétrica', 'Outro']
+   partmakers : object = {};
 
    constructor(private PartService : PartService, private router : Router,
                private cepService : CepService, private announceService : AnnounceService, private authService : AuthService) { }

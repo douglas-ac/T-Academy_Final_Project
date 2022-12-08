@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 
@@ -44,7 +45,7 @@ public class CarController {
     }
 
     @GetMapping("/automakers")
-    public ResponseEntity<List<Automaker>> allMakers(){
+    public ResponseEntity<LinkedHashMap<String, String>> allMakers(){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAllMakers());
     }
 }

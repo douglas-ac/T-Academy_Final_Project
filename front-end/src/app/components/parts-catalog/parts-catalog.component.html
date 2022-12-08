@@ -297,34 +297,12 @@
       <div class="vehicle-type filter-option">
         <h3>Tipo de veículo</h3>
         <div class="checkbox-container">
-          <div>
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'caminhao')" name="forTruck" id="forTruck" />
-            <label for="forTruck">Para caminhões</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'carro')" name="forCars" id="forCars" />
-            <label for="forCars">Para carros</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'motocileta')" name="forMotorcycles" id="forMotorcycles" />
-            <label for="forMotorcycles">Para motos</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'onibus')" name="forBus" id="forBus" />
-            <label for="forBus">Para ônibus</label>
-          </div>
-          <div *ngIf="isVehicleTypeShow">
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'agro')" name="forAgro" id="forAgro" />
-            <label for="forAgro">OTR e Agrícola </label>
-          </div>
-          <div *ngIf="isVehicleTypeShow">
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'suv')" name="forPickUpTruck" id="forPickUpTruck" />
-            <label for="forPickUpTruck">Para SUVs e caminhonetes</label>
-          </div>
-          <div *ngIf="isVehicleTypeShow">
-            <input type="checkbox" (change)="addFilterOption('vehicle_type', 'van')" name="forVans" id="forVans" />
-            <label for="forVans">Para Vans</label>
-          </div>
+          <ng-container *ngFor="let vehicle_type of vehicle_types|keyvalue">
+            <div *ngIf="+vehicle_type.key<4 || isVehicleTypeShow">
+              <input type="checkbox" (change)="addFilterOption('vehicle_type', vehicle_type.value)" name="vahicle_type{{vehicle_type.key}}" id="vahicle_type{{vehicle_type.key}}" />
+              <label for="vahicle_type{{vehicle_type.key}}">{{vehicle_type.value}}</label>
+            </div>
+          </ng-container>
         </div>
         <p class="see-more" (click)="showAllVehicleTypes()">Ver todos os tipos</p>
       </div>
@@ -366,69 +344,16 @@
       <div class="categories filter-option">
         <h3>Categorias</h3>
         <div class="checkbox-container">
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'amortecedor')"
-              name="categoryAmortecedor"
-              id="categoryAmortecedor"
-            />
-            <label for="categoryAmortecedor">Armotecedor</label>
-          </div>
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'climatizacao')"
-              name="categoryClimatizacao"
-              id="categoryClimatizacao"
-            />
-            <label for="categoryClimatizacao">Climatização</label>
-          </div>
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'correia')"
-              name="categoryCorreias"
-              id="categoryCorreias"
-            />
-            <label for="categoryCorreias">Correias</label>
-          </div>
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'direcao')"
-              name="categoryDirecao"
-              id="categoryDirecao"
-            />
-            <label for="categoryDirecao">Direção</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'embreagem')" name="categoryEmbreagem" id="categoryEmbreagem" />
-            <label for="categoryEmbreagem">Embreagem</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'freio')" name="categoryFreios" id="categoryFreios" />
-            <label for="categoryFreios">Freios</label>
-          </div>
-
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'motor')"
-              name="categoryMotor"
-              id="categoryMotor"
-            />
-            <label for="categoryMotor">Motor</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'suspensao')" name="categorySuspensao" id="categorySuspensao" />
-            <label for="categorySuspensao">Suspensão</label>
-          </div>
-
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'transmissao')"
-              name="categoryTransmissao"
-              id="categoryTransmissao"
-            />
-            <label for="categoryTransmissao">Transmissão</label>
-          </div>
-
+          <ng-container *ngFor="let category of categories|keyvalue">
+            <div *ngIf="+category.key<4 || isCategoryShow">
+              <input
+                type="checkbox" (change)="addFilterOption('category', category.value)"
+                name="category{{category.key}}"
+                id="category{{category.key}}"
+              />
+              <label for="category{{category.key}}">{{category.value}}</label>
+            </div>
+          </ng-container>
         </div>
         <p class="see-more" (click)="showAllCategories()">
           Ver todas as categorias

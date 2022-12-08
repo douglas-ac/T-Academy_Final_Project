@@ -15,7 +15,7 @@
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Escolha um fabricante</mat-label>
             <mat-select appearance="fill" [(ngModel)]="part.partmaker" formControlName="brand">
-                <mat-option *ngFor="let part of partmakers" value="{{part}}">{{part}}</mat-option>
+                <mat-option *ngFor="let part of partmakers|keyvalue" value="{{part.key}}">{{part.value}}</mat-option>
             </mat-select>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
