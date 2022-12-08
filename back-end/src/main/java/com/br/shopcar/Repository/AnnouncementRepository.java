@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AnnouncementRepository extends JpaRepository<Announcement, Long>, AnnouncementRepositoryCustom {
     @Query(value = "select * from announcement a join product_model p where a.product_id = p.id and p.product_type = 1",
@@ -36,4 +38,13 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
     @Query(value="select count(1) from announcement a join product_model p where a.product_id = p.id and p.product_type = 1 and a.status = 'AVAILABLE'",
     nativeQuery = true)
     Long countAvailableAnnounceCar();
+
+
+    @Query(value = "select * from announcement a join product_model p where a.product_id = p.id and p.product_type = 1",
+            nativeQuery = true)
+    List<Announcement> findAllAnnouncesCarList();
+
+    @Query(value = "select * from announcement a join product_model p where a.product_id = p.id and p.product_type = 2",
+            nativeQuery = true)
+    List<Announcement> findAllAnnouncesPartList();
 }

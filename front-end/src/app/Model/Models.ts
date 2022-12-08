@@ -37,7 +37,7 @@ export interface User {
     nacionalNumber?: string;
     descriminationColumn?: string;
     fone: string;
-    adress?: Address;
+    address?: Address;
 }
 
 export interface Order {
@@ -179,4 +179,32 @@ export class AdressClass {
     bairro?: string;
     localidade?: string;
     uf?: string;
+}
+
+export class CommentClass {
+    id!: number;
+    message!: string;
+    user?: User;
+    announcement? : AnnounceClass;
+    commentAnswerDtos!: CommentAnswerDto[];
+    time!: Date;
+}
+
+export class AnnounceClass {
+    id!: number;
+    user?: User;
+    amount?: number;
+    date?: Date;
+    comments?: Comment[];
+    product?: Product;
+    address?: Address;
+    image?: Images
+}
+
+export class CommentAnswerDtoClass {
+    idCommentAnswer!: number;
+    message!: string;
+    user?: User;
+    comment?: CommentClass;
+    timeCreated!: Date;
 }

@@ -1,9 +1,12 @@
 package com.br.shopcar.Controller;
 
 import com.br.shopcar.Dto.GET.AnnouncementDto;
+import com.br.shopcar.GoogleMapsApi.MapApiService;
+import com.br.shopcar.Model.Announcement.Announcement;
 import com.br.shopcar.Service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -12,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/announce")
@@ -19,6 +23,9 @@ public class AnnouncementController {
 
     @Autowired
     AnnouncementService announcementService;
+
+    @Autowired
+    MapApiService mapApiService;
 
     @GetMapping
     public ResponseEntity<Page<AnnouncementDto>> findAll(@PageableDefault(sort = "id",
@@ -32,8 +39,14 @@ public class AnnouncementController {
     public ResponseEntity<Page<AnnouncementDto>> findCars(@PageableDefault(sort = "id",
             direction = Sort.Direction.ASC,
             page = 0,
-            size = 20) Pageable page, @RequestParam(value = "search", defaultValue = "") String search){
-        return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
+            size = 20) Pageable page, @RequestParam(value = "search", defaultValue = "") String search,
+                                     @RequestParam(value = "id", defaultValue = "") String id){
+        if (!search.isEmpty() || id.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(announcementService.findAllCars(search, page));
+        }
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(mapApiService.colletctAnnounces(mapApiService.orderingAnnouncesCars(Long.valueOf(id)),page));
+
     }
 
     @GetMapping("/cars/most-clicked")

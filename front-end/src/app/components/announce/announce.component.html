@@ -24,4 +24,33 @@
       </div>
     </div>
   </div>
+  <div *ngFor="let comment of comments" class="comment">
+    <div class="comment-title">
+      <div class="title">
+        <h4>{{comment.user?.name}}</h4><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p>
+      </div>
+      <div *ngIf="comment.user?.id == id"><img (click)="deleteComment(comment.id)" src="../../../assets/img/trash.png" class="delete-icon"></div>
+    </div>
+    <div class="comment-content">
+      <p>{{comment.message}}</p>
+    </div>
+    <div class="comment-answer">
+      <div *ngFor="let message of comment.commentAnswerDtos" class="comment-answer-title">
+        <h5>{{message.user?.name}}</h5><p>{{message.timeCreated | date: 'dd/MM/yyyy - HH:mm'}}</p>
+        <div  class="comment-answer-content">
+          <p>{{message.message}}</p>
+        </div>
+      </div>
+      <textarea *ngIf="isLogged" id="comment-answer" placeholder="Responder" rows="5"></textarea>
+      <div>
+        <button *ngIf="isLogged" (click)="addCommentAnswer(comment.id)">Responder</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLogged" class="add-comment">
+      <textarea [(ngModel)]="comment" name="" id="comment-input" cols="30" rows="10" placeholder="Digite seu comentário aqui"></textarea>
+    <div>
+      <button (click)="addComment()">Adicionar comentário</button>
+    </div>
+  </div>
 </section>

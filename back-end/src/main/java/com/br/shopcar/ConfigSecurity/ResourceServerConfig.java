@@ -33,7 +33,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     private static final String[] PUBLIC_POST = {"/oauth/token","/api/v1/user","/api/v1/announce/cars/filters","/api/v1/announce/parts/filters",
             "/api/v1/user/resetPassword/*"};
     private static final String[] PUBLIC_GET = {"/api/v1/announce/cars","/api/v1/announce/cars/**","/api/v1/announce/**",
-    "/api/v1/cars/automakers", "/api/v1/parts/partmakers","swagger-ui.html","swagger-ui.html/**"};
+    "/api/v1/cars/automakers", "/api/v1/parts/partmakers","swagger-ui.html","swagger-ui.html/**", "/api/v1/comment/**"};
 
 
     @Override

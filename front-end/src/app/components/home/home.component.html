@@ -27,7 +27,7 @@
       <div class="slider-content-container">
         <h2 class="subtitle">Troque ou venda seu carro em menos de 24 horas</h2>
         <p class="text">
-          A melhor e mais inovadora plataforma de anúncios e vendas para carros!
+          Somos a melhor e mais inovadora plataforma de anúncios e vendas para carros!
         </p>
         <button class="banner-btn see-car-catalog-btn" (click)="navigation('sell-car02')">
           Eu quero vender
@@ -188,7 +188,7 @@
     <div>
       <p>Ajuda e Suporte</p>
       <ul>
-        <li><a routerLink="profile">Meus anúncios</a></li>
+        <li *ngIf="isLogged();"><a routerLink="profile">Meus anúncios</a></li>
         <li><a data-bs-toggle="offcanvas" href="#cartElement">Meu carrinho</a></li>
       </ul>
     </div>

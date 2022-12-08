@@ -73,6 +73,9 @@ constructor(private router : Router, private announceService: AnnounceService) {
     return data as Car
   }
 
+  isLogged() : boolean{
+    return sessionStorage.getItem('token') ? true : false
+  }
   
 
 
