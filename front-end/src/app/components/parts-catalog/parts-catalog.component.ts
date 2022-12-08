@@ -100,7 +100,7 @@ export class PartsCatalogComponent {
     },
     error => {
       if (error.status == 401){
-        alert("Você precisa estar logado para adicionar produtos ao carrinho "+error.status)
+        alert("Você precisa estar logado para adicionar produtos ao carrinho")
       }
     });
     }
@@ -122,7 +122,7 @@ export class PartsCatalogComponent {
     this.service.getPageParts(number).subscribe((data: any) => this.ads = <Announce[]>data.content)
     this.actualPage = number
   }
-  
+
   paginationAnt(word : string){
     if(word == 'ant'){
       this.pagination(this.actualPage - 1)

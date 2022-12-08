@@ -117,4 +117,12 @@ export class AnnounceComponent {
     window.location.href = window.location.href;
   }
 
+  haveToken():boolean{
+    if (sessionStorage.getItem('token') == undefined){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }
