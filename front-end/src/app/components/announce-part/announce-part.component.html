@@ -4,14 +4,17 @@
     <div class="announce-container">
       <div id="image-box">
         <img class="product-image"
-             src="../../../assets/img/cartImages/partMock.png"
+             src={{imageUrl}}
         />
       </div>
       <div id="car-details">
         <h3>Detalhes do produto:</h3>
         <ul>
-          <li><span class="car-topic">Marca: </span>{{ part.partmaker }}</li>
-          <li><span class="car-topic">Modelo: </span>{{ part.model }}</li>
+          <li><span class="car-topic">Marca: </span><span class="upper-case">{{ part.brand }}</span></li>
+          <li><span class="car-topic">Fabricante: </span><span class="automaker">{{ part.automaker }}</span></li>
+          <li><span class="car-topic">Quantidade no estoque: </span>{{ announce.amount }}</li>
+          <li><span class="car-topic">Tipo de veículo: </span><span class="capitalize">{{ part.vehicle_type }}</span></li>
+          <li><span class="car-topic">Condição da peça: </span><span class="part-condition">{{ part.part_condition }}</span></li>
           <li><span class="car-topic">Ano: </span>{{ part.year }}</li>
         </ul>
         <span id="price">R$ {{part.price.toFixed(2)}} </span>

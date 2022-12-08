@@ -1,5 +1,7 @@
 section{
     padding: 40px 200px;
+    display: flex;
+    justify-content: center;
 }
 
 .center{
@@ -12,15 +14,33 @@ section{
     gap: 50px;
     height: 100%;
     height: 350px;
-
+    
 }
 
 h1{
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 40px;
+    text-transform: capitalize;
 }
 
+.part-condition{
+    text-transform: lowercase;
+    
+}
+
+.part-condition::first-letter{
+    text-transform: uppercase;
+}
+
+.upper-case{
+    text-transform: uppercase;
+}
+
+
+.capitalize{
+    text-transform: capitalize;
+}
 
 
 .product-image{
@@ -100,4 +120,12 @@ button{
     display: flex;
     align-items: center;
     color: #7e7e7e;
+}
+
+.automaker{
+    text-transform: lowercase;
+}
+
+.automaker::first-letter{
+    text-transform: uppercase;
 }

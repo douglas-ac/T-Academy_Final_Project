@@ -9,6 +9,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class CommentService {
+  token:string|null = this.authService.getToken()
+  header:HttpHeaders = new HttpHeaders({'Authorization': 'Bearer ' + this.token , 'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient,private authService : AuthService) { }
 
@@ -21,12 +23,12 @@ export class CommentService {
   }
 
   post(data: CommentClass){
-   let token = this.authService.getToken()
-   var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
-    return this.http.post<CommentClass>("http://localhost:8082/api/v1/comment", data, { headers: header })
+  //  let token = this.authService.getToken()
+  //  var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
+    return this.http.post<CommentClass>("http://localhost:8082/api/v1/comment", data, { headers: this.header })
   }
 
   delete(id:number){
-    return this.http.delete(`http://localhost:8082/api/v1/comment/${id}`)
+    return this.http.delete(`http://localhost:8082/api/v1/comment/${id}`, { headers: this.header })
   }
 }

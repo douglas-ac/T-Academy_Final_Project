@@ -208,3 +208,12 @@ button {
     height: 20px;
 }
 
+.delete-icon:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.7;
+}
+

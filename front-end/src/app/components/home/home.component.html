@@ -27,7 +27,7 @@
       <div class="slider-content-container">
         <h2 class="subtitle">Troque ou venda seu carro em menos de 24 horas</h2>
         <p class="text">
-          A melhor e mais inovadora plataforma de anúncios e vendas para carros!
+          Somos a melhor e mais inovadora plataforma de anúncios e vendas para carros!
         </p>
         <button class="banner-btn see-car-catalog-btn" (click)="navigation('sell-car02')">
           Eu quero vender
@@ -102,7 +102,7 @@
 <section class="announce-advertise-section">
   <div class="announce-advertise">
     <h2>Anuncie e venda seu carro pelo melhor preço!</h2>
-    <button class="banner-btn know-more-btn">Saiba mais</button>
+    <button class="banner-btn know-more-btn" routerLink="/sell-car02">Saiba mais</button>
     <img src="../../../assets/img/homeImages/man-advertise-image.svg" alt="" />
     <span class="circle-left"></span>
     <span class="circle-right"></span>
@@ -188,7 +188,7 @@
     <div>
       <p>Ajuda e Suporte</p>
       <ul>
-        <li><a routerLink="profile">Meus anúncios</a></li>
+        <li *ngIf="isLogged();"><a routerLink="profile">Meus anúncios</a></li>
         <li><a data-bs-toggle="offcanvas" href="#cartElement">Meu carrinho</a></li>
       </ul>
     </div>
