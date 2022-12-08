@@ -383,14 +383,14 @@
     <div class="cars-catalog-right">
       <div class="cards-container">
         <div *ngFor="let ad of ads" class="card">
-          <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
+          <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" alt="" />
           <p class="username">{{ ad.user.name }}</p>
           <p class="car-model">{{ getCar(ad.product).name }} <br> {{ getCar(ad.product).model }}</p>
           <p class="car-year-miles">{{ getCar(ad.product).year+' '+getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' }}</p>
           <p class="location">{{ ad.address.localidade }}</p>
           <p class="price">R$ {{ getCar(ad.product).price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
           <p class="price-installment">60 x R$ {{ (getCar(ad.product).price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
-          <button class="see-offer-btn" routerLink="/anuncio/{{ad.product.id}}" >Ver oferta</button>
+          <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
         </div>
 
       </div>

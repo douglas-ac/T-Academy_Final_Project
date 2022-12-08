@@ -103,8 +103,9 @@ input::-webkit-inner-spin-button {
 }
 
 .card img{
-    width: 100%;
+    width: 206px;
     margin-bottom: 5px;
+    height: 155px;
 }
 
 .card .price{

@@ -14,7 +14,7 @@
           <li><span class="car-topic">Modelo: </span>{{ car.model }}</li>
           <li><span class="car-topic">Ano: </span>{{ car.year }}</li>
           <li><span class="car-topic">Km: </span>{{ car.quilometragem }}</li>
-          <li><span class="car-topic">Cor: </span><span class="color-square"></span></li>
+          <li><span class="car-topic">Cor: </span>{{ car.color }}</li>
         </ul>
         <span id="price">R$ {{car.price | number:'1.2-2'}} </span>
         <span id="cidade">
