@@ -63,12 +63,12 @@ input::-webkit-inner-spin-button {
 
 
 .cards-container{
-    padding: 30px;
+    padding: 60px;
     width: 70vw;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-around;
+    gap: 60px;
+    justify-content: flex-start;
 }
 
 
