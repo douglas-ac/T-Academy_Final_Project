@@ -17,7 +17,7 @@ export class AnnouncePartComponent {
   part !: Part
   image : any
   http: any;
-
+  imageUrl !: string 
   cart: PartClass[] = [];
 
 
@@ -29,6 +29,8 @@ export class AnnouncePartComponent {
     this.announceService.getOne(Number(this.announceId)).subscribe( data => {
       this.announce = data
       this.part = this.getPart(data.product)
+      console.log(this.part.automaker)
+      this.imageUrl = `https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img${this.announce.id}`
       this.getImage()
     })
   }

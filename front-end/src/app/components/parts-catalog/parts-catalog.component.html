@@ -369,7 +369,7 @@
       <div class="cards-container">
         <div *ngFor="let ad of ads" class="card">
           <img
-            src="../../../assets/img/partCatalogImages/cardImage.svg"
+            src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}"
             alt=""
           />
           <p class="username">{{ ad.user.name }}</p>

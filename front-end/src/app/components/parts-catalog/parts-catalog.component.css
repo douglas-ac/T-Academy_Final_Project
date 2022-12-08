@@ -81,6 +81,8 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 250px;
+    height: 425px;
 }
 
 .card p, .card img{
@@ -102,6 +104,7 @@ input::-webkit-inner-spin-button {
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 8px;
+    text-transform: capitalize;
 }
 
 .card img{
@@ -292,6 +295,14 @@ h2,h3{
 .filter-option input[type=checkbox], .filter-option label{
     cursor: pointer;
 }
+
+@media screen and (max-width: 1440px) {
+    .cards-container{
+        padding: 30px;
+        gap: 30px;
+    }
+}
+
 
 @media screen and (max-width: 900px) {
     .input-container{

@@ -293,6 +293,13 @@ button.btn{
     color: white;
 }
 
+@media screen and (max-width: 1440px) {
+    .cards-container{
+        padding: 30px;
+        gap: 30px;
+    }
+}
+
 
 @media screen and (max-width: 900px) {
     .input-container{
