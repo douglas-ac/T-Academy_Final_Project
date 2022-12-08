@@ -51,13 +51,9 @@ import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anunc
     CartComponent,
     PartsCatalogComponent,
     AnnounceComponent,
-<<<<<<< HEAD
     PasswordRecoveryComponent,
-    EditarAnuncioComponent
-=======
-    HomeComponent,
-    PasswordRecoveryComponent
->>>>>>> f22f8b76990f56a42a099f2b95ffb9a8149605bc
+    EditarAnuncioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
