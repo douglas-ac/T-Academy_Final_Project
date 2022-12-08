@@ -66,10 +66,10 @@ input::-webkit-inner-spin-button {
 
 
 .cards-container{
-    padding: 30px;
+    padding: 60px;
     width: 70vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 60px;
     
@@ -192,7 +192,7 @@ input::-webkit-inner-spin-button {
 .brands-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     gap: 10px;
 }
 
