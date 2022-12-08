@@ -9,6 +9,12 @@ import { Announce, Car, Product, Address, Part } from '../../Model/Models'
   styleUrls: ['./parts-catalog.component.css']
 })
 export class PartsCatalogComponent {
+
+  //pagination
+  actualPage !: number
+  totalOfPages !: number
+  arrayOfPages : number[] = []
+
   ads: Announce[] = []
 
   // Filters' options
@@ -56,7 +62,14 @@ export class PartsCatalogComponent {
   }
 
   getAll(){
-    this.service.getAllParts().subscribe( (data: any) => this.ads = <Announce[]>data.content)
+    this.service.getAllParts().subscribe( (data: any) => {
+      this.ads = <Announce[]>data.content
+      this.totalOfPages = data.totalPages
+      for(let i = 0; i < this.totalOfPages ; i++){
+        this.arrayOfPages.push(i)
+      }
+      this.actualPage = 0
+    })
   }
 
   getPart(data: Product){
@@ -80,5 +93,17 @@ export class PartsCatalogComponent {
     this.filter()
   }
 
+  pagination(number:number){
+    this.service.getPageParts(number).subscribe((data: any) => this.ads = <Announce[]>data.content)
+    this.actualPage = number
+  }
+  
+  paginationAnt(word : string){
+    if(word == 'ant'){
+      this.pagination(this.actualPage - 1)
+    } else {
+      this.pagination(this.actualPage + 1)
+    }
+  }
 
 }

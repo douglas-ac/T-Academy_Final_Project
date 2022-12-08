@@ -10,6 +10,12 @@ import { Announce, Car, Product, Address } from '../../Model/Models'
   styleUrls: ['./catalogo-carro.component.css']
 })
 export class CatalogoCarroComponent {
+
+  actualPage !: number
+  totalOfPages !: number
+  arrayOfPages : number[] = []
+
+  //anuncios
   ads: Announce[] = []
   
   // Filters' options
@@ -55,7 +61,14 @@ export class CatalogoCarroComponent {
   }
 
   getAll(){
-    this.service.getAllCars().subscribe( (data: any) => this.ads = <Announce[]>data.content)
+    this.service.getAllCars().subscribe( (data: any) => {
+      this.ads = <Announce[]>data.content
+      this.totalOfPages = data.totalPages
+      for(let i = 0; i < this.totalOfPages ; i++){
+        this.arrayOfPages.push(i)
+      }
+      this.actualPage = 0
+    })
   }
 
   log(){
@@ -77,6 +90,19 @@ export class CatalogoCarroComponent {
   addFilterOption(key: any, value: any){
     this.utils.addValueToObject(this.filters, key, value)
     this.filter()
+  }
+
+  pagination(number:number){
+    this.service.getPageCars(number).subscribe((data: any) => this.ads = <Announce[]>data.content)
+    this.actualPage = number
+  }
+  
+  paginationAnt(word : string){
+    if(word == 'ant'){
+      this.pagination(this.actualPage - 1)
+    } else {
+      this.pagination(this.actualPage + 1)
+    }
   }
 
 }
