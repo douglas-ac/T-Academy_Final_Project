@@ -17,7 +17,7 @@ export class CommentAnswerService {
   post(data: CommentAnswerDtoClass){
    let token = this.authService.getToken()
    var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
-    return this.http.post<CommentAnswerDtoClass>("http://localhost:8082/api/v1/comment", data, { headers: header })
+    return this.http.post<CommentAnswerDtoClass>("http://localhost:8082/api/v1/comment/answer", data, { headers: header })
   }
 
   delete(id:number){

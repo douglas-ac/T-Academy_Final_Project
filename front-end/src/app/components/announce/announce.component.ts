@@ -98,7 +98,7 @@ export class AnnounceComponent {
 
     let commentAnswer = new CommentAnswerDtoClass()
     commentAnswer.message = message
-    commentAnswer.timeCreated = date
+    //commentAnswer.timeCreated = date
     commentAnswer.user = user
     commentAnswer.comment = comment
 
