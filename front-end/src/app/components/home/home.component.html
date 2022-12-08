@@ -113,7 +113,7 @@
   <h2>Os anúncios mais procurados</h2>
   <div class="cards-container">
     <div *ngFor="let ad of mostClickedCarads" class="card">
-      <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
+      <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" alt="" />
       <p class="username">{{ ad.user.name }}</p>
       <p class="car-model">{{ getCar(ad.product).name }} <br> {{ getCar(ad.product).model }}</p>
       <p class="car-year-miles">{{ getCar(ad.product).year+' '+getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' }}</p>
