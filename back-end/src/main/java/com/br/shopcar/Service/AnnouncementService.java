@@ -58,6 +58,8 @@ public class AnnouncementService {
         Optional<Announcement> obj = announcementRepository.findById(id);
         //verifying the optional
         Announcement announcement = obj.orElseThrow(()-> new EntityNotFoundException("Announce not found"));
+        announcement.setAccess_count(announcement.getAccess_count()+1);
+        this.save(announcement.converter());
         return announcement.converter();
     }
 

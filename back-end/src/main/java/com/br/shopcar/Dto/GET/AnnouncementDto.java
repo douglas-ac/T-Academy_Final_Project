@@ -35,6 +35,7 @@ public class AnnouncementDto {
     private Address address;
     private Status status = Status.AVAILABLE;
     private String imageUrl;
+    private Long access_count;
 
     public Announcement convertToModel(){
         Announcement announcement = new Announcement();
@@ -49,6 +50,7 @@ public class AnnouncementDto {
         announcement.setStatus(this.getStatus());
         announcement.setAddress(this.getAddress());
         announcement.setImageUrl(this.getImageUrl());
+        announcement.setAccess_count(this.getAccess_count());
         return announcement;
     }
 }
