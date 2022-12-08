@@ -48,7 +48,20 @@
       <div class="title">
         <h4>{{comment.user?.name}}</h4><p>{{comment.time |  date : 'dd/MM/yyyy - HH:mm'}}</p>
       </div>
-      <div *ngIf="comment.user?.id == id"><img (click)="deleteComment(comment.id)" src="../../../assets/img/trash.png" class="delete-icon"></div>
+      <div *ngIf="comment.user?.id == id"><img src="../../../assets/img/trash.png" class="delete-icon" data-bs-toggle="modal" data-bs-target="#delete-comment"></div>
+      <div class="modal fade" id="delete-comment" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header title">
+              <h4>Tem certeza que deseja excluir o comentário?</h4>
+            </div>
+            <div class="modal-footer d-flex">
+              <button type="button" (click)="deleteComment(comment.id)">Sim</button>
+              <button data-bs-dismiss="modal" class="btn-cancel">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="comment-content">
       <p>{{comment.message}}</p>
