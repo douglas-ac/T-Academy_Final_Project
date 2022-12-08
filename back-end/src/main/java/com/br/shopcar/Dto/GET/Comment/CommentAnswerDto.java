@@ -15,7 +15,7 @@ public class CommentAnswerDto {
 
     private long idCommentAnswer;
 
-    @NotBlank @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotBlank //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UserDto user;
 
     @NotBlank

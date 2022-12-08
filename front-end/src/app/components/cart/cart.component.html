@@ -8,7 +8,6 @@
     <mat-grid-list cols="6">
       <mat-grid-tile colspan="2" rowspan="2" class="cart-img">
         <img src="../../../assets/img/cartImages/partMock.png">
-
 <!--          ### ADICIONAR A IMG DEPOIS ^ ###    -->
 
       </mat-grid-tile>
@@ -20,7 +19,6 @@
         <div class="btn-group-qtd">
           <button type="button" (click)="minusOne(c)">-</button>
           <input type="number" readonly value={{c.reserved_amount}}>
-<!--            AJUSTAR QUANTIDADE DEPOIS, INCLUIR NO TS QUANDO PUXAR -->
           <button type="button" (click)="plusOne(c)" >+</button>
         </div>
       </mat-grid-tile>
@@ -40,14 +38,19 @@
       <p class="footer-text">R$ {{getSubtotal().toFixed(2)}}</p>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols="3" rowHeight="60px">
+  <mat-grid-list cols="3" rowHeight="50px">
     <mat-divider></mat-divider>
     <mat-grid-tile colspan="2" rowspan="1" >
       <p class="footer-text footer-text-light">Digite o Cep:</p>
       <input type="text" class="cep-input">
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1">
-      <button class="shipping-btn">Calcular frete</button>
+      <button (click)="getShippingPrice()" class="shipping-btn">Calcular frete</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="1" rowHeight="25px">
+    <mat-grid-tile>
+      <p id="shippingPrice">Valor do frete: {{shippingPrice.toFixed(2)}}</p>
     </mat-grid-tile>
   </mat-grid-list>
   <mat-divider></mat-divider>
