@@ -19,13 +19,17 @@ export class ProfileComponent implements OnInit {
 
   usuario:string = sessionStorage.getItem("idUser") || "";
   username:string = sessionStorage.getItem("username") || "";
+  user!:User;
 
   estaLogado:boolean = this.usuario != "";
 
-  constructor(private servico : AnnounceService, private route: ActivatedRoute){
+  constructor(private servico : AnnounceService, private route: ActivatedRoute, private userService:UserService){
   }
 
   ngOnInit(): void {
+    this.userService.getOne(Number(this.usuario)).subscribe(data => {
+      this.user = data;
+    })
     this.selecionar();
     this.listar();
   }
