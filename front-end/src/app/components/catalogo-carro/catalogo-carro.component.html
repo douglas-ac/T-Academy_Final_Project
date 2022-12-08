@@ -226,50 +226,12 @@
       <div class="colors filter-option">
         <h3>Cores</h3>
         <div class="checkbox-container">
-          <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'amarelo')" name="colorYellow" id="colorYellow" />
-            <label for="colorYellow">Amarelo</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'azul')" name="colorBlue" id="colorBlue" />
-            <label for="colorBlue">Azul</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'bege')" name="colorBege" id="colorBege" />
-            <label for="colorBege">Bege</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('color', 'branco')" name="colorWhite" id="colorWhite" />
-            <label for="colorWhite">Branco</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'cinza')" name="colorGrey" id="colorGrey" />
-            <label for="colorGrey">Cinza</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'marrom')" name="colorBrown" id="colorBrown" />
-            <label for="colorBrown">Marrom</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'preto')" name="colorBlack" id="colorBlack" />
-            <label for="colorBlack">Preto</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'verde')" name="colorGreen" id="colorGreen" />
-            <label for="colorGreen">Verde</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'vermelho')" name="colorRed" id="colorRed" />
-            <label for="colorRed">Vermelho</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'vinho')" name="colorWine" id="colorWine" />
-            <label for="colorWine">Vinho</label>
-          </div>
-          <div *ngIf="isColorShow">
-            <input type="checkbox" (change)="addFilterOption('color', 'prata')" name="colorSilver" id="colorSilver" />
-            <label for="colorSilver">Prata</label>
-          </div>
+          <ng-container *ngFor="let color of colors|keyvalue">
+            <div *ngIf="+color.key<4 || isColorShow">
+              <input type="checkbox" (change)="addFilterOption('color', color.value)" name="color{{color.key}}" id="color{{color.key}}" />
+              <label for="color{{color.key}}">{{color.value}}</label>
+            </div>
+          </ng-container>
         </div>
         <p class="see-more" (click)="showAllColors()">Ver todas as cores</p>
       </div>
@@ -277,98 +239,16 @@
       <div class="categories filter-option">
         <h3>Categorias</h3>
         <div class="checkbox-container">
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'frontier')"
-              name="categoryFrontier"
-              id="categoryFrontier"
-            />
-            <label for="categoryFrontier">Frontier</label>
-          </div>
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'hatches')"
-              name="categoryHatches"
-              id="categoryHatches"
-            />
-            <label for="categoryHatches">Hatches</label>
-          </div>
-          <div>
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'new_city')"
-              name="categoryNewCity"
-              id="categoryNewCity"
-            />
-            <label for="categoryNewCity">New City</label>
-          </div>
-          <div>
-            <input type="checkbox" (change)="addFilterOption('category', 'suv')" name="categorySUV" id="categorySUV" />
-            <label for="categorySUV">SUVs</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'jipe')" name="categoryJipes" id="categoryJipes" />
-            <label for="categoryJipes">Jipes</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'picape')"
-              name="categoryPicapes"
-              id="categoryPicapes"
-            />
-            <label for="categoryPicapes">Picapes</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input type="checkbox" (change)="addFilterOption('category', 'sedan')" name="categorySedan" id="categorySedan" />
-            <label for="categorySedan">Sedans</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'antigo')"
-              name="categoryOldCars"
-              id="categoryOldCars"
-            />
-            <label for="categoryOldCars">Carros antigos</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'esportivo')"
-              name="categorySportCars"
-              id="categorySportCars"
-            />
-            <label for="categorySportCars">Carros esportivos</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'luxo')"
-              name="categoryLuxCars"
-              id="categoryLuxCars"
-            />
-            <label for="categoryLuxCars">Carros de luxo</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'eletrico')"
-              name="categoryEletricCars"
-              id="categoryEletricCars"
-            />
-            <label for="categoryEletricCars">Carros elétricos</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'pcd')"
-              name="categoryPcdCars"
-              id="categoryPcdCars"
-            />
-            <label for="categoryPcdCars">Carros para pcd</label>
-          </div>
-          <div *ngIf="isCategoryShow">
-            <input
-              type="checkbox" (change)="addFilterOption('category', 'popular')"
-              name="categoryPopularCars"
-              id="categoryPopularCars"
-            />
-            <label for="categoryPopularCars">Carros populares</label>
-          </div>
+          <ng-container *ngFor="let category of categories|keyvalue" >
+            <div *ngIf="+category.key<4 || isCategoryShow">
+              <input
+                type="checkbox" (change)="addFilterOption('category', category.value)"
+                name="category{{category.key}}"
+                id="category{{category.key}}"
+              />
+              <label for="category{{category.key}}">{{category.value}}</label>
+            </div>
+          </ng-container>
         </div>
         <p class="see-more" (click)="showAllCategorys()">
           Ver todas as categorias
@@ -383,14 +263,14 @@
     <div class="cars-catalog-right">
       <div class="cards-container">
         <div *ngFor="let ad of ads" class="card">
-          <img src="../../../assets/img/carCatalogImages/card-car.svg" alt="" />
+          <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" alt="" />
           <p class="username">{{ ad.user.name }}</p>
           <p class="car-model">{{ getCar(ad.product).name }} <br> {{ getCar(ad.product).model }}</p>
           <p class="car-year-miles">{{ getCar(ad.product).year+' '+getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' }}</p>
           <p class="location">{{ ad.address.localidade }}</p>
           <p class="price">R$ {{ getCar(ad.product).price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
           <p class="price-installment">60 x R$ {{ (getCar(ad.product).price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
-          <button class="see-offer-btn" routerLink="/anuncio/{{ad.product.id}}" >Ver oferta</button>
+          <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
         </div>
 
       </div>

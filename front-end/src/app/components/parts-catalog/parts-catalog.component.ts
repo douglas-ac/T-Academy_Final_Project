@@ -13,6 +13,10 @@ export class PartsCatalogComponent {
   ads: Announce[] = []
   cart: PartClass[] = [];
 
+  categories : string[] = ['Amortecedor', 'Climatização', 'Direção', 'Motorização', 'Transmissão', 'Suspensão', 'Frenagem', 'Carroceria', 'Segurança', 'Injeção e ignição', 'Exaustão', 'Elétrica', 'Outro']
+
+  vehicle_types: string[] = ['Caminhao', 'Carro', 'Motocileta', 'Onibus', 'Agro', 'Suv', 'Van', 'Outro']
+
   // Filters' options
   filters = {
     name: null,

@@ -1,11 +1,12 @@
  import { Component, OnInit } from '@angular/core';
  import { FormControl, FormGroup, Validators } from '@angular/forms';
  import { Router } from '@angular/router';
- import { AdressClass, AnnouncePartClass, PartClass, Images, UserClass } from 'src/app/Model/Models';
+ import { AdressClass, AnnouncePartClass, PartClass, Images, UserClass, CarClass } from 'src/app/Model/Models';
  import { AnnounceService } from 'src/app/Services/announce.service';
  import { PartService } from 'src/app/Services/part.service';
  import { CepService } from 'src/app/Services/cep.service';
 import { AuthService } from 'src/app/Services/auth.service';
+import { CarService } from 'src/app/Services/car.service';
 
  @Component({
    selector: 'app-sell-part02',
@@ -19,13 +20,16 @@ import { AuthService } from 'src/app/Services/auth.service';
    announce : AnnouncePartClass = new AnnouncePartClass();
    part : PartClass = new PartClass();
    user : UserClass = new UserClass();
+   car : CarClass = new CarClass();
 
    //params for option in html
    years : number[] = []
-   categories : string[] = ["Motorização", "Transmissão", "Suspensão", "Frenagem", "Carroceria", "Segurança", "Injeção e ignição", "Exaustão" , "Elétrica", "Outro"]
-   partmakers : String[] = [];
+   categorys : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
+   categories : string[] = ['Amortecedor', 'Climatização', 'Direção', 'Motorização', 'Transmissão', 'Suspensão', 'Frenagem', 'Carroceria', 'Segurança', 'Injeção e ignição', 'Exaustão', 'Elétrica', 'Outro']
+   partmakers : object = {};
+   automakers : object = {};
 
-   constructor(private PartService : PartService, private router : Router,
+   constructor(private carService:CarService, private PartService : PartService, private router : Router,
                private cepService : CepService, private announceService : AnnounceService, private authService : AuthService) { }
 
    AnnounceForm = new FormGroup ({
@@ -52,6 +56,10 @@ import { AuthService } from 'src/app/Services/auth.service';
      this.PartService.getPartmakers().subscribe(data => {
        this.partmakers = data
      })
+
+     this.carService.getAutomakers().subscribe(data => {
+      this.automakers = data
+    })
 
      for(let i=1920 ; i<= 2023 ; i++){
        this.years.push(i)

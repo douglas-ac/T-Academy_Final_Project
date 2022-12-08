@@ -63,12 +63,12 @@ input::-webkit-inner-spin-button {
 
 
 .cards-container{
-    padding: 30px;
+    padding: 60px;
     width: 70vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 60px;
     
 }
 
@@ -103,8 +103,9 @@ input::-webkit-inner-spin-button {
 }
 
 .card img{
-    width: 100%;
+    width: 206px;
     margin-bottom: 5px;
+    height: 155px;
 }
 
 .card .price{
@@ -188,7 +189,7 @@ input::-webkit-inner-spin-button {
 .brands-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     gap: 10px;
 }
 
