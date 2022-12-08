@@ -9,7 +9,7 @@
             <div class="dados">
                 <h2>Celular: {{user.fone}}</h2>
                 <h2>E-mail: {{user.email}}</h2>
-                <h2>Localização: {{user.address}}</h2>
+                <h2>Localização: {{user.address?.localidade + " - " + user.address?.uf}}</h2>
             </div>
         </div>
     
