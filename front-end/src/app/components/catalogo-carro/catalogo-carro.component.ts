@@ -54,7 +54,7 @@ export class CatalogoCarroComponent {
       if('search' in params){
         this.getAll(params['search'])
       } 
-      if (Object.entries(params).length == 0 && this.isLogged()){
+      else if (Object.entries(params).length == 0 && this.isLogged()){
         let id = sessionStorage.getItem('idUser')
         this.service.getAllCarsLocation(id || "").subscribe((data: any) => this.ads = <Announce[]>data.content)
       } else{
