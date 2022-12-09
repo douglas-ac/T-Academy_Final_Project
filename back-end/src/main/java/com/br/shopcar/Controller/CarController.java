@@ -1,7 +1,6 @@
 package com.br.shopcar.Controller;
 
 import com.br.shopcar.Dto.GET.CarDto;
-import com.br.shopcar.Model.CarModel;
 import com.br.shopcar.Service.ProductService;
 import com.br.shopcar.enums.Automaker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +35,6 @@ public class CarController {
     }
 
     @PostMapping
-    public ResponseEntity<CarDto> save(@PathVariable("id") Long id,
-                                       @RequestBody CarDto carDto){
-        CarDto update = productService.update(carDto, id);
-        return ResponseEntity.status(HttpStatus.CREATED).body(update);
-    }
-
-    @PutMapping("/{idCar}")
     public ResponseEntity<CarDto> save(@RequestBody CarDto carDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.save(carDto));
     }

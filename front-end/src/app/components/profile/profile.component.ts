@@ -29,7 +29,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getOne(Number(this.usuario)).subscribe(data => {
       this.user = data;
-      console.log(data)
     })
     this.selecionar();
     this.listar();
@@ -43,7 +42,7 @@ export class ProfileComponent implements OnInit {
         let pesquisaId = this.vetor.findIndex(obj => {return obj.id === id});
   
         this.vetor.splice(pesquisaId, 1);
-        
+  
       })
     }
  

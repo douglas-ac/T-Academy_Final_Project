@@ -33,7 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
-import { EditCarComponent } from './edit-car/edit-car.component';
+// import { EditCarComponent } from './edit-car/edit-car.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 
@@ -57,8 +57,9 @@ import { FooterComponent } from './components/footer/footer.component';
     PasswordRecoveryComponent,
     EditarAnuncioComponent,
     HomeComponent,
-    EditCarComponent,
-    FooterComponent
+    // EditCarComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
