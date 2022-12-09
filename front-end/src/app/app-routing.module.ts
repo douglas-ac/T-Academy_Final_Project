@@ -16,7 +16,6 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
 import { AuthService } from './Services/auth.service';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
-import { EditCarComponent } from './edit-car/edit-car.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,8 +31,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'anuncio/:id', component : AnnounceComponent},
   {path: 'anuncio-part/:id', component : AnnouncePartComponent},
-  {path: 'password-recovery', component: PasswordRecoveryComponent},
-  {path: 'editar/:id', component : EditCarComponent}
+  {path: 'password-recovery', component: PasswordRecoveryComponent}
 ];
 
 @NgModule({

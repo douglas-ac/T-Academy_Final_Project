@@ -32,10 +32,8 @@ export class CarService {
     return this.http.post<Car>("http://localhost:8082/api/v1/cars",data, { headers: header })
   }
 
-  put(id:number, data:CarClass){
-    let token = this.authService.getToken()
-    var header = new HttpHeaders({'Authorization': 'Bearer ' + token });
-    return this.http.put<[Car]>(`http://localhost:8082/api/v1/cars/${id}`, data, { headers: header })
+  put(id:number, data:Car){
+    return this.http.put<[Car]>(`http://localhost:8082/api/v1/cars/${id}`, data)
   }
 
   delete(id:number){

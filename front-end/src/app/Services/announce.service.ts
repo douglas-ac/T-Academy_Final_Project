@@ -56,16 +56,8 @@ export class AnnounceService {
     return this.http.post<AnnounceCarClass>("http://localhost:8082/api/v1/announce",data , { headers: header })
   }
 
-  put(id:number , data : string){
-    let token = this.authService.getToken()
-    var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
-    return this.http.post<AnnounceCarClass>(`http://localhost:8082/api/v1/announce/${id}`, data , { headers: header })
-  }
-
   delete(id:number){
-    let token = this.authService.getToken()
-    var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
-    return this.http.delete(`http://localhost:8082/api/v1/announce/${id}`,{ headers: header })
+    return this.http.delete(`http://localhost:8082/api/v1/announce/${id}`)
   }
 
   getPageCars(number:number){
