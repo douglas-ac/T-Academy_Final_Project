@@ -50,7 +50,7 @@ public class AnnouncementDto {
         announcement.setStatus(this.getStatus());
         announcement.setAddress(this.getAddress());
         announcement.setImageUrl(this.getImageUrl());
-        announcement.setAccess_count(this.getAccess_count());
+       // announcement.setAccess_count(this.getAccess_count());
         return announcement;
     }
 }
