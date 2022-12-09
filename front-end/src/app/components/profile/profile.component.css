@@ -76,3 +76,88 @@ h2 {
     text-align: center;
     margin: 50px;
 }
+
+
+.cards-container{
+    margin: 0 auto;
+    padding: 30px;
+    /* width: 70vw; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+}
+
+.card{ 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 25%);
+    padding: 20px;
+    max-width: 250px;
+    height: 425px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card .car-model{
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.card .car-year-miles, .card .location{
+    color: rgb(126, 126, 126);
+    font-size: 0.8rem;
+}
+
+.card .car-year-miles, .location{
+    margin-bottom: 5px;
+}
+
+.card .location{
+    margin-bottom: 8px;
+}
+
+.card .price{
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.card .price-installment{
+    font-weight: 700;
+    color: rgb(126, 126, 126);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.see-offer-btn{
+    min-width: 40px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.see-offer-btn:hover{
+    opacity: 0.8;
+}
+
+.card .see-offer-btn{
+    width: 100%;
+}
+
+.delete-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.delete-icon:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}

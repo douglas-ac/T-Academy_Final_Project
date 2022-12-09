@@ -17,21 +17,23 @@ export class ProfileComponent implements OnInit {
 
   teste:boolean = false;
 
-  usuario:string = sessionStorage.getItem("idUser") || "";
-  username:string = sessionStorage.getItem("username") || "";
-  user!:User;
-
-  estaLogado:boolean = this.usuario != "";
-
+  usuario:string = "";
+  username:string = "";
+  user:User = <User> {
+    name: '',
+    email: '',
+    fone: ''
+  }
+  
   constructor(private servico : AnnounceService, private route: ActivatedRoute, private userService:UserService){
+    this.usuario = sessionStorage.getItem("idUser") || "";
+    this.username = sessionStorage.getItem("username") || "";
   }
 
   ngOnInit(): void {
     this.userService.getOne(Number(this.usuario)).subscribe(data => {
       this.user = data;
     })
-    this.selecionar();
-    this.listar();
   }
 
   remover(id:number) {
@@ -39,9 +41,11 @@ export class ProfileComponent implements OnInit {
 
     if (confirmado == true) {
       this.servico.delete(id).subscribe(() => {
-        let pesquisaId = this.vetor.findIndex(obj => {return obj.id === id});
-  
-        this.vetor.splice(pesquisaId, 1);
+        let arr = this.user.announcementList || []
+        let index = arr.findIndex(ad => {return ad.id === id});
+        if (index > -1) {
+          arr.splice(index, 1);
+        }
   
       })
     }
@@ -70,4 +74,7 @@ export class ProfileComponent implements OnInit {
     window.location.href="login";
   }
 
+  getCar(data: Product){
+    return data as Car
+  }
 }

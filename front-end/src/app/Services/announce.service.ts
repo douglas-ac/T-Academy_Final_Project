@@ -57,7 +57,9 @@ export class AnnounceService {
   }
 
   delete(id:number){
-    return this.http.delete(`http://localhost:8082/api/v1/announce/${id}`)
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
+    return this.http.delete(`http://localhost:8082/api/v1/announce/${id}`, { headers: header })
   }
 
   getPageCars(number:number){

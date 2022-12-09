@@ -1,44 +1,54 @@
-
-<body>
-    <div *ngIf="estaLogado">
-        <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
-            <img src="../../assets/img/user.png" alt="" height="150px">
-        
-            <h1 class="nome">{{user.name}}</h1>
+<div >
+<!--     <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
+        <img src="../../assets/img/user.png" alt="" height="150px">
     
-            <div class="dados">
-                <h2>Celular: {{user.fone}}</h2>
-                <h2>E-mail: {{user.email}}</h2>
-                <h2>Localização: {{user.address?.localidade + " - " + user.address?.uf}}</h2>
+        <h1 class="nome">{{user.name}}</h1>
+
+        <div class="dados">
+            <h2>Celular: {{user.fone}}</h2>
+            <h2>E-mail: {{user.email}}</h2>
+            <h2>Localização: {{user.address?.localidade + " - " + user.address?.uf}}</h2>
+        </div>
+    </div> -->
+
+    <h1 class="titulo-anuncios">Seus anúncios</h1>
+
+    <div class="cards-container">
+        <div *ngFor="let ad of user.announcementList" class="card">
+            <div class="d-flex justify-content-end">
+                <img class="delete-icon" src="../../../assets/img/lapis.png" alt="" height="20px" routerLink="/editar-anuncio">
+                <img class="delete-icon" src="../../../assets/img/trash.png" alt="" height="20px" (click)="remover(ad.id)">
             </div>
+            <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" onerror="this.src='../../../assets/img/carCatalogImages/default-car-image.svg' " alt="" />
+            <!-- <p class="username">{{ ad.user.name }}</p> -->
+            <p class="car-model">{{ ad.product.name }} <br> {{ (getCar(ad.product).model? getCar(ad.product).model : "") }}</p>
+            <p class="car-year-miles">{{ ad.product.year+' '+(getCar(ad.product).quilometragem? getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' : "") }}</p>
+            <p class="location">{{ ad.address.localidade }}</p>
+            <p class="price">R$ {{ ad.product.price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
+            <p class="price-installment">60 x R$ {{ (ad.product.price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
+            <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
         </div>
-    
-        <h1 class="titulo-anuncios">Seus anúncios</h1>
-    
-        <div class="cartao card anuncio" id="anuncio" *ngFor="let v of vetor; index as i">
-            <b style="text-align: left;">{{v.product}}</b><br>
-    
-            <mat-grid-list cols="3" rowHeight="100px">
-                <input type="hidden" name="" id="" value="{{v.id}}">
-    
-                <mat-grid-tile class="card">
-                    <p>{{v.image}}</p>
-                </mat-grid-tile>
-    
-                <mat-grid-tile class="descricao">
-                    <input type="text" value="{{0}}">
-                    Funcional e esteticamente agradável.
-                </mat-grid-tile>
-    
-                <mat-grid-tile class="icones">
-                    <img src="../../../assets/img/lapis.png" alt="" height="20px" onclick="window.location.href='/editar-anuncio/' + v.id">
-                    <img src="../../../assets/img/lixo (2).png" alt="" height="20px" onclick="remover(v.id)">
-                </mat-grid-tile>
-            </mat-grid-list>
-        </div>
-    </div>
+      </div>
 
-    <div *ngIf="!estaLogado" class="mensagem">
-        <b>Você precisa entrar em uma conta para visualizar o perfil de usuário :(</b>
-    </div>
-</body>
+<!--     <div class="cartao card anuncio" id="anuncio" *ngFor="let ad of user.announcementList">
+        <b style="text-align: left;">{{ad.product}}</b><br>
+
+        <mat-grid-list cols="3" rowHeight="100px">
+            <input type="hidden" name="" id="" value="{{ad.id}}">
+
+            <mat-grid-tile class="card">
+                <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" onerror="this.src='../../../assets/img/carCatalogImages/default-car-image.svg' " alt="" />
+            </mat-grid-tile>
+
+            <mat-grid-tile class="descricao">
+                <input type="text" value="{{0}}">
+                Funcional e esteticamente agradável.
+            </mat-grid-tile>
+
+            <mat-grid-tile class="icones">
+                <img src="../../../assets/img/lapis.png" alt="" height="20px" onclick="window.location.href='/editar-anuncio/' + ad.id">
+                <img src="../../../assets/img/lixo (2).png" alt="" height="20px" onclick="remover(ad.id)">
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div> -->
+</div>

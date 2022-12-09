@@ -15,6 +15,7 @@ export interface AnnouncementList {
     user: User;
     date: string;
     product: Product;
+    address: Address;
 }
 
 export interface Address {

@@ -25,10 +25,10 @@ const routes: Routes = [
   {path: 'cadastro', component: RegisterComponent},
   {path: 'sell-car02', component: SellCar02Component , canActivate:[AuthService]},
   {path: 'sell-car07', component: SellCar07Component, canActivate:[AuthService]},
-  {path: 'editar-anuncio', component: EditarAnuncioComponent},
+  {path: 'editar-anuncio', component: EditarAnuncioComponent, canActivate:[AuthService]},
   {path: 'sell-part02', component: SellPart02Component, canActivate:[AuthService]},
   {path: 'sell-part06', component: SellPart06Component, canActivate:[AuthService]},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent, canActivate:[AuthService]},
   {path: 'anuncio/:id', component : AnnounceComponent},
   {path: 'anuncio-part/:id', component : AnnouncePartComponent},
   {path: 'password-recovery', component: PasswordRecoveryComponent}
