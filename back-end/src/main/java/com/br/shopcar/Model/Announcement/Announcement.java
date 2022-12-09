@@ -51,6 +51,7 @@ public class Announcement {
         announcementDto.setProduct(this.getProduct());
         announcementDto.setStatus(this.getStatus());
         announcementDto.setAddress(this.getAddress());
+        announcementDto.setAccess_count(this.getAccess_count());
         return announcementDto;
     }
 

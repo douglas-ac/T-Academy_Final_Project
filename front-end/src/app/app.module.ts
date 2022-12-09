@@ -34,6 +34,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
 import { EditCarComponent } from './edit-car/edit-car.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 
@@ -55,7 +57,8 @@ import { EditCarComponent } from './edit-car/edit-car.component';
     PasswordRecoveryComponent,
     EditarAnuncioComponent,
     HomeComponent,
-    EditCarComponent
+    EditCarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
