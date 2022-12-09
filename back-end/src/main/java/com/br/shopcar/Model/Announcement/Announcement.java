@@ -31,7 +31,7 @@ public class Announcement {
     private Address address;
     @OneToMany(mappedBy = "announcement")
     private List<Comment> comments;
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(cascade = CascadeType.ALL)
     private ProductModel product;
     @Enumerated(EnumType.STRING)
     private Status status = Status.AVAILABLE;

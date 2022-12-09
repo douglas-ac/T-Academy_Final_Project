@@ -101,4 +101,25 @@ public class ProductService {
     public LinkedHashMap<String, String> findAllPartMakers() {
         return Partmaker.map();
     }
+    
+    public CarModel findByModel(Long id){
+        Optional<CarModel> car = carRepository.findById(id);
+        CarModel carModel = car.orElseThrow(() -> new EntityNotFoundException("Car not found"));
+        return carModel;
+    }
+
+    public CarDto update(CarDto carDto, Long id) {
+        CarModel byModel = this.findByModel(id);
+
+        byModel.setPrice(carDto.getPrice());
+        byModel.setColor(carDto.getColor());
+        byModel.setQuilometragem(carDto.getQuilometragem());
+        byModel.setModel(carDto.getModel());
+        byModel.setAutomaker(carDto.getAutomaker());
+        byModel.setDescription(carDto.getDescription());
+        byModel.setName(carDto.getName());
+
+        CarModel save = carRepository.save(byModel);
+        return save.convertToDto();
+    }
 }

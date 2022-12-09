@@ -78,6 +78,7 @@ public class AnnouncementService {
         Announcement dtoToChangeModel = announcementDto.convertToModel();
 
         //setting the changes
+        announcement.setProduct(announcementDto.getProduct());
         announcement.setAddress(dtoToChangeModel.getAddress());
         announcement.setAmount(dtoToChangeModel.getAmount());
         announcement.setDate(dtoToChangeModel.getDate());
