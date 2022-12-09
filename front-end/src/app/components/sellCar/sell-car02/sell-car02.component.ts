@@ -84,7 +84,7 @@ export class SellCar02Component implements OnInit {
         this.announce.amount = 1;
   
         this.announce.user = this.user
-        this.announce.user.id = 1
+        this.announce.user.id = Number(sessionStorage.getItem("idUser")) 
         
         this.announce.product = this.car
     
