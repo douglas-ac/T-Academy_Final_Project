@@ -211,6 +211,10 @@ input::-webkit-inner-spin-button {
     transform: scale(1.1);
 }
 
+.click-effect{
+    transform: scale(1.1);
+}
+
 .see-more{
     text-align: end;
     font-weight: 700;

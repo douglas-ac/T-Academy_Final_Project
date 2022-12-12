@@ -27,129 +27,111 @@
       <div class="car-brand filter-option">
         <h3>Marca do carro</h3>
         <div class="brands-container">
-          <div>
+          <div (click)="addFilterOption('automaker', 'MERCEDES_BENZ'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'MERCEDES_BENZ')"
               src="../../../assets/img/carCatalogImages/mercedes-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'FIAT'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'FIAT')"
               src="../../../assets/img/carCatalogImages/fiat-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'FORD'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'FORD')"
               src="../../../assets/img/carCatalogImages/ford-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'MITSUBISHI'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'MITSUBISHI')"
               src="../../../assets/img/carCatalogImages/mitsubish-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'HYUNDAI'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'HYUNDAI')"
               src="../../../assets/img/carCatalogImages/hiunday-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'RENAULT'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'RENAULT')"
               src="../../../assets/img/carCatalogImages/renault-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'BMW'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'BMW')"
               src="../../../assets/img/carCatalogImages/bmw-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'CHEVROLET'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'CHEVROLET')"
               src="../../../assets/img/carCatalogImages/chevrolet-logo.svg"
               alt=""
             />
           </div>
-          <div>
+          <div (click)="addFilterOption('automaker', 'VOLKSWAGEN'); clickEffect($event.target)">
             <input type="image"
-              (click)="addFilterOption('automaker', 'VOLKSWAGEN')"
               src="../../../assets/img/carCatalogImages/volkswagem.svg"
               alt=""
             />
           </div>
 
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'TOYOTA'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'TOYOTA')"
               src="../../../assets/img/carCatalogImages/toyota-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'LAND_ROVER'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'LAND_ROVER')"
               src="../../../assets/img/carCatalogImages/landRover-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'AUDI'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'AUDI')"
               src="../../../assets/img/carCatalogImages/audi-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'PORSCHE'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'PORSCHE')"
               src="../../../assets/img/carCatalogImages/porshe-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'VOLVO'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'VOLVO')"
               src="../../../assets/img/carCatalogImages/volvo-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'PEUGEOT'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'PEUGEOT')"
               src="../../../assets/img/carCatalogImages/peugeot-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'NISSAN'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'NISSAN')"
               src="../../../assets/img/carCatalogImages/nissan-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'JEEP'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'JEEP')"
               src="../../../assets/img/carCatalogImages/jeep-logo.svg"
               alt=""
             />
           </div>
-          <div *ngIf="isBrandShow">
+          <div (click)="addFilterOption('automaker', 'TESLA'); clickEffect($event.target)" *ngIf="isBrandShow">
             <input type="image"
-              (click)="addFilterOption('automaker', 'TESLA')"
               src="../../../assets/img/carCatalogImages/tesla-logo.svg"
               alt=""
             />
