@@ -296,6 +296,12 @@ button.btn{
     color: white;
 }
 
+.loading-gif{
+    width: 10%;
+    margin-top: 100px;
+   
+}
+
 @media screen and (max-width: 1440px) {
     .cards-container{
         padding: 30px;

@@ -50,6 +50,9 @@ export class CatalogoCarroComponent {
   }
 
   ngOnInit(): void {
+    setTimeout(this.hideLoadinGif, 3000)
+
+    
     this.router.queryParams.subscribe(params => {
       if('search' in params){
         this.getAll(params['search'])
@@ -65,6 +68,8 @@ export class CatalogoCarroComponent {
       }
 
     });
+
+    
   }
   
   showAllBrands(){
@@ -126,6 +131,13 @@ export class CatalogoCarroComponent {
 
   isLogged() : boolean{
     return sessionStorage.getItem('token') ? true : false
+  }
+
+  hideLoadinGif(){
+    const loadGif = document.querySelector<HTMLElement>('.loading-gif');
+    loadGif!.style.display = 'none';
+      
+    
   }
 
 }
