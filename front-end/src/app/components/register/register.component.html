@@ -10,9 +10,10 @@
             <div *ngIf="sent && this.register.controls.fullname.errors?.['required']" class="warning-form">O nome deve estar preenchido!</div>
             <mat-form-field appearance="outline">
                 <mat-label>E-mail</mat-label>
-                <input matInput formControlName="email" type="email" required>
+                <input (change)="verifyEmail()" matInput formControlName="email" type="email" required>
             </mat-form-field>
             <div *ngIf="sent && this.register.controls.email.errors?.['required']" class="warning-form">O e-mail deve estar preenchido!</div>
+            <div *ngIf="emailExist" class="warning-form">O e-mail já esta cadastrado!</div>
             <div *ngIf="sent && this.register.controls.email.errors?.['email']" class="warning-form">E-mail inválido!</div>
             <mat-form-field appearance="outline">
                 <mat-label>Senha</mat-label>

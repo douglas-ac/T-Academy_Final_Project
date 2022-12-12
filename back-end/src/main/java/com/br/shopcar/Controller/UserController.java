@@ -2,6 +2,7 @@ package com.br.shopcar.Controller;
 
 import com.br.shopcar.Dto.ChangePassordDTO;
 import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
+import com.br.shopcar.Dto.GetEmail;
 import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Service.UserService;
@@ -58,5 +59,10 @@ public class UserController {
     public ResponseEntity changePassword(@PathVariable("idUser") long idUser,
                                                   @RequestBody ChangePassordDTO content){
         return ResponseEntity.status(HttpStatus.OK).body(userService.changePassword(idUser, content.getOldPassword(), content.getNewPassword()));
+    }
+
+    @PostMapping("/verifyEmail")
+    public ResponseEntity<Boolean> changePassword(@RequestBody GetEmail email){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.verifyIfEmailExist(email.getEmail()));
     }
 }

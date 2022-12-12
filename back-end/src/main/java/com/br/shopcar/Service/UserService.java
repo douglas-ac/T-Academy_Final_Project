@@ -101,4 +101,12 @@ public class UserService implements UserDetailsService{
             throw new IllegalArgumentException("Old password wrong");
         }
     }
- }
+
+    public Boolean verifyIfEmailExist(String email) {
+        User byEmail = userRepository.findByEmail(email);
+        if (byEmail != null){
+            return true;
+        }
+        return false;
+    }
+}

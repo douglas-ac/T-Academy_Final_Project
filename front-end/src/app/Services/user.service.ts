@@ -38,4 +38,23 @@ export class UserService {
 
     return this.http.post('http://localhost:8082/oauth/token', body , {headers});
   }
+
+  changePassword(id:number, oldPassword : string, newPassword : string){
+    let data = 
+    `{
+      "oldPassword" : "${oldPassword}",
+      "newPassword" : "${newPassword}"
+    }`
+    let token = this.authService.getToken()
+    var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
+    return this.http.post(`http://localhost:8082/api/v1/user/changePassword/${id}`, data , { headers: header })
+  }
+
+  verifyEmail(email : string){
+    const data = `{
+      "email" : "${email}"
+    }`
+    var header = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post<boolean>(`http://localhost:8082/api/v1/user/verifyEmail`, data,  { headers: header })
+  }
 }

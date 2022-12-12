@@ -16,6 +16,9 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  //verify email
+  emailExist : boolean = false;
+
   sent: boolean = false;
 
   constructor(
@@ -157,5 +160,11 @@ export class RegisterComponent {
 
   navigateToLogin(route: String) {
     this.router.navigate([`${route}`]);
+  }
+
+  verifyEmail(){
+    this.serviceRegister.verifyEmail(this.register.value.email || '').subscribe( data => {
+      this.emailExist = data
+    })
   }
 }

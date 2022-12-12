@@ -1,9 +1,10 @@
 <div class="cartao">
+    <h1 class="titulo"><b>Altere o que deseja : </b></h1>
 
     <div class="container">
         <form [formGroup]="AnnounceForm">
         <mat-form-field appearance="fill" class="dropdown">
-            <mat-label>Escolha uma marca</mat-label>
+            <mat-label>Veja se a marca esta correta</mat-label>
             <mat-select appearance="fill" [(ngModel)]="car.automaker" formControlName="brand">
                 <mat-option *ngFor="let auto of automakers|keyvalue" value="{{auto.key}}">{{auto.value}}</mat-option>
             </mat-select>
@@ -11,33 +12,18 @@
         <div *ngIf="sent && this.AnnounceForm.controls.brand.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
         <mat-form-field appearance="fill">
-            <mat-label>Informe um modelo</mat-label>
+            <mat-label>Veja se o modelo esta correta</mat-label>
             <input matInput placeholder="Ex. Celta, Uno" [(ngModel)]="car.model" formControlName="model" required>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.model.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
         <mat-form-field appearance="fill">
-            <mat-label>Informe a cor</mat-label>
+            <mat-label>Confirme a cor</mat-label>
             <input matInput placeholder="Ex. Branca, Prata" [(ngModel)]="car.color" formControlName="color" required>
         </mat-form-field>
         <div *ngIf="sent && this.AnnounceForm.controls.color.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
-        <mat-form-field appearance="fill" class="dropdown">
-            <mat-label>Informe o ano de fabricação</mat-label>
-            <mat-select appearance="fill" [(ngModel)]="car.year" formControlName="year">
-                <mat-option *ngFor="let year of years" value="{{year}}">{{year}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <div *ngIf="sent && this.AnnounceForm.controls.year.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
-
-        <mat-form-field appearance="fill" class="dropdown">
-            <mat-label>Informe a categoria do seu carro</mat-label>
-            <mat-select appearance="fill" [(ngModel)]="car.category" formControlName="category">
-                <mat-option *ngFor="let category of categorys" value="{{category}}">{{category}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <div *ngIf="sent && this.AnnounceForm.controls.category.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
-
+        <h1 class="titulo"><b>Altere o que deseja :</b></h1>
         <div class="container">
             <mat-form-field appearance="fill">
                 <mat-label>Qual é a quilometragem do seu carro?</mat-label>
@@ -47,32 +33,21 @@
             <div *ngIf="sent && this.AnnounceForm.controls.quilometragem.errors?.['pattern']" class="warning-form">Preencha o valor corretamente</div>
 
             <mat-form-field appearance="fill">
-                <mat-label>Fale um pouco mais sobre seu carro:</mat-label>
+                <mat-label>Confirme os dados do seu anuncio</mat-label>
                 <input matInput placeholder="Ex. Novo, unico dono.." [(ngModel)]="car.description" 
                 formControlName="description" required>
             </mat-form-field>
             <div *ngIf="sent && this.AnnounceForm.controls.description.errors?.['required']" class="warning-form">Este campo deve estar preenchido!</div>
 
             <mat-form-field appearance="fill">
-                <mat-label> Por quanto você quer vender o seu carro?</mat-label>
+                <mat-label> Confirme o valor</mat-label>
                 <input matInput placeholder="Ex. 60.000,00" [(ngModel)]="car.price" mask="separator.0"
                     thousandSeparator="." prefix="RS " formControlName="price">
             </mat-form-field>
             <div *ngIf="sent && this.AnnounceForm.controls.price.errors?.['pattern']" class="warning-form">Preencha o valor corretamente</div>
         </div>
 
-        <mat-grid-list cols="1">
-            <mat-grid-tile>
-                <img src="../../assets/img/photo.png" alt="">
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <label class="btn btn-default">
-            <input type="file" (change)="selectFile($event)">
-        </label>
-          
-        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
-
+        <h1 class="titulo"><b>Confirme a localização do anúncio:</b></h1>
         <div class="container">
             <mat-form-field appearance="fill">
                 <mat-label>CEP</mat-label>

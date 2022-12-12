@@ -1,5 +1,5 @@
 <div >
-<!--     <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
+    <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
         <img src="../../assets/img/user.png" alt="" height="150px">
     
         <h1 class="nome">{{user.name}}</h1>
@@ -9,14 +9,18 @@
             <h2>E-mail: {{user.email}}</h2>
             <h2>Localização: {{user.address?.localidade + " - " + user.address?.uf}}</h2>
         </div>
-    </div> -->
+
+        <button class="btn btn-warning" routerLink="/mudar-senha/{{user.id}}"> Alterar senha </button>
+    </div> 
+
+    
 
     <h1 class="titulo-anuncios">Seus anúncios</h1>
 
     <div class="cards-container">
         <div *ngFor="let ad of user.announcementList" class="card">
             <div class="d-flex justify-content-end">
-                <img class="delete-icon" src="../../../assets/img/lapis.png" alt="" height="20px" routerLink="/editar-anuncio">
+                <img class="delete-icon" src="../../../assets/img/lapis.png" alt="" height="20px" routerLink="/editar-anuncio/{{ad.id}}">
                 <img class="delete-icon" src="../../../assets/img/trash.png" alt="" height="20px" (click)="remover(ad.id)">
             </div>
             <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" onerror="this.src='../../../assets/img/carCatalogImages/default-car-image.svg' " alt="" />
