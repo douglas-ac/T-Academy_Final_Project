@@ -16,6 +16,7 @@ import { PartsCatalogComponent } from './components/parts-catalog/parts-catalog.
 import { AuthService } from './Services/auth.service';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
+import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate:[AuthService]},
   {path: 'anuncio/:id', component : AnnounceComponent},
   {path: 'anuncio-part/:id', component : AnnouncePartComponent},
-  {path: 'password-recovery', component: PasswordRecoveryComponent}
+  {path: 'password-recovery', component: PasswordRecoveryComponent},
+  {path: 'mudar-senha/:id', component: EditPasswordComponent}
 ];
 
 @NgModule({

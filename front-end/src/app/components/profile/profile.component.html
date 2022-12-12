@@ -1,5 +1,5 @@
 <div >
-<!--     <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
+    <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
         <img src="../../assets/img/user.png" alt="" height="150px">
     
         <h1 class="nome">{{user.name}}</h1>
@@ -9,7 +9,11 @@
             <h2>E-mail: {{user.email}}</h2>
             <h2>Localização: {{user.address?.localidade + " - " + user.address?.uf}}</h2>
         </div>
-    </div> -->
+
+        <button class="btn btn-warning" routerLink="/mudar-senha/{{user.id}}"> Alterar senha </button>
+    </div> 
+
+    
 
     <h1 class="titulo-anuncios">Seus anúncios</h1>
 

@@ -35,6 +35,7 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
 // import { EditCarComponent } from './edit-car/edit-car.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 
 
 
@@ -59,7 +60,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     // EditCarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    EditPasswordComponent
   ],
   imports: [
     BrowserModule,
