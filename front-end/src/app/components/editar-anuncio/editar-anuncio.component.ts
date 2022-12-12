@@ -96,8 +96,10 @@ export class EditarAnuncioComponent implements OnInit {
     this.announce.product = this.car
     let userId = sessionStorage.getItem('idUser')
 
-    this.carService.put(this.announce.product.id, this.car).subscribe()
-    this.router.navigateByUrl(`anuncio/${this.announceId}`)
+    this.carService.put(this.announce.product.id, this.car).subscribe( data => {
+      this.announce.product = data 
+      this.router.navigateByUrl(`anuncio/${this.announceId}`)
+    })
     }
 
       getCar(data : any){
