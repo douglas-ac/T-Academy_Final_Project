@@ -71,7 +71,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 
@@ -194,6 +194,7 @@ input::-webkit-inner-spin-button {
 
 .brands-container{
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -289,6 +290,10 @@ input[type=checkbox]{
     text-decoration: underline;
 }
 
+.click-effect{
+    transform: scale(1.1);
+}
+
 
 h2,h3{
     font-weight: 700;
@@ -338,9 +343,5 @@ h2,h3{
 
     .clean-filter-container{
         margin: 0 auto;
-    }
-
-    .brands-container{
-        justify-content: flex-start;
     }
 }

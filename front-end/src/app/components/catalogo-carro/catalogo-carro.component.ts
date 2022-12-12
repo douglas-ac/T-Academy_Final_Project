@@ -136,8 +136,14 @@ export class CatalogoCarroComponent {
   hideLoadinGif(){
     const loadGif = document.querySelector<HTMLElement>('.loading-gif');
     loadGif!.style.display = 'none';
-      
+  }
     
+  clickEffect(elem: any){
+    let e = elem as HTMLElement
+    if(elem instanceof HTMLInputElement){
+      e = (elem.parentNode as HTMLElement) || e
+    }
+    e.classList.toggle('click-effect')
   }
 
 }

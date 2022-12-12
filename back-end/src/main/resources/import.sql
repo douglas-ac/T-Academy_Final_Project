@@ -43,11 +43,11 @@ INSERT INTO `announcement`(`bairro`,`cep`,`complemento`, `localidade`,`logradour
 
 insert into role(authority)values('ROLE_USER');
 insert into role(authority)values('ROLE_ADMIN');
--- ORDERS' INSERTS
-insert into `orders` (`discount`, `sub_total`, `user_id`) values (10, 450, 2);
+-- -- ORDERS' INSERTS
+-- insert into `orders` (`discount`, `sub_total`, `user_id`) values (10, 450, 2);
 
 -- INSERTS IN HELPER TABLE, ORDER-PRODUTCT
-insert into `order_to_product` values (1, 4);
+-- insert into `order_to_product` values (1, 4);
 
 -- COMMENTS' INSERTS
 INSERT INTO `comment` (`message`, `time`, `announcement_id`, `user_id`) VALUES ('Olá Mário tudo bem? Gostaría de saber se esse carro possui ar condicionado?', NOW(), 2, 2);
