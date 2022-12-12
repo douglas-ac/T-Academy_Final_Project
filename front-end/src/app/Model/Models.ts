@@ -170,7 +170,7 @@ export class UserClass {
     nacionalNumber?: string;
     descriminationColumn?: string;
     fone!: string;
-    adress?: Address;
+    address?: Address;
 }
 
 export class AdressClass {

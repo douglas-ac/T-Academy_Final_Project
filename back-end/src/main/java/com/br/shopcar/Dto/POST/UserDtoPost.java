@@ -45,6 +45,7 @@ public class UserDtoPost {
         user.setNacionalNumber(this.getNacionalNumber());
         user.setDescriminationColumn(this.getDescriminationColumn());
         user.setFone(this.getFone());
+        user.setAddress(this.getAddress());
         return user;
     }
 }

@@ -4,8 +4,8 @@ INSERT INTO `user`(`bairro`,`cep`,`complemento`,`localidade`,`logradouro`,`uf`,`
 INSERT INTO `user`(`bairro`,`cep`,`complemento`,`localidade`,`logradouro`,`uf`,`birth_date`,`descrimination_column`,`email`,`fone`,`password`,`username`,`nacional_number`,`name`) VALUES ('Barra', '41000-000', '', 'Salvador', 'Orla', 'BA', '22-07-1992', 'CPF', 'maria@gmail.com', '71987654321', '$2a$12$Ml0FV/yHsQ6xqTfOJbW/9eW8f/UDybZRy4hph1ZE5gMT2rADXvyPW', 'maria', '98765432198', 'Maria da Silva');
 
 -- CARS' INSERTS
-INSERT INTO `product_model` (`product_type`,`description`,`name`,`price`, `year`,`model`,`quilometragem`,`automaker`,`category`,`part_condition`, `color`) VALUES (1,'Prata, 4 portas, ano 2010','Celta', 10000, 2010, '2010/2011', 200000, 'CHEVROLET', 'popular', NULL, 'Vermelho');
-INSERT INTO `product_model` (`product_type`,`description`,`name`,`price`, `year`,`model`,`quilometragem`,`automaker`,`category`,`part_condition`, `color`) VALUES (1,'Vermelho, 4 portas, ano 2010, AC','Celta',12000, 2010,'2010/2011', 150000, 'CHEVROLET', 'popular', NULL,'Azul');
+INSERT INTO `product_model` (`product_type`,`description`,`name`,`price`, `year`,`model`,`quilometragem`,`automaker`,`category`,`part_condition`, `color`) VALUES (1,'Prata, 4 portas, ano 2010','Celta', 10000, 2010, '2010/2011', 200000, 'CHEVROLET', 'popular', NULL, 'Prata');
+INSERT INTO `product_model` (`product_type`,`description`,`name`,`price`, `year`,`model`,`quilometragem`,`automaker`,`category`,`part_condition`, `color`) VALUES (1,'Vermelho, 4 portas, ano 2010, AC','Celta',12000, 2010,'2010/2011', 150000, 'CHEVROLET', 'popular', NULL,'Vermelho');
 INSERT INTO `product_model` (`product_type`,`description`,`name`,`price`, `year`,`model`,`quilometragem`,`automaker`,`category`,`part_condition`, `color`) VALUES (1,'4 portas, ano 2008','Uno',8500, 2008, 'Mile', 180000, 'CHEVROLET', 'popular', NULL, 'Branco');
 INSERT INTO `product_model` (`product_type`, `description`, `name`, `price`, `year`, `automaker`, `model`, `category`, `color`, `quilometragem`) VALUES (1, "Ar condicionado e vidro elétrico", "Palio", 35000, 2012, 'FIAT', "Palio", "popular", "prata", 200645.3);
 INSERT INTO `product_model` (`product_type`, `description`, `name`, `price`, `year`, `automaker`, `model`, `category`, `color`, `quilometragem`) VALUES (1, "Vidro elétrico", "Crossfox", 45000, 2022, 'VOLKSWAGEN', "Crossfox", "SUV", "Preto", 0);
@@ -48,3 +48,6 @@ insert into `orders` (`discount`, `sub_total`, `user_id`) values (10, 450, 2);
 
 -- INSERTS IN HELPER TABLE, ORDER-PRODUTCT
 insert into `order_to_product` values (1, 4);
+
+-- COMMENTS' INSERTS
+INSERT INTO `comment` (`message`, `time`, `announcement_id`, `user_id`) VALUES ('Bem vindos ao meu anúncio pessoal, qualquer dúvida só perguntar :)', NOW(), 1, 1);
