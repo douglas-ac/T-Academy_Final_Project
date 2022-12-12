@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdressClass, AnnounceCarClass, CarClass, Images, UserClass } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 import { CarService } from 'src/app/Services/car.service';
 import { CepService } from 'src/app/Services/cep.service';
-import { UploadService } from 'src/app/Services/upload.service';
 
 @Component({
   selector: 'app-editar-anuncio',
@@ -13,7 +12,11 @@ import { UploadService } from 'src/app/Services/upload.service';
   styleUrls: ['./editar-anuncio.component.css']
 })
 export class EditarAnuncioComponent implements OnInit {
+  
   sent: boolean = false
+
+  //announceId
+  announceId !: number
 
   //images 
   selectedFiles!: FileList;
@@ -26,10 +29,14 @@ export class EditarAnuncioComponent implements OnInit {
   //params for option in html
   years : number[] = []
   categorys : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
-  automakers : object = {} 
+  automakers : object = {}
   
-  constructor(private carService : CarService, private router : Router,
-              private cepService : CepService, private announceService : AnnounceService, private serciceUploadPhoto : UploadService) { }
+  constructor(  private carService : CarService,
+                private router : Router,
+                private cepService : CepService, 
+                private announceService : AnnounceService, 
+                private route: ActivatedRoute) 
+                { this.route.params.subscribe((params) => (this.announceId = params['id'])); }
 
   AnnounceForm = new FormGroup ({
     brand: new FormControl('', [Validators.required]),
@@ -63,6 +70,13 @@ export class EditarAnuncioComponent implements OnInit {
 
     this.announce.adress = new AdressClass();
     this.announce.image = new Images();
+
+    this.announceService.getOne(this.announceId).subscribe( data => {
+      let carToChange = this.getCar(data.product)
+      this.car = carToChange
+  
+      this.announce.adress = data.address
+    })
   }
 
   atualizarCep(){
@@ -78,47 +92,17 @@ export class EditarAnuncioComponent implements OnInit {
 
   updateAnnounce(){
     this.sent = true
-    
-      this.carService.post(this.car).subscribe( data => {
-        this.car = data
-        this.announce.amount = 1;
-  
-        this.announce.user = this.user
-        this.announce.user.id = 1
-        
-        this.announce.product = this.car
-    
-        var obj = 
-        `{   
-          "user" : {"id" : ${this.announce.user.id}},
-          "amount" : 1,
-          "product" : {"id" : ${this.announce.product.id}},
-          "address" : {
-            "cep" : "${this.announce.adress.cep}",
-            "localidade" : "${this.announce.adress.localidade}",
-            "bairro" : "${this.announce.adress.bairro}",
-            "logradouro" : "${this.announce.adress.logradouro}",
-            "complemento" : "${this.announce.adress.complemento}",
-            "uf" : "${this.announce.adress.uf}"}
-          }`;
-        
-        console.log(obj)
-        this.announceService.post(obj).subscribe( (data:any) => {
-          this.serciceUploadPhoto.id = data.id
-          this.upload()
-        })
-      });
-        this.router.navigate(['sell-car07'])
+
+    this.announce.product = this.car
+    let userId = sessionStorage.getItem('idUser')
+
+    this.carService.put(this.announce.product.id, this.car).subscribe()
+    this.router.navigateByUrl(`anuncio/${this.announceId}`)
     }
 
-    upload() : string {
-      const file = this.selectedFiles.item(0);
-      let location = this.serciceUploadPhoto.uploadFile(file);
-      return location as any as string
+      getCar(data : any){
+        return data as CarClass
       }
-      
-    selectFile(event) {
-      this.selectedFiles = event.target.files;
-      }
+
   }
 

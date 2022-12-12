@@ -48,4 +48,11 @@ public class CarController {
     public ResponseEntity<LinkedHashMap<String, String>> allMakers(){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAllMakers());
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<CarDto> save(@PathVariable("id") Long id,
+                                       @RequestBody CarDto carDto){
+        CarDto update = productService.update(carDto, id);
+        return ResponseEntity.status(HttpStatus.CREATED).body(update);
+    }
+
 }
