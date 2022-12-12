@@ -50,4 +50,8 @@ insert into `orders` (`discount`, `sub_total`, `user_id`) values (10, 450, 2);
 insert into `order_to_product` values (1, 4);
 
 -- COMMENTS' INSERTS
-INSERT INTO `comment` (`message`, `time`, `announcement_id`, `user_id`) VALUES ('Bem vindos ao meu anúncio pessoal, qualquer dúvida só perguntar :)', NOW(), 2, 1);
+INSERT INTO `comment` (`message`, `time`, `announcement_id`, `user_id`) VALUES ('Olá Mário tudo bem? Gostaría de saber se esse carro possui ar condicionado?', NOW(), 2, 2);
+
+-- COMMENTS ANSWER' INSERTS
+INSERT INTO `comment_answer` (`message`, `time_created`, `comment_id`, `user_id`) VALUES ('Opa! Fala Douglas tudo certo! Tem ar condicionado, aquecedor, ventilador... Tem de tudo :)', NOW(), 1, 1);
+INSERT INTO `comment_answer` (`message`, `time_created`, `comment_id`, `user_id`) VALUES ('Massa, show de bola!', NOW(), 1, 2);
