@@ -13,7 +13,7 @@ import { CommentService } from 'src/app/Services/comment.service';
 export class AnnounceComponent {
   comment!: Comment;
   announceId!: number;
-  announce!: Announce;
+  announce !: Announce 
   car!: Car;
   image: any;
   http: any;

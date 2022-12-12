@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class EditPasswordComponent {
   userId = sessionStorage.getItem('idUser') || ''
   id = Number(this.userId)
 
-  constructor(private userService: UserService){ }
+  constructor(private userService: UserService, private router : Router){ }
 
   passwordHolder = new FormGroup({
     oldPassword : new FormControl('', [Validators.required]),
@@ -38,6 +38,10 @@ export class EditPasswordComponent {
     this.userService.changePassword(this.id , 
                                     this.passwordHolder.value.oldPassword || '', 
                                     this.passwordHolder.value.password || '' )
-                                    .subscribe( data => console.log(data))
+                                    .subscribe( data => this.navigate(`profile`))
+  }
+
+  navigate(route : string){
+    this.router.navigate([`${route}`])
   }
 }
