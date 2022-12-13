@@ -28,7 +28,7 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 <!--ts-->
 
 - [Description](#-description)
-- [Prerequisites](#prerequisites)
+- [Prerequisites](#-prerequisites)
 - [Running Back End](#-running-back-end-server)
 - [Running Front End](#-running-front-end-client)
 - [Technologies](#-technologies)
@@ -46,7 +46,7 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 
 <a text-align="center" align="center" href="https://www.figma.com/file/TezpiC5UlsXQoCN2E3dY54/Projeto-Final-ProWay?node-id=0%3A1&t=KrdrsdgmcSEDjJ8c-0"> `Link design figma` </a>
 
-# Prerequisites
+# ✅ Prerequisites
 
 Before starting, you will need to have the following tools installed on your machine:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) and [Java JDK](https://www.java.com/pt-BR/).
@@ -74,7 +74,7 @@ $ maven run
 
 ```
 
-# ✨ Running Front End (client)
+# 💻 Running Front End (client)
 
 ```bash
 # Clone este repositório
@@ -138,4 +138,4 @@ The following tools were used in building the project:
 </table>
 
 
-<a href="#shoppingcart">Back to top</a>
+<a href="#hopcar">Back to top</a>
