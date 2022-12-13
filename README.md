@@ -28,6 +28,9 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 <!--ts-->
 
 - [Description](#-description)
+- [Prerequisites](#prerequisites)
+- [Running Back End](#-running-back-end-server)
+- [Running Front End](#-running-front-end-client)
 - [Technologies](#-technologies)
 - [Features](#-features)
 - [Contributors](#-contributors)
@@ -43,13 +46,13 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 
 <a text-align="center" align="center" href="https://www.figma.com/file/TezpiC5UlsXQoCN2E3dY54/Projeto-Final-ProWay?node-id=0%3A1&t=KrdrsdgmcSEDjJ8c-0"> `Link design figma` </a>
 
-# Pré-requisitos
+# Prerequisites
 
 Before starting, you will need to have the following tools installed on your machine:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) and [Java JDK](https://www.java.com/pt-BR/).
 Also it's nice to have an editor to work with the code like [VSCode](https://code.visualstudio.com/) and Intellij IDEA.
 
-# 🎲 Rodando o Back End (servidor)
+# 🎲 Running Back End (server)
 
 ```bash
 # Clone este repositório
@@ -67,11 +70,11 @@ $ npm install
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev:server
 
-# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+# O servidor inciará na porta:3333 - acesse <http://localhost:8082>
 
 ```
 
-# ✨ Rodando o Front End (cliente)
+# ✨ Running Front End (client)
 
 ```bash
 # Clone este repositório
