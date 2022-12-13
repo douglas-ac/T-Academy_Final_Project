@@ -21,12 +21,16 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 <p align="center">
 <img width="100%"  align="left" src="./front-end/src/assets/img/readme/gif-shopcar.gif">
 </p>
+<p>&nbsp</p>
 
 # 📌 Topics
 
 <!--ts-->
 
 - [Description](#-description)
+- [Prerequisites](#-prerequisites)
+- [Running Back End](#-running-back-end-server)
+- [Running Front End](#-running-front-end-client)
 - [Technologies](#-technologies)
 - [Features](#-features)
 - [Contributors](#-contributors)
@@ -36,11 +40,60 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 
 > ShopCar is a project built to put into practice all the lessons learned from T-Systems' T-Academy. The project consists of a virtual marketplace, connecting car sellers and people who want to buy them, as well as an auto part shop. It was built using mainly Java Spring, Angular and using MySQL as its database. ShopCar was developed using the TDD methodology, having unity test classes for its entities and using Postman and ThunderClient to test the backend requisitions. The git repository is divided in two main parts, back-end and front-end, and the project documentation was made using Swagger.
 
-<img  src="./front-end/src/assets/img/homeImages/jeep-red-car.svg" >
+<img  src="./front-end/src/assets/img/homeImages/jeep-red-car.svg" width=40% >
 
-<p></p>
+
 
 <a text-align="center" align="center" href="https://www.figma.com/file/TezpiC5UlsXQoCN2E3dY54/Projeto-Final-ProWay?node-id=0%3A1&t=KrdrsdgmcSEDjJ8c-0"> `Link design figma` </a>
+
+# ✅ Prerequisites
+
+Before starting, you will need to have the following tools installed on your machine:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) and [Java JDK](https://www.java.com/pt-BR/).
+Also it's nice to have an editor to work with the code like [VSCode](https://code.visualstudio.com/) and [Intellij IDEA](https://www.jetbrains.com/pt-br/idea/).
+
+# 🎲 Running Back End (server)
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/douglas-ac/T-Academy_Final_Project.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd T-Academy_Final_Project
+
+# Vá para a back-end
+$ cd back-end
+
+# Instale as dependências
+$ maven reload
+
+# Execute a aplicação 
+$ maven run
+
+# O servidor inciará na porta:8082 - acesse <http://localhost:8082>
+
+```
+
+# 💻 Running Front End (client)
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/douglas-ac/T-Academy_Final_Project.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd T-Academy_Final_Project
+
+# Vá para a pasta server
+$ cd front-end
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ ng serve
+
+# O servidor inciará na porta:4200 - acesse <http://localhost:4200>
+```
 
 # 🚀 Technologies
 
@@ -85,4 +138,4 @@ The following tools were used in building the project:
 </table>
 
 
-<a href="#shoppingcart">Back to top</a>
+<a href="#hopcar">Back to top</a>

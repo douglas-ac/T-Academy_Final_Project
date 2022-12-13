@@ -1,5 +1,6 @@
 package com.br.shopcar.Service;
 
+import com.br.shopcar.Dto.GET.Slim.UserDtoSlim;
 import com.br.shopcar.Dto.GET.UserDto;
 import com.br.shopcar.Dto.POST.UserDtoPost;
 import com.br.shopcar.Model.User.User;
@@ -91,7 +92,7 @@ public class UserServiceTests {
 
     @Test
     void save_ShouldReturnUserDTO(){
-        UserDto userDto = userService.save(userDtoPost);
+        UserDtoSlim userDto = userService.save(userDtoPost);
 
         Assertions.assertNotNull(userDto);
         verify(userRepository).save(any());
