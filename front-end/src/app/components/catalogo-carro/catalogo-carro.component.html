@@ -243,8 +243,8 @@
     </div>
     
     <div class="cars-catalog-right">
-      <img *ngIf="isLogged()" class="loading-gif" src="../../../assets/img/loading.gif" alt="">
-      <div class="cards-container">
+      <img *ngIf="loading" class="loading-gif" src="../../../assets/img/loading.gif" alt="">
+      <div #not_loading class="cards-container">
         <div *ngFor="let ad of ads" class="card">
           <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" onerror="this.src='../../../assets/img/carCatalogImages/default-car-image.svg' " alt="" />
           <p class="username">{{ ad.user.name }}</p>
