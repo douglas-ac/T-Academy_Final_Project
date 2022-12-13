@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Timeout } from 'aws-sdk/clients/lambda';
 import { Announce, Car, Product } from 'src/app/Model/Models';
 import { AnnounceService } from 'src/app/Services/announce.service';
 
@@ -8,24 +9,29 @@ import { AnnounceService } from 'src/app/Services/announce.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   mostClickedCarads: Announce[] = []
   search: string = ""
   countAddCar: number = 0
+  sliderTimeouts: any[] = []
 
 constructor(private router : Router, private announceService: AnnounceService) { }
 
   ngOnInit(): void {
 
-      setTimeout(this.handleDot2Click, 2000)
-      setTimeout(this.handleDot3Click, 4000)
-      setTimeout(this.handleDot1Click, 6000)
+      this.sliderTimeouts.push(setTimeout(this.handleDot2Click, 2000))
+      this.sliderTimeouts.push(setTimeout(this.handleDot3Click, 4000))
+      this.sliderTimeouts.push(setTimeout(this.handleDot1Click, 6000))
     
     this.announceService.getCountCars().subscribe(count => this.countAddCar = count)
     
     this.announceService.getMostClickedCars().subscribe((data: any) => this.mostClickedCarads = <Announce[]>data.content)
  
    
+  }
+
+  ngOnDestroy(): void {
+    this.sliderTimeouts.forEach(timeout=>clearTimeout(timeout))
   }
 
   handleDot1Click(){

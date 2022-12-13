@@ -45,12 +45,22 @@ export class CatalogoCarroComponent {
   isBrandShow:boolean = false;
   isColorShow:boolean = false;
   isCategoryShow:boolean = false;
+  
+  loading:boolean = true;
 
   constructor(private service: AnnounceService, private router:ActivatedRoute, private utils: UtilsService){
   }
 
   ngOnInit(): void {
-    setTimeout(this.hideLoadinGif, 3000)
+    let loadingChecking = setInterval(()=>{
+      if(this.ads.length>0){
+        this.hideLoadinGif()
+      }
+    }, 100)
+    setTimeout(()=>{
+      clearInterval(loadingChecking)
+      this.hideLoadinGif()
+    }, 10000)
 
     
     this.router.queryParams.subscribe(params => {
@@ -134,8 +144,9 @@ export class CatalogoCarroComponent {
   }
 
   hideLoadinGif(){
-    const loadGif = document.querySelector<HTMLElement>('.loading-gif');
-    loadGif!.style.display = 'none';
+    // const loadGif = document.querySelector<HTMLElement>('.loading-gif');
+    // loadGif!.style.display = 'none';
+    this.loading = false
   }
     
   clickEffect(elem: any){
