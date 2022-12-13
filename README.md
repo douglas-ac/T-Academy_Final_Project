@@ -50,7 +50,7 @@ E-marketplace of advertisements for cars and parts.</i></b></p>
 
 Before starting, you will need to have the following tools installed on your machine:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) and [Java JDK](https://www.java.com/pt-BR/).
-Also it's nice to have an editor to work with the code like [VSCode](https://code.visualstudio.com/) and Intellij IDEA.
+Also it's nice to have an editor to work with the code like [VSCode](https://code.visualstudio.com/) and [Intellij IDEA](https://www.jetbrains.com/pt-br/idea/).
 
 # 🎲 Running Back End (server)
 
@@ -61,16 +61,16 @@ $ git clone <https://github.com/douglas-ac/T-Academy_Final_Project.git>
 # Acesse a pasta do projeto no terminal/cmd
 $ cd T-Academy_Final_Project
 
-# Vá para a pasta server
-$ cd front-end
+# Vá para a back-end
+$ cd back-end
 
 # Instale as dependências
-$ npm install
+$ maven reload
 
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
+# Execute a aplicação 
+$ maven run
 
-# O servidor inciará na porta:3333 - acesse <http://localhost:8082>
+# O servidor inciará na porta:8082 - acesse <http://localhost:8082>
 
 ```
 
