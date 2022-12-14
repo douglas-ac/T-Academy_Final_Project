@@ -257,6 +257,20 @@
         <p class="see-more" (click)="showAllBrands()">Ver todas as marcas</p>
       </div>
 
+      <div class="cars filter-option">
+        <h3>Condição</h3>
+        <div class="checkbox-container-cars">
+          <div class="check-label">
+            <input type="checkbox" name="newCar" id="newCar" (change)="addFilterOption('part_condition', 'NOVO')"/>
+            <label for="newCar">Novo</label>
+          </div>
+          <div class="check-label">
+            <input type="checkbox" name="usedCar" id="usedCar" (change)="addFilterOption('part_condition', 'USADO')"/>
+            <label for="usedCar">Seminovo</label>
+          </div>
+        </div>
+      </div>
+
       <div class="vehicle-type filter-option">
         <h3>Tipo de veículo</h3>
         <div class="checkbox-container">
