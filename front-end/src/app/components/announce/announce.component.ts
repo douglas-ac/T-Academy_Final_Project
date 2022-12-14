@@ -24,6 +24,8 @@ export class AnnounceComponent {
   imageUrl !: string 
   isLogged: boolean = false;
 
+  commentIdDeletion: number = -1
+
   constructor(
     private announceService: AnnounceService,
     private route: ActivatedRoute,
@@ -57,8 +59,7 @@ export class AnnounceComponent {
 
   addComment() {
     let idUser = sessionStorage.getItem('idUser') || ''
-    let message = (document.querySelector('#comment-input') as HTMLInputElement)
-      .value;
+    let message = (document.querySelector('#comment-input') as HTMLInputElement);
     let annouceId = this.announceId ;
 
     let user = new UserClass()
@@ -71,14 +72,15 @@ export class AnnounceComponent {
     date.getDate()
 
     comment.user = user
-    comment.message = message
+    comment.message = message.value
     comment.announcement = announce
     comment.time = date
     
-    this.commentService.post(comment).subscribe(() => {})
+    this.commentService.post(comment).subscribe((data:CommentClass) => {
+      this.comments.push(data)
+      message.value = ""
+    })
 
-   console.log(comment)
-   window.location.href = window.location.href;
   }
 
   getComment() {
@@ -101,20 +103,26 @@ export class AnnounceComponent {
     let comment = new CommentClass()
     comment.id = id
 
-    let commentAnswer = new CommentAnswerDtoClass()
-    commentAnswer.message = message
-    commentAnswer.timeCreated = date
-    commentAnswer.user = user
-    commentAnswer.comment = comment
+    let newCommentAnswer = new CommentAnswerDtoClass()
+    newCommentAnswer.message = message
+    newCommentAnswer.timeCreated = date
+    newCommentAnswer.user = user
+    newCommentAnswer.comment = comment
 
-    this.commentAnswerService.post(commentAnswer).subscribe(() => {})  
-    window.location.href = window.location.href;
+    this.commentAnswerService.post(newCommentAnswer).subscribe(()=>{
+      window.location.href = window.location.href;
+    })  
   }
 
-  deleteComment(id: number) {
-    this.commentService.delete(id)
-    .subscribe(() => {})
-    window.location.href = window.location.href;
+  deleteComment(id: number|null = null) {
+    let i = id != null? id : this.commentIdDeletion
+    this.commentService.delete(i)
+    .subscribe(() => {
+      let index = this.comments.findIndex(c => {return c.id === i});
+      if (index > -1) {
+        this.comments.splice(index, 1);
+      }
+    })
   }
 
   haveToken():boolean{
