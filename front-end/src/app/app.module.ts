@@ -36,6 +36,7 @@ import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anunc
 // import { EditCarComponent } from './edit-car/edit-car.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -61,7 +62,8 @@ import { EditPasswordComponent } from './components/edit-password/edit-password.
     // EditCarComponent,
     FooterComponent,
     HomeComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
