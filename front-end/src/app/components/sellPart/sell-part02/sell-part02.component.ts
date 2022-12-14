@@ -113,7 +113,7 @@ import { UploadService } from 'src/app/Services/upload.service';
              }
             }`;
 
-           console.log(obj)
+          //  console.log(obj)
            this.announceService.post(obj).subscribe( (data:any) => {
             debugger
             if (this.selectedFiles != undefined && this.selectedFiles.length > 0){
@@ -130,5 +130,9 @@ import { UploadService } from 'src/app/Services/upload.service';
     let location = this.serviceUploadPhoto.uploadFile(file);
     return location as any as string
   }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+    }
 
  }

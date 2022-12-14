@@ -84,7 +84,7 @@
             <mat-grid-tile>
                 <form id="form" enctype="multipart/form-data">
                     <div class="input-group">
-                        <input id="file" type="file" multiple required/>
+                        <input id="file" type="file" (change)="selectFile($event)"/>
                     </div>
                 </form>
             </mat-grid-tile>
