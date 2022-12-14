@@ -90,7 +90,7 @@ export class AnnounceComponent {
   }
 
   addCommentAnswer(id: number) {
-    let message = (document.querySelector('#comment-answer') as HTMLInputElement).value;
+    let message = (document.querySelector('#comment-answer'+id) as HTMLInputElement).value;
     let date = new Date()
     date.getDate()
 

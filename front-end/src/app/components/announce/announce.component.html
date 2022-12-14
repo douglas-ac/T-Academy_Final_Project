@@ -73,7 +73,7 @@
           <p>{{message.message}}</p>
         </div>
       </div>
-      <textarea *ngIf="isLogged" id="comment-answer" placeholder="Responder" rows="5"></textarea>
+      <textarea *ngIf="isLogged" id="comment-answer{{comment.id}}" placeholder="Responder" rows="5"></textarea>
       <div>
         <button *ngIf="isLogged" (click)="addCommentAnswer(comment.id)">Responder</button>
       </div>
