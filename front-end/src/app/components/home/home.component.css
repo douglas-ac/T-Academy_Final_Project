@@ -19,6 +19,8 @@
 .slider-banner-announce {
   background-image: url(../../../assets/img/homeImages/banner-announce-bg.svg);
   background-color: black;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .slider-banner h2,
@@ -623,6 +625,12 @@ h1,h2,h3{
   width: 50%;
  }
 
+}
+
+@media screen and (max-width: 906px) {
+  .slider-banner-announce {
+    background-size: auto;
+  }
 }
 
 
