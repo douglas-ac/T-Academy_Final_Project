@@ -17,6 +17,7 @@ import { AuthService } from './Services/auth.service';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { EditarAnuncioComponent } from './components/editar-anuncio/editar-anuncio.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'anuncio/:id', component : AnnounceComponent},
   {path: 'anuncio-part/:id', component : AnnouncePartComponent},
   {path: 'password-recovery', component: PasswordRecoveryComponent},
-  {path: 'mudar-senha/:id', component: EditPasswordComponent}
+  {path: 'mudar-senha/:id', component: EditPasswordComponent},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
