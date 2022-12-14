@@ -17,11 +17,11 @@ export class AnnounceService {
   getAll() {
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce")
   }
-  
+
   getCountCars() {
     return this.http.get<number>("http://localhost:8082/api/v1/announce/cars/count")
   }
-  
+
   getMostClickedCars() {
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce/cars/most-clicked")
   }
@@ -41,7 +41,7 @@ export class AnnounceService {
   getAllParts():Observable<Announce[]>{
     return this.http.get<Announce[]>("http://localhost:8082/api/v1/announce/parts")
   }
-  
+
   getAutopartsByCriteria(filters: any) {
     return this.http.post<Announce>("http://localhost:8082/api/v1/announce/parts/filters", filters)
   }
@@ -55,6 +55,12 @@ export class AnnounceService {
     var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
     return this.http.post<AnnounceCarClass>("http://localhost:8082/api/v1/announce",data , { headers: header })
   }
+
+  postPart(data : string){
+      let token = this.authService.getToken()
+      var header = new HttpHeaders({'Authorization': 'Bearer ' + token , 'Content-Type': 'application/json'});
+      return this.http.post<AnnounceCarClass>("http://localhost:8082/api/v1/announce",data , { headers: header })
+    }
 
   delete(id:number){
     let token = this.authService.getToken()

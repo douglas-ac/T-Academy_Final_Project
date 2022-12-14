@@ -1,6 +1,7 @@
 package com.br.shopcar.Service;
 
 import com.br.shopcar.Model.Announcement.Announcement;
+import com.br.shopcar.Model.Announcement.Comment;
 import com.br.shopcar.Model.User.User;
 import com.br.shopcar.Repository.AnnouncementRepository;
 import org.junit.jupiter.api.Assertions;
@@ -29,6 +30,8 @@ public class AnnouncementServiceTest {
     private Long invalidId;
     private List<Announcement> lista;
 
+    private List<Comment> listCom;
+
     @InjectMocks
     private AnnouncementService service;
 
@@ -47,10 +50,17 @@ public class AnnouncementServiceTest {
         user.setName("User");
         user.setId(1L);
 
+        Comment com = new Comment();
+        com.setId(1);
+        com.setUser(user);
+        com.setMessage("a");
+        listCom.add(com);
+
         announcement = new Announcement();
         announcement.setUser(user);
         announcement.setAmount(10);
         announcement.setId(validId);
+        announcement.setComments(listCom);
 
 
         Mockito.when(repository.save(any())).thenReturn(announcement);
@@ -106,4 +116,7 @@ public class AnnouncementServiceTest {
     }
 
 
+    public void setListCom(List<Comment> listCom) {
+        this.listCom = listCom;
+    }
 }

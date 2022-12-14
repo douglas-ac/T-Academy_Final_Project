@@ -7,6 +7,7 @@
  import { CepService } from 'src/app/Services/cep.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CarService } from 'src/app/Services/car.service';
+import { UploadService } from 'src/app/Services/upload.service';
 
  @Component({
    selector: 'app-sell-part02',
@@ -15,30 +16,30 @@ import { CarService } from 'src/app/Services/car.service';
  })
  export class SellPart02Component implements OnInit {
    sent: boolean = false
+   selectedFiles!: FileList;
 
    //classes used to build object
    announce : AnnouncePartClass = new AnnouncePartClass();
    part : PartClass = new PartClass();
    user : UserClass = new UserClass();
-   car : CarClass = new CarClass();
 
    //params for option in html
    years : number[] = []
-   categorys : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
+   vehicle_types: string[] = ['Caminhao', 'Carro', 'Motocileta', 'Onibus', 'Agro', 'Suv', 'Van', 'Outro']
    categories : string[] = ['Amortecedor', 'Climatização', 'Direção', 'Motorização', 'Transmissão', 'Suspensão', 'Frenagem', 'Carroceria', 'Segurança', 'Injeção e ignição', 'Exaustão', 'Elétrica', 'Outro']
    partmakers : object = {};
    automakers : object = {};
+   conditions : string[] = ['NOVO', 'USADO'];
 
-   constructor(private carService:CarService, private PartService : PartService, private router : Router,
+
+   constructor(private carService:CarService, private PartService : PartService, private router : Router, private serviceUploadPhoto : UploadService,
                private cepService : CepService, private announceService : AnnounceService, private authService : AuthService) { }
 
    AnnounceForm = new FormGroup ({
      brand: new FormControl('', [Validators.required]),
      model: new FormControl('', [Validators.required]),
-     color: new FormControl('', [Validators.required]),
      year: new FormControl('', [Validators.required]),
      category: new FormControl('', [Validators.required]),
-     quilometragem: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,}.[0-9]{3} +km+$')]),
      description: new FormControl('', [Validators.required]),
      price: new FormControl('', [Validators.required, Validators.pattern('RS [0-9]{1,3}.[0-9]{3}')]),
      cep: new FormControl('', [Validators.required]),
@@ -46,7 +47,10 @@ import { CarService } from 'src/app/Services/car.service';
      bairro: new FormControl('', [Validators.required]),
      localidade: new FormControl('', [Validators.required]),
      uf: new FormControl('', [Validators.required]),
-     complemento: new FormControl()
+     complemento: new FormControl(),
+     vehicleType: new FormControl('', [Validators.required]),
+     part_condition: new FormControl('', [Validators.required]),
+     automaker: new FormControl('', [Validators.required])
    })
 
 
@@ -82,57 +86,49 @@ import { CarService } from 'src/app/Services/car.service';
    }
 
    registerAnnounce(){
-     this.sent = true
+       this.sent = true
 
-     this.saveImage()
-     this.PartService.postImage(this.PartService.getImage()).subscribe( response => {
-       this.PartService.post(this.part).subscribe( data => {
-         this.part = data
-         this.announce.amount = 1;
+        
+         this.PartService.post(this.part).subscribe( data => {
+           this.part = data
+           this.announce.amount = 1;
 
-         this.announce.user = this.user
-         this.announce.user.id = Number(this.authService.getId())
+           this.announce.user = this.user
+           this.announce.user.id = Number(sessionStorage.getItem("idUser"))
 
-         this.announce.product = this.part
+           this.announce.product = this.part
 
-         this.announce.image.id = response
-
-         var obj =
-         `{
-           "user" : {"id" : ${this.announce.user.id}},
-           "amount" : 1,
-           "product" : {"id" : ${this.announce.product.id}},
-           "address" : {
-             "cep" : "${this.announce.adress.cep}",
-             "localidade" : "${this.announce.adress.localidade}",
-             "bairro" : "${this.announce.adress.bairro}",
-             "logradouro" : "${this.announce.adress.logradouro}",
-             "complemento" : "${this.announce.adress.complemento}",
-             "uf" : "${this.announce.adress.uf}"
-           },
-           "image" : { "id" : ${this.announce.image.id}
+           var obj =
+           `{
+               "user" : {"id" : ${this.announce.user.id}},
+               "amount" : 1,
+               "product" : {"id" : ${this.announce.product.id}},
+               "address" : {
+                 "cep" : "${this.announce.adress.cep}",
+                 "localidade" : "${this.announce.adress.localidade}",
+                 "bairro" : "${this.announce.adress.bairro}",
+                 "logradouro" : "${this.announce.adress.logradouro}",
+                 "complemento" : "${this.announce.adress.complemento}",
+                 "uf" : "${this.announce.adress.uf}"
              }
-         }`;
+            }`;
 
-         console.log(obj)
-         this.announceService.post(obj).subscribe()
-       });
-         this.router.navigate(['sell-part06'])
-     })
-   }
+           console.log(obj)
+           this.announceService.post(obj).subscribe( (data:any) => {
+            debugger
+            if (this.selectedFiles != undefined && this.selectedFiles.length > 0){
+              this.serviceUploadPhoto.id = data.id
+              this.upload()
+              }
+             this.router.navigate(['sell-part06'])
+            })
+         });
+       }
 
+  upload() : string {
+    const file = this.selectedFiles.item(0);
+    let location = this.serviceUploadPhoto.uploadFile(file);
+    return location as any as string
+  }
 
-   saveImage(){
-     const form : any = document.getElementById("form");
-     const inputFile : any = document.getElementById("file");
-
-     const formData = new FormData();
-
-     for (const file of inputFile.files) {
-       formData.append("image", file);
-
-     }
-
-     this.PartService.saveImage(formData)
-   }
  }
