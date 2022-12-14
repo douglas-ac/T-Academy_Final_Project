@@ -76,19 +76,15 @@
 
 
         <h1 class="titulo"><b>Anúnicos com fotos vendem mais rápido :)<br>Que tal adicioná-las agora?</b></h1>
-        <mat-grid-list cols="2">
-            <mat-grid-tile>
+        <mat-grid-list cols="1">
+            <div>
                 <img src="../../assets/img/photo.png" alt="">
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <form id="form" enctype="multipart/form-data">
-                    <div class="input-group">
-                        <input id="file" type="file" (change)="selectFile($event)"/>
-                    </div>
-                </form>
-            </mat-grid-tile>
+            </div>
         </mat-grid-list>
+
+        <label class="btn btn-default">
+            <input type="file" (change)="selectFile($event)">
+        </label>
 
 
         <h1 class="titulo"><b>Confirme a localização do anúncio:</b></h1>
