@@ -41,7 +41,11 @@ nav ul li a {
     color: var(--secondary);
     font-weight: 700;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
+
+
 
 ul a {
     display: flex;
@@ -60,7 +64,7 @@ ul li a::after {
     width: 100%;
     position: absolute;
     background-color: var(--secondary);
-    bottom: -7px;
+    bottom: -10px;
     border-radius: 4px;
     transform: scaleX(0%);
     transition: transform 0.5s ease;
