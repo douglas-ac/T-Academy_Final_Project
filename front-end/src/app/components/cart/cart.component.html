@@ -7,7 +7,7 @@
   <div class="cart-item" *ngFor="let c of cart">
     <mat-grid-list cols="6">
       <mat-grid-tile colspan="2" rowspan="2" class="cart-img">
-        <img src="../../../assets/img/cartImages/partMock.png">
+        <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{c.id}}" onerror="this.src='../../../assets/img/partCatalogImages/default-part-image.svg' ">
 <!--          ### ADICIONAR A IMG DEPOIS ^ ###    -->
 
       </mat-grid-tile>
