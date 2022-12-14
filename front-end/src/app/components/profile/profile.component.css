@@ -26,7 +26,22 @@
 
 .cartao {
     text-align: center;
-    padding: 30px;
+    padding: 30px 50px;
+    display: flex;
+   justify-content: center;
+}
+
+.cartao .teste{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 800px;
+    flex-wrap: wrap;
+}
+
+.dados img{
+    width: 32px;
+    margin-left: 0;
 }
 
 .anuncio {
@@ -37,14 +52,53 @@
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.titulo-anuncios {
-    text-align: center;
+.options{
+    display: flex;
+    gap: 30px;
     padding: 30px;
+    padding-bottom: 0;
+    justify-content: center;
+}
+
+.titulo-anuncios {
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+}
+
+.titulo-anuncios::after{
+    content: '';
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    background-color: var(--primary);
+    bottom: -5px;
+    right: 0;
+    transform: scale(0%);
+    transition: transform 0.5s ease;
+}
+
+.titulo-anuncios:hover::after{
+    transform: scale(100%);
+    transition: transform 0.5s ease;
+    
+}
+
+.my-announce::after{
+    transform: scale(100%);
+}
+
+.my-favorites{
+    opacity: 0.6;
+}
+
+.my-favorites:hover{
+    opacity: 1;
 }
 
 .nome {
     color: white;
-    font-size: 50px;
+    font-size: 2.4rem;
     margin: 30px;
 }
 
@@ -52,14 +106,27 @@ img {
     margin: 10px;
 }
 
-h2 {
-    color: white;
-    font-size: 30px;
-    margin: 50px auto;
+.dados p{
+    color: var(--secondary);
+    margin: 0;
+    font-size: 1.4rem;
+   text-align: start;
 }
 
 .dados {
-    margin-top: 100px;
+   display: flex;
+   flex-direction: column;
+   
+  justify-content: center;
+  
+   
+   
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .descricao {
@@ -104,6 +171,21 @@ h2 {
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 8px;
+}
+
+div .card img{
+    margin: 5px 0px 10px 0px;
+
+}
+
+.icons-container{
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+}
+
+div .card{
+    padding-top: 10px;
 }
 
 .card .car-year-miles, .card .location{
@@ -160,4 +242,17 @@ h2 {
 .delete-icon:hover{
     opacity: 0.7;
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 702px) {
+    
+    .teste div{
+        align-items: center;
+        width: 100%;
+    }
+
+    .teste{
+        gap: 30px;
+    }
 }

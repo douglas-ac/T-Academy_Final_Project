@@ -1,40 +1,95 @@
-<div >
-    <div class="cartao" style="background-color: rgba(246, 24, 77, 1);">
-        <img src="../../assets/img/user.png" alt="" height="150px">
-    
-        <h1 class="nome">{{user.name}}</h1>
+<div>
+  <div class="cartao" style="background-color: rgba(246, 24, 77, 1)">
+    <div class="teste">
+    <div>
+      <img src="../../assets/img/user.svg" alt="" height="150px" />
+      <h1 class="nome">{{ user.name }}</h1>
+      <button class="btn btn-warning" routerLink="/mudar-senha/{{ user.id }}">
+        Alterar senha
+      </button>
+    </div>
 
-        <div class="dados">
-            <h2>Celular: {{user.fone}}</h2>
-            <h2>E-mail: {{user.email}}</h2>
-            <h2>Localização: {{user.address?.localidade + " - " + user.address?.uf}}</h2>
-        </div>
+    <div class="dados">
+        <div class="center">
+            <b><p>Contato</p></b>
+      <p><img src="../../../assets/img/whatsapp.png" alt="whatsapp icon"> {{ user.fone }}</p>
+      <p><img src="../../../assets/img/email.png" alt="email icon"> {{ user.email }}</p>
+      <p>
+        <img src="../../../assets/img/pin-de-localizacao.png" alt=""> {{ user.address?.localidade + " - " + user.address?.uf }}
+      </p>
+    </div>
+    </div>
 
-        <button class="btn btn-warning" routerLink="/mudar-senha/{{user.id}}"> Alterar senha </button>
-    </div> 
+</div>
+  </div>
 
-    
+  <div class="options">
+    <h2 class="titulo-anuncios my-announce">Meus anúncios</h2>
+    <h2 class="titulo-anuncios my-favorites">Favoritos</h2>
+  </div>
+  
 
-    <h1 class="titulo-anuncios">Seus anúncios</h1>
-
-    <div class="cards-container">
-        <div *ngFor="let ad of user.announcementList" class="card">
-            <div class="d-flex justify-content-end">
-                <img class="delete-icon" src="../../../assets/img/lapis.png" alt="" height="20px" routerLink="/editar-anuncio/{{ad.id}}">
-                <img class="delete-icon" src="../../../assets/img/trash.png" alt="" height="20px" (click)="remover(ad.id)">
-            </div>
-            <img src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}" onerror="this.src='../../../assets/img/carCatalogImages/default-car-image.svg' " alt="" />
-            <!-- <p class="username">{{ ad.user.name }}</p> -->
-            <p class="car-model">{{ ad.product.name }} <br> {{ (getCar(ad.product).model? getCar(ad.product).model : "") }}</p>
-            <p class="car-year-miles">{{ ad.product.year+' '+(getCar(ad.product).quilometragem? getCar(ad.product).quilometragem.toLocaleString('pt-br', {maximumFractionDigits: 2})+' km' : "") }}</p>
-            <p class="location">{{ ad.address.localidade }}</p>
-            <p class="price">R$ {{ ad.product.price.toLocaleString('pt-br', {maximumFractionDigits: 2}) }}</p>
-            <p class="price-installment">60 x R$ {{ (ad.product.price/60).toLocaleString('pt-br', {maximumFractionDigits: 2}) }}/mês</p>
-            <button class="see-offer-btn" routerLink="/anuncio/{{ad.id}}" >Ver oferta</button>
-        </div>
+  <div class="cards-container">
+    <div *ngFor="let ad of user.announcementList" class="card">
+      <div class="icons-container">
+        <img
+          class="delete-icon"
+          src="../../../assets/img/lapis.png"
+          alt=""
+          height="20px"
+          routerLink="/editar-anuncio/{{ ad.id }}"
+        />
+        <img
+          class="delete-icon"
+          src="../../../assets/img/trash.png"
+          alt=""
+          height="20px"
+          (click)="remover(ad.id)"
+        />
       </div>
+      <img
+        src="https://shopcar-t2.s3.sa-east-1.amazonaws.com/media/img{{ ad.id }}"
+        onerror="this.src='../../../assets/img/carCatalogImages/default-car-image.svg' "
+        alt=""
+      />
+      <!-- <p class="username">{{ ad.user.name }}</p> -->
+      <p class="car-model">
+        {{ ad.product.name }} <br />
+        {{ getCar(ad.product).model ? getCar(ad.product).model : "" }}
+      </p>
+      <p class="car-year-miles">
+        {{
+          ad.product.year +
+            " " +
+            (getCar(ad.product).quilometragem
+              ? getCar(ad.product).quilometragem.toLocaleString("pt-br", {
+                  maximumFractionDigits: 2
+                }) + " km"
+              : "")
+        }}
+      </p>
+      <p class="location">{{ ad.address.localidade }}</p>
+      <p class="price">
+        R$
+        {{
+          ad.product.price.toLocaleString("pt-br", { maximumFractionDigits: 2 })
+        }}
+      </p>
+      <p class="price-installment">
+        60 x R$
+        {{
+          (ad.product.price / 60).toLocaleString("pt-br", {
+            maximumFractionDigits: 2
+          })
+        }}/mês
+      </p>
+      <button class="see-offer-btn" routerLink="/anuncio/{{ ad.id }}">
+        Ver oferta
+      </button>
+    </div>
+  </div>
 
-<!--     <div class="cartao card anuncio" id="anuncio" *ngFor="let ad of user.announcementList">
+  <!--     <div class="cartao card anuncio" id="anuncio" *ngFor="let ad of user.announcementList">
         <b style="text-align: left;">{{ad.product}}</b><br>
 
         <mat-grid-list cols="3" rowHeight="100px">
