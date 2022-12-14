@@ -113,9 +113,7 @@ import { UploadService } from 'src/app/Services/upload.service';
              }
             }`;
 
-          //  console.log(obj)
            this.announceService.post(obj).subscribe( (data:any) => {
-            debugger
             if (this.selectedFiles != undefined && this.selectedFiles.length > 0){
               this.serviceUploadPhoto.id = data.id
               this.upload()
