@@ -15,7 +15,7 @@ import { UploadService } from 'src/app/Services/upload.service';
 export class SellCar02Component implements OnInit {
   sent: boolean = false
 
-  //images 
+  //images
   selectedFiles!: FileList;
 
   //classes used to build object
@@ -27,9 +27,9 @@ export class SellCar02Component implements OnInit {
   years : number[] = []
   categorys : string[] = ['Frontier', 'Hatches', 'New City', 'Suv', 'Jipe', 'Picape', 'Sedan', 'Antigo', 'Esportivo', 'Luxo', 'Eletrico', 'Pcd', 'Popular', 'Outro']
   automakers : object = {}
-  
+
   constructor(private carService : CarService, private router : Router,
-              private cepService : CepService, private announceService : AnnounceService, private serciceUploadPhoto : UploadService) { }
+              private cepService : CepService, private announceService : AnnounceService, private serviceUploadPhoto : UploadService) { }
 
   AnnounceForm = new FormGroup ({
     brand: new FormControl('', [Validators.required]),
@@ -55,7 +55,7 @@ export class SellCar02Component implements OnInit {
     this.carService.getAutomakers().subscribe(data => {
       this.automakers = data
     })
-    
+
     for(let i=1920 ; i<= 2023 ; i++){
       this.years.push(i)
     }
@@ -78,18 +78,18 @@ export class SellCar02Component implements OnInit {
 
   registerAnnounce(){
     this.sent = true
-    
+
       this.carService.post(this.car).subscribe( data => {
         this.car = data
         this.announce.amount = 1;
-  
+
         this.announce.user = this.user
-        this.announce.user.id = Number(sessionStorage.getItem("idUser")) 
-        
+        this.announce.user.id = Number(sessionStorage.getItem("idUser"))
+
         this.announce.product = this.car
-    
-        var obj = 
-        `{   
+
+        var obj =
+        `{
           "user" : {"id" : ${this.announce.user.id}},
           "amount" : 1,
           "product" : {"id" : ${this.announce.product.id}},
@@ -101,10 +101,10 @@ export class SellCar02Component implements OnInit {
             "complemento" : "${this.announce.adress.complemento}",
             "uf" : "${this.announce.adress.uf}"}
           }`;
-        
+
         console.log(obj)
         this.announceService.post(obj).subscribe( (data:any) => {
-          this.serciceUploadPhoto.id = data.id
+          this.serviceUploadPhoto.id = data.id
           this.upload()
         })
       });
@@ -113,10 +113,10 @@ export class SellCar02Component implements OnInit {
 
     upload() : string {
       const file = this.selectedFiles.item(0);
-      let location = this.serciceUploadPhoto.uploadFile(file);
+      let location = this.serviceUploadPhoto.uploadFile(file);
       return location as any as string
       }
-      
+
     selectFile(event) {
       this.selectedFiles = event.target.files;
       }
