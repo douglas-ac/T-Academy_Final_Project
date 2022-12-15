@@ -1,224 +1,273 @@
 section {
-    padding: 40px 200px;
+  padding: 40px 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
 }
 
 .center {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .announce-container {
-    display: flex;
-    gap: 50px;
-    height: 100%;
-    height: 350px;
+  display: flex;
+  gap: 50px;
+  height: 100%;
+  height: 350px;
+  flex-wrap: wrap;
 }
 
 h1 {
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
 .product-image {
-    border-radius: 8px;
-    height: 350px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  height: 350px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
 }
 
 h3 {
-    text-transform: uppercase;
-    font-weight: 700;
-   
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 ul li {
-    list-style: none;
-    color: #7e7e7e;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
+  list-style: none;
+  color: #7e7e7e;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
 }
 
 .car-topic {
-    font-weight: 700;
-    color: black;
-    margin-right: 5px;
+  font-weight: 700;
+  color: black;
+  margin-right: 5px;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }
 
 .color-square {
-    width: 15px;
-    height: 15px;
-    border: 1px solid black;
-    background-color: red;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  background-color: red;
 }
-
 
 #car-details {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-
-h3, ul {
-    margin: 0;
+h3,
+ul {
+  margin: 0;
 }
 
 #price {
-    font-weight: 700;
-    font-size: 2rem;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-
 button {
-    height: 40px;
-    background-color: var(--primary);
-    color: var(--secondary);
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 5px;
+  height: 40px;
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 5px;
 }
 
 .location-icon {
-    width: 20px;
+  width: 20px;
 }
 
 #cidade {
-    display: flex;
-    align-items: center;
-    color: #7e7e7e;
+  display: flex;
+  align-items: center;
+  color: #7e7e7e;
 }
 
 .add-comment textarea {
-    background-color: rgba(241, 239, 239, 1);
-    border-radius: 8px;
-    margin: 30px auto;
-    width: 800px;
-    border-style: none;
-    outline: 0;
-    padding: 10px;
+  background-color: rgba(241, 239, 239, 1);
+  border-radius: 8px;
+  margin: 30px auto;
+  width: 100%;
+  border-style: none;
+  outline: 0;
+  padding: 10px;
 }
 
 .add-comment textarea::-moz-placeholder {
-    color: rgba(148, 148, 158, 1);
-    background-color: red;
+  color: rgba(148, 148, 158, 1);
+  background-color: red;
 }
 
 .add-comment button {
-    width: 275px;
+  width: 275px;
 }
 
 .comment {
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid;
-    border-color: var(--primary);
-    padding-left: 20px;
-    padding-right: 30px;
-    margin-top: 30px;
-    width: 800px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: var(--primary);
+  padding-left: 20px;
+  padding-right: 30px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 725px;
+  margin: 0 auto;
+}
 
+.add-comment{
+    width: 100%;
+    max-width: 725px;
+    margin: 0 auto;
 }
 
 .comment-title h4 {
-    color: var(--primary);
-    font-weight: bold;
-    margin-right: 30px;
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 30px;
 }
 
 .comment-title p {
-    color: rgba(184, 184, 189, 1);
-    font-weight: bold;
+  color: rgba(184, 184, 189, 1);
+  font-weight: bold;
 }
 
 .comment-content p {
-    color: black;
-    font-weight: normal;
+  color: black;
+  font-weight: normal;
 }
 
 .comment-title {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.title{
-    display: flex;
+.title {
+  display: flex;
 }
 
-.title p{
-    margin-top: 4px;
+.title p {
+  margin-top: 4px;
 }
 
 .comment-answer {
-    margin-left: 30px;
-    display: block;
+  margin-left: 30px;
+  display: block;
 }
 
 .comment-answer textarea {
-    width: 100%;
-    outline: 0;
-    border-style: none;
-    border-radius: 8px;
-    padding: 5px;
-    background-color: rgba(241, 239, 239, 1);
+  width: 100%;
+  outline: 0;
+  border-style: none;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: rgba(241, 239, 239, 1);
+  max-width: 725px;
+  margin: 0 auto;
+  resize: none;
 }
 
 .comment-answer-title {
-    display: flex;
-    flex-direction: column;
-    width: 480px;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
 }
 
 .comment-answer button {
-    width: 186px;
-    background-color: var(--primary);
-    margin: 30px;
-    margin-left: 0;
-    padding: 10px;
+  width: 186px;
+  background-color: var(--primary);
+  margin: 30px;
+  margin-left: 0;
+  padding: 10px;
 }
 
 .comment-answer-title h5 {
-    color: var(--primary);
-    font-weight: bold;
-    margin-right: 30px;
-    margin-bottom: 0;
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 30px;
+  margin-bottom: 0;
 }
 
 .comment-answer-title p {
-    color: rgba(184, 184, 189, 1);
-    font-weight: bold;
-    font-size: 10px;
+  color: rgba(184, 184, 189, 1);
+  font-weight: bold;
+  font-size: 10px;
 }
 
 .comment-answer-content p {
-    color: black;
-    font-weight: normal;
+  color: black;
+  font-weight: normal;
 }
 
 .delete-icon {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
-.delete-icon:hover{
-    opacity: 0.7;
-    cursor: pointer;
+.delete-icon:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
-button:hover{
-    opacity: 0.7;
+button:hover {
+  opacity: 0.7;
 }
 
 .btn-cancel {
-    background-color: gray;
+  background-color: gray;
 }
 
+@media screen and (max-width: 1113px) {
+  section {
+    padding: 40px 100px;
+  }
+}
 
+@media screen and (max-width: 912px) {
+  .comment {
+    margin-top: 330px;
+  }
+
+  #car-details {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 644px) {
+  section {
+    padding: 40px 50px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  section {
+    padding: 30px 30px;
+    gap: 0px;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  .comment {
+    margin-top: 360px;
+  }
+}
