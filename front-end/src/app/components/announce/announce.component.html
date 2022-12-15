@@ -22,7 +22,7 @@
         </span>
 
         <div *ngIf="haveToken()">
-          <button data-bs-toggle="modal" data-bs-target="#sellerInfo">Fale com vendedor</button>
+          <button data-bs-toggle="modal" data-bs-target="#sellerInfo" class="speak-to-seller">Fale com vendedor</button>
           <div class="modal fade" id="sellerInfo" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -33,7 +33,7 @@
                 <h4>Nome: {{announce.user.name}}</h4>
                 <h4>Telefone: {{announce.user.fone}}</h4>
                 <h4>E-mail: {{announce.user.email}}</h4>
-                <button data-bs-dismiss="modal">Fechar</button>
+                <button data-bs-dismiss="modal" class="close">Fechar</button>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
               <h4>Tem certeza que deseja excluir o comentário?</h4>
             </div>
             <div class="modal-footer d-flex">
-              <button data-bs-dismiss="modal" type="button" (click)="deleteComment()">Sim</button>
+              <button data-bs-dismiss="modal" type="button" (click)="deleteComment()" class="yes">Sim</button>
               <button data-bs-dismiss="modal" class="btn-cancel">Cancelar</button>
             </div>
           </div>
